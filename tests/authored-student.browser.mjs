@@ -521,7 +521,7 @@ try {
   );
   await account("unverified");
   await page
-    .getByRole("heading", { name: "Verify your email to submit" })
+    .getByRole("heading", { name: "Verify Your Email to Submit" })
     .waitFor();
   assert.equal(
     await page.getByLabel("Numerical answer", { exact: true }).count(),
@@ -638,7 +638,7 @@ try {
     .click();
   assert.equal(
     await page
-      .getByRole("heading", { name: "Submit an answer" })
+      .getByRole("heading", { name: "Submit an Answer" })
       .evaluate((e) => document.activeElement === e),
     true,
   );

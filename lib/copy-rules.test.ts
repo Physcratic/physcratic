@@ -190,7 +190,8 @@ describe("no banned words or joined clauses in the app", () => {
 const DESIGN_BASELINE: Record<DesignFinding["rule"], Record<string, number>> = {
   "separator glyph": {},
   "font-mono outside code and kbd": {},
-  "uppercase with tracking": {},
+  // Existing main exception belongs to the immutable activation package.
+  "uppercase with tracking": { "components/community/account-settings.tsx": 1 },
 };
 
 describe("design rule scanner", () => {

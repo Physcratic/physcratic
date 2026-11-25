@@ -356,7 +356,7 @@ try {
     const group = page.getByRole("group", { name: "Topic" });
     await group.getByRole("button", { name: fixtures.guide.topic, exact: true }).click();
     await page.locator("[data-problem-card]").nth(2).waitFor({ timeout: 20000 });
-    await top(page.getByRole("heading", { name: "Search & filters" }));
+    await top(page.getByRole("heading", { name: "Search & Filters" }));
     await save("library-topic");
     await page.goto(`${origin}/dashboard/problems/${fixtures.practice.id}`);
     await page.getByRole("textbox", { name: /Fitted lens radius/ }).fill(fixtures.practice.wrongAnswer);

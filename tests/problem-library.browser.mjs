@@ -84,7 +84,7 @@ try {
     // Authored collection deep links remain supported inside the Arena tab.
     await page.goto(`${origin}/dashboard?view=problems&collection=authored&topic=Mechanics&q=force#results`);
     await waitSelected(/Physcratic Arena/);
-    await page.getByRole("heading", { name: "Published authored problems", exact: true }).waitFor();
+    await page.getByRole("heading", { name: "Published Authored Problems", exact: true }).waitFor();
     assert.equal(await page.getByRole("tab").count(), 3);
     assert.equal(new URL(page.url()).searchParams.get("collection"), "authored");
     await page.reload();

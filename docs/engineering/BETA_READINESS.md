@@ -1,3 +1,13 @@
+## Validation follow-up awaiting publication (25 November 2026)
+
+First Linux build/type/lint/unit/component/database gates passed on draft PR #258. Additional checksum, heading, tour and shared-home session test fixes are prepared locally. Publishing the new payload was rejected by automatic approval review pending explicit owner approval. [Evidence and pending CI rerun](UI_PREVIEW_MAIN_INTEGRATION.md#completed-first-linux-run-and-prepared-follow-up-25-november-2026). No merge or deployment.
+
+## GitHub CI follow-up (25 November 2026)
+
+Owner approved branch publication and draft PR [#258](https://github.com/Physcratic/physcratic/pull/258). The validation snapshot at `68e7edf` includes main `9e0a3c9`. Linux CI passed typecheck, zero-warning lint, unit and component tests, the production build, Open Graph regression and PostgreSQL database tests. Browser and PostgreSQL 18.7 activation qualification remain pending follow-up fixes.
+
+The activation check identified two UI files covered by its immutable manifest. Restored those files to reviewed main bytes, with the existing main copy-scanner exception, rather than changing release hashes. Retained guest tour gating in the shared tour component with an accessible sign-in section, so the original Settings anchor stays useful. The profile unavailable heading retains its reviewed wording for the pinned browser suite. Updated affected browser heading selectors for the approved title casing. No Production operation or merge.
+
 ## Dead part colour helpers removed (24 November 2026)
 
 Since the calm colour change, parts are told apart by letter and order, and nothing was reading the part colours. Removed: `partStyle`, `partBorder` and the `index` argument of `PartChip` in `components/physics/solve-ui.tsx`, with every caller in `student-workspace`, `worked-solution`, `advanced-part-options`, `problem-editor`, `simple-editor` and `corpus-problem-reader`. The now-dead `colour` and `partColour` props went too. In `lib/part-colors.ts` only `bareLabel` is left, because the real components use it. `partToken`, `partTokenClasses`, `partTokenNames`, `partParent`, `assignPartColors` and `colorsByPartId` are gone, along with the four `--part-*` families in `app/globals.css`, their entries in `tailwind.config.js` and the `part-*` rows in `lib/colour-tokens.test.ts`. Success, progress, danger and idle are untouched.

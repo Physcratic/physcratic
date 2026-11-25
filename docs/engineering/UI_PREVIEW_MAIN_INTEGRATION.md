@@ -77,3 +77,15 @@ Automatic approval review rejected uploading HEAD to Physcratic/physcratic on
 branch codex/ui-preview-validation because explicit repository-export approval
 was required. No push, PR or deployment occurred. Owner approval to push this
 reviewable branch and create a draft PR is the next validation prerequisite.
+
+## GitHub CI follow-up (25 November 2026)
+
+Owner approved branch publication and draft PR [#258](https://github.com/Physcratic/physcratic/pull/258). The validation snapshot at `68e7edf` includes main `9e0a3c9`. Linux CI passed typecheck, zero-warning lint, unit and component tests, the production build, Open Graph regression and PostgreSQL database tests. Browser and PostgreSQL 18.7 activation qualification remain pending follow-up fixes.
+
+The activation check identified two UI files covered by its immutable manifest. Restored those files to reviewed main bytes, with the existing main copy-scanner exception, rather than changing release hashes. Retained guest tour gating in the shared tour component with an accessible sign-in section, so the original Settings anchor stays useful. The profile unavailable heading retains its reviewed wording for the pinned browser suite. Updated affected browser heading selectors for the approved title casing. No Production operation or merge.
+
+## Completed first Linux run and prepared follow-up (25 November 2026)
+
+All first-run workflows have finished on `68e7edf`. Typecheck, lint, server and component suites, both production builds, native guest/member solving and the ordinary database job passed. The B6 activation checksum check, Studio and moderation heading selectors, CSP guest-tour/heading selectors, and the homepage session test failed. Local commit `ba1bf84` prepares the checksum and browser-heading repairs. The remaining local follow-up updates CSP to exercise both the guest gate and an intercepted synthetic signed-in tour, and updates real-session qualification for the intentionally shared public home shell. HTTP/RSC responses now must exclude both accounts, while real session validity, invalid/expired session denial, private progress and account switching stay checked. No production auth behavior is changed by these test updates.
+
+Local Settings/copy checks pass 34 tests, CSP regressions pass 42 tests, TypeScript and changed-source lint pass. Full browser and PostgreSQL 18.7 validation must rerun on the follow-up head. Automatic approval review rejected creation of the remote follow-up commit, requiring explicit approval to publish the new source, tests and documentation payload. The draft PR remains at its original validation head. No workaround, merge or deployment.

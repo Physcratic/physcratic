@@ -23,8 +23,11 @@ test("disabled profile settings preserve accessible appearance choices and never
   for (const value of ["light", "dark", "system"]) assert.ok(html.includes(`value="${value}"`));
   assert.doesNotMatch(html, /id="profile-handle"|id="avatar-file"|Create profile/);
   assert.match(html, /Settings sections/); assert.match(html, /Appearance/);
-  // Tours require a resolved signed-in account. Guests get no dangling nav link.
-  assert.doesNotMatch(html, /href="#tours-settings"|id="tours-settings"/);
+  // Keep the Settings anchor useful without offering guests tour controls.
+  assert.match(html, /href="#tours-settings"/);
+  assert.match(html, /id="tours-settings"/);
+  assert.match(html, /Sign in to use the dashboard and Problem Studio tours/);
+  assert.doesNotMatch(html, />Replay tours</);
 });
 test("onboarding dismissal keys are versioned and separated by stable account ID", () => {
   assert.notEqual(onboardingKey("owner"), onboardingKey("other"));

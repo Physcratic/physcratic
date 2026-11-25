@@ -93,7 +93,7 @@ for (const name of browserNames) {
           const response = await page.goto(server.origin + '/dashboard', { waitUntil: 'networkidle' });
           assert.equal(response.status(), 200);
           assert.equal(Boolean(response.headers()['content-security-policy']), mode !== 'report');
-          await page.getByRole('heading', { name: 'Recommended problem', exact: true }).waitFor();
+          await page.getByRole('heading', { name: 'For You', exact: true }).waitFor();
           await page.locator('nav[aria-label="Main navigation"] a[href="/dashboard?view=problems"]:visible').click();
           await page.getByLabel('Find a problem', { exact: true }).fill('Mind the Gap');
           await page.locator('#arena-results a[href="/dashboard/problems/arena-mind-the-gap"]').first().click();
@@ -135,6 +135,17 @@ for (const name of browserNames) {
           await page.addInitScript(() => Object.defineProperty(navigator, 'webdriver', { get: () => false }));
           await page.goto(server.origin + '/dashboard', { waitUntil: 'networkidle' });
           const card = page.locator('[data-tour-card]');
+          assert.equal(await card.count(), 0, 'Guests must not receive a tour');
+          // Only this browser context receives a synthetic signed-in session.
+          // No login, provider request or database mutation is involved.
+          await page.route(url => url.pathname === '/api/auth/get-session', route => route.fulfill({
+            contentType: 'application/json',
+            body: JSON.stringify({
+              user: { id: 'synthetic-csp-tour', name: 'Synthetic tour user', email: 'tour@example.invalid', emailVerified: true, createdAt: '2026-01-01T00:00:00Z', updatedAt: '2026-01-01T00:00:00Z' },
+              session: { id: 'synthetic-csp-tour-session', token: 'synthetic-only', userId: 'synthetic-csp-tour', expiresAt: '2099-01-01T00:00:00Z', createdAt: '2026-01-01T00:00:00Z', updatedAt: '2026-01-01T00:00:00Z' },
+            }),
+          }));
+          await page.reload({ waitUntil: 'networkidle' });
           await card.waitFor({ timeout: 10000 });
           const title = async () => (await card.locator('[role="status"]').first().innerText()).trim();
           const first = await title();
@@ -147,7 +158,7 @@ for (const name of browserNames) {
         });
         await check('public problem library', async (page, server) => {
           await page.goto(server.origin + '/problems', { waitUntil: 'networkidle' });
-          await page.getByRole('heading', { name: 'Problem library', exact: true }).waitFor();
+          await page.getByRole('heading', { name: 'Problem Library', exact: true }).waitFor();
           await page.getByLabel('Find a problem', { exact: true }).fill('Mind the Gap');
           await page.locator('a[href="/dashboard/problems/arena-mind-the-gap"]').first().waitFor();
           await page.getByRole('button', { name: 'What do the ratings mean?' }).click();

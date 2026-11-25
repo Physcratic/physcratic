@@ -222,7 +222,7 @@ if (sessionCookie) {
     ["signed in: admin moderation (flag off)", async (page) => { await page.goto(`${origin}/admin/moderation`, { waitUntil: "domcontentloaded" }); await page.getByRole("heading", { level: 1 }).first().waitFor({ timeout: 20000 }); }],
     ["signed in: admin verification (flag off)", async (page) => { await page.goto(`${origin}/admin/verification`, { waitUntil: "domcontentloaded" }); await page.getByRole("heading", { level: 1 }).first().waitFor({ timeout: 20000 }); }],
   );
-  if (process.env.AUTHORED_PROBLEM_ID) stages.push(["signed in: authored student page", async (page) => { await page.goto(`${origin}/dashboard/authored/${process.env.AUTHORED_PROBLEM_ID}`, { waitUntil: "networkidle" }); await page.getByRole("heading", { name: "Submit an answer" }).waitFor({ timeout: 20000 }); }]);
+  if (process.env.AUTHORED_PROBLEM_ID) stages.push(["signed in: authored student page", async (page) => { await page.goto(`${origin}/dashboard/authored/${process.env.AUTHORED_PROBLEM_ID}`, { waitUntil: "networkidle" }); await page.getByRole("heading", { name: "Submit an Answer" }).waitFor({ timeout: 20000 }); }]);
 }
 // STAGE_FILTER="admin" (with INCLUDE_ADMIN=1) runs only the stages whose name matches.
 if (process.env.STAGE_FILTER) { const only = new RegExp(process.env.STAGE_FILTER, "i"); for (let i = stages.length - 1; i >= 0; i--) if (!only.test(stages[i][0])) stages.splice(i, 1); }

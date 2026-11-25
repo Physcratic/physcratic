@@ -55,7 +55,7 @@ export async function documentHeaders(local, artifact, inventory, enforced) {
 export async function documentBrowsers({browser,name,local,root,artifact,inventory,enforced,fixtures=false}) {
   const results=[];
   const cases=fixtures?[
-    ['/', 'member', 'Recommended problem'], ['/', 'error', null],
+    ['/', 'member', 'For You'], ['/', 'error', null],
     ['/settings','member','Account Settings'], ['/settings','unverified','Account Settings'],
     ['/admin/moderation','anonymous','Sign in with an authorized staff account.'],
     ['/admin/moderation','unverified','Current moderator or admin permission is required.'],
@@ -63,8 +63,8 @@ export async function documentBrowsers({browser,name,local,root,artifact,invento
     ['/admin/verification','anonymous','Sign in with an authorized admin account.'],
     ['/admin/verification','unverified','Admin permission is required.'],
     ['/admin/verification','member','Verification review is temporarily unavailable.'],
-  ]:[['/',null,null],['/_not-found',null,'Page not found'],['/x3e-missing-document',null,'Page not found'],
-    ['/learn/x3e-missing-slug',null,'Page not found'],['/settings',null,'Account Settings'],
+  ]:[['/',null,null],['/_not-found',null,'Page Not Found'],['/x3e-missing-document',null,'Page Not Found'],
+    ['/learn/x3e-missing-slug',null,'Page Not Found'],['/settings',null,'Account Settings'],
     ['/admin/moderation',null,'Moderation review is not available yet.'],['/admin/verification',null,'Verification review is not available yet.']];
   for(const [route,state,expected] of cases) {
     const context=await browser.newContext({serviceWorkers:'block',extraHTTPHeaders:state?{'x-csp-document-fixture':state,cookie:'better-auth.session_token=synthetic-document-fixture'}:{}});
@@ -94,7 +94,7 @@ export async function documentBrowsers({browser,name,local,root,artifact,invento
       if(route.startsWith('/admin/')||route.includes('missing')||route==='/_not-found'){
         await page.locator('a[href="/dashboard"]').first().click();
         await page.waitForURL('**/dashboard');
-        await page.getByRole('heading',{name:'Recommended problem',exact:true}).waitFor();
+        await page.getByRole('heading',{name:'For You',exact:true}).waitFor();
       }
       const before=await page.evaluate(()=>window.__documentViolations);
       for(const raw of before){

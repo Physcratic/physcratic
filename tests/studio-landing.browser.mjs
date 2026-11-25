@@ -49,7 +49,7 @@ export async function runStudioLandingBrowser({ browser, origin, pool }) {
     await noEditor(page, "loading");
     release();
     await page.getByText("Press New problem above to write your first one.", { exact: true }).waitFor();
-    await page.getByRole("heading", { level: 2, name: "No drafts yet", exact: true }).waitFor();
+    await page.getByRole("heading", { level: 2, name: "No Drafts Yet", exact: true }).waitFor();
     assert.equal(await newProblem(page).isEnabled(), true);
     assert.ok((await newProblem(page).boundingBox()).height >= 44, "New problem keeps its 44px target");
     assert.equal(await page.getByRole("button", { name: /^(Create|Start|Write)/ }).count(), 0, "the empty state adds no button");
@@ -86,7 +86,7 @@ export async function runStudioLandingBrowser({ browser, origin, pool }) {
     assert.deepEqual(await page.locator("article h2").allInnerTexts(), ["Landing Two", "Landing One"], "newest first");
     assert.equal(new URL(page.url()).searchParams.has("draft"), false, "opening Studio does not pick a draft");
     await noEditor(page, "with drafts");
-    assert.equal(await page.getByText("No drafts yet", { exact: true }).count(), 0, "no empty state when there are drafts");
+    assert.equal(await page.getByText("No Drafts Yet", { exact: true }).count(), 0, "no empty state when there are drafts");
     // New problem: blank, and the last draft is offered.
     await newProblem(page).click();
     await page.getByRole("button", { name: "Save now", exact: true }).waitFor();

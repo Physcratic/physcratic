@@ -467,7 +467,7 @@ try {
     .getByLabel("Title", { exact: true })
     .fill("Unsaved valuable work");
   await page
-    .getByRole("heading", { name: "Your work has not been saved" })
+    .getByRole("heading", { name: "Your Work Has Not Been Saved" })
     .waitFor();
   await page.reload();
   await page
@@ -517,7 +517,7 @@ try {
     .getByLabel("Title", { exact: true })
     .fill("Keep local conflict work");
   await page
-    .getByRole("heading", { name: "Resolve a version conflict" })
+    .getByRole("heading", { name: "Resolve a Version Conflict" })
     .waitFor();
   assert.equal(
     await page.getByLabel("Title", { exact: true }).inputValue(),
