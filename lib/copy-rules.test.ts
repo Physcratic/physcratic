@@ -190,7 +190,7 @@ describe("no banned words or joined clauses in the app", () => {
 const DESIGN_BASELINE: Record<DesignFinding["rule"], Record<string, number>> = {
   "separator glyph": {},
   "font-mono outside code and kbd": {},
-  "uppercase with tracking": { "components/community/account-settings.tsx": 1 },
+  "uppercase with tracking": {},
 };
 
 describe("design rule scanner", () => {

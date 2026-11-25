@@ -71,7 +71,7 @@ test("with a sender, the screens work as normal and do not show the warning", ()
 
 test("the signed-out confirm landing says to sign in with the new address", () => {
   const html = render(createElement(EmailChangeResult, { ...emailChangeOutcome("signed-out", undefined), signIn: true }));
-  assert.match(html, /Email changed/);
+  assert.match(html, /Email Changed/);
   assert.match(html, /Sign in with your new address\./);
   assert.match(html, /href="\/sign-in"/);
 });

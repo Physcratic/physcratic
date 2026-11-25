@@ -1,4 +1,5 @@
 import "server-only";
+import { developmentCookieAttributes } from "@/lib/auth-development";
 import type { BetterAuthOptions } from "better-auth";
 import type { Pool } from "pg";
 import { createSignupPolicy } from "@/lib/signup-policy";
@@ -16,6 +17,14 @@ export function createAuthOptions({ pool, defer, profileSignupEnabled = false, o
 }) {
   const stagingAuth = authoringStagingAuth();
   const emails = accountEmailOptions({ pool, defer });
+  const baseURL = stagingAuth?.baseURL ??
+      process.env.BETTER_AUTH_URL ??
+      (process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : process.env.VERCEL_URL
+          ? `https://${process.env.VERCEL_URL}`
+          : process.env.V0_RUNTIME_URL);
+  const developmentCookies = developmentCookieAttributes(baseURL, process.env.NODE_ENV);
   const signupPolicy = createSignupPolicy(profileSignupEnabled);
   return {
     database: pool,
@@ -33,14 +42,7 @@ export function createAuthOptions({ pool, defer, profileSignupEnabled = false, o
       // Strict mode: the current address approves, then the new address verifies. Only then does the email switch.
       changeEmail: { enabled: true, updateEmailWithoutVerification: false, sendChangeEmailConfirmation: emails.sendChangeEmailConfirmation },
     },
-    baseURL:
-      stagingAuth?.baseURL ??
-      process.env.BETTER_AUTH_URL ??
-      (process.env.VERCEL_PROJECT_PRODUCTION_URL
-        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-        : process.env.VERCEL_URL
-          ? `https://${process.env.VERCEL_URL}`
-          : process.env.V0_RUNTIME_URL),
+    baseURL,
     emailAndPassword: {
       enabled: true,
       autoSignIn: false,
@@ -79,6 +81,7 @@ export function createAuthOptions({ pool, defer, profileSignupEnabled = false, o
       ...(process.env.NODE_ENV === "development"
         ? [
             "http://localhost:3000",
+            "http://127.0.0.1:3000",
             ...(process.env.V0_RUNTIME_URL ? [process.env.V0_RUNTIME_URL] : []),
             ...(process.env.V0_DEV_APP_URL ? [process.env.V0_DEV_APP_URL] : []),
             ...(process.env.V0_BUILD_URL ? [process.env.V0_BUILD_URL] : []),
@@ -93,11 +96,10 @@ export function createAuthOptions({ pool, defer, profileSignupEnabled = false, o
         : []),
     ],
     session: { expiresIn: 60 * 60 * 24 * 7, updateAge: 60 * 60 * 24 },
-    ...(process.env.NODE_ENV === "development"
+    ...(developmentCookies
       ? {
           advanced: {
-            // The cross-site v0 preview requires secure SameSite=None cookies.
-            defaultCookieAttributes: { sameSite: "none" as const, secure: true },
+            defaultCookieAttributes: developmentCookies,
           },
         }
       : {}),

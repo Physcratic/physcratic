@@ -245,7 +245,7 @@ export function StudentWorkspace({
   return (
     <ProblemRoom>
         <div className="flex flex-wrap items-end justify-between gap-4 border-b pb-6">
-          <ProblemHeading title={availability === "ready" ? revision?.content.title ?? "Physics problem" : "Physics problem"} source="Community-authored problem" estimate={availability === "ready" ? revision?.content.estimatedDifficulty : null} tags={availability === "ready" ? [...(revision?.content.topicTags ?? []), ...(revision?.content.methodTags ?? [])] : []}>
+          <ProblemHeading title={availability === "ready" ? revision?.content.title ?? "Physics Problem" : "Physics Problem"} source="Community-authored problem" estimate={availability === "ready" ? revision?.content.estimatedDifficulty : null} tags={availability === "ready" ? [...(revision?.content.topicTags ?? []), ...(revision?.content.methodTags ?? [])] : []}>
             {availability === "ready" && revision && (attributionEnabled ? <PublicAuthorName key={`${problemId}:${revision.id}`} problemId={problemId} revisionId={revision.id} /> : <p className="min-h-6 text-sm text-muted-foreground">Published by Community author</p>)}
           </ProblemHeading>
           {completionsEnabled && availability === "ready" && revision && viewer.state === "verified" && !authDenied &&
@@ -294,8 +294,8 @@ export function StudentWorkspace({
             <AnswerWorkspace id="answer-workspace" className="scroll-mt-4"><Card className="min-w-0 shadow-none"><CardContent className="space-y-4 pt-6">
               <h2 className="text-lg font-semibold">
                 {viewer.state === "unverified"
-                  ? "Verify your email to submit"
-                  : "Sign in to practise"}
+                  ? "Verify Your Email to Submit"
+                  : "Sign in to Practise"}
               </h2>
               <p className="text-sm leading-relaxed text-muted-foreground">
                 {viewer.state === "loading"
@@ -602,8 +602,8 @@ function PrivateWorkspace({
         >
           <h2 className="font-semibold">
             {state.busy
-              ? "Saving submission…"
-              : "Resolve the original submission"}
+              ? "Saving Submission…"
+              : "Resolve the Original Submission"}
           </h2>
           <p className="text-sm leading-relaxed">
             Original revision{" "}
@@ -678,7 +678,7 @@ function PrivateWorkspace({
                   tabIndex={-1}
                   className="text-lg font-semibold"
                 >
-                  Submit an answer
+                  Submit an Answer
                 </h2>
               </div>
               {part && (parts.length > 1 || part.sectionTitle) && <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">{parts.length > 1 && <PartChip>Part {bareLabel(part.label) || parts.indexOf(part) + 1}</PartChip>}{part.sectionTitle}</p>}

@@ -2,7 +2,7 @@
 
 import useSWR from "swr";
 import { authClient } from "@/lib/auth-client";
-import { apiReadSWRConfig, fetchJson } from "@/lib/api-client";
+import { dashboardReadSWRConfig, fetchJson } from "@/lib/api-client";
 import { problemProgressSchema, type ProblemProgress } from "@/lib/problem-progress-contracts";
 
 export function useProblemHistory() {
@@ -11,7 +11,7 @@ export function useProblemHistory() {
   const result = useSWR<ProblemProgress>(
     account ? ["/api/problem-progress", account] : null,
     async ([url, actor]: [string, string]) => problemProgressSchema.parse(await fetchJson(url, { headers: { "X-Practice-Account": actor } })),
-    { ...apiReadSWRConfig, keepPreviousData: false },
+    dashboardReadSWRConfig,
   );
   return {
     progress: account && !result.error ? result.data : undefined,

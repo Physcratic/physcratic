@@ -35,7 +35,7 @@ export function ForgotPasswordForm({ emailReady = true }: { emailReady?: boolean
     finally { setBusy(false); }
   }
   return <Shell><Card>
-    <CardHeader><CardTitle><h1>Forgot your password?</h1></CardTitle><CardDescription>Type your email and we’ll send you a reset link.</CardDescription></CardHeader>
+    <CardHeader><CardTitle><h1>Forgot Your Password?</h1></CardTitle><CardDescription>Type your email and we’ll send you a reset link.</CardDescription></CardHeader>
     <CardContent>
       {!emailReady ? <Alert role="status"><AlertTitle>Can’t send links yet</AlertTitle><AlertDescription>{EMAIL_NOT_READY_MESSAGE}</AlertDescription></Alert>
         : sent ? <Alert role="status"><AlertTitle>Check your inbox</AlertTitle><AlertDescription>If {sent} has an account, a reset link is on its way. It expires in 1 hour.</AlertDescription></Alert>
@@ -73,15 +73,15 @@ export function ResetPasswordForm({ token, linkError }: { token: string | null; 
     finally { setBusy(false); }
   }
   if (dead) return <Shell><Card>
-    <CardHeader><CardTitle><h1>Link didn’t work</h1></CardTitle><CardDescription>That link has expired or was already used. Ask for a new one.</CardDescription></CardHeader>
+    <CardHeader><CardTitle><h1>Link Didn’t Work</h1></CardTitle><CardDescription>That link has expired or was already used. Ask for a new one.</CardDescription></CardHeader>
     <CardFooter className="flex flex-col items-stretch gap-4"><Button asChild><Link href="/forgot-password">Get a new link</Link></Button><Link href="/sign-in" className={footerLink}>Back to sign in</Link></CardFooter>
   </Card></Shell>;
   if (done) return <Shell><Card>
-    <CardHeader><CardTitle><h1>Password updated</h1></CardTitle><CardDescription>We signed you out everywhere. Sign in with your new password.</CardDescription></CardHeader>
+    <CardHeader><CardTitle><h1>Password Updated</h1></CardTitle><CardDescription>We signed you out everywhere. Sign in with your new password.</CardDescription></CardHeader>
     <CardFooter className="flex flex-col items-stretch gap-4"><Button asChild><Link href="/sign-in">Sign in</Link></Button></CardFooter>
   </Card></Shell>;
   return <Shell><Card>
-    <CardHeader><CardTitle><h1>Pick a new password</h1></CardTitle><CardDescription>Use at least 8 characters. Pick one you don’t use anywhere else.</CardDescription></CardHeader>
+    <CardHeader><CardTitle><h1>Pick a New Password</h1></CardTitle><CardDescription>Use at least 8 characters. Pick one you don’t use anywhere else.</CardDescription></CardHeader>
     <CardContent><form id="reset-form" onSubmit={submit}><fieldset disabled={busy}><FieldGroup>
       <Field><FieldLabel htmlFor="reset-password">New password</FieldLabel><Input id="reset-password" name="newPassword" type="password" autoComplete="new-password" required minLength={8} maxLength={128} /></Field>
       <Field><FieldLabel htmlFor="reset-confirm">New password again</FieldLabel><Input id="reset-confirm" name="confirmPassword" type="password" autoComplete="new-password" required minLength={8} maxLength={128} /></Field>

@@ -59,6 +59,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       skipLink: "Skip to coaching content",
       brand: "Physcratic Coaching",
       homeLabel: "Physcratic Coaching home",
+      backToPhyscratic: "Back to Physcratic",
       menu: "Menu",
       desktopNavLabel: "Coaching navigation",
       mobileNavLabel: "Mobile coaching navigation",
@@ -66,14 +67,14 @@ export function buildCoachingContent(list: readonly Medallist[]) {
     },
     nav: [
       { href: "#programs", label: "Programs" },
-      { href: "#tutors", label: "Coaches" },
+      { href: "/coaching/coaches", label: "Coaches" },
       { href: "#how-it-works", label: "How it works" },
       { href: "#faq", label: "FAQ" },
       { href: "/dashboard", label: "Free practice" },
       { href: "/learn", label: "Guides" },
     ],
     hero: {
-      titleMain: "Train with Physics Olympiad winners.",
+      titleMain: "Train with Physics Olympiad Winners.",
       titleSub: "Live online classes taught by IPhO, APhO and EuPhO medallists",
       highlight: "IPhO, APhO and EuPhO medallists",
       intro: `Small online classes of up to ${maxStudents} students, taught live by olympiad medallists. Start from wherever you are now: your first provincial round, national selection, or IB and A-Level physics.`,
@@ -100,7 +101,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       seeAll: `See all ${coachCount} coaches`,
     },
     coaches: {
-      title: "Meet your coaches",
+      title: "Meet Your Coaches",
       text: `${counts}. Every one of them won a medal or an honourable mention at IPhO, APhO or EuPhO. We pick your coach by level, goals and language, so a beginner usually works with someone who is great at explaining the basics.`,
       coachesLabel: "Coaches",
       countriesLabel: "Countries",
@@ -117,7 +118,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       backToSlider: "Back to the slider",
     },
     programs: {
-      title: "Programs for every stage",
+      title: "Choose Your Program",
       intro: "Three levels take you from your first olympiad to IPhO.",
       highlight: "from your first olympiad to IPhO",
       note: "Everyone in a class is at roughly the same level, so nobody gets lost and nobody gets bored.",
@@ -129,21 +130,21 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       linkLabel: "Ask about this program",
       items: [
         {
-          title: "Olympiad Beginner",
+          title: "Beginner",
           pathway: "Olympiad Beginner" as CoachingPathway,
           for: "Students new to olympiad physics, or preparing for the first rounds.",
           covers: ["Fundamental mechanics", "The maths tools physics needs", "Basic thermodynamics", "Introductory electricity and magnetism", "Strong problem-solving habits"],
           goal: "Get from school physics to solving olympiad problems on your own.",
         },
         {
-          title: "Olympiad Intermediate",
+          title: "Intermediate",
           pathway: "Olympiad Intermediate" as CoachingPathway,
           for: "Students with some olympiad experience who are aiming for provincial or national olympiads.",
           covers: ["Harder mechanics", "Rotational dynamics", "Orbital mechanics", "Electromagnetism", "Thermodynamics", "Waves and optics", "Steadily harder national problems"],
           goal: "Compete strongly at national level.",
         },
         {
-          title: "Olympiad Advanced",
+          title: "Advanced",
           pathway: "Olympiad Advanced" as CoachingPathway,
           for: "National medallists and students preparing for national team selection, APhO, EuPhO or IPhO.",
           covers: ["Long multi-step problems", "Deeper theory", "Tricks that don't show up in textbooks", "International selection problems", "Problems that mix several topics", "IPhO and APhO difficulty"],
@@ -159,7 +160,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       ],
     },
     classFormat: {
-      title: "How a class works",
+      title: "How a Class Works",
       listLabel: "What a class includes",
       tilesLabel: "Class facts",
       tiles: [
@@ -176,7 +177,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
         "A WhatsApp group with your coach for questions between classes",
         "Personal feedback after every 4 sessions",
       ],
-      stretchTitle: "Train slightly above your level",
+      stretchTitle: "Train Slightly Above Your Level",
       highlight: "selection rounds",
       stretchText: "If you are preparing for your national olympiad, we won't just drill its past papers. You will also see problems adapted from selection rounds in China, Russia, the United States, India, Indonesia, Singapore and Europe, and from APhO and IPhO. After a few months of those, your own competition paper tends to feel a lot friendlier.",
       sourcesLabel: "Where the problems come from",
@@ -186,7 +187,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       topicsNote: "The order adapts to your strengths, weak spots and competition date.",
     },
     scheduling: {
-      title: "No fixed timetable",
+      title: "No Fixed Timetable",
       text: `During the consultation, tell us when you are usually free, with your time zone. We look for up to ${maxStudents - 1} other students whose free time overlaps with yours, at a similar level and with a compatible language. Then we set the class at a time that suits everyone.`,
       highlight: "overlaps with yours",
       axisLabel: "Wednesday, GMT",
@@ -201,7 +202,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       note: "If we cannot match you straight away, we wait for compatible students or suggest another arrangement.",
     },
     packages: {
-      title: "Two ways to train",
+      title: "Two Ways to Train",
       bestForLabel: "Best for",
       items: [
         {
@@ -219,26 +220,26 @@ export function buildCoachingContent(list: readonly Medallist[]) {
           bestFor: "You want to go deep and have time before your target competition.",
         },
       ],
-      pricingTitle: "Priced for your country.",
+      pricingTitle: "Priced for Your Country.",
       pricingText: "Prices follow local tutoring rates and purchasing power, so they differ between countries. Package options can also vary by country.",
       highlight: "local tutoring rates",
       cta: "Ask for your local price",
     },
     path: {
-      title: "How to get started",
+      title: "How to Get Started",
       stepLabel: "Step",
       highlight: "within 2 business days",
       steps: [
-        { title: "Tell us about you", body: "Fill in the short consultation form: who you are, your country, your level and the languages you are comfortable with." },
-        { title: "Find your level", body: "An admin contacts you on WhatsApp, or another channel you prefer, to talk about the competitions you have done, what you are aiming for and when you are free. This happens within 2 business days." },
-        { title: "Get matched", body: "We recommend a program and package with your local price, then match your class, coach and time." },
-        { title: "Start training", body: "Live classes begin, with recordings, notes, homework and solutions." },
+        { title: "Tell Us About You", body: "Fill in the short consultation form: who you are, your country, your level and the languages you are comfortable with." },
+        { title: "Find Your Level", body: "An admin contacts you on WhatsApp, or another channel you prefer, to talk about the competitions you have done, what you are aiming for and when you are free. This happens within 2 business days." },
+        { title: "Get Matched", body: "We recommend a program and package with your local price, then match your class, coach and time." },
+        { title: "Start Training", body: "Live classes begin, with recordings, notes, homework and solutions." },
       ],
       startLabel: "Start step 1",
       coachesLabel: "Meet the coaches",
     },
     reviews: {
-      title: "What our students say",
+      title: "What Our Students Say",
       quote: "Honestly, the best tutor ever! I genuinely don't think I would've made it this far if I hadn't met Arrow. Your explanations are always so clear and easy to understand, and you always give me feedback that helps me improve. I've grown so much throughout my training with you. Thank you so much, Arrow, for being my tutor! I'm really grateful I got the chance to learn from you. ❤️",
       linkText: "Arrow",
       linkSlug: "arrow-kristian",
@@ -249,14 +250,14 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       note: "We add reviews as each cohort finishes, always with the student's permission.",
     },
     guides: {
-      title: "Free guides",
+      title: "Explore Free Guides",
       intro: "Plain guides to physics olympiads, with cited sources.",
       minutes: "min read",
       seeAll: "See all guides",
       listLabel: "Free guides",
     },
     glance: {
-      title: "Physcratic Coaching at a glance",
+      title: "Physcratic Coaching at a Glance",
       items: [
         { term: "Format", detail: "Live online classes" },
         { term: "Class size", detail: `Up to ${maxStudents} students` },
@@ -269,7 +270,7 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       ],
     },
     faq: {
-      title: "Frequently asked questions",
+      title: "Frequently Asked Questions",
       items: <FaqItem[]>[
         { question: "What is Physcratic Coaching?", answer: `${definition} It is run by Physcratic, the free physics olympiad practice platform at physcratic.com.` },
         { question: "Who are the coaches?", answer: `Every Physcratic Coaching coach won a medal or an honourable mention at the International Physics Olympiad (IPhO), the Asian Physics Olympiad (APhO) or the European Physics Olympiad (EuPhO). There are ${counts}.` },
@@ -288,17 +289,17 @@ export function buildCoachingContent(list: readonly Medallist[]) {
       ],
     },
     finalCta: {
-      title: "Find your level",
+      title: "Find Your Level",
       text: "Tell us where you are now. We will recommend a program and find your class.",
       primary: "Get a consultation",
       secondary: "Try free practice problems",
     },
     consultationPage: {
       meta: {
-        title: "Get a coaching consultation",
+        title: "Get a Coaching Consultation",
         description: "Tell Physcratic Coaching your level and goals in a short form. An admin replies on WhatsApp within 2 business days, then we find your class.",
       },
-      title: "Get a consultation",
+      title: "Get a Consultation",
       intro: "Tell us where you are now, what you are aiming for and when you are free. We will recommend a program and find your class.",
       note: "Opens our consultation form in a new tab. An admin replies on WhatsApp within 2 business days.",
       button: "Continue to the consultation form",

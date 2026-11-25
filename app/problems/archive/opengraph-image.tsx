@@ -5,5 +5,5 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function Image() {
-  return pagePreview({ label: "Problems", title: "IPhO, APhO and EuPhO problem archive" });
+  return pagePreview({ label: "Problems", title: "IPhO, APhO and EuPhO Problem Archive" });
 }

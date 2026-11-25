@@ -30,7 +30,7 @@ export default function Error({
       <Card className="w-full max-w-md" role="alert">
         <CardHeader>
           <h1 className="text-2xl font-semibold leading-none tracking-tight">
-            This page could not be shown
+            This Page Could Not Be Shown
           </h1>
           <CardDescription>
             Try again. If the error keeps happening, go back to the dashboard.

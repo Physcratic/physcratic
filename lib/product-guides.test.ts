@@ -135,8 +135,8 @@ const words = (slug: string) => text(slug).split(/\s+/).filter(Boolean).length;
 test("the guides keep to their word counts", () => {
   assert.ok(words("how-to-write-a-problem") >= 400 && words("how-to-write-a-problem") <= 700, `write guide has ${words("how-to-write-a-problem")} words`);
   assert.ok(words("how-to-use-physcratic") >= 400 && words("how-to-use-physcratic") <= 700, `use guide has ${words("how-to-use-physcratic")} words`);
-  assert.equal(findArticle("how-to-write-a-problem")!.title, "How to write a problem in Problem Studio");
-  assert.equal(findArticle("how-to-use-physcratic")!.title, "How to use Physcratic");
+  assert.equal(findArticle("how-to-write-a-problem")!.title, "How to Write a Problem in Problem Studio");
+  assert.equal(findArticle("how-to-use-physcratic")!.title, "How to Use Physcratic");
 });
 
 test("the guides follow the copy rules and never mention a partial status no grader returns", () => {
@@ -171,7 +171,7 @@ test("removed quick practice shortcut stays absent from the solving screens and 
 });
 
 test("every button, tab and result the use guide names exists on the solving screens", () => {
-  for (const label of ["Open problem", "Physcratic Arena", "Olympiad archive", "Guided exercises", "Find a problem", "Recommended problem", "Another problem", "Need a hint?", "Show solution", "Check answer", "Try again", "Next problem", "Worked solution", "Reading notes", "Could not read this answer", "Could not be decided", "Not answered", "Not correct yet", "Welcome to Physcratic", "Replay tours", "Settings", "Coaching", "Problem Studio"]) {
+  for (const label of ["Open problem", "Physcratic Arena", "Olympiad archive", "Guided exercises", "Find a problem", "For You", "Another problem", "Need a hint?", "Show solution", "Check answer", "Try again", "Next problem", "Worked solution", "Reading notes", "Could not read this answer", "Could not be decided", "Not answered", "Not correct yet", "Welcome to Physcratic", "Replay tours", "Settings", "Coaching", "Problem Studio"]) {
     assert.ok(solving.includes(label) || readFileSync("components/kokonutui/layout.tsx", "utf8").includes(label) || readFileSync("components/kokonutui/top-nav.tsx", "utf8").includes(label), `no "${label}" on the solving screens`);
   }
 });

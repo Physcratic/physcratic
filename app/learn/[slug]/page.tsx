@@ -137,7 +137,7 @@ export default async function LearnArticlePage({ params }: Props) {
           <Card>
             <CardHeader>
               <h2 id="practise-heading" className="text-xl font-semibold leading-snug tracking-tight">
-                Practise what you have read
+                Practise What You Have Read
               </h2>
               <CardDescription className="max-w-prose">
                 {practice.length > 0

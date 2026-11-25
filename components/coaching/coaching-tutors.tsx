@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import Link from "next/link";
+import { coachProfileHref } from "@/lib/coaching/coach-profile";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 import { countryFlagCodes, medallists, medalLabel, type Medallist } from "@/lib/coaching/medallists";
 import { coachAnchorId, coachImageAlt, content } from "@/lib/coaching/content";
@@ -30,7 +32,7 @@ export function CoachingTutorCard({ tutor, priority = false, eager = false, coun
     </div>
     <div className="coaching-portrait-copy">
       <div className="coaching-card-head">
-        <Name className="font-serif text-lg leading-tight sm:text-xl">{tutor.name}</Name>
+        <Name className="font-serif text-lg leading-tight sm:text-xl">{anchor ? <Link href={coachProfileHref(tutor.slug)} className="coaching-link inline-flex min-h-11 items-center" aria-label={`View ${tutor.name}'s profile`}>{tutor.name}</Link> : tutor.name}</Name>
         <p className="coaching-card-country">{flagCode && <Image src={`/coaching/flags/${flagCode}.png`} alt="" aria-hidden="true" width={20} height={14} className="coaching-flag-chip" />}{tutor.country}</p>
       </div>
       <ul className="coaching-chips">
@@ -42,19 +44,72 @@ export function CoachingTutorCard({ tutor, priority = false, eager = false, coun
 
 export function CoachingTutorSlideshow() {
   const [paused, setPaused] = useState(false);
+  const viewport = useRef<HTMLDivElement>(null);
+  const firstList = useRef<HTMLUListElement>(null);
+  const interaction = useRef({ hover: false, focus: false, dragging: false, x: 0, until: 0 });
+  useEffect(() => {
+    const element = viewport.current;
+    if (!element) return;
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let frame = 0, previous = 0;
+    let position = element.scrollLeft;
+    const tick = (now: number) => {
+      const state = interaction.current;
+      if (!paused && !motion.matches && !document.hidden && !state.hover && !state.focus && !state.dragging && now >= state.until) {
+        const width = firstList.current?.offsetWidth ?? 0;
+        if (width) {
+          position = (position + 28 * Math.min(now - (previous || now), 64) / 1000) % width;
+          element.scrollLeft = position;
+        }
+      }
+      if (paused || motion.matches || document.hidden || state.hover || state.focus || state.dragging || now < state.until) position = element.scrollLeft;
+      previous = now;
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [paused]);
   return <div className="coaching-hero-slideshow flex min-w-0 flex-col items-center gap-4">
     <div className="relative w-full">
-      <div className="coaching-marquee" role="group" aria-label={hero.slideshowLabel} data-paused={paused}>
-        {[0, 1].map((column) => <ul key={column} className="coaching-marquee-column" style={{ "--marquee-duration": column ? "300s" : "260s", "--marquee-direction": column ? "reverse" : "normal" } as CSSProperties}>
-          {[0, 1].map((copy) => medallists.filter((_, index) => index % 2 === column).map((tutor, index) => <li key={`${copy}-${tutor.slug}`} aria-hidden={copy === 1 ? true : undefined} className="pb-3 lg:pb-4"><CoachingTutorCard tutor={tutor} priority={!copy && !index} eager asHeading={false} /></li>))}
-        </ul>)}
+      <div ref={viewport} className="coaching-hero-slider" role="region" aria-label={hero.slideshowLabel} tabIndex={0}
+        onPointerEnter={event => { if (event.pointerType === "mouse") interaction.current.hover = true; }}
+        onPointerLeave={() => { interaction.current.hover = false; interaction.current.until = performance.now() + 1200; }}
+        onFocus={() => { interaction.current.focus = true; }}
+        onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) { interaction.current.focus = false; interaction.current.until = performance.now() + 1200; } }}
+        onWheel={() => { interaction.current.until = performance.now() + 1800; }}
+        onDragStart={event => event.preventDefault()}
+        onPointerDown={event => {
+          interaction.current.dragging = true;
+          interaction.current.x = event.clientX;
+          if (event.pointerType === "mouse") { event.preventDefault(); event.currentTarget.setPointerCapture(event.pointerId); }
+        }}
+        onPointerMove={event => {
+          if (!interaction.current.dragging || event.pointerType !== "mouse") return;
+          event.currentTarget.scrollLeft += interaction.current.x - event.clientX;
+          interaction.current.x = event.clientX;
+        }}
+        onPointerUp={event => {
+          interaction.current.dragging = false;
+          interaction.current.until = performance.now() + 1500;
+          if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+        }}
+        onPointerCancel={() => { interaction.current.dragging = false; interaction.current.until = performance.now() + 1500; }}
+        onLostPointerCapture={() => { interaction.current.dragging = false; }}
+        onScroll={event => {
+          const width = firstList.current?.offsetWidth ?? 0;
+          if (width && !prefersReducedMotion() && event.currentTarget.scrollLeft >= width) event.currentTarget.scrollLeft -= width;
+        }}>
+        <div className="coaching-hero-slider-track">
+          {[0, 1].map(copy => <ul key={copy} ref={copy === 0 ? firstList : undefined} aria-hidden={copy === 1 ? true : undefined} className="coaching-hero-slider-list">
+            {medallists.map((tutor, index) => <li key={tutor.slug}><CoachingTutorCard tutor={tutor} priority={!copy && index < 2} asHeading={false} /></li>)}
+          </ul>)}
+        </div>
       </div>
       <button type="button" onClick={() => setPaused(!paused)} aria-pressed={paused} aria-label={paused ? hero.slideshowPlay : hero.slideshowPause} className="coaching-icon-button absolute bottom-2 right-2">
-        {paused ? <Play className="size-4" aria-hidden="true" /> : <Pause className="size-4" aria-hidden="true" />}
-        <span>{paused ? "Play" : "Pause"}</span>
+        {paused ? <Play className="size-4" aria-hidden="true" /> : <Pause className="size-4" aria-hidden="true" />}<span>{paused ? "Play" : "Pause"}</span>
       </button>
     </div>
-    <a href="#tutors" className="coaching-link coaching-tap text-sm font-semibold">{hero.seeAll}</a>
+    <Link href="/coaching/coaches" className="coaching-link coaching-tap text-sm">{hero.seeAll}</Link>
   </div>;
 }
 
@@ -62,9 +117,9 @@ function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-export function CoachingTutors() {
+export function CoachingTutors({ standalone = false }: { standalone?: boolean }) {
   const [paused, setPaused] = useState(false);
-  const [grid, setGrid] = useState(false);
+  const grid = standalone;
   const [reduced, setReduced] = useState(false);
   const viewportRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
@@ -187,7 +242,7 @@ export function CoachingTutors() {
   return <section id="tutors" className="py-20">
     <div className="coaching-container flex min-w-0 flex-col gap-8">
       <div className="flex w-full max-w-2xl flex-col items-center gap-4 self-center text-center">
-        <h2 className="font-serif text-balance text-3xl leading-tight sm:text-4xl">{coaches.title}</h2>
+        {standalone ? <h1 className="font-serif text-balance text-4xl leading-tight sm:text-5xl">{coaches.title}</h1> : <h2 className="font-serif text-balance text-3xl leading-tight sm:text-4xl">{coaches.title}</h2>}
         <p className="max-w-xl leading-relaxed text-muted-foreground"><Highlighted text={coaches.text} phrase={coaches.highlight} /></p>
         <dl className="flex flex-wrap justify-center gap-10">
           <div><dt className="text-sm text-muted-foreground">{coaches.coachesLabel}</dt><dd className="text-2xl font-semibold">{coaches.coachCount}</dd></div>
@@ -225,7 +280,7 @@ export function CoachingTutors() {
             <button type="button" className="coaching-icon-button coaching-gallery-arrow" data-side="end" aria-label={coaches.next} aria-controls="coaching-tutor-viewport" onClick={() => go(1)}><span>Next</span><ChevronRight className="size-5" aria-hidden="true" /></button>
           </div>}
       </div>
-      <button type="button" aria-expanded={grid} aria-controls="coaching-tutor-gallery" onClick={() => setGrid(!grid)} className="coaching-button coaching-button-secondary self-center">{grid ? coaches.backToSlider : coaches.seeAll}</button>
+      {!standalone && <Link href="/coaching/coaches" className="coaching-button coaching-button-secondary self-center">{coaches.seeAll}</Link>}
     </div>
   </section>;
 }

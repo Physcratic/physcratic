@@ -20,7 +20,7 @@ export default async function AuthorPage() {
     return (
       <main className="mx-auto max-w-xl space-y-5 px-5 py-20">
         <h1 className="text-3xl font-semibold">
-          Verify your email to start authoring
+          Verify Your Email to Start Authoring
         </h1>
         <p>
           Use the verification link sent to your email, then sign in again.

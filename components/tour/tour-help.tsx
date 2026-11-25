@@ -2,12 +2,15 @@
 import React, { useState } from "react";
 import { CircleHelp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { authClient } from "@/lib/auth-client";
 import { startTour } from "./tour-storage";
 import { forgetSeen } from "./tour-storage";
 import { tourIds, tours, type TourId } from "./tours";
 
 /** The "?" button that plays a tour again, any time. */
 export function TourHelpButton({ tourId, className }: { tourId: TourId; className?: string }) {
+  const { data, isPending, error } = authClient.useSession();
+  if (isPending || error || !data?.user) return null;
   return (
     <Button
       type="button"
@@ -26,10 +29,12 @@ export function TourHelpButton({ tourId, className }: { tourId: TourId; classNam
 /** The "Help and tours" section in Settings, styled like Appearance. The tours start again by themselves the next time each page is opened. */
 export function ReplayTours() {
   const [done, setDone] = useState(false);
+  const { data, isPending, error } = authClient.useSession();
+  if (isPending || error || !data?.user) return null;
   return (
     <section id="tours-settings" aria-labelledby="replay-tours-title" className="scroll-mt-6 space-y-6 rounded-2xl border bg-card p-5 sm:p-7">
       <header className="space-y-1">
-        <h2 id="replay-tours-title" className="text-lg font-semibold">Help and tours</h2>
+        <h2 id="replay-tours-title" className="text-lg font-semibold">Help and Tours</h2>
         <p className="text-sm text-muted-foreground">Play {tourIds.map((id) => `“${tours[id].name}”`).join(" and ")} again.</p>
       </header>
       <Button

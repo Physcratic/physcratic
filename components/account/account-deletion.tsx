@@ -37,7 +37,7 @@ function AccountDeletionWorkspace({accountId,verified}:AccountDeletionProps){
   finally{setPassword('');setBusy(false);}
  }
  return <section id="delete-account" aria-labelledby="delete-account-heading" className="space-y-4 rounded-2xl border bg-card p-5 sm:p-7">
-  <h2 id="delete-account-heading" className="text-lg font-semibold">Delete account</h2>
+  <h2 id="delete-account-heading" className="text-lg font-semibold">Delete Account</h2>
   <p className="text-sm text-muted-foreground">This permanently removes your sign-in, private work and progress. Published problems may remain as Deleted user. Uncertain publication rights restrict public display. Necessary case evidence may have reviewed, limited retention. Private object deletion can require retries.</p>
   {accountId&&<form className="space-y-4" onSubmit={event=>{event.preventDefault();void send();}}>
    <label className="block space-y-2"><span>Current password</span><Input type="password" autoComplete="current-password" value={password} onChange={event=>setPassword(event.target.value)} maxLength={128} required disabled={busy}/></label>

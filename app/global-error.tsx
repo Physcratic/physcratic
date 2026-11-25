@@ -29,7 +29,7 @@ export default function GlobalError({
             className="w-full max-w-md space-y-4 rounded-lg border bg-card p-6 text-card-foreground shadow-sm"
           >
             <h1 className="text-2xl font-semibold leading-none tracking-tight">
-              This page could not be shown
+              This Page Could Not Be Shown
             </h1>
             <p className="text-sm text-muted-foreground">
               Try again. If the error keeps happening, go back to the dashboard.

@@ -14,6 +14,15 @@ The [checksum-pinned 0026 owner package](../../scripts/account-deletion-0026/REA
 
 ## Account deletion blocker corrections (25 November 2026)
 
+## Local UI preview reconciliation (25 November 2026)
+
+Owner-authorized local integration preserves checkpoint 83570d6 and merge 478d4cd.
+[Reconciliation and actual validation limits](UI_PREVIEW_MAIN_INTEGRATION.md)
+records eleven resolved files, theme contrast, Settings/tour fixes, and the
+remaining full-suite, Windows and build limitations. No Production or remote-main
+operation. Next: review the combined preview and complete Linux/build/browser QA
+before deciding on a publication PR.
+
 Keep deletion off. Migration 0026 fixes retained report keys and revision-specific publication approval. The existing outbox now waits for confirmation of registered private writes. Qualification still requires provider-backed resolution of ambiguous and old writes, restricted role attestation, and the privacy and recovery rehearsals. [Activation gates](ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026).
 
 ## Account deletion release qualification (25 November 2026)

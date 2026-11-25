@@ -14,7 +14,7 @@ export function ProblemInsightContent({ insight }: { insight: Insight }) {
     <section aria-label="Problem insight" className="space-y-4 border-t pt-6">
       <h2 className="text-xl font-semibold">{insight.title}</h2>
       <p className="max-w-prose text-sm text-muted-foreground">Original Physcratic commentary</p>
-      <h3 className="font-semibold">Concepts to consider</h3>
+      <h3 className="font-semibold">Concepts to Consider</h3>
       <p className="max-w-prose">{insight.prerequisites}</p>
       <p className="max-w-prose">{insight.idea}</p>
       <details className="max-w-full">
@@ -22,7 +22,7 @@ export function ProblemInsightContent({ insight }: { insight: Insight }) {
         <div className="space-y-4 pt-3">
           <p className="max-w-prose">{insight.misconception}</p>
           <ArticleBody blocks={insight.hints} sources={insight.sources} />
-          <h3 className="font-semibold">Source papers</h3>
+          <h3 className="font-semibold">Source Papers</h3>
           <p className="max-w-prose text-sm text-muted-foreground">Organizer-authored papers hosted by an archive mirror. References support the physical model and results. The explanation above identifies the original commentary.</p>
           <ol className="list-decimal space-y-2 pl-6">
             {insight.sources.map((source, index) => <li key={source.id} id={`source-${index + 1}`}><a href={source.url} className="inline-flex min-h-11 items-center underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-foreground">{source.title}</a></li>)}

@@ -1,5 +1,14 @@
 # Agent handoff
 
+## Local UI preview reconciliation (25 November 2026)
+
+Owner-authorized local integration preserves checkpoint 83570d6 and merge 478d4cd.
+[Reconciliation and actual validation limits](UI_PREVIEW_MAIN_INTEGRATION.md)
+records eleven resolved files, theme contrast, Settings/tour fixes, and the
+remaining full-suite, Windows and build limitations. No Production or remote-main
+operation. Next: review the combined preview and complete Linux/build/browser QA
+before deciding on a publication PR.
+
 ## Account deletion with outstanding file cleanup (25 November 2026)
 
 Vercel's response, relayed by the owner, establishes no documented terminal mechanism or maximum commit lifetime for interrupted PUTs. Blob physical backup retention remains unverified. Review of `62bdf5a` confirms 0026 can commit database erasure while retaining held paths and unfinished outbox jobs. [The staged release assessment](ACCOUNT_DELETION_READINESS.md#database-erasure-with-outstanding-file-cleanup-25-november-2026) records the receipt limits and the mandatory privacy, file access, staffed follow-up, Tally and restore evidence. Keep deletion off pending qualified operations and separate owner approval. Documentation only.

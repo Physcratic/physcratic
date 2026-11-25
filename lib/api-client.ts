@@ -33,6 +33,21 @@ export const apiReadSWRConfig = {
   shouldRetryOnError: shouldRetryApiRead,
 } satisfies SWRConfiguration;
 
+/** Account-keyed dashboard reads share in-memory SWR data.
+ * useDashboard also restores a validated, expiring per-account tab snapshot.
+ * During Fast Refresh, reuse loaded data until a mutation, reconnect or manual retry.
+ * A full reload refreshes in the background while its saved snapshot is visible.
+ */
+export const dashboardReadSWRConfig = {
+  ...apiReadSWRConfig,
+  refreshInterval: 0,
+  revalidateOnFocus: false,
+  revalidateOnReconnect: true,
+  revalidateIfStale: process.env.NODE_ENV !== "development",
+  dedupingInterval: 60_000,
+  keepPreviousData: false,
+} satisfies SWRConfiguration;
+
 export async function fetchJson<T>(
   url: string,
   init?: RequestInit,

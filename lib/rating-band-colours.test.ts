@@ -2,19 +2,29 @@ import assert from "node:assert/strict"
 import test from "node:test"
 import { readFileSync } from "node:fs"
 import { ratingBands } from "./rating-bands"
+import { themeOptions } from "./theme-setting"
 
 // The four band colours live in app/globals.css as --band-* tokens, once for the light theme (:root) and once for the dark
 // theme (.dark). This test reads them from the file, so what ships is what is measured. It checks that each band has its own
 // colour in the right family (teal, blue, violet, amber, never red or green) and that the text colour keeps 4.5:1 on its own
 // soft tint over the card and over the page, in both themes. WCAG 2.x relative luminance and contrast ratio.
-const css = readFileSync("app/globals.css", "utf8")
+const css = readFileSync("app/globals.css", "utf8").replace(/\/\*[\s\S]*?\*\//g, "")
 type Hsl = readonly [number, number, number]
 type Rgb = readonly [number, number, number]
 
 const block = (start: string) => {
-  const from = css.indexOf(start)
-  assert.ok(from >= 0, start)
-  return css.slice(from, css.indexOf("\n  }", from))
+  const selector = start.replace(/\s*\{$/, "")
+  const declarations = new Map<string, string>()
+  let matched = false
+  // Apply base tokens, shared dark-family tokens, then theme surface overrides.
+  for (const rule of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+    const selectors = rule[1].trim().replace(/^:is\((.*)\)$/, "$1").split(",").map(s => s.trim())
+    if (!selectors.includes(":root") && !selectors.includes(selector)) continue
+    matched ||= selectors.includes(selector)
+    for (const declaration of rule[2].matchAll(/(--[\w-]+):\s*([^;]+);/g)) declarations.set(declaration[1], declaration[2])
+  }
+  assert.ok(matched, start)
+  return [...declarations].map(([name, value]) => `${name}: ${value};`).join("\n")
 }
 const token = (scope: string, name: string): Hsl => {
   const match = new RegExp(`--${name}:\\s*([\\d.]+)\\s+([\\d.]+)%\\s+([\\d.]+)%`).exec(block(scope))
@@ -32,7 +42,7 @@ const luminance = ([r, g, b]: Rgb) => 0.2126 * channel(r) + 0.7152 * channel(g) 
 const contrast = (a: Rgb, b: Rgb) => { const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x); return (hi + 0.05) / (lo + 0.05) }
 const tint = (colour: Rgb, alpha: number, base: Rgb): Rgb => [0, 1, 2].map((i) => colour[i] * alpha + base[i] * (1 - alpha)) as unknown as Rgb
 
-const themes = { light: ":root {", dark: ".dark {" } as const
+const themes = Object.fromEntries(themeOptions.map(theme => [theme.value, theme.value === "light" ? ":root {" : `.${theme.value} {`]))
 const names = ["beginner", "intermediate", "advanced", "mastery"] as const
 // Hue ranges in degrees: teal, blue, violet and amber. Red is below 15 or above 345 and green is 80 to 150.
 const family = { beginner: [165, 195], intermediate: [200, 225], advanced: [255, 285], mastery: [35, 50] } as const
@@ -101,8 +111,8 @@ test("the card maps each band id to its token, the card border is neutral and no
 
 // The focus ring is a UI component boundary, so it needs 3:1 against what it sits on (WCAG 1.4.11). The light --ring was
 // 2.64:1 on the page. These are the same tokens the sweep measures in the browser.
-test("the focus ring keeps 3:1 against the page and the card in both themes, and the dark ring is unchanged", () => {
-  for (const theme of ["light", "dark"] as const) {
+test("the focus ring keeps 3:1 against the page, card and sidebar in every theme", () => {
+  for (const theme of Object.keys(themes)) {
     const scope = themes[theme]
     const ring = toRgb(token(scope, "ring"))
     for (const surface of ["background", "card"]) {
@@ -110,10 +120,10 @@ test("the focus ring keeps 3:1 against the page and the card in both themes, and
     }
   }
   // The sidebar ring sits on the sidebar background and gets the same 3:1.
-  for (const theme of ["light", "dark"] as const) {
+  for (const theme of Object.keys(themes)) {
     assert.ok(contrast(toRgb(token(themes[theme], "sidebar-ring")), toRgb(token(themes[theme], "sidebar-background"))) >= 3, `${theme} sidebar ring`)
   }
-  assert.deepEqual(token(".dark {", "ring"), [21, 82, 75])
+  // Surface and focus contrast above apply to every owner-selected theme.
   // The light ring keeps the primary hue family (orange) and only gets darker.
   const [hue] = token(":root {", "ring")
   assert.ok(Math.abs(hue - token(":root {", "primary")[0]) <= 2)

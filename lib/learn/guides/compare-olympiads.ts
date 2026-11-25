@@ -5,7 +5,7 @@ import { CHECK_HOST_SITE, type ArticleDraft } from "../types";
 // Where a fact could not be confirmed, the text says to check the current host site.
 export const compareOlympiads: ArticleDraft = {
   slug: "ipho-apho-eupho-differences",
-  title: "IPhO, APhO and EuPhO: what is the difference?",
+  title: "IPhO, APhO and EuPhO: What Is the Difference?",
   description:
     "Age limits, team size, exams, medals and 2026 hosts for the three physics olympiads, with a dated and sourced comparison table.",
   updated: "2026-11-01",
@@ -70,12 +70,12 @@ export const compareOlympiads: ArticleDraft = {
     },
   ],
   body: [
-    { type: "heading", level: 2, text: "The short answer" },
+    { type: "heading", level: 2, text: "The Short Answer" },
     {
       type: "paragraph",
       text: "The three olympiads share one age rule and a similar exam, which is a theory paper and an experimental paper. They differ most in team size and in who is invited. This guide gives the rules as of 2026 and says where we could not confirm one. Rules and dates change from year to year, so confirm anything important on the current host site. The table at the end puts the three side by side.",
     },
-    { type: "heading", level: 2, text: "Who can enter" },
+    { type: "heading", level: 2, text: "Who Can Enter" },
     {
       type: "paragraph",
       text: "IPhO. A student must not be older than 20 on June 30 of the competition year. Students must come from general or technical secondary schools. A student who finishes school that year can compete if they have not started university.",
@@ -95,7 +95,7 @@ export const compareOlympiads: ArticleDraft = {
       type: "paragraph",
       text: "The age limit is counted on June 30, so work out your age on that date for the year you hope to compete.",
     },
-    { type: "heading", level: 2, text: "Team size" },
+    { type: "heading", level: 2, text: "Team Size" },
     {
       type: "paragraph",
       text: "The IPhO normally takes up to 5 students and at most 2 leaders per team. The APhO normally takes 8 students and at most 2 leaders, which is the main difference from the IPhO. The EuPhO takes up to 5 students and a team leader.",
@@ -105,7 +105,7 @@ export const compareOlympiads: ArticleDraft = {
       type: "paragraph",
       text: "How your country picks its team is up to your country. Ask your national olympiad organiser.",
     },
-    { type: "heading", level: 2, text: "The exams" },
+    { type: "heading", level: 2, text: "The Exams" },
     {
       type: "paragraph",
       text: "IPhO. The theory exam has 3 problems, lasts 5 hours and carries 30 marks. The experimental exam has 1 or 2 problems, lasts 5 hours and carries 20 marks. The working language is English, and leaders translate the problems for their students.",
@@ -126,7 +126,7 @@ export const compareOlympiads: ArticleDraft = {
       text: "The first EuPhO, in 2017 in Tartu and Tallinn, Estonia, did things this way. Its problems had short statements and left the solution path to the student, which is closer to research than to guided sub-questions. In 2017 the theory problems were worth 10 points each and the experiment 20 in total.",
       cite: ["s7"],
     },
-    { type: "heading", level: 2, text: "How medals are awarded" },
+    { type: "heading", level: 2, text: "How Medals Are Awarded" },
     {
       type: "paragraph",
       text: "IPhO. Gold goes to 8% of contestants. Gold or silver goes to 25%. Any medal goes to 50%. A medal or an honourable mention goes to 67%. Each figure is rounded up.",
@@ -142,7 +142,7 @@ export const compareOlympiads: ArticleDraft = {
       text: "APhO. It awards gold, silver and bronze medals and honourable mentions. We could not confirm the current cut-offs, so check the current host site.",
       cite: ["s4"],
     },
-    { type: "heading", level: 2, text: "Where and when in 2026" },
+    { type: "heading", level: 2, text: "Where and When In 2026" },
     {
       type: "paragraph",
       text: "The IPhO 2026 was held in Bucaramanga, Colombia, hosted by Universidad Antonio Nariño. The opening ceremony was on July 5, 2026, and the theory exam on July 8, 2026.",
@@ -162,7 +162,7 @@ export const compareOlympiads: ArticleDraft = {
       type: "paragraph",
       text: "The host and the dates change every year. Look at the current host site before you plan.",
     },
-    { type: "heading", level: 2, text: "Comparison table" },
+    { type: "heading", level: 2, text: "Comparison Table" },
     {
       type: "table",
       caption: "IPhO, APhO and EuPhO compared, as of 2026. Numbers in square brackets point to the sources below.",

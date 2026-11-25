@@ -139,7 +139,7 @@ export function CorpusCollection({
   return (
     <ProblemCollection
       id="guided-results"
-      title="Official-source theory problems"
+      title="Official-source Theory Problems"
       paginationLabel="Guided exercise"
       items={filtered}
       totalCount={filterProblemsByTag(corpusProblems, topic).length}

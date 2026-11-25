@@ -7,6 +7,7 @@ import { articles, learnPath } from "./learn/articles";
 import { findProblemPage, problemsInTopic, topicName, topicPageCopy } from "./seo/problem-pages";
 import { publicRoutes, type PublicRoute } from "./seo/public-routes";
 import { SITE } from "./site";
+import { coachDirectoryDescription, coachProfileDescription, findCoach } from "./coaching/coach-profile";
 
 /**
  * Guards the title, description and canonical of every route in the public registry. It resolves
@@ -59,6 +60,12 @@ function resolve(route: PublicRoute): Resolved {
     return { title: article.title + TEMPLATE, description: article.description, canonical: declaredCanonical("app/learn/[slug]/page.tsx", route.path) };
   }
   if (route.kind === "coaching") {
+    if (route.path === "/coaching/coaches") return { title: "Physics Olympiad Coaches" + TEMPLATE, description: coachDirectoryDescription, canonical: declaredCanonical("app/coaching/coaches/page.tsx", route.path) };
+    if (route.path.startsWith("/coaching/coaches/")) {
+      const coach = findCoach(route.path.split("/").pop()!);
+      assert.ok(coach, route.path);
+      return { title: `${coach.name}, Physics Coach` + TEMPLATE, description: coachProfileDescription(coach), canonical: route.path };
+    }
     if (route.path === "/coaching") return { title: coaching.meta.title + TEMPLATE, description: coaching.meta.description, canonical: declaredCanonical("app/coaching/layout.tsx", route.path) };
     const page = route.path === "/coaching/consultation" ? coaching.consultationPage : coaching.tutorPage;
     return { title: page.meta.title + TEMPLATE, description: page.meta.description, canonical: declaredCanonical(`app${route.path}/page.tsx`, route.path) };

@@ -368,7 +368,7 @@ export function ProblemEditor({
             className="mb-6 space-y-3 rounded-lg border p-5"
           >
             <h2 className="font-semibold">
-              A recovery copy needs inspection
+              A Recovery Copy Needs Inspection
             </h2>
             <p className="text-sm">
               This tab contains an unrecognized local copy. It has been
@@ -410,7 +410,7 @@ export function ProblemEditor({
             aria-label="Recover unsaved work"
             className="mb-6 space-y-3 rounded-lg border border-primary p-5"
           >
-            <h2 className="font-semibold">Unsaved work from this tab</h2>
+            <h2 className="font-semibold">Unsaved Work from This Tab</h2>
             <p className="text-sm">
               A local copy of version {recovery.version} is available. Your
               server copy is version {draft.version}. Choose which to open.
@@ -450,8 +450,8 @@ export function ProblemEditor({
           >
             <h2 className="font-semibold">
               {phase === "conflict"
-                ? "Resolve a version conflict"
-                : "Your work has not been saved"}
+                ? "Resolve a Version Conflict"
+                : "Your Work Has Not Been Saved"}
             </h2>
             <p className="text-sm">
               {message} Downloaded copies include private keys. Keep them
@@ -612,7 +612,7 @@ export function ProblemEditor({
               className="mx-auto max-w-3xl space-y-8 rounded-xl border px-5 py-8 sm:px-10"
             >
               <h2 className="text-3xl font-semibold tracking-tight">
-                {safePreview.title || "Untitled problem"}
+                {safePreview.title || "Untitled Problem"}
               </h2>
               <div className="flex flex-wrap gap-2">
                 {[...safePreview.topicTags, ...safePreview.methodTags].map(

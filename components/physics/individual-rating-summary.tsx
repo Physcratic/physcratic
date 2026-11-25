@@ -14,7 +14,7 @@ export function IndividualRatingSummary({ userId }: { userId?: string }) {
   const { data, error, isLoading, mutate } = useSWR(userId ? ["/api/individual-rating", userId] as const : null, loadRating);
   if (!userId) return null;
   return <section aria-label="Individual problem rating" className="flex flex-col gap-2 rounded-md border p-4 text-sm leading-relaxed">
-    <h3 className="font-medium">Individual problem ELO</h3>
+    <h3 className="font-medium">Individual Problem ELO</h3>
     {isLoading ? <LoadingLines label="Loading your rating…" /> : error ? <div className="flex flex-wrap items-center gap-3"><p role="alert" className="text-muted-foreground">Your rating could not be loaded.</p><Button type="button" variant="outline" size="sm" onClick={() => mutate()}>Retry rating</Button></div> : data && <>
       <p>{data.rating === null ? "Not rated yet" : `${data.rating} ELO, ${data.ratedAttempts} rated problems`}</p>
       <p className="text-muted-foreground">{data.rating === null ? `The first eligible rated result starts from ${data.initialRating}. Unrated work does not change ELO.` : "One rated result per full problem, based on the first checked answer for every configured subpart. Contest ELO is separate."}</p>

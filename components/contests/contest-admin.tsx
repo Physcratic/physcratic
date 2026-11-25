@@ -110,7 +110,7 @@ function ContestAdminWorkspace() {
         </Button>
         <div className="flex flex-col gap-2">
           <h1 className="text-balance text-3xl font-medium tracking-tight">
-            Manage contests
+            Manage Contests
           </h1>
           <p className="text-pretty text-sm text-muted-foreground">
             Create a draft, select archive problems, then confirm publication.
@@ -152,7 +152,7 @@ function ContestAdminWorkspace() {
           <div className="grid min-w-0 grid-cols-1 items-start gap-6 xl:grid-cols-2">
             <Card className="min-w-0">
               <CardHeader>
-                <CardTitle>{editing ? "Edit draft" : "New contest"}</CardTitle>
+                <CardTitle>{editing ? "Edit Draft" : "New Contest"}</CardTitle>
                 <CardDescription>
                   {editing
                     ? "Changes stay private until publication."
@@ -174,7 +174,7 @@ function ContestAdminWorkspace() {
               className="flex min-w-0 flex-col gap-4"
             >
               <h2 id="your-contests" className="text-xl font-medium">
-                Your contests
+                Your Contests
               </h2>
               {notice && (
                 <p role="status" className="text-sm text-muted-foreground">

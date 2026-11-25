@@ -53,7 +53,8 @@ test("a public-solutions revision shows both tabs and a legacy revision shows on
 test("the community page keeps its statement, sign-in card and answer column inside the frame", () => {
   const html = workspace(false);
   assert.match(html, /xl:grid-cols-\[minmax\(0,1fr\)_23rem\]/);
-  assert.ok(html.indexOf("Harmonic Trap") < html.indexOf("Sign in to practise"), "the sign-in card comes after the statement");
+  const signIn = html.indexOf("Sign in to Practise");
+  assert.ok(signIn >= 0 && html.indexOf("Harmonic Trap") < signIn, "the sign-in card comes after the statement");
   assert.match(html, /Sign in to submit/);
 });
 

@@ -6,7 +6,7 @@ import {Button} from '@/components/ui/button';
 import {useModerationQuery} from './moderation-query';
 export function ModerationHistory(){
  const {data,isPending,error}=authClient.useSession();
- return <section id="moderation-history" aria-labelledby="moderation-history-heading" className="scroll-mt-6 space-y-5 rounded-2xl border bg-card p-5 sm:p-7"><header className="space-y-2"><h2 id="moderation-history-heading" className="text-lg font-semibold">Reports and appeals</h2><p className="text-sm text-muted-foreground">Private status and reviewer feedback for your requests.</p></header>{isPending?<p role="status">Loading account…</p>:error||!data?.user.emailVerified?<p role="status">Sign in with a verified account to view your requests.</p>:<History key={data.user.id}/>}</section>;
+ return <section id="moderation-history" aria-labelledby="moderation-history-heading" className="scroll-mt-6 space-y-5 rounded-2xl border bg-card p-5 sm:p-7"><header className="space-y-2"><h2 id="moderation-history-heading" className="text-lg font-semibold">Reports and Appeals</h2><p className="text-sm text-muted-foreground">Private status and reviewer feedback for your requests.</p></header>{isPending?<p role="status">Loading account…</p>:error||!data?.user.emailVerified?<p role="status">Sign in with a verified account to view your requests.</p>:<History key={data.user.id}/>}</section>;
 }
 function History(){
  const [area,setArea]=useState<'reports'|'appeals'>('reports'),[pages,setPages]=useState<(string|null)[]>([null]),[refresh,setRefresh]=useState(0);const heading=useRef<HTMLDivElement>(null);

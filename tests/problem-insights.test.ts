@@ -25,7 +25,7 @@ test("editorial render has native closed spoiler disclosure and server-rendered 
     assert.doesNotMatch(html, /<details[^>]*\bopen\b|expert-reviewed|Reviewed by|role="region" aria-label="Equation"/i);
     assert.match(html, /spoilers/);
     assert.match(html, /Original Physcratic commentary<\/p>/);
-    assert.match(html, /Concepts to consider/);
+    assert.match(html, /Concepts to Consider/);
     assert.match(html, /Show derivations and final results \(spoilers\)/);
     assert.doesNotMatch(html, /Before you start|No independent human review|Show conceptual hints/);
     assert.equal((html.match(/<math /g) ?? []).length, 2);

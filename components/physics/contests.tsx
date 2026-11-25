@@ -26,7 +26,7 @@ export function Contests() {
         aria-labelledby="published-contests-title"
       >
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 id="published-contests-title" className="text-lg font-medium tracking-tight">Published contests</h2>
+          <h2 id="published-contests-title" className="text-lg font-medium tracking-tight">Published Contests</h2>
           {access?.canManage && <Button asChild variant="outline"><Link href="/dashboard/contests/manage">Manage contests</Link></Button>}
         </div>
         {isLoading ? (

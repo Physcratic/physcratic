@@ -15,7 +15,7 @@ export function LearningGuide() {
     <div className="flex max-w-4xl flex-col gap-6">
       <div className="rounded-xl border bg-card p-6 text-card-foreground sm:p-8">
         <h2 className="text-balance text-2xl font-medium tracking-tight">
-          How Physcratic works
+          How Physcratic Works
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
           Practise physics problems, check your answers and read worked
@@ -26,7 +26,7 @@ export function LearningGuide() {
         {[
           {
             icon: BookOpen,
-            title: "Find a problem",
+            title: "Find a Problem",
             description:
               "Browse Physcratic Arena and imported olympiad problems across physics topics. Filter by subject, or search for a concept.",
             href: "/dashboard?view=problems",
@@ -34,7 +34,7 @@ export function LearningGuide() {
           },
           {
             icon: Trophy,
-            title: "Enter a contest",
+            title: "Enter a Contest",
             description:
               "See published contests and register for upcoming rounds. Between events, work through the official IPhO archive and save your own notes and self-review marks.",
             href: "/dashboard?view=contests",
@@ -66,7 +66,7 @@ export function LearningGuide() {
       <section className="flex flex-col gap-5 rounded-xl border p-6 sm:p-8">
         <div className="flex items-center gap-3">
           <Lightbulb className="size-5 text-primary" />
-          <h2 className="text-lg font-medium">Good to know</h2>
+          <h2 className="text-lg font-medium">Good to Know</h2>
         </div>
         <div className="flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground">
           <p>
