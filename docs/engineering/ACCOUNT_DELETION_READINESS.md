@@ -1,5 +1,7 @@
 # B5 account deletion and B6 activation
 
+The [0026 owner package](../../scripts/account-deletion-0026/README.md) contains the checksum-pinned PowerShell and psql installer, the safe cutover and path reconciliation procedure, and the specific provider confirmations still needed before activation. The installer commits the migration, narrow acknowledgement grant and ledger together.
+
 ## Release blocker corrections (25 November 2026)
 
 **Activation remains NO-GO. Keep `ACCOUNT_DELETION_ENABLED` unset.** This code follows merged [PR #252](https://github.com/Physcratic/physcratic/pull/252) at main `5787828`. The qualification below records the original defects and operator requirements. Forward-only migration `0026_account_deletion_blockers` has SHA-256 `3b904c1eb01fc75e5446744acc90474cdbe4aba62c6dffc95b9f7c35bfc6c78a`.

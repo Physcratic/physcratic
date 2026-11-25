@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Account deletion operator package (25 November 2026)
+
+Prepared [the 0026 cutover and installer](../../scripts/account-deletion-0026/README.md) from serving baseline `ee23638`. The reviewer reported six ready author objects and three legacy evidence rows. Keep all backfilled obligations until provider-backed reconciliation. SDK-level single attempts can use the existing storage, but the provider must confirm terminal write and retry behavior. The installation package leaves deletion off and requires separately approved endpoint, recovery, writer hold and plan evidence. No Production operation or support request was made.
+
 ## Account deletion blocker corrections (25 November 2026)
 
 0026 preserves independent report cases, binds continuing display to the reviewed revision, and holds existing outbox obligations until the private upload outcome is terminal. The focused run passed all 68 tests using PostgreSQL 18.6, synthetic storage and Chromium. Keep the deletion flag off. The owner must qualify the restricted acknowledgement grant, cut over with single-attempt Blob writes, obtain provider-backed reconciliation evidence for ambiguous and old writes, and complete the other privacy and restore gates. See [migration, verification and activation evidence](ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026). No Production operation was performed.

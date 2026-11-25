@@ -1,3 +1,7 @@
+## Account deletion operator package (25 November 2026)
+
+Use the [checksum-pinned 0026 owner package](../../scripts/account-deletion-0026/README.md) after separate approval of the writer hold, target, single-attempt serving configuration and recovery evidence. Activation remains NO-GO pending Vercel terminal-write and deletion confirmation, held-path reconciliation, and the independent privacy, role, Tally and backup gates.
+
 ## Account deletion blocker corrections (25 November 2026)
 
 Keep deletion off. Migration 0026 fixes retained report keys and revision-specific publication approval. The existing outbox now waits for confirmation of registered private writes. Qualification still requires provider-backed resolution of ambiguous and old writes, restricted role attestation, and the privacy and recovery rehearsals. [Activation gates](ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026).
