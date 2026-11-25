@@ -2,6 +2,10 @@
 
 Four small fixes in the Simple editor, each with a test. Choosing a different image now swaps only the file, so the picture keeps its block, description and caption (`replacePicture` and `replaceContextPicture` in `simple-model.ts`, checked in `tests/simple-model.test.ts`). The equation chip in `rich-math-text.tsx` now has an accessible name that holds the text it shows, with the LaTeX source as its description, which fixes the axe `label-content-name-mismatch` finding. Sections carry `data-order-item`, so focus returns to the moved section after a keyboard move. The long suite `tests/problem-authoring.browser.mjs` now types a real equation chip into the main question and runs axe over it, and it asserts the focus and the kept picture description again. The stale Simple label is gone from `lib/product-guides.test.ts`.
 
+## Practice persistence release qualification (25 November 2026)
+
+Keep practice persistence off while account deletion is parked. [Current-main qualification](PRACTICE_PROGRESS.md#current-main-release-qualification-25-november-2026) records the separate meanings of attempted, marked complete, correctly answered and independently solved, plus compatibility and growth evidence. The minimum activation sequence requires qualified erasure, owner runtime and backup evidence, and separate approval for the practice flag. No feature expansion is scheduled.
+
 ## Account deletion staged release assessment (25 November 2026)
 
 Keep account deletion off. [The readiness assessment](ACCOUNT_DELETION_READINESS.md#database-erasure-with-outstanding-file-cleanup-25-november-2026) proposes allowing database erasure to commit with a durable, explicitly pending file obligation. Qualify safely handling held objects, status and privacy wording, staffed follow-up, Tally and recovery before seeking owner approval. Terminal evidence remains required to close an individual ambiguous upload obligation. No implementation is scheduled by this assessment.
