@@ -1,3 +1,7 @@
+## Account deletion blocker corrections (25 November 2026)
+
+Keep deletion off. Migration 0026 fixes retained report keys and revision-specific publication approval. The existing outbox now waits for confirmation of registered private writes. Qualification still requires provider-backed resolution of ambiguous and old writes, restricted role attestation, and the privacy and recovery rehearsals. [Activation gates](ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026).
+
 ## Account deletion release qualification (25 November 2026)
 
 Keep deletion off. Address the report anonymisation collision, publication approval scope and late private uploads. Qualify the restricted roles, Tally disposition, restore controls and staffed operator process with synthetic data before seeking owner activation approval. Current community features and installed migrations 0018 and 0024 require no reactivation. [Release decision and activation procedure](ACCOUNT_DELETION_READINESS.md#release-decision-25-november-2026).

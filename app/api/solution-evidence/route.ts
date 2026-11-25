@@ -2,8 +2,9 @@ import { createHash, randomUUID } from "node:crypto";
 import { put, del } from "@vercel/blob";
 import { authoringPreviewBlobCredentials } from "@/lib/author-media-storage";
 import { and, count, eq, gte, sql } from "drizzle-orm";
-import { db } from "@/lib/db";
+import { db, pool } from "@/lib/db";
 import { solutionEvidence } from "@/lib/db/schema";
+import { acknowledgePrivateUpload, preparePrivateUpload } from "@/lib/private-upload";
 import { submissionLimits } from "@/lib/solution-grading";
 import { detectSubmissionMedia, validUploadSize } from "@/lib/submission-security";
 import { readSubmissionForm, RequestBodyTimeoutError } from "@/lib/submission-request";
@@ -41,12 +42,18 @@ export async function POST(request: Request) {
       if (!lock.rows[0]?.acquired) return submissionError("Another file is being uploaded. Please retry.", 429);
       const [usage] = await transaction.select({ total: count() }).from(solutionEvidence).where(and(eq(solutionEvidence.userId, user.id), gte(solutionEvidence.createdAt, new Date(Date.now() - 86400000))));
       if (usage.total >= 30) return submissionError("Daily upload limit reached. Try again tomorrow.", 429);
+      const uploadToken = await preparePrivateUpload((_statement, [setting, token, signature]) => transaction.execute<{ authorized: boolean | null }>(
+        sql`SELECT set_config(${setting},${token},true), has_function_privilege(to_regprocedure(${signature}),'EXECUTE') AS authorized`,
+      ));
       await transaction.insert(solutionEvidence).values({ id, userId: user.id, pathname, filename, mediaType, bytes: bytes.length, sha256 });
-      return { id, userId: user.id, pathname };
+      return { id, userId: user.id, pathname, uploadToken };
     });
     if (reservation instanceof Response) return reservation;
     reserved = reservation;
-    await put(pathname, bytes, { ...await authoringPreviewBlobCredentials(pathname), access: "private", contentType: mediaType, addRandomSuffix: false, abortSignal: AbortSignal.timeout(10000) });
+    await put(pathname, bytes, { ...await authoringPreviewBlobCredentials(pathname), access: "private", contentType: mediaType, addRandomSuffix: false, allowOverwrite: false, abortSignal: AbortSignal.timeout(10000) });
+    await acknowledgePrivateUpload(pool, "author", pathname, reservation.uploadToken);
+    if (!(await db.select({ id: solutionEvidence.id }).from(solutionEvidence).where(and(eq(solutionEvidence.id, id), eq(solutionEvidence.userId, user.id))).limit(1)).length)
+      return submissionError("This upload is no longer available.", 409);
     return Response.json({ id, filename, mediaType, bytes: bytes.length, sha256 }, { status: 201, headers: { "Cache-Control": "private, no-store" } });
   } catch (error) {
     if (reserved) {

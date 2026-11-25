@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Account deletion blocker corrections (25 November 2026)
+
+0026 preserves independent report cases, binds continuing display to the reviewed revision, and holds existing outbox obligations until the private upload outcome is terminal. The focused run passed all 68 tests using PostgreSQL 18.6, synthetic storage and Chromium. Keep the deletion flag off. The owner must qualify the restricted acknowledgement grant, cut over with single-attempt Blob writes, obtain provider-backed reconciliation evidence for ambiguous and old writes, and complete the other privacy and restore gates. See [migration, verification and activation evidence](ACCOUNT_DELETION_READINESS.md#release-blocker-corrections-25-november-2026). No Production operation was performed.
+
 ## Account deletion release qualification (25 November 2026)
 
 Account deletion remains NO-GO. The follow-up to merged PR #186 passed the focused PostgreSQL and browser suite and reproduced three blockers: overlapping profile reports prevent a second erasure, a rights approval can carry forward to a later revision, and early cleanup can miss an in-flight private upload. The owner confirms 0018 and 0024 are installed. Release also needs separate Tally reconciliation, updated privacy and support copy, staffed operation, real provider and restore exercises, and role attestation. See the [release decision and activation procedure](ACCOUNT_DELETION_READINESS.md#release-decision-25-november-2026). The review used synthetic data and made no Production changes.

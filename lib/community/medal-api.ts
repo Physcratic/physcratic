@@ -8,6 +8,7 @@ import type { MedalAction } from './medal-route';
 import type { MedalStorage } from './medal-storage';
 import { readRequestBytes,RequestBodyTimeoutError } from '../submission-request';
 import { detectAuthorMedia } from '../author-media-validation';
+import { acknowledgePrivateUpload, preparePrivateUploadReservation } from '../private-upload';
 class Fault extends Error {constructor(public status:number){super();}}
 const publicColumns='id,competition,award,year,country,competition_name AS "competitionName",certificate_name AS "certificateName",state,version,reason,created_at AS "createdAt",updated_at AS "updatedAt"';
 const hash=(bytes:Uint8Array)=>createHash('sha256').update(bytes).digest('hex');
@@ -43,11 +44,14 @@ export function createMedalApi(deps:{pool:Pool;storage:MedalStorage;user:(r:Requ
    const metadata=request.headers.get('x-medal-claim')??'';if(Buffer.byteLength(metadata)>4096)throw new RangeError();
    const input=medalClaimSchema.parse(JSON.parse(metadata));const bytes=await readRequestBytes(request,5242880,10000);await validateMedalPdf(bytes);
    const claimId=randomUUID(),path=`community-medal-proof/${claimId}.pdf`;
-   await tx(async c=>{await c.query('SELECT pg_advisory_xact_lock(hashtextextended($1,10))',[user.id]);if(Number((await c.query('SELECT count(*) FROM community_medal_claim WHERE user_id=$1',[user.id])).rows[0].count)>=20)throw new Fault(409);
-    await c.query(`INSERT INTO community_medal_claim(id,user_id,competition,award,year,country,competition_name,certificate_name,pathname,bytes,sha256) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)`,[claimId,user.id,input.competition,input.award,input.year,input.country,input.competitionName,input.certificateName,path,bytes.length,hash(bytes)]);});
+   const uploadToken=await tx(async c=>{await c.query('SELECT pg_advisory_xact_lock(hashtextextended($1,10))',[user.id]);if(Number((await c.query('SELECT count(*) FROM community_medal_claim WHERE user_id=$1',[user.id])).rows[0].count)>=20)throw new Fault(409);
+    const token=await preparePrivateUploadReservation(c);
+    await c.query(`INSERT INTO community_medal_claim(id,user_id,competition,award,year,country,competition_name,certificate_name,pathname,bytes,sha256) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)`,[claimId,user.id,input.competition,input.award,input.year,input.country,input.competitionName,input.certificateName,path,bytes.length,hash(bytes)]);return token;});
    // Reserve before PUT; ambiguous failures retain a bounded, inaccessible tracked object.
    await deps.storage.put(path,bytes);
+   await acknowledgePrivateUpload(deps.pool,'medal',path,uploadToken);
    const result=await deps.pool.query(`UPDATE community_medal_claim SET state='pending',version=version+1 WHERE id=$1 AND state='uploading' RETURNING ${publicColumns}`,[claimId]);
+   if(!result.rowCount)throw new Fault(409);
    return profileReply({claim:result.rows[0]},201);
   }
   if(action==='review'){

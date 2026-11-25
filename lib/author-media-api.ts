@@ -7,6 +7,7 @@ import {
   type AuthorMediaInfo,
 } from "./author-media";
 import { detectAuthorMedia } from "./author-media-validation";
+import { acknowledgePrivateUpload, preparePrivateUploadReservation } from "./private-upload";
 import {
   readSubmissionForm,
   readSubmissionJson,
@@ -142,8 +143,8 @@ async function retire(deps: Deps, id: string, owner: string) {
     return rows[0];
   });
   await deps.storage.del(row.pathname);
-  // Ambiguous failed PUTs may complete after an immediate DELETE. Keep their
-  // tombstone for at least an hour and repeat deletion before forgetting the path.
+  // Delay repeat sweeps for older-schema tombstones. On 0026, only a confirmed
+  // upload or transfer to the erasure outbox permits the registry row to go.
   if (
     row.state === "ready" ||
     Date.now() - new Date(row.created_at).getTime() >= 3_600_000
@@ -207,7 +208,9 @@ export function createAuthorMediaApi(deps: Deps) {
           )
             throw new MediaError(404, "File not found.");
           const refs = await deps.pool.query(
-            "SELECT 1 FROM author_revision_media WHERE revision_id=$1 AND problem_id=$2 AND media_id=$3 AND purpose=$4",
+            `SELECT 1 FROM author_revision_media rm JOIN authored_problem p ON p.id=rm.problem_id
+             WHERE rm.revision_id=$1 AND rm.problem_id=$2 AND rm.media_id=$3 AND rm.purpose=$4
+             AND p.state='published' AND (p.owner_id<>'__physcratic_deleted_principal_v1__' OR p.published_revision_id=rm.revision_id)`,
             [revision, problemId, mediaId, row.purpose],
           );
           if (!refs.rows[0]) throw new MediaError(404, "File not found.");
@@ -335,7 +338,7 @@ export function createAuthorMediaApi(deps: Deps) {
           .slice(0, 150)
           .replace(/\.[^.]*$/, "") || "attachment";
       const filename = `${stem}.${ext}`;
-      const row = await transaction(deps.pool, async (c) => {
+      const { row, uploadToken } = await transaction(deps.pool, async (c) => {
         await ownProblem(c, problemId!, owner!);
         await c.query("SELECT pg_advisory_xact_lock(hashtextextended($1,2))", [
           `author-media:${owner}`,
@@ -352,6 +355,7 @@ export function createAuthorMediaApi(deps: Deps) {
             429,
             "Author storage quota reached. Clean up unused uploads.",
           );
+        const uploadToken = await preparePrivateUploadReservation(c);
         const result = await c.query<Row>(
           "INSERT INTO author_media(id,problem_id,purpose,pathname,filename,media_type,bytes,sha256) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *",
           [
@@ -365,10 +369,11 @@ export function createAuthorMediaApi(deps: Deps) {
             createHash("sha256").update(bytes).digest("hex"),
           ],
         );
-        return result.rows[0];
+        return { row: result.rows[0], uploadToken };
       });
       reserved = { id, owner: owner! };
       await deps.storage.put(pathname, bytes, type);
+      await acknowledgePrivateUpload(deps.pool, "author", pathname, uploadToken);
       await transaction(deps.pool, async (c) => {
         await ownProblem(c, problemId!, owner!);
         const changed = await c.query(
