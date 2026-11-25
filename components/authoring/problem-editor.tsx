@@ -29,6 +29,7 @@ import { TourHelpButton } from "@/components/tour/tour-help";
 import { otherIssueMessages } from "./simple-model";
 import { PartChip } from "@/components/physics/solve-ui";
 import { ReaderBlocks } from "./editor-fields";
+import { useConfirm } from "./confirm-sheet";
 
 function download(draft: EditorDraft) {
   const url = URL.createObjectURL(
@@ -120,11 +121,12 @@ export function ProblemEditor({
     session.snapshot,
   );
   const { draft, phase, dirty, busy, message, recovery } = snapshot;
+  const confirm = useConfirm();
   async function publishRequest(d: EditorDraft) {
-    const question = publicSolutionsEnabled
-      ? "Publish this version? The problem and its worked solution, including attached files, will be public. Your grading keys stay private."
-      : "Publish this version? Its statement becomes public. Your grading keys stay private.";
-    if (!window.confirm(question)) return undefined;
+    const message = publicSolutionsEnabled
+      ? "The problem and its worked solution, including attached files, will be public. Your grading keys stay private."
+      : "Its statement becomes public. Your grading keys stay private.";
+    if (!(await confirm({ title: "Publish this version?", message, confirmLabel: "Publish" }))) return undefined;
     return draftRequest(`${editorBase}/${d.problemId}/publish`, "POST", {
       version: d.version,
       ...(publicSolutionsEnabled ? { solutionPolicy: publicSolutionPolicy } : {}),
@@ -153,11 +155,14 @@ export function ProblemEditor({
   const issues = publishable.success ? [] : publishable.error.issues;
   // Publish rules Simple words and shows next to its own fields. Anything else is listed by the Publish button.
   const otherIssues = otherIssueMessages(issues);
-  function unpublish() {
+  async function unpublish() {
     if (
-      window.confirm(
-        "Unpublish this problem? It will stop being publicly readable. Previous revisions stay retained.",
-      )
+      await confirm({
+        title: "Unpublish this problem?",
+        message: "It will stop being publicly readable. Previous revisions stay retained.",
+        confirmLabel: "Unpublish",
+        danger: true,
+      })
     )
       void session.publish("unpublish", (d) =>
         draftRequest(
@@ -253,9 +258,12 @@ export function ProblemEditor({
         }
       }
       if (
-        window.confirm(
-          "Your latest changes are not saved yet. Leave anyway? A copy stays in this tab's recovery copy. You can also download a private copy first.",
-        )
+        await confirm({
+          title: "Leave anyway?",
+          message: "Your latest changes are not saved yet. A copy stays in this tab's recovery copy. You can also download a private copy first.",
+          confirmLabel: "Leave",
+          danger: true,
+        })
       ) {
         onBack();
         return;
@@ -394,9 +402,9 @@ export function ProblemEditor({
             <Button
               type="button"
               variant="outline"
-              onClick={() => {
+              onClick={async () => {
                 if (
-                  window.confirm("Discard the preserved unrecognized copy?")
+                  await confirm({ title: "Discard the preserved unrecognized copy?", confirmLabel: "Discard", danger: true })
                 )
                   session.discardRecovery();
               }}
@@ -431,9 +439,9 @@ export function ProblemEditor({
                 type="button"
                 variant="ghost"
                 disabled={uploads > 0}
-                onClick={() => {
+                onClick={async () => {
                   if (
-                    window.confirm("Discard the tab's unsaved recovery copy?")
+                    await confirm({ title: "Discard the tab's unsaved recovery copy?", confirmLabel: "Discard", danger: true })
                   )
                     session.discardRecovery();
                 }}
@@ -502,11 +510,14 @@ export function ProblemEditor({
                     type="button"
                     variant="outline"
                     disabled={uploads > 0}
-                    onClick={() => {
+                    onClick={async () => {
                       if (
-                        window.confirm(
-                          "Replace local work with the loaded server copy? Download local work first if you need it.",
-                        )
+                        await confirm({
+                          title: "Replace local work with the loaded server copy?",
+                          message: "Download local work first if you need it.",
+                          confirmLabel: "Use server copy",
+                          danger: true,
+                        })
                       ) {
                         session.useServer(latest);
                         setLatest(null);
@@ -518,11 +529,14 @@ export function ProblemEditor({
                   <Button
                     type="button"
                     disabled={uploads > 0}
-                    onClick={() => {
+                    onClick={async () => {
                       if (
-                        window.confirm(
-                          "Keep all local content over the loaded server version? The next save replaces that server draft.",
-                        )
+                        await confirm({
+                          title: "Keep all local content over the loaded server version?",
+                          message: "The next save replaces that server draft.",
+                          confirmLabel: "Keep local work",
+                          danger: true,
+                        })
                       ) {
                         session.keepLocal(latest);
                         setLatest(null);
@@ -572,10 +586,10 @@ export function ProblemEditor({
                   type="button"
                   className="inline-flex min-h-11 items-center underline underline-offset-4"
                   disabled={busy || uploads > 0}
-                  onClick={() => {
+                  onClick={async () => {
                     if (
                       (dirty || recovery || snapshot.recoveryRaw) &&
-                      !window.confirm("Leave this problem? Unsaved work stays in this tab's recovery copy.")
+                      !(await confirm({ title: "Leave this problem?", message: "Unsaved work stays in this tab's recovery copy.", confirmLabel: "Leave", danger: true }))
                     )
                       return;
                     continueDraft.open();

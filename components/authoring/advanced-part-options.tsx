@@ -4,6 +4,7 @@ import { ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { setPartAnswerMode, type EditorDraft } from "@/lib/problem-authoring-editor";
 import { AnswerPanel } from "./answer-panel";
+import { useConfirm } from "./confirm-sheet";
 
 type Part = EditorDraft["content"]["sections"][number]["parts"][number];
 type Entry = EditorDraft["privateParts"][number];
@@ -39,6 +40,7 @@ export function PartOptions({
     bodyClass?: string;
   };
 }) {
+  const confirm = useConfirm();
   return (
     <details className="rounded-lg border bg-card p-4" open={open} onToggle={onOpenChange ? (e) => onOpenChange(e.currentTarget.open) : undefined}>
       {heading ?? <summary className="flex min-h-11 cursor-pointer items-center gap-2 text-sm font-medium">
@@ -65,15 +67,18 @@ export function PartOptions({
               ];
             })
           }
-          onMode={(mode) => {
+          onMode={async (mode) => {
             if (
               !entry.key ||
               entry.key.kind === mode ||
               // Simple shows a placeholder while nothing is configured, so there is nothing to replace.
               answer?.placeholder !== undefined ||
-              window.confirm(
-                "Change answer type? This replaces the current private grading configuration. Hints and solution remain.",
-              )
+              (await confirm({
+                title: "Change answer type?",
+                message: "This replaces the current private grading configuration. Hints and solution remain.",
+                confirmLabel: "Change answer type",
+                danger: true,
+              }))
             ) {
               if (
                 !hasPrivate

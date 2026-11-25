@@ -1,6 +1,7 @@
 // Problem Studio opens on My drafts. New problem opens a blank editor, back returns to the list, ?draft= opens that draft.
 // Runs in the real workspace, API and disposable PostgreSQL of tests/problem-authoring.browser.mjs.
 import assert from "node:assert/strict";
+import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
 
 const newProblem = (page) => page.getByRole("button", { name: "New problem", exact: true });
 const editorMarks = (page) => [page.getByRole("button", { name: "Save now", exact: true }), page.getByRole("textbox", { name: "What's the question?" }).first()];
@@ -14,7 +15,7 @@ async function author(browser, origin, pool, id, width = 1440) {
   const page = await context.newPage();
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  page.on("dialog", (d) => d.accept());
+  await autoConfirm(page);
   return { context, page, errors };
 }
 async function noEditor(page, label) {

@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { AuthorMediaProvider } from "../components/authoring/media-controls";
 import { SimpleEditor } from "../components/authoring/simple-editor";
+import { ConfirmProvider } from "../components/authoring/confirm-sheet";
 import { addPart, allParts, applyAnswer, ensureSimpleShape, otherIssueMessages, readAnswer, setDifficulty, setQuestion, setSolution } from "../components/authoring/simple-model";
 import { authoredDraftSchema, publishableDraftSchema } from "../lib/problem-authoring";
 import { normalizeStatementImages } from "../lib/author-media";
@@ -101,12 +102,12 @@ function Harness() {
   const publishable = publishableDraftSchema.safeParse({ problemId: draft.problemId, version: draft.version, ...draftPayload(draft) });
   const otherIssues = publishable.success ? [] : otherIssueMessages(publishable.error.issues);
   return (
-    <AuthorMediaProvider problemId={draft.problemId} disabled={false} pending={() => {}}>
+    <ConfirmProvider><AuthorMediaProvider problemId={draft.problemId} disabled={false} pending={() => {}}>
       <main className="mx-auto max-w-3xl p-4">
         <h1 className="sr-only">Simple editor test</h1>
         <SimpleEditor draft={draft} userId="browser-author" edit={edit} locked={false} provisional={params.get("provisional") === "1"} otherIssues={otherIssues} onPublish={() => {}} publishing={false} onUnpublish={() => ((window as unknown as { __unpublished: number }).__unpublished = ((window as unknown as { __unpublished?: number }).__unpublished ?? 0) + 1)} />
       </main>
-    </AuthorMediaProvider>
+    </AuthorMediaProvider></ConfirmProvider>
   );
 }
 createRoot(document.getElementById("root")!).render(<React.StrictMode><Harness /></React.StrictMode>);

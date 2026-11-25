@@ -166,12 +166,12 @@ export function OrderControls({
   count: number;
   label: string;
   move: (delta: -1 | 1) => void;
-  remove: () => void | boolean;
+  remove: () => void | boolean | Promise<void | boolean>;
   /** A step this says no to is disabled, like a step past the ends. */
   canMove?: (delta: -1 | 1) => boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  function apply(delta?: -1 | 1) {
+  async function apply(delta?: -1 | 1) {
     const item = ref.current?.closest<HTMLElement>("[data-order-item]");
     const neighbor = item?.nextElementSibling?.hasAttribute("data-order-item")
       ? item.nextElementSibling
@@ -180,7 +180,7 @@ export function OrderControls({
         : item?.parentElement;
     const target = delta === undefined ? neighbor : item;
     if (delta === undefined) {
-      if (remove() === false) return;
+      if ((await remove()) === false) return;
     } else move(delta);
     requestAnimationFrame(() => {
       if (target instanceof HTMLElement && target.isConnected) {
@@ -224,6 +224,14 @@ export function OrderControls({
   );
 }
 import { MediaImage, UploadControl } from "./media-controls";
+import { useConfirm } from "./confirm-sheet";
+
+/** A block the author would lose something by removing. An empty text or equation block asks nothing. */
+function blockHasContent(block: EditorBlock) {
+  if (block.kind === "image") return true;
+  if (block.kind === "math") return block.latex.trim() !== "";
+  return block.spans.some((span) => (span.kind === "math" ? span.latex : span.text).trim() !== "");
+}
 
 export function BlocksEditor({
   blocks,
@@ -248,6 +256,7 @@ export function BlocksEditor({
   canMove?: (index: number, delta: -1 | 1) => boolean;
 }) {
   const [notice, setNotice] = useState("");
+  const confirm = useConfirm();
   return (
     <div className="space-y-4">
       <p className="sr-only" role="status">
@@ -289,7 +298,17 @@ export function BlocksEditor({
                   `${label} block ${index + 1} moved to position ${index + delta + 1}.`,
                 );
               }}
-              remove={() => {
+              remove={async () => {
+                if (
+                  blockHasContent(block) &&
+                  !(await confirm({
+                    title: `Remove ${label} block ${index + 1}?`,
+                    message: "It has content and cannot be brought back.",
+                    confirmLabel: "Remove block",
+                    danger: true,
+                  }))
+                )
+                  return false;
                 onChange(blocks.filter((b) => b.id !== block.id));
                 setNotice(
                   `${label} block deleted. ${blocks.length - 1} remain.`,

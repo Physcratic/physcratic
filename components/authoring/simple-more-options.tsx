@@ -4,6 +4,7 @@ import { ChevronDown, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { moveItem, type EditorDraft } from "@/lib/problem-authoring-editor";
 import { BlocksEditor, Field, inputClass, OrderControls } from "./editor-fields";
+import { useConfirm } from "./confirm-sheet";
 import { ProvenanceFields } from "./advanced-provenance";
 import { UnpublishZone } from "./advanced-unpublish";
 import { SolutionPermissions } from "./solution-permissions";
@@ -24,6 +25,7 @@ const sectionsWanted = (draft: EditorDraft) => draft.content.sections.length >= 
 
 /** The sections of a problem, each with its title and shared text. Parts stay in the part list above. */
 function SectionsOptions({ draft, edit }: { draft: EditorDraft; edit: Edit }) {
+  const confirm = useConfirm();
   const sections = draft.content.sections;
   // Once the section fields have appeared they stay, so clearing a title never takes the field away while it is typed in.
   const wanted = sectionsWanted(draft);
@@ -60,8 +62,8 @@ function SectionsOptions({ draft, edit }: { draft: EditorDraft; edit: Edit }) {
                 index={si}
                 count={sections.length}
                 move={(delta) => edit((d) => void (d.content.sections = moveItem(d.content.sections, si, delta)))}
-                remove={() => {
-                  if (!window.confirm("Delete this section, its parts, and their private answer content?")) return false;
+                remove={async () => {
+                  if (!(await confirm({ title: "Delete this section, its parts, and their private answer content?", confirmLabel: "Delete section", danger: true }))) return false;
                   edit((d) => removeSection(d, section.id));
                 }}
               />

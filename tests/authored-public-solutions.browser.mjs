@@ -1,5 +1,6 @@
 // Actual components/API/grader + owned disposable PostgreSQL and memory storage only.
 import assert from 'node:assert/strict';
+import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
 import {createServer} from 'node:http';
 import {createRequire} from 'node:module';
 import {readFile,mkdtemp,mkdir} from 'node:fs/promises';
@@ -127,21 +128,21 @@ try{
   const blankContext=await browser.newContext(),blank=await blankContext.newPage();await blank.goto(origin+'/?problem='+empty.id);await blank.getByRole('tab',{name:'Worked solution',exact:true}).click();await blank.getByText('No worked solution has been supplied for this revision.',{exact:true}).waitFor();await blankContext.close();
  }
  delete process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED;
- const context=await browser.newContext(),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await context.addCookies([{name:'test_user',value:'author',url:origin}]);await page.goto(origin+'/author');
+ const context=await browser.newContext();await autoConfirm(context,'manual');const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await context.addCookies([{name:'test_user',value:'author',url:origin}]);await page.goto(origin+'/author');
  const publishButton=page.getByRole('button',{name:'Publish new version',exact:true});
  await publishButton.waitFor();
  process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED='true';
- page.once('dialog',d=>{assert.match(d.message(),/Its statement becomes public/);return d.accept();});
  await publishButton.click();
+ const sheet=page.getByRole('alertdialog');await sheet.waitFor();assert.match(await sheet.innerText(),/Its statement becomes public/);await sheet.getByRole('button',{name:'Publish',exact:true}).click();
  await page.getByRole('status',{name:'Problem status',exact:true}).filter({hasText:'Reload Problem Studio'}).waitFor();
  assert.deepEqual(JSON.parse(requests.filter(r=>r.path.endsWith('/publish')).at(-1).body),{version});
  assert.equal((await parsed(await f.author('public',req(),problem.id))).id,problem.revision.id);
  assert.equal((await parsed(await f.author('read',req('author'),problem.id))).version,version);
  await page.reload();
  await publishButton.waitFor();
- page.once('dialog',d=>d.dismiss());await page.getByRole('button',{name:'Publish new version',exact:true}).click();
+ await page.getByRole('button',{name:'Publish new version',exact:true}).click();await sheet.waitFor();await sheet.getByRole('button',{name:'Cancel',exact:true}).click();await sheet.waitFor({state:'detached'});
  await page.waitForTimeout(200);const before=requests.filter(r=>r.path.endsWith('/publish')).length;
- page.once('dialog',d=>{assert.match(d.message(),/worked solution, including attached files, will be public/);return d.accept();});await page.getByRole('button',{name:'Publish new version',exact:true}).click();await page.getByRole('status',{name:'Problem status',exact:true}).filter({hasText:'Published successfully'}).waitFor();
+ await page.getByRole('button',{name:'Publish new version',exact:true}).click();await sheet.waitFor();assert.match(await sheet.innerText(),/worked solution, including attached files, will be public/);await sheet.getByRole('button',{name:'Publish',exact:true}).click();await page.getByRole('status',{name:'Problem status',exact:true}).filter({hasText:'Published successfully'}).waitFor();
  assert.equal(requests.filter(r=>r.path.endsWith('/publish')).length,before+1);assert.deepEqual(JSON.parse(requests.filter(r=>r.path.endsWith('/publish')).at(-1).body),{version,solutionPolicy:publicSolutionPolicy});
  const current=(await parsed(await f.author('public',req(),problem.id))).id;
  assert.notEqual(current,problem.revision.id);

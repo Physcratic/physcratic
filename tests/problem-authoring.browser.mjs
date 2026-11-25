@@ -2,6 +2,7 @@
 // Browser harness uses real production editor + API factory on disposable PostgreSQL.
 // Better Auth sessions are injected, not simulated browser login. Test tooling is external.
 import assert from "node:assert/strict";
+import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
 import { numericUnitsHelp } from "../lib/authored-grading-contracts.ts";
 import { createServer } from "node:http";
 import { randomUUID } from "node:crypto";
@@ -284,7 +285,7 @@ try {
     errors.push(e.message);
     console.error("Browser error:", e.message);
   });
-  page.on("dialog", (d) => d.accept());
+  await autoConfirm(page);
   // This suite drives the one editor. A problem with a picture or a PDF opens in the files view, which has the answer panel with every field and
   // the optional hints and worked solution, so the suite asks for that view for every problem. It is a view choice kept in the tab, not stored data.
   await context.addInitScript(() => {
@@ -323,6 +324,21 @@ try {
   if (!(await problemOptions.evaluate((el) => el.parentElement.open))) await problemOptions.click();
   await page.getByRole("button", { name: /^\+ Add equation to shared setup blocks$/ }).click();
   await page.getByLabel("Shared setup blocks equation 1", { exact: true }).fill(String.raw`T = 2\pi\sqrt{L/g}`);
+  // Removing a block with content asks first, and Cancel keeps it. An empty block goes without a question.
+  await setConfirmMode(page, "manual");
+  await page.getByRole("button", { name: "Delete Shared setup blocks block 1", exact: true }).click();
+  const blockSheet = page.getByRole("alertdialog");
+  await blockSheet.waitFor();
+  assert.match(await blockSheet.innerText(), /Remove Shared setup blocks block 1\?/);
+  await blockSheet.getByRole("button", { name: "Cancel", exact: true }).click();
+  await blockSheet.waitFor({ state: "detached" });
+  assert.equal(await page.getByLabel("Shared setup blocks equation 1", { exact: true }).inputValue(), String.raw`T = 2\pi\sqrt{L/g}`, "Cancel keeps the block");
+  await setConfirmMode(page, "accept");
+  const askedBefore = (await confirmsAsked(page)).length;
+  await page.getByRole("button", { name: /^\+ Add equation to shared setup blocks$/ }).click();
+  await page.getByRole("button", { name: "Delete Shared setup blocks block 2", exact: true }).click();
+  await page.getByLabel("Shared setup blocks equation 2", { exact: true }).waitFor({ state: "detached" });
+  assert.equal((await confirmsAsked(page)).length, askedBefore, "an empty block is removed without a question");
   // Two sections, reordered with the keyboard. A new section starts with one part.
   await page.getByRole("button", { name: "Add a section", exact: true }).click();
   await page.getByLabel("Section 1 title", { exact: true }).fill("Motion");
@@ -903,11 +919,11 @@ try {
             (SELECT jsonb_agg(to_jsonb(a) ORDER BY a.id) FROM authored_attempt a WHERE problem_id=$1) AS attempts`, [id],
   )).rows[0];
   const beforeRemoval = await retained();
-  page.removeAllListeners("dialog");
-  page.once("dialog", d => d.dismiss());
+  await setConfirmMode(page, "cancel");
   await remove.click();
+  await page.locator("[data-confirm-sheet]").waitFor({ state: "detached" });
   assert.equal((await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state, "published");
-  page.on("dialog", d => d.accept());
+  await setConfirmMode(page, "accept");
   const removalUrl = `**/drafts/${id}/unpublish`;
   await page.route(removalUrl, route => route.fulfill({ status: 503, json: { error: "Unavailable" } }), { times: 1 });
   await remove.click();

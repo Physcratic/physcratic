@@ -3,6 +3,7 @@
 // tolerances after switching modes, the locked symbol name and 16px text inside More options.
 // Run: node --import tsx tests/simple-options.browser.mjs   (CHROMIUM_PATH optional)
 import assert from "node:assert/strict";
+import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
 import { createServer } from "node:http";
 import { createRequire } from "node:module";
 import { mkdtemp, readFile, rm } from "node:fs/promises";
@@ -41,12 +42,11 @@ try {
     // A problem with a picture opens in the files view. This keeps the text view.
     if (session) await context.addInitScript(([k, v]) => sessionStorage.setItem(k, v), session);
     const page = await context.newPage();
-    const dialogs = [];
     page.on("pageerror", (e) => { errors.push(e.message); if (process.env.DEBUG_ERRORS) console.error(e.message.slice(0, 300)); });
-    page.on("dialog", (d) => { dialogs.push(d.message()); void d.accept(); });
+    await autoConfirm(page);
     await page.goto(`${origin}/?state=${state}${fixture ? `&fixture=${fixture}` : ""}${extra}`);
     await (extra ? page.locator("#simple-title") : page.locator('math-field[id$="-a"]').first()).waitFor();
-    return { context, page, dialogs };
+    return { context, page };
   }
   const key = (page) => page.evaluate(() => window.__draft.privateParts[0].key);
   const boxFocused = (page) => page.evaluate(() => document.activeElement?.tagName === "MATH-FIELD");
@@ -84,10 +84,10 @@ try {
 
   // 2. Expression picked in More options: the box keeps the answer while it is typed, with focus.
   {
-    const { context, page, dialogs } = await open();
+    const { context, page } = await open();
     await moreOptions(page);
     await answerType(page).selectOption("expression");
-    assert.deepEqual(dialogs, [], "nothing was configured, so no confirm");
+    assert.deepEqual(await confirmsAsked(page), [], "nothing was configured, so no confirm");
     await page.waitForFunction(() => window.__draft.privateParts[0].key?.kind === "expression");
     const box = await page.locator('math-field[id$="-a"]').elementHandle();
     await page.locator('math-field[id$="-a"]').click();

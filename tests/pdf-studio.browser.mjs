@@ -1,5 +1,6 @@
 // Extends the existing real-editor/API/disposable-PG harness, with synthetic sessions and storage.
 import assert from 'node:assert/strict';
+import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
 import {createRequire} from 'node:module';
 import {join} from 'node:path';
 import {mkdir} from 'node:fs/promises';
@@ -16,7 +17,7 @@ export async function runPdfStudioBrowser({browser,origin,pool,storage,setFail})
   const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage(),errors=[];
   const owner=`pdf-studio-${width}-${theme}`;await pool.query('INSERT INTO "user"(id) VALUES($1)',[owner]);await context.addCookies([{name:'studio_author',value:owner,url:origin}]);
   await context.addInitScript(theme=>{localStorage.setItem('physcratic.tour.studio.v1','seen');addEventListener('DOMContentLoaded',()=>document.documentElement.classList.toggle('dark',theme==='dark'),{once:true});},theme);
-  page.on('dialog',d=>d.accept());page.on('pageerror',e=>errors.push(e.stack??e.message));
+  await autoConfirm(page);page.on('pageerror',e=>errors.push(e.stack??e.message));
   await page.goto(origin);await page.getByRole('button',{name:'New problem',exact:true}).click();await openMore(page);await page.getByLabel('Upload PDFs instead',{exact:true}).check();
   await page.getByLabel('Title',{exact:true}).fill('Moving Cart');await page.waitForURL(url=>url.searchParams.has('draft'));
   const id=new URL(page.url()).searchParams.get('draft'),base=origin+'/api/authored-problems',headers={origin};

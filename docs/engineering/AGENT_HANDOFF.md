@@ -1,5 +1,13 @@
 # Agent handoff
 
+## Problem Studio confirm sheet, U7e (25 November 2026)
+
+Problem Studio no longer uses native browser confirms. One component, `components/authoring/confirm-sheet.tsx`, serves every confirm: a bottom sheet on a phone and a centred dialog from sm up, built on the existing alert dialog with no new dependency. It takes a title, an optional sentence, a confirm label, a cancel label and a danger flag. Danger shows a warning icon beside the words and the danger colour, and focus starts on Cancel. A plain confirm starts on its main action. Escape, the backdrop and Cancel run nothing, focus returns to the control that opened it, and the buttons are at least 44px. `AuthoringWorkspace` mounts the provider once. Sixteen Studio confirms were replaced with their wording kept: Publish, Unpublish, Leave anyway, Leave this problem, discard the unrecognized copy, discard the recovery copy, Use server copy, Keep local work, Remove this part, Change answer type (two places), Delete this section, make a worked solution available, delete old uploads, remove from public, and Delete this draft. Left as they were because they are student actions, not Studio actions: Close this rejected submission in `student-workspace.tsx` and View this worked solution in `worked-solution.tsx`.
+
+Removing a block that has content in the Simple editor now asks with the same sheet. The app has a toast hook but nothing uses it, so there was no undo pattern to reuse. An empty block goes without a question. The separate Remove image button is unchanged.
+
+Browser tests answer the sheet through `tests/confirm-sheet.mjs` instead of `page.on("dialog")`. The new `tests/confirm-sheet.browser.mjs` checks open, Escape, backdrop, Cancel, focus return, one run on confirm and axe with the sheet open at 1440px and 375px in light and dark. Making Cancel confirm makes it fail.
+
 ## Problem Studio Simple polish (24 November 2026)
 
 Four small fixes in the Simple editor, each with a test. Choosing a different image now swaps only the file, so the picture keeps its block, description and caption (`replacePicture` and `replaceContextPicture` in `simple-model.ts`, checked in `tests/simple-model.test.ts`). The equation chip in `rich-math-text.tsx` now has an accessible name that holds the text it shows, with the LaTeX source as its description, which fixes the axe `label-content-name-mismatch` finding. Sections carry `data-order-item`, so focus returns to the moved section after a keyboard move. The long suite `tests/problem-authoring.browser.mjs` now types a real equation chip into the main question and runs axe over it, and it asserts the focus and the kept picture description again. The stale Simple label is gone from `lib/product-guides.test.ts`.
