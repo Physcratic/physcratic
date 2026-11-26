@@ -29,7 +29,12 @@ const channel = (v: number) => { const x = v / 255; return x <= 0.03928 ? x / 12
 const luminance = ([r, g, b]: Rgb) => 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b)
 const contrast = (a: Rgb, b: Rgb) => { const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x); return (hi + 0.05) / (lo + 0.05) }
 
-const themes = { light: ":root {", dark: ".dark {" } as const
+// Ink is the default and is written on :root. Paper and Sky are written on a data-colour attribute. All six are measured.
+const themes = {
+  light: ':root, [data-colour="ink"] {', dark: '.dark, .dark [data-colour="ink"] {',
+  "paper light": '[data-colour="paper"] {', "paper dark": '.dark[data-colour="paper"], .dark [data-colour="paper"] {',
+  "sky light": '[data-colour="sky"] {', "sky dark": '.dark[data-colour="sky"], .dark [data-colour="sky"] {',
+} as const
 const families = ["success", "progress", "danger", "idle"] as const
 // Hue ranges in degrees. Red is below 15 or above 345.
 const hue = { success: [130, 170], progress: [15, 40], danger: [0, 15], idle: [0, 360] } as const

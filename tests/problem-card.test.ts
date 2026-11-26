@@ -444,14 +444,15 @@ test("a card that is not favourited has a neutral outline toggle with the count 
   assert.ok(button.includes(`aria-describedby="${titleId}"`));
 });
 
-test("a favourited card fills the heart with the primary token, never red, and keeps the strong outline", () => {
+test("a favourited card fills the heart with the rose accent, never the red that means wrong, and keeps its word", () => {
   const html = render({ ...base, onOpen() {}, likeCount: 1, liked: true, onToggleLike() {} });
   const button = likeButton(html);
   assert.match(button, /aria-pressed="true"/);
   assert.match(button, />Favourited<\/button>$/);
-  assert.match(button, /fill-primary/);
-  assert.match(button, /stroke-foreground/);
-  assert.doesNotMatch(button, /\b(?:fill|text|stroke|bg)-red|destructive|fill-current/);
+  assert.match(button, /fill-rose stroke-rose/);
+  assert.doesNotMatch(button, /\b(?:fill|text|stroke|bg)-(?:red|danger)|destructive|fill-current|fill-primary/);
+  const unliked = likeButton(render({ ...base, onOpen() {}, likeCount: 1, liked: false, onToggleLike() {} }));
+  assert.match(unliked, /fill-transparent stroke-foreground/, "an unfavourited heart is an outline in the text colour");
   // The short fill animation is off under reduced motion.
   assert.match(button, /transition-\[fill\] duration-200/);
   assert.match(button, /motion-reduce:transition-none/);
