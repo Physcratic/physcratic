@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { spawnSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { captureTransport, runPsqlCapture } from "./transport.mjs";
 
 const root = fileURLToPath(new URL("../../", import.meta.url));
 const local = name => readFileSync(new URL(name, import.meta.url));
@@ -62,7 +63,8 @@ function validatePlan(plan, reference) {
     || !target.providerProject?.trim() || !target.providerBranch?.trim() || !/^[a-zA-Z0-9.-]+$/.test(target.endpoint ?? "")
     || !Number.isInteger(target.port) || target.port < 1 || target.port > 65535
     || !plan.ownershipAndAclEvidence?.trim() || !plan.objectOwner?.trim() || !plan.runtimeRole?.trim()
-    || plan.runtimeRole === target.login || ![target.database, target.login, target.databaseOwner, target.schemaOwner].every(x => x?.trim())
+    || plan.runtimeRole === target.login || !/^[A-Za-z0-9_.-]+$/.test(target.database ?? "")
+    || ![target.login, target.databaseOwner, target.schemaOwner].every(x => x?.trim())
     || !Number.isInteger(target.version) || target.version < 180000 || target.version > 189999
     || !plan.expectedLaterMigrations || !plan.ownerOverrides || !Array.isArray(plan.additionalGrants)
     || !Array.isArray(plan.publicRevocations) || !Array.isArray(plan.defaultAcl)
@@ -185,24 +187,27 @@ function verifySecurity(capture, plan, reference, findings) {
 }
 
 try {
-  const [planPath, expectedPlan, expectedManifest, capturePath] = process.argv.slice(2);
-  if (process.argv.length !== 6) throw Error("Usage: node verify.mjs PLAN PLAN_SHA256 MANIFEST_SHA256 CAPTURE");
+  const [planPath, expectedPlan, expectedManifest, capturePath, mode, ...extra] = process.argv.slice(2);
+  if (!capturePath || extra.length || (mode && mode !== "--capture")) {
+    throw Error("Usage: node verify.mjs PLAN PLAN_SHA256 MANIFEST_SHA256 CAPTURE [--capture]");
+  }
   verifyPackage(expectedManifest);
   const planBytes = readFileSync(planPath);
   if (!digestPattern.test(expectedPlan) || sha(planBytes) !== expectedPlan) throw Error("Inspection plan checksum mismatch");
-  const captureBytes = readFileSync(capturePath);
   const plan = JSON.parse(planBytes);
-  const capture = JSON.parse(captureBytes);
   const reference = JSON.parse(local("reference.json"));
   validatePlan(plan, reference);
-  if (capture.captureVersion !== 1) throw Error("Unexpected capture format");
+  if (mode === "--capture") runPsqlCapture(plan, capturePath);
+  const captureBytes = readFileSync(capturePath);
+  const capture = JSON.parse(captureBytes);
+  if (capture.captureVersion !== 2) throw Error("Unexpected capture format");
   const findings = [];
   for (const key of ["database", "login", "version", "databaseOwner", "schemaOwner"]) {
     if (capture.target[key] !== plan.target[key]) findings.push({ check: "capture target", key });
   }
-  if (!/^TLSv1\.[23]$/.test(capture.target.tls) || !Number.isFinite(Date.parse(capture.target.capturedAt))) {
-    findings.push({ check: "capture timestamp or TLS" });
-  }
+  const transport = captureTransport(capture);
+  if (!transport) findings.push({ check: "client or backend transport evidence" });
+  if (!Number.isFinite(Date.parse(capture.target.capturedAt))) findings.push({ check: "capture timestamp" });
   if (capture.inconsistentConsent !== 0) findings.push({ check: "inconsistent consent" });
   verifyLedger(capture.ledger, capture.target, plan, reference, findings);
   verifyCatalogue(capture, plan, reference, findings);
@@ -210,6 +215,7 @@ try {
   console.log(JSON.stringify({
     status: findings.length ? "DRIFT_OR_UNVERIFIED" : "CATALOGUE_MATCH_PENDING_REVIEW",
     capturedAt: capture.target.capturedAt,
+    transport,
     captureSha256: sha(captureBytes),
     ledgerSha256: sha(encode(capture.ledger)),
     packageManifestSha256: expectedManifest,

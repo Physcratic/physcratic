@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Retrospective baseline transport (26 November 2026)
+
+The owner verified the direct inspection and pooled runtime LOGINs. The retrospective capture now observes client TLS through the same verify-full psql invocation as the read-only snapshot. It preserves the backend SSL flag and protocol separately. The Windows checkout keeps the 0020 source pin in LF. [Owner preflight and pending acceptance](RETROSPECTIVE_BASELINE_ACCEPTANCE.md#owner-connection-preflight-26-november-2026). Phase 5B and Step 2 gates remain in place.
+
 ## Problem Studio confirm sheet, U7e (25 November 2026)
 
 Problem Studio no longer uses native browser confirms. One component, `components/authoring/confirm-sheet.tsx`, serves every confirm: a bottom sheet on a phone and a centred dialog from sm up, built on the existing alert dialog with no new dependency. It takes a title, an optional sentence, a confirm label, a cancel label and a danger flag. Danger shows a warning icon beside the words and the danger colour, and focus starts on Cancel. A plain confirm starts on its main action. Escape, the backdrop and Cancel run nothing, focus returns to the control that opened it, and the buttons are at least 44px. `AuthoringWorkspace` mounts the provider once. Sixteen Studio confirms were replaced with their wording kept: Publish, Unpublish, Leave anyway, Leave this problem, discard the unrecognized copy, discard the recovery copy, Use server copy, Keep local work, Remove this part, Change answer type (two places), Delete this section, make a worked solution available, delete old uploads, remove from public, and Delete this draft. Left as they were because they are student actions, not Studio actions: Close this rejected submission in `student-workspace.tsx` and View this worked solution in `worked-solution.tsx`.

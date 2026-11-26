@@ -41,23 +41,20 @@ $Target = $Plan.target
 if (-not $Plan.approvalToInspect -or -not $Target.providerBindingRef -or -not $Target.providerProject -or -not $Target.providerBranch) { throw 'Inspection approval and target evidence required' }
 if ($Target.endpoint -cnotmatch '^[a-zA-Z0-9.-]+$' -or $Target.database -cnotmatch '^[a-zA-Z0-9_.-]+$' -or $Target.port -lt 1 -or $Target.port -gt 65535) { throw 'Unsupported target format' }
 $Capture = Join-Path $EvidenceDir 'baseline-capture.json'
-if (-not (Test-Path -PathType Container -LiteralPath $EvidenceDir) -or (Test-Path -LiteralPath $Capture)) { throw 'Private directory and fresh filename required' }
-Remove-Item Env:PGSERVICE,Env:PGSERVICEFILE,Env:PGHOSTADDR,Env:PGOPTIONS -ErrorAction SilentlyContinue
-$env:PGSSLMODE = 'verify-full'
-$env:PGCONNECT_TIMEOUT = '5'
-$env:PGCLIENTENCODING = 'UTF8'
-& psql -X -qAt --set=ON_ERROR_STOP=1 --host $Target.endpoint --port $Target.port --dbname $Target.database --username $Target.login `
-  --set "expected_database=$($Target.database)" --set "expected_login=$($Target.login)" --set "expected_version=$($Target.version)" `
-  --set "runtime_role=$($Plan.runtimeRole)" --output $Capture --file (Join-Path $Package 'capture.sql')
-if ($LASTEXITCODE -ne 0) { throw 'Capture failed. Preserve the partial file privately for review.' }
+$Report = Join-Path $EvidenceDir 'baseline-verification.json'
+if (-not (Test-Path -PathType Container -LiteralPath $EvidenceDir) -or
+    (Test-Path -LiteralPath $Capture) -or (Test-Path -LiteralPath $Report)) { throw 'Private directory and fresh filenames required' }
 
-& node (Join-Path $Package 'verify.mjs') $PlanPath $ExpectedPlan $ExpectedManifest $Capture
-if ($LASTEXITCODE -ne 0) { throw 'Baseline remains unverified' }
+& node (Join-Path $Package 'verify.mjs') $PlanPath $ExpectedPlan $ExpectedManifest $Capture --capture |
+  Tee-Object -FilePath $Report
+if ($LASTEXITCODE -ne 0) { throw 'Baseline remains unverified. Preserve any report and capture privately.' }
 ```
 
 Record the report output in the restricted review space. Exit 0 reports `CATALOGUE_MATCH_PENDING_REVIEW` with the precise capture, ledger, plan and manifest digests. Exit 2 reports unexpected or unverified evidence. Exit 1 indicates an invalid package, plan, capture or tool failure. Any nonzero result keeps the hold. The captured ledger digest is specific to this package's JSON representation. The 0026 installer has its own ledger digest contract.
 
-The database session runs a single bounded, repeatable-read, read-only transaction. It checks login, database, server version and TLS in SQL and uses schema-qualified tables. It does not invoke application routines. There is no alteration, role change, migration lock, replay or ledger write. Reviewers compare the full current ledger with existing accepted Step 2 evidence, the canonical source and the scope-specific result. Missing original receipts stay unknown. Do not lower the existing checks to obtain a passing result.
+The runner forces libpq `sslmode=verify-full` and `gssencmode=disable` for the approved direct hostname. Keep the existing trusted CA and credentials. A single `psql` process runs `\conninfo` followed by the pinned SQL on the same connection. Only the observed client TLS line is retained. Missing or unsupported client TLS evidence stops the run. The report records the enforced client mode and the observed TLS protocol. PostgreSQL's `pg_stat_ssl` SSL flag and protocol are captured separately, including `false` and `null` on a backend connection without TLS. Neon documents the proxy and compute as separate connection legs. Its proxy source accepts client TLS and selects the compute leg's SSL mode independently. [Neon client TLS requirements](https://neon.com/docs/connect/connect-securely) [Neon proxy and compute connection](https://neon.com/docs/connect/connection-errors#couldnt-connect-to-compute-node) [Neon client handshake](https://github.com/neondatabase/neon/blob/fa504217c61bbcaf5c512d75830564541f917f8f/proxy/src/pglb/handshake.rs#L75-L118) [Neon compute SSL mode](https://github.com/neondatabase/neon/blob/fa504217c61bbcaf5c512d75830564541f917f8f/proxy/src/control_plane/client/cplane_proxy_v1.rs#L308-L316) [PostgreSQL SSL statistics](https://www.postgresql.org/docs/18/monitoring-stats.html#MONITORING-PG-STAT-SSL-VIEW)
+
+The SQL runs a single bounded, repeatable-read, read-only transaction. It checks the target database, unassumed inspection LOGIN, PostgreSQL version, runtime role existence and expected evidence tables. The read-only SQL invokes no application routines. The offline verifier checks database and schema ownership and preserves Step 2. To reverify an existing capture offline, use the same Node command with the existing capture path and omit `--capture`. The corrected format requires current same-session client and backend evidence. There is no alteration, role change, migration lock, replay or ledger write. Reviewers compare the full current ledger with existing accepted Step 2 evidence, the canonical source and the scope-specific result. Missing original receipts stay unknown. Do not lower the existing checks to obtain a passing result.
 
 ## Independent review and acceptance
 
@@ -69,4 +66,4 @@ The reviewer verifies the exact package and plan, rechecks the provider and runt
 bash scripts/retrospective-baseline/rehearse-local.sh
 ```
 
-The harness uses its own local Docker container, PostgreSQL 18.7, OpenSSL, Node and canonical migrations with synthetic ledger rows. It regenerates the reference for comparison, exercises the same TLS capture and offline verifier, and introduces catalogue, trigger, function, owner, column grant and ledger drift. Use `--reference` to print a refreshed reference for review from that fixture. Never derive it from the target database.
+The harness uses its own local Docker container, PostgreSQL 18.7, OpenSSL, Node, local psql and canonical migrations with synthetic ledger rows. It regenerates the reference for comparison, exercises verified TLS on a direct connection and through a local TLS-terminating proxy, confirms the backend observations differ, rejects missing client evidence, an untrusted CA and a hostname mismatch, and introduces catalogue, trigger, function, owner, column grant and ledger drift. Use `--reference` to print a refreshed reference for review from that fixture. Never derive it from the target database.

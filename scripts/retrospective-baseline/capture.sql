@@ -10,7 +10,6 @@ SELECT current_database() = :'expected_database'
   AND current_setting('server_version_num') = :'expected_version'
   AND current_setting('server_version_num')::int BETWEEN 180000 AND 189999
   AND NOT pg_is_in_recovery()
-  AND EXISTS (SELECT FROM pg_stat_ssl WHERE pid = pg_backend_pid() AND ssl)
   AND EXISTS (SELECT FROM pg_roles WHERE rolname = :'runtime_role')
   AND (SELECT count(*)=2 FROM pg_class WHERE relnamespace='public'::regnamespace
        AND relname IN ('authored_revision','physcratic_production_migrations')
@@ -18,7 +17,7 @@ SELECT current_database() = :'expected_database'
   AS target_matches \gset
 \if :target_matches
 \else
-\warn 'Unexpected target, inspection LOGIN, TLS or evidence-table kind/security.'
+\warn 'Unexpected target, inspection LOGIN, recovery state or evidence-table kind/security.'
 SELECT 1/0;
 \endif
 
@@ -132,10 +131,11 @@ WITH relations AS (
   WHERE (d.defaclnamespace=0 OR n.nspname='public') AND d.defaclrole IN (SELECT owner FROM objects)
 )
 SELECT jsonb_build_object(
-  'captureVersion',1,
+  'captureVersion',2,
   'target',jsonb_build_object('database',current_database(),'login',session_user,
     'version',current_setting('server_version_num')::int,'capturedAt',statement_timestamp(),
-    'tls',(SELECT version FROM pg_stat_ssl WHERE pid=pg_backend_pid() AND ssl),
+    'backendTls',(SELECT jsonb_build_object('ssl',ssl,'protocol',version)
+      FROM pg_stat_ssl WHERE pid=pg_backend_pid()),
     'databaseOwner',(SELECT pg_get_userbyid(datdba) FROM pg_database WHERE datname=current_database()),
     'schemaOwner',(SELECT pg_get_userbyid(nspowner) FROM pg_namespace WHERE nspname='public')),
   'ledger',(SELECT coalesce(jsonb_agg(jsonb_build_object('id',id,'sha256',sha256,'sourceCommit',source_commit,
