@@ -8,6 +8,7 @@ import {
 } from "@/lib/authored-student";
 import { Button } from "@/components/ui/button";
 import { Field, inputClass } from "./editor-fields";
+import { useConfirm } from "./confirm-sheet";
 import { dateInputToExpiry, expiryDateProblem, expiryToDateInput, todayUtc } from "@/lib/solution-expiry";
 const id = z.uuid();
 const metadata = z.object({
@@ -23,6 +24,7 @@ const metadata = z.object({
   solutionPdfIds: z.array(id),
 });
 export function SolutionPermissions({ problemId }: { problemId: string }) {
+  const confirm = useConfirm();
   const [revision, setRevision] = useState<PublicRevision | null>(null),
     [part, setPart] = useState(""),
     [data, setData] = useState<z.infer<typeof metadata> | null>(null),
@@ -114,13 +116,19 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
       );
       return;
     }
+    const asked = epoch.current;
     if (
       enabled &&
-      !window.confirm(
-        "Make this immutable part’s complete worked solution, all its images and selected PDFs available to verified students? Previously downloaded content cannot be recalled.",
-      )
+      !(await confirm({
+        title: "Make this immutable part’s complete worked solution, all its images and selected PDFs available to verified students?",
+        message: "Previously downloaded content cannot be recalled.",
+        confirmLabel: "Make available",
+        danger: true,
+      }))
     )
       return;
+    // A read or another save may have run while the sheet was open. This answer was for the data it showed.
+    if (lock.current || epoch.current !== asked) return;
     const original = data;
     lock.current = true;
     setBusy(true);

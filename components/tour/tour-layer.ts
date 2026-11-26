@@ -8,6 +8,8 @@ export const MENU_LAYER = 50;
 export const RING_PAGE_LAYER = 25;
 export const RING_HEADER_LAYER = 45;
 export const CARD_LAYER = 61;
+/** The Studio confirm sheet and its backdrop. They sit above the tour card, so an open tour never covers a question. */
+export const CONFIRM_LAYER = CARD_LAYER + 10;
 
 type Targetable = { closest(selector: string): unknown; dataset?: { tour?: string } };
 

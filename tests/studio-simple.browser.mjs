@@ -4,6 +4,7 @@
 // Test an answer, the 375px layout, the carry-over of fast typing and the student side.
 // Run: AUTHORING_TEST_DATABASE_URL=postgresql://postgres@127.0.0.1:PORT/physcratic_authoring_test CHROMIUM_PATH=/path/to/chrome node --require ./tests/server-only-register.cjs --import tsx tests/studio-easy.browser.mjs
 import assert from "node:assert/strict";
+import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
 import { numericUnitsHelp } from "../lib/authored-grading-contracts.ts";
 import { createServer } from "node:http";
 import { createRequire } from "node:module";
@@ -256,7 +257,7 @@ try {
     const context = await browser.newContext(profile ?? { viewport: { width, height } });
     const page = await context.newPage();
     page.on("pageerror", (e) => { errors.push(e.message); console.error("Browser error:", e.message); });
-    page.on("dialog", (d) => d.accept());
+    await autoConfirm(page);
     return { context, page };
   };
   const saved = (page) => until(async () => (await page.getByRole("status").allTextContents()).some((t) => t.includes("All changes saved")), "autosave");
@@ -439,16 +440,17 @@ try {
   await saved(page);
   // Cancelling the confirm publishes nothing and leaves Publish ready.
   {
-    const asked = [];
-    page.removeAllListeners("dialog");
-    page.once("dialog", (d) => { asked.push(d.message()); void d.dismiss(); });
+    await setConfirmMode(page, "manual");
     await page.getByRole("button", { name: "Publish", exact: true }).click();
-    await until(async () => asked.length === 1, "the publish confirm appears");
+    const sheet = page.getByRole("alertdialog");
+    await sheet.waitFor();
+    assert.match((await sheet.innerText()).replace(/\s+/g, " "), /^Publish this version\? Its statement becomes public\. Your grading keys stay private\. Cancel Publish$/, "the confirm text is unchanged");
+    await sheet.getByRole("button", { name: "Cancel", exact: true }).click();
+    await sheet.waitFor({ state: "detached" });
     await page.waitForTimeout(1500);
-    assert.match(asked[0], /^Publish this version\? Its statement becomes public\. Your grading keys stay private\.$/, "the confirm text is unchanged");
     assert.notEqual((await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state, "published", "a cancelled confirm publishes nothing");
     assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isEnabled(), true, "Publish is ready again");
-    page.on("dialog", (d) => d.accept());
+    await setConfirmMode(page, "accept");
   }
   await click(page.getByRole("button", { name: "Publish", exact: true }));
   await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state === "published", "publish");

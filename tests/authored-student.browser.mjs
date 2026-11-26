@@ -8,6 +8,7 @@ import { createRequire } from "node:module";
 import { readFile, mkdtemp, rm } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 import { join, basename } from "node:path";
+import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
 import { tmpdir } from "node:os";
 import { Pool } from "pg";
 import { createAuthoredSolutionApi } from "../lib/authored-solution-api.ts";
@@ -452,7 +453,9 @@ try {
   page.setDefaultTimeout(15000);
   const errors = [];
   page.on("pageerror", (e) => errors.push(e.message));
+  // The student confirms are still native. Making a solution available asks with the Studio sheet.
   page.on("dialog", (d) => d.accept());
+  await autoConfirm(page);
   const route = `${origin}/dashboard/authored/${problemId}`;
   async function account(who) {
     await context.clearCookies();
@@ -1019,6 +1022,25 @@ try {
     .getByText("Private. Permission version 0", { exact: false })
     .waitFor();
   await page.getByLabel(/I explicitly approve all/).check();
+  // A reload that runs while the sheet is open cancels the save, because the answer was for the data the sheet showed.
+  {
+    await setConfirmMode(page, "manual");
+    const puts = [];
+    const onRequest = (r) => { if (r.url().endsWith("/permission") && r.method() === "PUT") puts.push(r.url()); };
+    page.on("request", onRequest);
+    await page.getByRole("button", { name: "Confirm student access", exact: true }).click();
+    const sheet = page.getByRole("alertdialog");
+    await sheet.waitFor();
+    await page.evaluate(() => [...document.querySelectorAll("button")].find((b) => b.textContent.includes("Reload permission metadata"))?.click());
+    await page.getByText("Permission metadata loaded", { exact: false }).waitFor();
+    await sheet.getByRole("button", { name: "Make available", exact: true }).click();
+    await sheet.waitFor({ state: "detached" });
+    await page.waitForTimeout(800);
+    assert.deepEqual(puts, [], "no save is sent for a sheet that was answered after a reload");
+    page.off("request", onRequest);
+    await setConfirmMode(page, "accept");
+    await page.getByLabel(/I explicitly approve all/).check();
+  }
   await page.route("**/permission", (r) =>
     r.fulfill({ status: 503, contentType: "application/json", body: "{}" }),
   );
@@ -1028,6 +1050,7 @@ try {
   await page
     .getByText("Change uncertain or conflicted", { exact: false })
     .waitFor();
+  assert.ok((await confirmsAsked(page)).some((a) => /available to verified students/.test(a.title)), "the permission sheet appeared");
   assert.equal(
     await page
       .getByRole("button", { name: "Confirm student access", exact: true })

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, FilePlus2, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -14,6 +14,7 @@ import {
 } from "@/lib/problem-authoring-editor";
 import { AuthorCredit } from "./author-credit";
 import { ProblemEditor } from "./problem-editor";
+import { ConfirmProvider, useConfirm } from "./confirm-sheet";
 import { ensureSimpleShape } from "./simple-model";
 
 /** A new problem that lives only in this tab until the first edit saves it. */
@@ -37,12 +38,25 @@ type DraftItem = {
   version: number;
   updatedAt: string;
 };
-export function AuthoringWorkspace({
+/** Problem Studio's drafts list and editor. One confirm sheet serves every confirm inside it. */
+export function AuthoringWorkspace(props: { userId: string; publicSolutionsEnabled?: boolean; authorCreditEnabled?: boolean }) {
+  return (
+    <ConfirmProvider>
+      <WorkspaceBody {...props} />
+    </ConfirmProvider>
+  );
+}
+
+function WorkspaceBody({
   userId, publicSolutionsEnabled = false, authorCreditEnabled = false,
 }: { userId: string; publicSolutionsEnabled?: boolean; authorCreditEnabled?: boolean }) {
+  const confirm = useConfirm();
   const [items, setItems] = useState<DraftItem[]>([]),
     [cursor, setCursor] = useState<string | null>(null);
   const [selected, setSelected] = useState<EditorDraft | null>(null);
+  // The sheet answers later than the click. A list action reads its row again from the latest list.
+  const itemsRef = useRef(items);
+  itemsRef.current = items;
   /** "list": My drafts, where Problem Studio opens. "new": the editor on a blank problem that is saved at the first edit. */
   const [view, setView] = useState<"new" | "list">("list");
   const [fresh, setFresh] = useState<EditorDraft>(() => blankDraft());
@@ -186,9 +200,12 @@ export function AuthoringWorkspace({
             disabled={busy}
             onClick={async () => {
               if (
-                !window.confirm(
-                  "Delete up to five old unlinked uploads? Saved drafts and published history stay protected. Unsaved recovery references older than 24 hours may need replacement.",
-                )
+                !(await confirm({
+                  title: "Delete up to five old unlinked uploads?",
+                  message: "Saved drafts and published history stay protected. Unsaved recovery references older than 24 hours may need replacement.",
+                  confirmLabel: "Delete uploads",
+                  danger: true,
+                }))
               )
                 return;
               setBusy(true);
@@ -283,9 +300,14 @@ export function AuthoringWorkspace({
                         variant="outline"
                         disabled={busy || refreshRequired}
                         onClick={async () => {
-                          if (!window.confirm(
-                            `Remove "${item.title || "Untitled problem"}" from public? It will leave public discovery and stop accepting new submissions. Earlier revisions and student records are retained. You can publish it again from Studio.`,
-                          )) return;
+                          if (!(await confirm({
+                            title: `Remove "${item.title || "Untitled problem"}" from public?`,
+                            message: "It will leave public discovery and stop accepting new submissions. Earlier revisions and student records are retained. You can publish it again from Studio.",
+                            confirmLabel: "Remove from public",
+                            danger: true,
+                          }))) return;
+                          const current = itemsRef.current.find((row) => row.problemId === item.problemId);
+                          if (!current || current.state !== "published") return;
                           setBusy(true);
                           setError("");
                           setRemovalNotice("");
@@ -293,7 +315,7 @@ export function AuthoringWorkspace({
                             const result = await draftRequest(
                               `${editorBase}/${item.problemId}/unpublish`,
                               "POST",
-                              { version: item.version },
+                              { version: current.version },
                             );
                             setItems(previous => previous.map(row => row.problemId === item.problemId
                               ? { ...row, state: result.state, version: result.version }
@@ -319,18 +341,23 @@ export function AuthoringWorkspace({
                       disabled={busy || item.state === "published"}
                       onClick={async () => {
                         if (
-                          !window.confirm(
-                            "Delete this draft? Saved working content is removed. Historical published revisions are retained. Download any unsaved recovery work first.",
-                          )
+                          !(await confirm({
+                            title: "Delete this draft?",
+                            message: "Saved working content is removed. Historical published revisions are retained. Download any unsaved recovery work first.",
+                            confirmLabel: "Delete draft",
+                            danger: true,
+                          }))
                         )
                           return;
+                        const current = itemsRef.current.find((row) => row.problemId === item.problemId);
+                        if (!current || current.state === "published") return;
                         setBusy(true);
                         setError("");
                         try {
                           await draftRequest(
                             `${editorBase}/${item.problemId}`,
                             "DELETE",
-                            { version: item.version },
+                            { version: current.version },
                           );
                           try {
                             sessionStorage.removeItem(

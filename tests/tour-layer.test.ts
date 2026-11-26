@@ -6,7 +6,7 @@ import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { AppRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import TopNav from "../components/kokonutui/top-nav";
-import { CARD_LAYER, HEADER_LAYER, MENU_BUTTON_LAYER, MENU_LAYER, RING_HEADER_LAYER, RING_PAGE_LAYER, ringLayer } from "../components/tour/tour-layer";
+import { CARD_LAYER, CONFIRM_LAYER, HEADER_LAYER, MENU_BUTTON_LAYER, MENU_LAYER, RING_HEADER_LAYER, RING_PAGE_LAYER, ringLayer } from "../components/tour/tour-layer";
 import { plainTourText, TourText } from "../components/tour/tour-text";
 import { tours } from "../components/tour/tours";
 
@@ -43,6 +43,12 @@ test("the header really sits on the layer the ring is measured against", () => {
   const tour = readFileSync("components/tour/guided-tour.tsx", "utf8");
   assert.ok(tour.includes("ringLayer(target)") && !/z-\[60\]/.test(tour));
   assert.ok(tour.includes(`z-[${CARD_LAYER}]`));
+});
+
+test("the Studio confirm sheet and its backdrop sit above the tour card", () => {
+  assert.ok(CONFIRM_LAYER > CARD_LAYER);
+  const sheet = readFileSync("components/authoring/confirm-sheet.tsx", "utf8");
+  assert.equal((sheet.match(/zIndex: CONFIRM_LAYER/g) ?? []).length, 2, "the backdrop and the sheet both use the layer");
 });
 
 test("keys in tour text are marked as key chips, and the markers are balanced", () => {

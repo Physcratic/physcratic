@@ -18,6 +18,7 @@ import { MediaAttachments } from "./media-controls";
 import { PROBLEM_OPTIONS_ERROR_ID, ProblemMoreOptions, SIMPLE_TEXT_SCOPE } from "./simple-more-options";
 import { AnswerPanel } from "./answer-panel";
 import { BlocksEditor } from "./editor-fields";
+import { useConfirm } from "./confirm-sheet";
 import { setPartAnswerMode } from "@/lib/problem-authoring-editor";
 import {
   ADAPTED_RIGHTS_TEXT,
@@ -105,6 +106,7 @@ export type SimpleProps = {
 
 export function SimpleEditor(props: SimpleProps) {
   const { draft, userId, edit, locked, provisional, otherIssues, onPublish, publishing, onUnpublish } = props;
+  const confirm = useConfirm();
   const workflowKey = `physcratic.studio.files.v1:${userId}:${draft.problemId}`;
   /** What the author typed for each answer, which can be ahead of the saved key when it cannot be read yet. */
   const [typed, setTyped] = useState<Record<string, string>>({});
@@ -249,8 +251,8 @@ export function SimpleEditor(props: SimpleProps) {
           handGraded={isHandGraded(draft, part.id, handGraded)}
           onHandGraded={(on) => markHandGraded(part.id, on)}
           onForgetTyped={() => setTyped((t) => Object.fromEntries(Object.entries(t).filter(([id]) => id !== part.id)))}
-          onRemove={() => {
-            if (!window.confirm("Remove this part and its answer?")) return;
+          onRemove={async () => {
+            if (!(await confirm({ title: "Remove this part and its answer?", confirmLabel: "Remove part", danger: true }))) return;
             edit((d) => removePart(d, part.id));
           }}
         />
@@ -616,6 +618,7 @@ function PartEditor({
   const position = section.parts.findIndex((p) => p.id === partId);
   const optionsRef = useRef<HTMLDivElement>(null);
   const noteRef = useRef<HTMLDivElement>(null);
+  const confirm = useConfirm();
   const [focusBox, setFocusBox] = useState(false);
   function chooseExplain() {
     if (key?.kind !== "manual") edit((d) => setSimpleAnswerMode(d, partId, "manual"));
@@ -700,9 +703,9 @@ function PartEditor({
 
       {fileFirst ? <div className="space-y-3" data-simple-field={`a:${partId}`}>
         <h3 className={labelClass}>Answer key</h3>
-        <AnswerPanel compact entry={entry} mode={part.answerMode} onChange={value => edit(d => { d.privateParts = [...d.privateParts.filter(p => p.partId !== partId), value]; })} onMode={mode => {
+        <AnswerPanel compact entry={entry} mode={part.answerMode} onChange={value => edit(d => { d.privateParts = [...d.privateParts.filter(p => p.partId !== partId), value]; })} onMode={async mode => {
           if (mode === part.answerMode && entry.key) return;
-          if (entry.key && !window.confirm("Change answer type? This replaces the current answer configuration. Hints and solution remain.")) return;
+          if (entry.key && !(await confirm({ title: "Change answer type?", message: "This replaces the current answer configuration. Hints and solution remain.", confirmLabel: "Change answer type", danger: true }))) return;
           edit(d => setPartAnswerMode(d, partId, mode));
         }} />
         {!entry.key && <Button type="button" variant="outline" onClick={() => edit(d => setPartAnswerMode(d, partId, part.answerMode))}>Set answer configuration</Button>}
