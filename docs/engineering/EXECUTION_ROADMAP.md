@@ -1,3 +1,7 @@
+## Retrospective migration baseline acceptance (25 November 2026)
+
+Phase 5B stays on hold. Reconcile 0020, 0021, 0022 and 0024 using the [dated record and read-only verification package](RETROSPECTIVE_BASELINE_ACCEPTANCE.md). Require a fresh capture, independent review and explicit owner acceptance. Coordinate a quiet capture window with the 0026 operator. Keep 0025 for personal completions and preserve existing Step 2, erasure and recovery gates.
+
 ## Problem Studio Simple polish (24 November 2026)
 
 Four small fixes in the Simple editor, each with a test. Choosing a different image now swaps only the file, so the picture keeps its block, description and caption (`replacePicture` and `replaceContextPicture` in `simple-model.ts`, checked in `tests/simple-model.test.ts`). The equation chip in `rich-math-text.tsx` now has an accessible name that holds the text it shows, with the LaTeX source as its description, which fixes the axe `label-content-name-mismatch` finding. Sections carry `data-order-item`, so focus returns to the moved section after a keyboard move. The long suite `tests/problem-authoring.browser.mjs` now types a real equation chip into the main question and runs axe over it, and it asserts the focus and the kept picture description again. The stale Simple label is gone from `lib/product-guides.test.ts`.
