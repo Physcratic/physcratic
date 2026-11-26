@@ -301,14 +301,24 @@ try {
   await page.waitForURL((url) => url.searchParams.has("draft"));
   const id = new URL(page.url()).searchParams.get("draft");
   assert.ok(id);
-  // The main question holds text, then an equation block in the shared setup, and later its picture.
-  // An equation typed inside the question text is a chip that axe reports for its accessible name (label-content-name-mismatch), so
-  // the equation is a block here. Reported in the Phase 1 notes as something the Classic-only suite was hiding.
-  // So axe in this suite does not cover the equation chip.
+  // The main question holds text with an equation chip, then an equation block in the shared setup, and later its picture.
   await page.getByText("Optional typed statement and setup image", { exact: true }).click();
   const main = page.getByRole("textbox", { name: "Main question (optional)" });
   await main.click();
-  await main.pressSequentially("A pendulum swings through a small angle. ");
+  await main.pressSequentially("A pendulum swings through a small angle ");
+  await page.keyboard.type("$");
+  const chipPanel = page.getByRole("group", { name: "Type your equation" });
+  await chipPanel.waitFor();
+  await chipPanel.locator("math-field").first().waitFor({ timeout: 20000 });
+  await page.waitForTimeout(300);
+  await page.keyboard.type(String.raw`T=2\pi `);
+  await page.keyboard.press("Escape");
+  await chipPanel.waitFor({ state: "detached" });
+  await page.keyboard.type(" and the string is light. ");
+  // The chip is the equation inline in the text. Its accessible name holds the text it shows, and axe below covers it.
+  const chipName = await main.locator("[data-math-id]").first().getAttribute("aria-label");
+  assert.match(chipName ?? "", /^Equation .*T.*2.*π/);
+  assert.ok(!(chipName ?? "").includes("\\"), "the name is the shown text, not LaTeX");
   const problemOptions = page.locator('summary[aria-label="More options for the whole problem"]');
   if (!(await problemOptions.evaluate((el) => el.parentElement.open))) await problemOptions.click();
   await page.getByRole("button", { name: /^\+ Add equation to shared setup blocks$/ }).click();
@@ -320,8 +330,8 @@ try {
   await page.getByRole("button", { name: "Move section 2 up", exact: true }).focus();
   await page.keyboard.press("Enter");
   assert.equal(await page.getByLabel("Section 1 title", { exact: true }).inputValue(), "Energy");
-  // Classic put focus back on the moved section. Simple's sections do not mark themselves as ordered items, so focus is not restored there.
-  // Reported in the Phase 1 notes as a gap the Classic-only suite was hiding. The order itself is what is checked here.
+  // Focus goes back to the moved section, which is now the first one.
+  assert.equal(await page.evaluate(() => document.activeElement?.id.startsWith("simple-section-") && document.activeElement.querySelector("input")?.value), "Energy");
   // The first part is now the one in the Energy section: a number with a private worked solution and a picture.
   const numericPart = page.getByRole("region", { name: "Part b", exact: true });
   await numericPart.getByLabel("Answer type", { exact: true }).selectOption("numeric");
@@ -401,10 +411,8 @@ try {
     async () => ((await mainPicture.locator("img").first().getAttribute("src")) ?? firstMedia) !== firstMedia,
     "replacement",
   );
-  // Classic kept the description of a replaced picture. Simple starts the new one with none, so it is described again.
-  // Reported in the Phase 1 notes as something the Classic-only suite was hiding.
-  assert.equal(await mainPicture.getByLabel("Describe the image", { exact: true }).inputValue(), "");
-  await mainPicture.getByLabel("Describe the image", { exact: true }).fill("Pendulum diagram");
+  // A replaced picture keeps its description.
+  assert.equal(await mainPicture.getByLabel("Describe the image", { exact: true }).inputValue(), "Pendulum diagram");
   await page
     .getByLabel("Upload problem PDF", { exact: true })
     .setInputFiles(uploadFile("statement.pdf", pdf, "application/pdf"));

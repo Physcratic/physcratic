@@ -343,6 +343,12 @@ export function addContextPicture(d: EditorDraft, mediaId: string) {
   const at = firstTextIndex(d.content.context) + 1;
   d.content.context = [...d.content.context.slice(0, at), { id: crypto.randomUUID(), kind: "image", mediaId, alt: "", caption: "" }, ...d.content.context.slice(at)];
 }
+/** Swaps the file of the main question's picture and keeps its block, description and caption. With no picture it adds one. */
+export function replaceContextPicture(d: EditorDraft, mediaId: string) {
+  const i = firstImageIndex(d.content.context);
+  if (i < 0) return addContextPicture(d, mediaId);
+  d.content.context = d.content.context.map((b, j) => (j === i && b.kind === "image" ? { ...b, mediaId } : b));
+}
 export function setContextPictureAlt(d: EditorDraft, alt: string) {
   const i = firstImageIndex(d.content.context);
   if (i >= 0) d.content.context = d.content.context.map((b, j) => (j === i && b.kind === "image" ? { ...b, alt } : b));
@@ -380,6 +386,14 @@ export function addPicture(d: EditorDraft, partId: string, mediaId: string) {
   if (!part || part.blocks.some((b) => b.kind === "image")) return;
   const at = firstTextIndex(part.blocks) + 1;
   part.blocks = [...part.blocks.slice(0, at), { id: crypto.randomUUID(), kind: "image", mediaId, alt: "", caption: "" }, ...part.blocks.slice(at)];
+}
+/** Swaps the file of a part's picture and keeps its block, description and caption. With no picture it adds one. */
+export function replacePicture(d: EditorDraft, partId: string, mediaId: string) {
+  const part = allParts(d).find((r) => r.part.id === partId)?.part;
+  if (!part) return;
+  const i = firstImageIndex(part.blocks);
+  if (i < 0) return addPicture(d, partId, mediaId);
+  part.blocks = part.blocks.map((b, j) => (j === i && b.kind === "image" ? { ...b, mediaId } : b));
 }
 export function setPictureAlt(d: EditorDraft, partId: string, alt: string) {
   const part = allParts(d).find((r) => r.part.id === partId)?.part;

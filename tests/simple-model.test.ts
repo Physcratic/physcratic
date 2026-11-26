@@ -34,6 +34,8 @@ import {
   mathSymbols,
   pictureOf,
   removePicture,
+  replaceContextPicture,
+  replacePicture,
   replacePartImages,
   setIntro,
   setPictureAlt,
@@ -167,6 +169,37 @@ test("a picture is one image block after the question, its alt text is required,
   assert.deepEqual(pictureOf(allParts(d)[0].part.blocks)?.mediaId, media);
   removePicture(d, id);
   assert.equal(pictureOf(allParts(d)[0].part.blocks), null);
+});
+
+test("replacing a picture swaps the file and keeps its block, description and caption", () => {
+  const d = easyDraft("9.8", "m/s^2");
+  const id = allParts(d)[0].part.id;
+  addPicture(d, id, uuid());
+  setPictureAlt(d, id, "A cart on a slope");
+  const before = allParts(d)[0].part.blocks.find((b) => b.kind === "image");
+  const next = uuid();
+  replacePicture(d, id, next);
+  const after = allParts(d)[0].part.blocks.filter((b) => b.kind === "image");
+  assert.equal(after.length, 1);
+  assert.deepEqual(after[0], { ...before, mediaId: next });
+  assert.deepEqual(simpleIssues(d), []);
+  const other = easyDraft("9.8", "m/s^2");
+  replacePicture(other, allParts(other)[0].part.id, next);
+  assert.equal(pictureOf(allParts(other)[0].part.blocks)?.mediaId, next, "with no picture, replace adds one");
+});
+
+test("replacing the main question picture keeps its block and description", () => {
+  const d = easyDraft("9.8", "m/s^2");
+  replaceContextPicture(d, uuid());
+  setContextPictureAlt(d, "A pendulum");
+  const before = contextPictureOf(d)!;
+  const next = uuid();
+  replaceContextPicture(d, next);
+  const after = contextPictureOf(d)!;
+  assert.equal(after.blockId, before.blockId);
+  assert.equal(after.alt, "A pendulum");
+  assert.equal(after.mediaId, next);
+  assert.equal(d.content.context.filter((b) => b.kind === "image").length, 1);
 });
 
 test("a one-part expression problem written in Simple is a valid, publishable draft", () => {
