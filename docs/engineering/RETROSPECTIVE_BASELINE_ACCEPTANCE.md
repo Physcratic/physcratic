@@ -2,6 +2,10 @@
 
 Prepared 25 November 2026 against source baseline `9e0a3c94ab97da2b679d8e2faad9556d2b7f8f20`. **Pending Production verification, independent review and explicit owner acceptance. Phase 5B stays on hold.** Use the [read-only package](../../scripts/retrospective-baseline/README.md).
 
+## Owner connection preflight (26 November 2026)
+
+The owner reports a verified pooled LOGIN of `physcratic_runtime_app`, direct inspection LOGIN `neondb_owner`, database `neondb` owned by `neondb_owner`, `public` schema owned by `pg_database_owner`, and PostgreSQL `180007`. Both read-only preflight transactions passed. Client `psql` observed TLSv1.3 with `sslmode=verify-full`. Backend `pg_stat_ssl` reported `ssl=false` and a null version. This is preflight evidence. The corrected package still captures client TLS and the backend observation on the inspection session that produces the baseline. The complete catalogue, exact scoped owners and ACLs, independent Step 2 review, and owner acceptance remain pending.
+
 ## Corroborating historical evidence
 
 The owner recovered these observations from earlier conversations. Preserve the original evidence privately. The current repository and fresh inspection establish the reviewed source and observed state. Missing contemporaneous records remain unknown.
