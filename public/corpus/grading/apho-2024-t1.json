@@ -1,0 +1,243 @@
+{
+  "problemId": "apho-2024-t1",
+  "version": "29507d0d232419da4a1840197d1e9253c7a41db33cbf0f0e90215bbd68c3a44f",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Projectile position",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Water trajectory",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "x",
+        "\\theta",
+        "g",
+        "v_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h, x, \\theta, g, v_0. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Trajectory envelope",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "v_0",
+        "g",
+        "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h, v_0, g, x. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "A.4",
+      "label": "Landing range",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v_0",
+        "\\theta",
+        "g",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use v_0, \\theta, g, h. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "A.5",
+      "label": "Zero-height range",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v_0",
+        "\\theta",
+        "g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use v_0, \\theta, g. Enter the labelled result. Compare derivations and accompanying results with the worked solution."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Ground annulus",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "R_1"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_1",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter dA_W/dtheta. Use R_1 for the positive derivative R prime."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Hole density",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R",
+        "R_1",
+        "r",
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Enter the proportionality factor RR prime/(r squared cos theta), taking the overall constant as one. Use R_1 for R prime."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Flat-source distribution",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\theta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\theta",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.05,
+          "max": 0.7
+        }
+      ],
+      "help": "Enter only the angular factor. Take its constant coefficient as one."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

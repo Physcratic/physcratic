@@ -1,0 +1,171 @@
+{
+  "problemId": "apho-2022-t1",
+  "version": "ec10d903902b074969b402f6bb6b716408ce3e89ceafff91a979c0ae65704ea2",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Thermal beam speed",
+      "kind": "numeric",
+      "unit": "m/s",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m/s, without a unit suffix."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Beam splitting",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Two-wire magnetic field",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Field direction on a circular boundary",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "c.3",
+      "label": "Air-gap axial field",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu",
+        "I_0",
+        "a",
+        "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu, I_0, a, x. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "d.1",
+      "label": "Dipole force magnitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_s",
+        "\\mu",
+        "I_0",
+        "a",
+        "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_s",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "I_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu_s, \\mu, I_0, a, x. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "e.1",
+      "sourcePart": "e.1",
+      "label": "Field and gradient at P",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "f.1",
+      "sourcePart": "f.1",
+      "label": "Silver magnetic moment",
+      "kind": "numeric",
+      "unit": "J/T",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in J/T, without a unit suffix."
+    },
+    {
+      "id": "g.1",
+      "sourcePart": "g.1",
+      "label": "Velocity-induced spot spread",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "h.1",
+      "sourcePart": "h.1",
+      "label": "Magnetic-moment uncertainty",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

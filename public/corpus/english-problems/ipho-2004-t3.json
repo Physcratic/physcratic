@@ -1,1 +1,433 @@
-{"id":"ipho-2004-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2004_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2004_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2004-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"  Theoretical Question 3  \n \nPage 1/3 \n \n \nTheoretical Question 3 \nAtomic Probe Microscope \n \nAtomic probe microscopes (APMs) are powerful tools in the field of nano-science.  \nThe motion of a cantilever in APM can be detected by a photo-detector monitoring the \nreflected laser beam, as shown in Fig. 3.1. The cantilever can move only in the vertical \ndirection and its displacement z  as a function of time t  can be described by the \nequation \n \nF\nkz\ndt\ndz\nb\ndt\nz\nd\nm\n=\n+\n+\n2\n2\n, \n \n \n(3.1) \nwhere m  is the cantilever mass, \n2\n0\nω\nm\nk =\n is the spring constant of the cantilever, b  \nis a small damping coefficient satisfying \n0\n)\n/\n(\n0\n>\n>>\nm\nb\nω\n, and finally F  is an \nexternal driving force of the piezoelectric tube. \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nFigure 3.1 A schematic diagram for a scanning probe microscope (SPM). \nThe inset in the lower right corner represents a simplified mechanical \nmodel to describe the coupling of the piezotube with the cantilever.  \n \n[Part A] \n(a) [1.5 points] When \nt\nF\nF\nω\nsin\n0\n=\n, \n)\n(t\nz\n satisfying Eq. (3.1) can be written as \n)\nsin(\n)\n(\nφ\nω −\n=\nt\nA\nt\nz\n, where \n0\n>\nA\n and \nπ\nφ ≤\n≤\n0\n. Find the expression of the \nVR \nlock-in \namplifier \npiezotube\nF \nVi\ninput\nreference\nsignal \nm \nphase shifter\nR\nV '\nsample  \nk\nm\npiezotube \nF \nk \nlaser \nz=0 \noutput \nVi=c2z\nphoto-detector\nCantilever\n~ \n\n  Theoretical Question 3  \n \nPage 2/3 \n \n \namplitude A  and \nφ\ntan\n in terms of \n0\nF , m , ω , \n0\nω , and b . Obtain A  and the \nphase φ  at the resonance frequency \n0\nω\nω =\n. \n \n(b) [1 point] A lock-in amplifier shown in Fig.3.1 multiplies an input signal by the lock-\nin reference signal, \nt\nV\nV\nR\nR\nω\nsin\n0\n=\n, and then passes only the dc (direct current) \ncomponent of the multiplied signal. Assume that the input signal is given by \n)\nsin(\n0\ni\ni\ni\ni\nt\nV\nV\nφ\nω −\n=\n. Here \n0\nR\nV\n, \n0\niV , \ni\nω , and \niφ  are all positive given constants. Find \nthe condition on ω  (>0) for a non-vanishing output signal. What is the expression for \nthe magnitude of the non-vanishing dc output signal at this frequency? \n \n(c) [1.5 points] Passing through the phase shifter, the lock-in reference voltage \nt\nV\nV\nR\nR\nω\nsin\n0\n=\n changes to \n)\n2\n/\nsin(\n'\n0\nπ\nω +\n=\nt\nV\nV\nR\nR\n. \nR\nV' , applied to the piezoelectric \ntube, drives the cantilever with a force \nR\nV\nc\nF\n'\n1\n=\n. Then, the photo-detector converts the \ndisplacement of the cantilever, z , into a voltage \nz\nc\nVi\n2\n=\n. Here \n1c  and \n2c  are \nconstants. Find the expression for the magnitude of the dc output signal at \n0\nω\nω =\n. \n \n(d) [2 points] The small change \nm\n∆\n of the cantilever mass shifts the resonance \nfrequency by \n0\nω\n∆\n. As a result, the phase φ  at the original resonance frequency \n0\nω  \nshifts by \nφ\n∆\n. Find the mass change \nm\n∆\n corresponding to the phase shift \n1800\n/\nπ\nφ =\n∆\n, which is a typical resolution in phase measurements. The physical \nparameters of the cantilever are given by \n=\nm\n1.0×10-12 kg, \n0.1\n=\nk\nN/m, and \n=\n)\n/\n(\nm\nb\n1.0×103 \ns-1. \nUse \nthe \napproximations \n(\n)\nax\nx\na\n+\n≈\n+\n1\n1\n and \nx\nx\n/\n1\n)\n/2\n(\ntan \n−\n≈\n+\nπ\n when \n1\n|\n|\n<<\nx\n. \n \n[Part B] \nFrom now on let us consider the situation that some forces, besides the driving force \ndiscussed in Part A, act on the cantilever due to the sample as shown in Fig.3.1.  \n \n(e) [1.5 points] Assuming that the additional force \n)\n(h\nf\n depends only on the distance \nh  between the cantilever and the sample surface, one can find a new equilibrium \nposition \n0h . Near \n0h\nh =\n, we can write \n)\n(\n)\n(\n)\n(\n0\n3\n0\nh\nh\nc\nh\nf\nh\nf\n−\n+\n≈\n, where \n3c  is a \nconstant in h .  Find the new resonance frequency \n0'\nω  in terms of \n0\nω , m , and \n3c . \n \n(f) [2.5 points] While scanning the surface by moving the sample horizontally, the tip of \nthe cantilever charged with \ne\nQ\n6\n=\n encounters an electron of charge \ne\nq =\n trapped \n\n  Theoretical Question 3  \n \nPage 3/3 \n \n \n(localized in space) at some distance below the surface. During the scanning around the \nelectron, the maximum shift of the resonance frequency \n0\nω\n∆\n(\n0\n0'\nω\nω −\n=\n) is observed to \nbe much smaller than \n0\nω . Express the distance \n0\nd  from the cantilever to the trapped \nelectron at the maximum shift in terms of m , q , Q , \n0\nω , \n0\nω\n∆\n, and the Coulomb \nconstant \nek . Evaluate \n0\nd  in nm (1 nm = \n9\n10\n1\n−\n×\nm) for \n20\n0 =\n∆ω\n s-1.  \nThe physical parameters of the cantilever are \n=\nm\n1.0×10-12 kg and \n0.1\n=\nk\nN/m. \nDisregard any polarization effect in both the cantilever tip and the surface. Note that \n9\n0\n10\n0.9\n4\n/\n1\n×\n=\n=\nπε\nek\n N·m2/C2 and \n19\n10\n6.1\n−\n×\n−\n=\ne\n C.  \n \n \n \n \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2004-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"  Theoretical Question 3 / Solutions  \nPage 1/6 \n \n \nTheoretical Question 3: Scanning Probe Microscope \n \n1. Answers \n(a) \n2\n2\n2\n2\n2\n0\n2\n0\n)\n(\nω\nω\nω\nb\nm\nF\nA\n+\n−\n=\n and \n)\n(\ntan\n2\n2\n0\n0\nω\nω\nω\nφ\n−\n= m\nb\n.   At \n0\nω\nω =\n, \n0\n0\nω\nb\nF\nA =\n \nand \n2\nπ\nφ =\n.  \n \n(b) A non-vanishing dc component exists only when \ni\nω\nω =\n. \nIn this case the amplitude of the dc signal will be \ni\nR\ni V\nV\nφ\ncos\n2\n1\n0\n0\n. \n \n(c) \n0\n2\n0\n2\n1\n2\nω\nb\nV\nc\nc\nR\n at the resonance frequency \n0\nω . \n \n(d) \n18\n10\n7.1\n−\n×\n=\n∆m\n kg. \n \n(e) \n2\n/\n1\n2\n0\n3\n0\n0\n1\n'\n\n\n\n\n\n−\n=\nω\nω\nω\nm\nc\n. \n \n(f) \n3\n/\n1\n0\n0\n0\n\n\n\n\n\n\n∆\n=\nω\nω\nm\nqQ\nk\nd\ne\n \n=\n0\nd\n41 nm. \n \n\n  Theoretical Question 3 / Solutions  \nPage 2/6 \n \n \n2. Solutions \n \n(a) [1.5 points] \nSubstituting \n)\nsin(\n)\n(\nφ\nω −\n=\nt\nA\nt\nz\n in the equation \nt\nF\nz\nm\ndt\ndz\nb\ndt\nz\nd\nm\nω\nω\nsin\n0\n2\n0\n2\n2\n=\n+\n+\n \nyields, \nt\nA\nF\nt\nm\nt\nb\nt\nm\nω\nφ\nω\nω\nφ\nω\nω\nφ\nω\nω\nsin\n)\nsin(\n)\ncos(\n)\n(\nsin\n0\n2\n0\n2\n=\n−\n+\n−\n+\n−\n−\n. \n \n(a1) \nCollecting terms proportional to \nt\nω\nsin\n and \nt\nω\ncos\n, one obtains \n{\n}\n0\ncos\ncos\nsin\n)\n(\nsin\nsin\ncos\n)\n(\n2\n2\n0\n0\n2\n2\n0\n=\n+\n−\n−\n+\n\n\n−\n+\n−\nt\nb\nm\nt\nA\nF\nb\nm\nω\nφ\nω\nφ\nω\nω\nω\nφ\nω\nφ\nω\nω\n (a2) \nZeroing the each curly square bracket produces  \n)\n(\ntan\n2\n2\n0\nω\nω\nω\nφ\n−\n=\nm\nb\n, \n \n \n \n   (a3) \n2\n2\n2\n2\n2\n0\n2\n0\n)\n(\nω\nω\nω\nb\nm\nF\nA\n+\n−\n=\n. \n \n \n \n(a4) \nAt \n0\nω\nω =\n,  \n0\n0\nω\nb\nF\nA =\n and \n.\n2\nπ\nφ =\n  \n \n \n   (a5) \n(b) [1 point] \nThe multiplied signal is  \n}]\n)\ncos{(\n}\n)\n[cos{(\n2\n1\n)\nsin(\n)\nsin(\n0\n0\n0\n0\ni\ni\ni\ni\nR\ni\nR\ni\ni\ni\nt\nt\nV\nV\nt\nV\nt\nV\nφ\nω\nω\nφ\nω\nω\nω\nφ\nω\n−\n+\n−\n−\n−\n=\n−\n \n \n(b1) \nA non-vanishing dc component exists only when \ni\nω\nω =\n. In this case the amplitude of \nthe dc signal will be  \ni\nR\ni V\nV\nφ\ncos\n2\n1\n0\n0\n.  \n \n \n \n(b2) \n \n(c) [1.5 points] \nSince the lock-in amplifier measures the ac signal of the same frequency with its \nreference signal, the frequency of the piezoelectric tube oscillation, the frequency of the \n\n  Theoretical Question 3 / Solutions  \nPage 3/6 \n \n \ncantilever, and the frequency of the photodiode detector should be same.  The \nmagnitude of the input signal at the resonance is \n0\n0\n2\n1\n0\n0\n2\n0\nω\nω\nb\nV\nc\nc\nb\nF\nc\nV\nR\ni\n=\n=\n.  \n \n \n \n(c1) \nThen, since the phase of the input signal is \n0\n2\n2\n=\n+\n−\nπ\nπ\n at the resonance, \n0\n=\niφ\n and \nthe lock-in amplifier signal is  \n0\n2\n0\n2\n1\n0\n0\n2\n0\ncos\n2\n1\nω\nb\nV\nc\nc\nV\nV\nR\nR\ni\n=\n. \n \n \n   (c2) \n \n(d) [2 points] \nThe original resonance frequency \nm\nk\n=\n0\nω\n is shifted to \n \n\n\n\n\n\n\n∆\n−\n=\n\n\n\n\n\n\n∆\n−\n≅\n\n\n\n\n\n\n∆\n+\n=\n∆\n+\n−\nm\nm\nm\nm\nm\nk\nm\nm\nm\nk\nm\nm\nk\n2\n1\n1\n2\n1\n1\n1\n0\n2\n1\nω\n.  \n(d1) \nThus  \nm\nm\n∆\n−\n=\n∆\n0\n0\n2\n1 ω\nω\n. \n \n \n \n   (d2) \nNear the resonance, by substituting \nφ\nπ\nφ\n∆\n+\n→2\n and \n0\n0\n0\nω\nω\nω\n∆\n+\n→\n in Eq. (a3), the \nchange of the phase due to the small change of \n0\nω  (not the change of ω ) is  \n0\n2\ntan\n1\n2\ntan\nω\nφ\nφ\nπ\n∆\n=\n∆\n−\n=\n\n\n\n\n\n\n∆\n+\nm\nb\n. \n \n \n   (d3) \nTherefore,  \nb\nm\n0\n2\ntan\nω\nφ\nφ\n∆\n−\n=\n∆\n≈\n∆\n.  \n \n \n \n (d4)  \nFrom Eqs. (d2) and (d4), \n18\n18\n6\n12\n3\n0\n10\n7.1\n10\n8.1\n1800\n10\n10\n10\n−\n−\n−\n×\n=\n=\n⋅\n=\n∆\n=\n∆\nπ\nπ\nφ\nω\nb\nm\n kg.  (d5) \n \n(e) [1.5 points]  \nIn the presence of interaction, the equation of motion near the new equilibrium position \n0h  becomes \n\n  Theoretical Question 3 / Solutions  \nPage 4/6 \n \n \nt\nF\nz\nc\nz\nm\ndt\ndz\nb\ndt\nz\nd\nm\nω\nω\nsin\n0\n3\n2\n0\n2\n2\n=\n−\n+\n+\n \n \n \n(e1) \nwhere we used \nz\nc\nh\nf\nh\nf\n3\n0)\n(\n)\n(\n+\n≈\n with \n0h\nh\nz\n−\n=\n being the displacement from the \nnew equilibrium position \n0h .  Note that the constant term \n)\n(\n0h\nf\n is cancelled at the \nnew equilibrium position. \nThus the original resonance frequency \nm\nk\n=\n0\nω\n will be shifted to \n2\n0\n3\n0\n3\n2\n0\n3\n0\n1\n'\nω\nω\nω\nω\nm\nc\nm\nc\nm\nm\nc\nk\n−\n=\n−\n=\n−\n=\n.   \n \n  (e3) \nHence the resonance frequency shift is given by \n \n\n\n\n\n\n\n−\n−\n=\n∆\n1\n1\n2\n0\n3\n0\n0\nω\nω\nω\nm\nc\n. \n \n \n  (e4) \n \n(f) [2.5 points] \nThe maximum shift occurs when the cantilever is on top of the charge, where the \ninteracting force is given by  \n2\n)\n(\nh\nqQ\nk\nh\nf\ne\n=\n.  \n \n \n   (f1) \nFrom this,  \n3\n0\n3\n2\n0\nd\nqQ\nk\ndh\ndf\nc\ne\nd\nh\n−\n=\n=\n=\n.  \n \n    (f2) \nSince \n0\n0\nω\nω <<\n∆\n, we can approximate Eq. (e4) as \n0\n3\n0\n2 ω\nω\nm\nc\n−\n≈\n∆\n.  \n \n \n \n(f3) \nFrom Eqs. (f2) and (f3), we have \n3\n0\n0\n3\n0\n0\n0\n2\n2\n1\nd\nm\nqQ\nk\nd\nqQ\nk\nm\ne\ne\nω\nω\nω\n=\n\n\n\n\n\n−\n−\n=\n∆\n.  \n \n(f4) \nHere \n19\n10\n6.1\n−\n×\n−\n=\n= e\nq\n Coulomb and \n19\n10\n6.9\n6\n−\n×\n−\n=\n= e\nQ\n Coulomb. Using the \nvalues provided, \n\n  Theoretical Question 3 / Solutions  \nPage 5/6 \n \n \n \n8\n3\n/\n1\n0\n0\n0\n10\n1.4\n−\n×\n=\n\n\n\n\n\n\n∆\n=\nω\nω\nm\nqQ\nk\nd\ne\n m = 41 nm.  \n   (f5) \nThus the trapped electron is 41 nm from the cantilever.  \n\n  Theoretical Question 3 / Solutions  \nPage 6/6 \n \n \n3. Mark Distribution \n \nNo. \nTotal \nPt. \nPartial \nPt. \nContents \n0.7 \nEquations for A  and φ  (substitution and manipulation) \n0.4 \nCorrect answers for A  and φ  \n(a) \n1.5 \n0.4 \nA  and φ  at \n0\nω  \n0.4 \nEquation for the multiplied signal \n0.3 \nCondition for the non-vanishing dc output \n(b) \n1.0 \n0.3 \nCorrect answer for the dc output \n0.6 \nRelation between \niV  and \nR\nV  \n0.4 \nCondition for the maximum dc output \n(c) \n1.5 \n0.5 \nCorrect answer for the magnitude of dc output \n0.5 \nRelation between \nm\n∆\n and \n0\nω\n∆\n \n1.0 \nRelations between \n0\nω\n∆\n (or \nm\n∆\n) and \nφ\n∆\n \n(d) \n2.0 \n0.5 \nCorrect answer (Partial credit of 0.2 for the wrong sign.) \n1.0 \nModification of the equation with \n)\n(h\nf\n and use of a proper \napproximation for the equation \n(e) \n1.5 \n0.5 \nCorrect answer  \n0.5 \nUse of a correct formula of Coulomb force \n0.3 \nEvaluation of \n3c  \n0.6 \nUse of the result in (e) for either \n0\nω\n∆\n or \n2\n0\n2\n0'\nω\nω −\n \n0.6 \nExpression for \n0\nd  \n(f) \n2.5 \n0.5 \nCorrect answer \nTotal \n10 \n \n \n \n \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2004-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2004_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2004_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2004-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Atomic Probe Microscope"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An atomic probe microscope measures the vertical displacement \\(z\\) of a cantilever by reflecting a laser onto a photodetector. The cantilever obeys \\(m\\ddot z+b\\dot z+kz=F\\), with \\(k=m\\omega_0^2\\) and weak damping \\(0<b/m\\ll\\omega_0\\). A piezoelectric tube supplies F. A lock-in amplifier multiplies its input by the reference \\(V_R=V_{R0}\\sin\\omega t\\), then retains only the dc component. A phase shifter and photodetector complete the measurement circuit as shown. Throughout, the source calls \\(\\omega=\\omega_0\\) resonance, appropriate in the stated weak-damping limit."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch7-probe-apparatus.png",
+        "alt": "Original atomic probe microscope, photodetector, phase shifter, piezotube and lock-in circuit with labelled reference signals."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.amplitude. Displacement amplitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For \\(F=F_0\\sin\\omega t\\), write \\(z=A\\sin(\\omega t-\\phi)\\), with \\(A>0\\), \\(0\\le\\phi\\le\\pi\\). Find A."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.phase. Phase relation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find \\(\\tan\\phi\\), state the phase quadrant, and give A and phi at \\(\\omega=\\omega_0\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.frequency. Lock-in frequency condition"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The input is \\(V_i=V_{i0}\\sin(\\omega_it-\\phi_i)\\), with all listed constants positive. What frequency condition is necessary for a nonzero dc output? State the additional phase condition."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.output. Lock-in output magnitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At the matching frequency, find the magnitude of the dc output."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c. Phase-shifted microscope signal"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The phase shifter changes the reference to \\(V_R^{\\prime}=V_{R0}\\sin(\\omega t+\\pi/2)\\). The piezotube produces \\(F=c_1V_R^{\\prime}\\), and the detector produces \\(V_i=c_2z\\). Find the dc output magnitude at \\(\\omega_0\\), taking \\(c_1,c_2>0\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d. Detectable mass change"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A small mass change shifts natural frequency by \\(\\Delta\\omega_0\\), producing phase change \\(\\Delta\\phi=\\pi/1800\\) at the original drive frequency. Find the mass change for \\(m=1.0\\times10^{-12}\\,\\mathrm{kg}\\), \\(k=1.0\\,\\mathrm{N/m}\\), \\(b/m=1.0\\times10^3\\,\\mathrm{s^{-1}}\\). You may use first-order binomial and tangent expansions."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "e. Force-gradient frequency"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A sample exerts additional force \\(f(h)\\), where h is tip-sample separation. Near equilibrium \\(h_0\\), write \\(f(h)=f(h_0)+c_3(h-h_0)\\). Find the new natural frequency."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "f.formula. Trapped-charge depth"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A tip with charge \\(Q=6e\\) passes over a trapped electron of charge \\(q=e\\), where \\(e=-1.6\\times10^{-19}\\,\\mathrm C\\). The maximum small positive shift \\(\\Delta\\omega_0\\) occurs directly over the electron. Find tip-electron distance \\(d_0\\), ignoring polarization and using Coulomb constant \\(k_e\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "f.value. Charge depth value"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Evaluate the distance in nm for \\(\\Delta\\omega_0=20\\,\\mathrm{s^{-1}}\\), \\(m=10^{-12}\\,\\mathrm{kg}\\), \\(k=1.0\\,\\mathrm{N/m}\\), \\(k_e=9.0\\times10^9\\,\\mathrm{N\\,m^2/C^2}\\)."
+          }
+        ]
+      }
+    ],
+    "text": "Atomic Probe Microscope\nAn atomic probe microscope measures the vertical displacement \\(z\\) of a cantilever by reflecting a laser onto a photodetector. The cantilever obeys \\(m\\ddot z+b\\dot z+kz=F\\), with \\(k=m\\omega_0^2\\) and weak damping \\(0<b/m\\ll\\omega_0\\). A piezoelectric tube supplies F. A lock-in amplifier multiplies its input by the reference \\(V_R=V_{R0}\\sin\\omega t\\), then retains only the dc component. A phase shifter and photodetector complete the measurement circuit as shown. Throughout, the source calls \\(\\omega=\\omega_0\\) resonance, appropriate in the stated weak-damping limit.\n\na.amplitude. Displacement amplitude\nFor \\(F=F_0\\sin\\omega t\\), write \\(z=A\\sin(\\omega t-\\phi)\\), with \\(A>0\\), \\(0\\le\\phi\\le\\pi\\). Find A.\na.phase. Phase relation\nFind \\(\\tan\\phi\\), state the phase quadrant, and give A and phi at \\(\\omega=\\omega_0\\).\nb.frequency. Lock-in frequency condition\nThe input is \\(V_i=V_{i0}\\sin(\\omega_it-\\phi_i)\\), with all listed constants positive. What frequency condition is necessary for a nonzero dc output? State the additional phase condition.\nb.output. Lock-in output magnitude\nAt the matching frequency, find the magnitude of the dc output.\nc. Phase-shifted microscope signal\nThe phase shifter changes the reference to \\(V_R^{\\prime}=V_{R0}\\sin(\\omega t+\\pi/2)\\). The piezotube produces \\(F=c_1V_R^{\\prime}\\), and the detector produces \\(V_i=c_2z\\). Find the dc output magnitude at \\(\\omega_0\\), taking \\(c_1,c_2>0\\).\nd. Detectable mass change\nA small mass change shifts natural frequency by \\(\\Delta\\omega_0\\), producing phase change \\(\\Delta\\phi=\\pi/1800\\) at the original drive frequency. Find the mass change for \\(m=1.0\\times10^{-12}\\,\\mathrm{kg}\\), \\(k=1.0\\,\\mathrm{N/m}\\), \\(b/m=1.0\\times10^3\\,\\mathrm{s^{-1}}\\). You may use first-order binomial and tangent expansions.\ne. Force-gradient frequency\nA sample exerts additional force \\(f(h)\\), where h is tip-sample separation. Near equilibrium \\(h_0\\), write \\(f(h)=f(h_0)+c_3(h-h_0)\\). Find the new natural frequency.\nf.formula. Trapped-charge depth\nA tip with charge \\(Q=6e\\) passes over a trapped electron of charge \\(q=e\\), where \\(e=-1.6\\times10^{-19}\\,\\mathrm C\\). The maximum small positive shift \\(\\Delta\\omega_0\\) occurs directly over the electron. Find tip-electron distance \\(d_0\\), ignoring polarization and using Coulomb constant \\(k_e\\).\nf.value. Charge depth value\nEvaluate the distance in nm for \\(\\Delta\\omega_0=20\\,\\mathrm{s^{-1}}\\), \\(m=10^{-12}\\,\\mathrm{kg}\\), \\(k=1.0\\,\\mathrm{N/m}\\), \\(k_e=9.0\\times10^9\\,\\mathrm{N\\,m^2/C^2}\\).",
+    "figures": [
+      "/corpus/figures/native/batch7-probe-apparatus.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2004-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Atomic Probe Microscope"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.amplitude. Displacement amplitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Equating sine and cosine coefficients after substitution gives \\[A=\\frac{F_0}{\\sqrt{m^2(\\omega_0^2-\\omega^2)^2+b^2\\omega^2}}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.phase. Phase relation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\tan\\phi=\\frac{b\\omega}{m(\\omega_0^2-\\omega^2)}.\\] The phase is below \\(\\pi/2\\) for \\(\\omega<\\omega_0\\), and above it for \\(\\omega>\\omega_0\\). At \\(\\omega_0\\), \\(A=F_0/(b\\omega_0)\\) and \\(\\phi=\\pi/2\\). The exact amplitude maximum is at \\(\\sqrt{\\omega_0^2-b^2/(2m^2)}\\), whose weak-damping difference from \\(\\omega_0\\) is neglected in the source."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.frequency. Lock-in frequency condition"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Product-to-sum gives a difference-frequency term and a sum-frequency term. A dc term is possible only if \\(\\omega=\\omega_i\\). It is nonzero only when \\(\\cos\\phi_i\\ne0\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.output. Lock-in output magnitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The signed dc component is \\(V_{i0}V_{R0}\\cos\\phi_i/2\\), so its magnitude is \\(V_{i0}V_{R0}|\\cos\\phi_i|/2\\). The absolute value is required when the question asks for magnitude."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c. Phase-shifted microscope signal"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The cantilever lags its drive by \\(\\pi/2\\), cancelling the phase-shifter advance. Thus the detector signal is in phase with the original reference. Its amplitude is \\(c_1c_2V_{R0}/(b\\omega_0)\\), giving \\[V_{dc}=\\frac{c_1c_2V_{R0}^2}{2b\\omega_0}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "d. Detectable mass change"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With fixed k, \\(\\Delta\\omega_0=-\\omega_0\\Delta m/(2m)\\). Linearizing the phase at fixed drive gives \\(\\Delta\\phi=-2m\\Delta\\omega_0/b\\). Thus \\[\\Delta m=(b/\\omega_0)\\Delta\\phi=1.7\\times10^{-18}\\,\\mathrm{kg}.\\] The rendered source gives \\(k=1.0\\,\\mathrm{N/m}\\), not the 0.1 produced by its faulty text extraction."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "e. Force-gradient frequency"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The constant force moves the equilibrium, while the gradient changes stiffness to \\(k-c_3\\). Thus \\[\\omega_0^{\\prime}=\\sqrt{\\omega_0^2-c_3/m},\\] assuming \\(k-c_3>0\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "f.formula. Trapped-charge depth"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Directly over the charge, \\(f=k_eqQ/h^2\\), so \\(c_3=-2k_eqQ/d_0^3\\). To first order \\(\\Delta\\omega_0=-c_3/(2m\\omega_0)\\), giving \\[d_0=\\left(\\frac{k_eqQ}{m\\omega_0\\Delta\\omega_0}\\right)^{1/3}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "f.value. Charge depth value"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(\\omega_0=10^6\\,\\mathrm{s^{-1}}\\), giving \\(d_0=41\\,\\mathrm{nm}\\)."
+          }
+        ]
+      }
+    ],
+    "text": "Atomic Probe Microscope\na.amplitude. Displacement amplitude\nEquating sine and cosine coefficients after substitution gives \\[A=\\frac{F_0}{\\sqrt{m^2(\\omega_0^2-\\omega^2)^2+b^2\\omega^2}}.\\]\na.phase. Phase relation\n\\[\\tan\\phi=\\frac{b\\omega}{m(\\omega_0^2-\\omega^2)}.\\] The phase is below \\(\\pi/2\\) for \\(\\omega<\\omega_0\\), and above it for \\(\\omega>\\omega_0\\). At \\(\\omega_0\\), \\(A=F_0/(b\\omega_0)\\) and \\(\\phi=\\pi/2\\). The exact amplitude maximum is at \\(\\sqrt{\\omega_0^2-b^2/(2m^2)}\\), whose weak-damping difference from \\(\\omega_0\\) is neglected in the source.\nb.frequency. Lock-in frequency condition\nProduct-to-sum gives a difference-frequency term and a sum-frequency term. A dc term is possible only if \\(\\omega=\\omega_i\\). It is nonzero only when \\(\\cos\\phi_i\\ne0\\).\nb.output. Lock-in output magnitude\nThe signed dc component is \\(V_{i0}V_{R0}\\cos\\phi_i/2\\), so its magnitude is \\(V_{i0}V_{R0}|\\cos\\phi_i|/2\\). The absolute value is required when the question asks for magnitude.\nc. Phase-shifted microscope signal\nThe cantilever lags its drive by \\(\\pi/2\\), cancelling the phase-shifter advance. Thus the detector signal is in phase with the original reference. Its amplitude is \\(c_1c_2V_{R0}/(b\\omega_0)\\), giving \\[V_{dc}=\\frac{c_1c_2V_{R0}^2}{2b\\omega_0}.\\]\nd. Detectable mass change\nWith fixed k, \\(\\Delta\\omega_0=-\\omega_0\\Delta m/(2m)\\). Linearizing the phase at fixed drive gives \\(\\Delta\\phi=-2m\\Delta\\omega_0/b\\). Thus \\[\\Delta m=(b/\\omega_0)\\Delta\\phi=1.7\\times10^{-18}\\,\\mathrm{kg}.\\] The rendered source gives \\(k=1.0\\,\\mathrm{N/m}\\), not the 0.1 produced by its faulty text extraction.\ne. Force-gradient frequency\nThe constant force moves the equilibrium, while the gradient changes stiffness to \\(k-c_3\\). Thus \\[\\omega_0^{\\prime}=\\sqrt{\\omega_0^2-c_3/m},\\] assuming \\(k-c_3>0\\).\nf.formula. Trapped-charge depth\nDirectly over the charge, \\(f=k_eqQ/h^2\\), so \\(c_3=-2k_eqQ/d_0^3\\). To first order \\(\\Delta\\omega_0=-c_3/(2m\\omega_0)\\), giving \\[d_0=\\left(\\frac{k_eqQ}{m\\omega_0\\Delta\\omega_0}\\right)^{1/3}.\\]\nf.value. Charge depth value\n\\(\\omega_0=10^6\\,\\mathrm{s^{-1}}\\), giving \\(d_0=41\\,\\mathrm{nm}\\).",
+    "figures": [],
+    "shared": false
+  }
+}

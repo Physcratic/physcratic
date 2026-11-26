@@ -1,1 +1,1160 @@
-{"id":"ipho-2009-t2","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2009_Q2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2009_S2.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2009-t2-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"THEORETICAL PROBLEM 2 \n \nDOPPLER LASER COOLING AND OPTICAL MOLASSES \n \nThe purpose of this problem is to develop a simple theory to understand the so-called \n“laser cooling” and “optical molasses” phenomena. This refers to the cooling of a beam \nof neutral atoms, typically alkaline, by counterpropagating laser beams with the same \nfrequency. This is part of the Physics Nobel Prize awarded to S. Chu, P. Phillips and C. \nCohen-Tannoudji in 1997. \n \n \n \n \nThe image above shows sodium atoms (the bright spot in the center) trapped at the \nintersection of three orthogonal pairs of opposing laser beams. The trapping region is \ncalled “optical molasses” because the dissipative optical force resembles the viscous \ndrag on a body moving through molasses. \n \nIn this problem you will analyze the basic phenomenon of the interaction between a \nphoton incident on an atom and the basis of the dissipative mechanism in one \ndimension. \n \n \nPART I: BASICS OF LASER COOLING \n \nConsider an atom of mass m moving in the +x direction with velocity v. For \nsimplicity, we shall consider the problem to be one-dimensional, namely, we shall \nignore the y and z directions (see figure 1). The atom has two internal energy levels. \nThe energy of the lowest state is considered to be zero and the energy of the excited \nstate to be   hω0, where \nπ\n2\n/\nh\n=\nh\n. The atom is initially in the lowest state. A laser beam \nwith frequency ωL in the laboratory is directed in the −x  direction and it is incident on \nthe atom. Quantum mechanically the laser is composed of a large number of photons, \neach with energy   hωL and momentum   −hq. A photon can be absorbed by the atom and \nlater spontaneously emitted; this emission can occur with equal probabilities along the \n+x and −x  directions. Since the atom moves at non-relativistic speeds, v /c <<1 (with \nc the speed of light) keep terms up to first order in this quantity only. Consider also \n1\n/\n<<\nmv\nq\nh\n, namely, that the momentum of the atom is much larger than the \n\nmomentum of a single photon. In writing your answers, keep only corrections linear in \neither of the above quantities. \n \n \n \nFig.1 Sketch of an atom of mass m with velocity v in the +x direction, colliding with a \nphoton with energy   hωL and momentum   −hq. The atom has two internal states with \nenergy difference   hω0. \n \nAssume that the laser frequency ωL is tuned such that, as seen by the moving atom, it is \nin resonance with the internal transition of the atom.  Answer the following questions:  \n \n1. Absorption. \n \n1a Write down the resonance condition for the absorption of the photon.  \n0.2 \n \n1b Write down the momentum pat of the atom after absorption, as seen in the \nlaboratory.  \n0.2 \n \n1c Write down the total energy εat of the atom after absorption, as seen in the \nlaboratory. \n0.2 \n \n \n2. Spontaneous emission of a photon in the −x direction. \n \nAt some time after the absorption of the incident photon, the atom may emit a photon in \nthe −x  direction.  \n \n2a Write down the energy of the emitted photon, εph, after the emission \nprocess in the −x direction, as seen in the laboratory.  \n0.2 \n \n2b Write down the momentum of the emitted photon pph, after the emission \nprocess in the −x direction, as seen in the laboratory. \n0.2 \n \n\n \n2c Write down the momentum of the atom pat, after the emission process in \nthe −x  direction, as seen in the laboratory. \n0.2 \n \n \n2d Write down the total energy of the atom εat, after the emission process in \nthe −x  direction, as seen in the laboratory. \n0.2 \n \n \n3. Spontaneous emission of a photon in the +x direction.  \n \nAt some time after the absorption of the incident photon, the atom may instead emit  a \nphoton in the \nx\n+\n direction.  \n \n3a Write down the energy of the emitted photon, εph, after the emission \nprocess in the \nx\n+\n direction, as seen in the laboratory.  \n0.2 \n \n3b Write down the momentum of the emitted photon pph, after the emission \nprocess in the \nx\n+\n direction, as seen in the laboratory. \n0.2 \n \n \n3c Write down the momentum of the atom pat, after the emission process in \nthe \nx\n+\ndirection, as seen in the laboratory. \n0.2 \n \n \n3d Write down the total energy of the atom εat, after the emission process in \nthe \nx\n+\n direction, as seen in the laboratory. \n0.2 \n \n \n4. Average emission after the absorption. \n \nThe spontaneous emission of a photon in the \nx\n−\n or  in the \nx\n+\n directions occurs with \nthe same probability. Taking this into account, answer the following questions. \n \n4a Write down the average energy of an emitted photon, εph, after the \nemission process. \n0.2 \n \n4b Write down the average momentum of an emitted photon pph, after the \nemission process. \n0.2 \n \n \n4c Write down the average total energy of the atom εat, after the emission \nprocess. \n0.2 \n\n \n4d Write down the average momentum of the atom pat, after the emission \nprocess. \n0.2 \n \n5. Energy and momentum transfer. \n \nAssuming a complete one-photon absorption-emission process only, as described \nabove, there is a net average momentum and energy transfer between the laser radiation \nand the atom.  \n \n5a Write down the average energy change ∆ε of the atom after a complete \none-photon absorption-emission process. \n0.2 \n \n \n5b Write down the average momentum change ∆p of the atom after a \ncomplete one-photon absorption-emission process. \n0.2 \n \n6. Energy and momentum transfer by a laser beam along the +x direction. \n \nConsider now that a laser beam of frequency \n′ \nω L is incident on the atom along the +x \ndirection, while the atom moves also in the +x direction with velocity v. Assuming a  \nresonance condition between the internal transition of the atom and the laser beam, as \nseen by the atom, answer the following questions: \n \n6a Write down the average energy change ∆ε of the atom after a complete \none-photon absorption-emission process. \n0.3 \n \n \n6b Write down the average momentum change ∆p of the atom after a \ncomplete one-photon absorption-emission process. \n0.3 \n \n \nPART II: DISSIPATION AND THE FUNDAMENTALS OF OPTICAL \nMOLASSES \n \nNature, however, imposes an inherent uncertainty in quantum processes. Thus, the fact \nthat the atom can spontaneously emit a photon in a finite time after absorption, gives \nas a result that the resonance condition does not have to be obeyed exactly as in the \ndiscussion above. That is, the frequency of the laser beams ωL and \n′ \nω L may have any \nvalue and the absorption-emission process can still occur. These will happen with \ndifferent (quantum) probabilities and, as one should expect, the maximum probability \nis found at the exact resonance condition. On the average, the time elapsed between a \nsingle process of absorption and emission is called the lifetime of the excited energy \nlevel of the atom and it is denoted byΓ−1. \n \nConsider a collection of N  atoms at rest in the laboratory frame of reference, and a \n\nlaser beam of frequency ωL incident on them. The atoms absorb and emit \ncontinuously such that there is, on average, Nexc atoms in the excited state (and \ntherefore, N −Nexc atoms in the ground state). A quantum mechanical calculation \nyields the following result:  \nNexc = N\nΩR\n2\nω0 −ωL\n(\n)\n2 + Γ2\n4 + 2ΩR\n2\n \n \nwhere ω0 is the resonance frequency of the atomic transition and ΩR is the so-called \nRabi frequency; ΩR\n2  is proportional to the intensity of the laser beam. As mentioned \nabove, you can see that this number is different from zero even if the resonance \nfrequency ω0 is different from the frequency of the laser beamωL. An alternative way \nof expressing the previous result is that the number of absorption-emission processes \nper unit of time is NexcΓ. \n \n \nConsider the physical situation depicted in Figure 2, in which two counter propagating \nlaser beams with the same but arbitrary frequency ωL are incident on a gas of N  \natoms that move in the +x direction with velocityv. \n \n \nFigure 2. Two counter propagating laser beams with the same but arbitrary frequency \nωL are incident on a gas of N  atoms that move in the +x direction with velocityv.  \n \n7. Force on the atomic beam by the lasers. \n \n7a With the information found so far, find the force that the lasers exert on \nthe atomic beam. You should assume that \nq\nmv\nh\n>>\n. \n1.5 \n \n8. Low velocity limit. \n \nAssume now that the velocity of the atoms is small enough, such that you can expand \nthe force up to first order in v. \n \n8a Find an expression for the force found in Question (7a), in this limit. \n1.5 \n \nUsing this result, you can find the conditions for speeding up, slowing down, or no \neffect at all on the atoms by the laser radiation. \n \n\n8b Write down the condition to obtain a positive force (speeding up the \natoms). \n0.25 \n \n \n8c Write down the condition to obtain a zero force. \n0.25 \n \n \n8d Write down the condition to obtain a negative force (slowing down the \natoms). \n0.25 \n \n8e Consider now that the atoms are moving with a velocity \nv\n−\n (in the \nx\n−\n \ndirection). Write down the condition to obtain a slowing down force on \nthe atoms. \n0.25 \n \n \n9. Optical molasses. \n \nIn the case of a negative force, one obtains a frictional dissipative force. Assume that \ninitially, at\n0\n=\nt\n, the gas of atoms has velocity \n0v . \n \n9a In the limit of low velocities, find the velocity of the atoms after the laser \nbeams have been on for a timeτ .  \n1.5 \n \n \n9b Assume now that the gas of atoms is in thermal equilibrium at a \ntemperatureT0. Find the temperature T  after the laser beams have been \non for a timeτ . \n0.5 \n \nThis model does not allow you to go to arbitrarily low temperatures. \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2009-t2-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6],"initialPage":1,"shared":false,"text":"THEORETICAL PROBLEM 2 \n \nSOLUTION \n \nDOPPLER LASER COOLING AND OPTICAL MOLASSES \n \nThe key to this problem is the Doppler effect (to be precise, the longitudinal Doppler \neffect): The frequency of a monochromatic beam of light detected by an observer \ndepends on its state of motion relative to the emitter, i.e. the observed frequency is \n \n\n\n\n\n\n\n\n\nc\nv\nc\nv\nc\nv\n1\n/\n1\n/\n1\n\n\n\n\n \n \nwhere v is the relative speed of emitter and observer and  the frequency of the \nemitter. The upper-lower signs correspond, respectively, when source and observer \nmove towards or away from each other. The second equality holds in the limit of low \nvelocities (non-relativistic limit). \n \nThe frequency of the laser in the lab is L; 0 is the transition frequency of the atom; \nthe atom moves with speed v towards the incident direction of the laser: \n \nIt is important to point out that the results must be given to first significant order in v /c \nor \nmv\nq/\n\n. \n \nPART I: BASICS OF LASER COOLING \n \n1. Absorption. \n \n1a Write down the resonance condition for the absorption of the photon.  \n\n\n\n\n\nc\nv\nL 1\n0\n\n\n \n0.2 \n \n1b Write down the momentum pat of the atom after absorption, as seen in the \nlaboratory \nc\nmv\nq\np\np\nL\nat\n\n\n\n\n\n\n\n \n0.2 \n \n1c Write down the energy at of the atom after absorption, as seen in the \nlaboratory \n \nL\nat\nat\nmv\nm\np\n\n\n\n\n\n\n\n\n\n2\n2\n2\n0\n2\n \n0.2 \n \n \n \n \n \n \n\n2. Spontaneous emission in the x direction. \n \n \nFirst, one calculates the energy of the emitted photon, as seen in the lab reference frame. \nOne must be careful to keep the correct order; this is because the velocity of the atom \nchanges after the absorption, however, this is second order correction for the emitted \nfrequency: \n \nm\nq\nv\nv\nc\nv\nph\n\n\n\n\n\n\n\n\n\n\n\n   \n     with \n1\n0\n\n\n \nthus, \nL\nL\nL\nL\nph\nc\nv\nmv\nq\nmc\nq\nmc\nq\nc\nv\nc\nv\nmc\nq\nc\nv\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n     \n1\n     \n1\n     \n \n1\n1\n     \n \n1\n0\n\n\n\n\n \n \n2a Write down the energy of the emitted photon, ph, after the emission \nprocess in the x direction, as seen in the laboratory.  \nL\nph\n\n\n\n\n \n0.2 \n \n2b Write down the momentum of the emitted photon pph, after the emission \nprocess in the x direction, as seen in the laboratory. \nc\np\nL\nph\n/\n\n\n\n\n \n0.2 \n \nUse conservation of momentum (see 1b): \n  \nq\np\np\np\nph\nat\n\n\n\n\n \n \n2c Write down the momentum of the atom pat, after the emission process in \nthe x direction, as seen in the laboratory. \npat p mv \n0.2 \n \n \n2d Write down the energy of the atom at, after the emission process in the \nx direction, as seen in the laboratory. \n \nat p2\n2m mv2\n2  \n0.2 \n \n \n\n3. Spontaneous emission in the x direction. \n \nThe same as in the previous questions, keeping the right order \n \n3a Write down the energy of the emitted photon, ph, after the emission \nprocess in the \nx\n\n direction, as seen in the laboratory. \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nc\nv\nc\nv\nc\nv\nc\nv\nL\nL\nph\n2\n1\n1\n1\n1\n0\n\n\n\n\n\n\n\n \n0.2 \n \n3b Write down the momentum of the emitted photon pph, after the emission \nprocess in the \nx\n\n direction, as seen in the laboratory. \n\n\n\n\n\nc\nv\nc\np\nL\nph\n2\n1\n\n\n \n0.2 \n \n \n3c Write down the momentum of the atom pat, after the emission process in \nthe \nx\n\ndirection, as seen in the laboratory. \nc\nmv\nc\nv\nc\nq\np\np\nq\np\np\nL\nL\nph\nat\n\n\n\n\n\n\n2\n2\n1\n\n\n\n\n\n\n\n\n\n\n\n\n \n0.2 \n \n \n3d Write down the energy of the atom at, after the emission process in the \nx\n\n direction, as seen in the laboratory. \n\n\n\n\n\n\nmv\nq\nmv\nm\npat\nat\n\n2\n1\n2\n2\n2\n2\n\n \n0.2 \n \n \n4. Average emission after absorption. \n \nThe spontaneous emission processes occur with equal probabilities in both directions. \n \n4a Write down the average energy of an emitted photon, ph, after the \nemission process. \n\n\n\n\n\n\n\n\n\nc\nv\nL\nph\nph\nph\n1\n2\n1\n2\n1\n\n\n\n\n\n \n0.2 \n \n4b Write down the average momentum of an emitted photon pph, after the \nemission process. \norder\n \nsecond\n    \n0\n2\n1\n2\n1\n\n\n\n\n\n\n\n\n\n\n\nc\nv\nmv\nq\nmv\nc\nv\nc\np\np\np\nL\nph\nph\nph\n\n\n \n0.2 \n \n \n4c Write down the average energy of the atom at, after the emission process. \n\n\n\n\n\n\n\n\n\nmv\nq\nmv\nat\nat\nat\n\n1\n2\n2\n1\n2\n1\n2\n\n\n\n \n0.2 \n\n \n \n4d Write down the average momentum of the atom pat, after the emission \nprocess. \nc\np\np\np\np\nL\nat\nat\nat\n\n\n\n\n\n\n\n\n2\n1\n2\n1\n \n0.2 \n \n \n \n5. Energy and momentum transfer. \n \nAssuming a complete one-photon absorption-emission process only, as described \nabove, there is a net average momentum and energy transfer between the laser and the \natom. \n \n5a Write down the average energy change  of the atom after a complete \none-photon absorption-emission process. \nc\nv\nqv\nL\nbefore\nat\nafter\nat\n\n\n\n\n\n\n2\n1\n2\n1\n\n\n\n\n\n\n\n \n0.2 \n \n \n5b Write down the average momentum change p of the atom after a \ncomplete one-photon absorption-emission process. \nc\nq\np\np\np\nL\nbefore\nat\nafter\nat\n\n\n\n\n\n\n\n\n\n\n \n0.2 \n \n6. Energy and momentum transfer by a laser beam along the x direction. \n \n \n6a Write down the average energy change  of the atom after a complete \none-photon absorption-emission process. \nc\nv\nqv\nL\nbefore\nat\nafter\nat\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n1\n2\n1\n \n0.3 \n \n \n6b Write down the average momentum change p of the atom after a \ncomplete one-photon absorption-emission process. \nc\nq\np\np\np\nL\nbefore\nat\nafter\nat\n\n\n\n\n\n\n\n\n\n\n \n0.3 \n \n \nPART II: DISSIPATION AND THE FUNDAMENTALS OF OPTICAL \nMOLASSES \n \n \nTwo counterpropagating laser beams with the same but arbitrary frequency L are \nincident on a beam of N  atoms that move in the x direction with (average) velocity \nv. \n\n7. Force on the atomic beam by the lasers. \n \nOn the average, the fraction of atoms found in the excited state is given by, \n \nPexc Nexc\nN \nR\n2\n0 L\n\n\n2 2\n4 2R\n2\n \n \nwhere 0 is the resonance frequency of the atoms and R is the so-called Rabi \nfrequency; R\n2  is proportional to the intensity of the laser beam. The lifetime of the \nexcited energy level of the atom is1. \n \nThe force is calculated as the number of absorption-emission cycles, times the \nmomentum exchange in each event, divided by the time of each event. CAREFUL! \nOne must take into account the Doppler shift of each laser, as seen by the atoms: \n \n \n7a With the information found so far, find the force that the lasers exert on \nthe atomic beam. You must assume that \nq\nmv\n\n\n. \nq\nN\nc\nv\nc\nv\nP\np\nN\nP\np\nN\nF\nR\nL\nL\nR\nR\nL\nL\nR\nexc\nexc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2\n2\n2\n0\n2\n2\n2\n2\n0\n2\n2\n4\n2\n4\n\n\n\n\n\n\n \n1.5 \n \n8. Low velocity limit. \n \nAssume now the velocity to be small enough in order to expand the force to first order \nin v. \n \n8a Find an expression for the force found in Question (7a), in this limit. \n\n\nv\nq\nN\nF\nL\nR\nL\nR\n)\n(\n2\n4\n4\n0\n2\n2\n2\n2\n0\n2\n2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \n1.5 \n \n \n8b Write down the condition to obtain a positive force (speeding up the \natom).   0 L \n0.25 \n \n \n8c Write down the condition to obtain a zero force. \n0 L \n0.25 \n \n \n\n8d Write down the condition to obtain a negative force (slowing down the \natom).  \n0 L … this is the famous rule “tune below resonance for cooling \ndown” \n0.25 \n \n \n8e Consider now that the atoms are moving with a velocity \nv\n (in the \nx\n\n \ndirection). Write down the condition to obtain a slowing down force on \nthe atoms. \n0 L … i.e. independent of the direction motion of the atom. \n0.25 \n \n \n9. Optical molasses \n \nIn the case of a negative force, one obtains a frictional dissipative force. Assume that \ninitially,\n0\n\nt\n, the gas of atoms has velocity \n0v .  \n \n9a In the limit of low velocities, find the velocity of the atoms after the laser \nbeams have been on for a time.  \nF v m dv\ndt v\nv v0et /m\n      can be read from (8a) \n \n1.5 \n \n \n9b Assume now that the gas of atoms is in thermal equilibrium at a \ntemperatureT0. Find the temperature T after the laser beams have been \non for a time. \n \nRecalling that 1\n2 mv2 1\n2 kT in 1 dimension, and using v as the average \nthermal velocity in the equation of (9a), we can write down  \nT T0e2t /m \n0.5 \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2009-t2",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_Q2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2009_S2.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2009-t2-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "DOPPLER LASER COOLING AND OPTICAL MOLASSES"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A two-level atom of mass m moves along +x with speed v. Ground-state internal energy is zero and excited-state energy is \\(\\hbar\\omega_0\\). A laser photon travels along -x with laboratory frequency \\(\\omega_L\\), energy \\(\\hbar\\omega_L\\), and momentum \\(-\\hbar q\\), where \\(q=\\omega_L/c>0\\). Assume \\(v/c\\ll1\\) and \\(\\hbar q/(mv)\\ll1\\). Keep first-order corrections appropriate to the observable and discard their products. Absorption is followed by spontaneous emission with equal probability along either x direction. Part I uses a resonant incident beam. All atomic energies exclude the constant rest energy."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch7-cooling-absorption.png",
+        "alt": "Original moving two-level atom, incident counterpropagating photon and the laboratory x axis."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1a. Absorption resonance"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Write the resonance condition for the counterpropagating photon."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1b. Momentum after absorption"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the atomic laboratory momentum immediately after absorption."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1c. Energy after absorption"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find total atomic kinetic plus internal energy after absorption."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2a. Backward photon energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the spontaneous photon is emitted along -x, find its laboratory energy."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2b. Backward photon momentum"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find that emitted photon's signed laboratory momentum."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2c. Atom after backward emission"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the final atom momentum for this emission direction."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2d. Atom energy after backward emission"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find its final energy after backward emission."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3a. Forward photon energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If emission is along +x, find the photon's laboratory energy."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3b. Forward photon momentum"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the forward photon momentum, retaining its first-order Doppler correction."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3c. Atom after forward emission"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the final atomic momentum at the stipulated atomic-momentum order."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3d. Atom energy after forward emission"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the final atomic energy consistently with momentum and energy conservation."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4a. Mean emitted photon energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Average the two equally likely photon energies."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4b. Mean emitted photon momentum"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find its mean momentum at the retained order relative to the atomic momentum."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4c. Mean final atomic energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find mean atomic energy after emission."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4d. Mean final atomic momentum"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the mean final atomic momentum."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "5a. Mean energy transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the mean atomic energy change in one complete absorption-emission cycle."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "5b. Mean momentum transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the mean atomic momentum change in one complete cycle."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6a. Co-propagating energy transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Now a resonant laser beam of laboratory frequency \\(\\omega_L^{\\prime}\\) travels along +x with the atom. Find mean energy change per cycle."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6b. Co-propagating momentum transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find mean momentum change per co-propagating cycle."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "7a. Two-beam force"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch7-counter-beams.png",
+        "alt": "Original two counterpropagating beams and an atomic gas travelling in the positive x direction."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For N atoms at rest, a beam produces excited population \\(N_{exc}=N\\Omega_R^2/[(\\omega_0-\\omega_L)^2+\\Gamma^2/4+2\\Omega_R^2]\\), with lifetime \\(\\Gamma^{-1}\\). Thus cycles occur at rate \\(\\Gamma N_{exc}\\). Two opposite beams of the same arbitrary frequency illuminate atoms moving at v. Find their total force, treating the two beam rates independently in this supplied model."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8a. Linear friction force"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Expand the two-beam force to first order in v."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8b. Positive force condition"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For \\(v>0\\), when does the force speed up the atoms?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8c. Zero force condition"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "When is the force zero for the symmetric pair?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8d. Cooling condition"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For \\(v>0\\), when does the force slow the atoms?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8e. Cooling for opposite motion"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "If the atoms instead move at velocity \\(-v\\), what detuning gives cooling?"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "9a. Velocity decay"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For red detuning and initial velocity \\(v_0\\), find velocity after time \\(\\tau\\). Use b for the per-atom coefficient defined in 8a."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "9b. Temperature decay"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The atoms initially have thermal equilibrium temperature \\(T_0\\). Find their temperature after time tau in this deterministic low-velocity model."
+          }
+        ]
+      }
+    ],
+    "text": "DOPPLER LASER COOLING AND OPTICAL MOLASSES\nA two-level atom of mass m moves along +x with speed v. Ground-state internal energy is zero and excited-state energy is \\(\\hbar\\omega_0\\). A laser photon travels along -x with laboratory frequency \\(\\omega_L\\), energy \\(\\hbar\\omega_L\\), and momentum \\(-\\hbar q\\), where \\(q=\\omega_L/c>0\\). Assume \\(v/c\\ll1\\) and \\(\\hbar q/(mv)\\ll1\\). Keep first-order corrections appropriate to the observable and discard their products. Absorption is followed by spontaneous emission with equal probability along either x direction. Part I uses a resonant incident beam. All atomic energies exclude the constant rest energy.\n\n1a. Absorption resonance\nWrite the resonance condition for the counterpropagating photon.\n1b. Momentum after absorption\nFind the atomic laboratory momentum immediately after absorption.\n1c. Energy after absorption\nFind total atomic kinetic plus internal energy after absorption.\n2a. Backward photon energy\nIf the spontaneous photon is emitted along -x, find its laboratory energy.\n2b. Backward photon momentum\nFind that emitted photon's signed laboratory momentum.\n2c. Atom after backward emission\nFind the final atom momentum for this emission direction.\n2d. Atom energy after backward emission\nFind its final energy after backward emission.\n3a. Forward photon energy\nIf emission is along +x, find the photon's laboratory energy.\n3b. Forward photon momentum\nFind the forward photon momentum, retaining its first-order Doppler correction.\n3c. Atom after forward emission\nFind the final atomic momentum at the stipulated atomic-momentum order.\n3d. Atom energy after forward emission\nFind the final atomic energy consistently with momentum and energy conservation.\n4a. Mean emitted photon energy\nAverage the two equally likely photon energies.\n4b. Mean emitted photon momentum\nFind its mean momentum at the retained order relative to the atomic momentum.\n4c. Mean final atomic energy\nFind mean atomic energy after emission.\n4d. Mean final atomic momentum\nFind the mean final atomic momentum.\n5a. Mean energy transfer\nFind the mean atomic energy change in one complete absorption-emission cycle.\n5b. Mean momentum transfer\nFind the mean atomic momentum change in one complete cycle.\n6a. Co-propagating energy transfer\nNow a resonant laser beam of laboratory frequency \\(\\omega_L^{\\prime}\\) travels along +x with the atom. Find mean energy change per cycle.\n6b. Co-propagating momentum transfer\nFind mean momentum change per co-propagating cycle.\n7a. Two-beam force\n\nFor N atoms at rest, a beam produces excited population \\(N_{exc}=N\\Omega_R^2/[(\\omega_0-\\omega_L)^2+\\Gamma^2/4+2\\Omega_R^2]\\), with lifetime \\(\\Gamma^{-1}\\). Thus cycles occur at rate \\(\\Gamma N_{exc}\\). Two opposite beams of the same arbitrary frequency illuminate atoms moving at v. Find their total force, treating the two beam rates independently in this supplied model.\n8a. Linear friction force\nExpand the two-beam force to first order in v.\n8b. Positive force condition\nFor \\(v>0\\), when does the force speed up the atoms?\n8c. Zero force condition\nWhen is the force zero for the symmetric pair?\n8d. Cooling condition\nFor \\(v>0\\), when does the force slow the atoms?\n8e. Cooling for opposite motion\nIf the atoms instead move at velocity \\(-v\\), what detuning gives cooling?\n9a. Velocity decay\nFor red detuning and initial velocity \\(v_0\\), find velocity after time \\(\\tau\\). Use b for the per-atom coefficient defined in 8a.\n9b. Temperature decay\nThe atoms initially have thermal equilibrium temperature \\(T_0\\). Find their temperature after time tau in this deterministic low-velocity model.",
+    "figures": [
+      "/corpus/figures/native/batch7-cooling-absorption.png",
+      "/corpus/figures/native/batch7-counter-beams.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2009-t2-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "DOPPLER LASER COOLING AND OPTICAL MOLASSES"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1a. Absorption resonance"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The approaching atom sees a blueshift: \\(\\omega_0=\\omega_L(1+v/c)\\) to first order."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1b. Momentum after absorption"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Conserve momentum: \\(p_{at}=mv-\\hbar q\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1c. Energy after absorption"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Energy conservation gives \\(E_{at}=mv^2/2+\\hbar\\omega_L\\). Equivalently, \\((mv-\\hbar q)^2/(2m)+\\hbar\\omega_0\\) reduces to this at the retained order."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2a. Backward photon energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Backward Doppler redshift cancels the incident resonance blueshift, leaving \\(E_\\gamma\\simeq\\hbar\\omega_L\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2b. Backward photon momentum"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(p_\\gamma=-\\hbar\\omega_L/c=-\\hbar q\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2c. Atom after backward emission"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The emitted backward momentum restores the incident loss: \\(p_{at}=mv\\) to retained order."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "2d. Atom energy after backward emission"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The atom returns to its internal ground state and original momentum, so \\(E_{at}=mv^2/2\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3a. Forward photon energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The emitted light is Doppler blueshifted in addition to the incident resonance shift: \\(E_\\gamma=\\hbar\\omega_L(1+2v/c)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3b. Forward photon momentum"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(p_\\gamma=E_\\gamma/c=\\hbar\\omega_L(1+2v/c)/c\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3c. Atom after forward emission"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(p_{at}=mv-2\\hbar q\\). The extra photon Doppler term is a product of the two small ratios when compared with mv, so it is discarded here."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "3d. Atom energy after forward emission"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Expand \\((mv-2\\hbar q)^2/(2m)\\) to first order in recoil relative to mv: \\[E_{at}=\\frac12mv^2-2\\hbar qv.\\] This also follows from 1c minus 3a. The official solution's corresponding expression loses a factor two in the kinetic-energy change. The native key uses the conservation-consistent result."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4a. Mean emitted photon energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(\\overline E_\\gamma=\\hbar\\omega_L(1+v/c)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4b. Mean emitted photon momentum"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The residual \\(\\hbar qv/c\\) is a product of the two small ratios relative to mv, so the retained mean emitted momentum is zero."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4c. Mean final atomic energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Average 2d and the corrected 3d: \\[\\overline E_{at}=mv^2/2-\\hbar qv.\\] The source's half-sized average loss inherits the factor error in 3d."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "4d. Mean final atomic momentum"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Average mv and \\(mv-2\\hbar q\\), yielding \\(mv-\\hbar q\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "5a. Mean energy transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\Delta E=-\\hbar qv=-\\hbar\\omega_Lv/c.\\] It equals v times mean momentum transfer to the retained order. The official answer has an erroneous factor one half, inconsistent with both conservation and 5b."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "5b. Mean momentum transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(\\Delta p=-\\hbar q\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6a. Co-propagating energy transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The resonance condition is \\(\\omega_0=\\omega_L^{\\prime}(1-v/c)\\). Reversing the photon momentum reverses the first-order work, giving \\(\\Delta E=+\\hbar\\omega_L^{\\prime}v/c\\). This corrects the same factor-one-half error in the official answer."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "6b. Co-propagating momentum transfer"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(\\Delta p=+\\hbar\\omega_L^{\\prime}/c\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "7a. Two-beam force"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Let \\(\\delta=\\omega_0-\\omega_L\\), \\(q=\\omega_L/c\\), \\(D=\\Gamma^2/4+2\\Omega_R^2\\). The +x beam is seen at \\(\\omega_L-qv\\), and the -x beam at \\(\\omega_L+qv\\). Thus \\[F=N\\Gamma\\hbar q\\Omega_R^2\\left[\\frac1{(\\delta+qv)^2+D}-\\frac1{(\\delta-qv)^2+D}\\right].\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8a. Linear friction force"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Writing \\(D_0=\\delta^2+\\Gamma^2/4+2\\Omega_R^2\\), the denominator difference is \\(-4\\delta qv/D_0^2\\). Hence \\[F=-Nbv,\\qquad b=\\frac{4\\hbar q^2\\Omega_R^2\\Gamma\\delta}{D_0^2}.\\] Here b is the damping coefficient per atom, not the total coefficient Nb."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8b. Positive force condition"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Blue detuning, \\(\\omega_L>\\omega_0\\), gives \\(\\delta<0\\) and positive force."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8c. Zero force condition"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At exact resonance \\(\\omega_L=\\omega_0\\), the two rates are equal. The force is also zero at v = 0 for any detuning."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8d. Cooling condition"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Red detuning, \\(\\omega_L<\\omega_0\\), gives positive b and a force opposite to v."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "8e. Cooling for opposite motion"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The linear force is odd in v. The same red-detuning condition \\(\\omega_L<\\omega_0\\) gives a force opposing either velocity sign."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "9a. Velocity decay"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Total mass is Nm, so \\(Nm\\dot v=-Nbv\\). Therefore \\[v(\\tau)=v_0e^{-b\\tau/m}.\\] Dividing a total force coefficient by the single-atom mass without cancelling N would be inconsistent."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "9b. Temperature decay"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Every velocity component in the one-dimensional model is reduced by \\(e^{-b\\tau/m}\\). Since temperature is proportional to mean-square velocity, \\[T(\\tau)=T_0e^{-2b\\tau/m}.\\] Recoil diffusion and other heating prevent the model from describing arbitrarily low temperatures."
+          }
+        ]
+      }
+    ],
+    "text": "DOPPLER LASER COOLING AND OPTICAL MOLASSES\n1a. Absorption resonance\nThe approaching atom sees a blueshift: \\(\\omega_0=\\omega_L(1+v/c)\\) to first order.\n1b. Momentum after absorption\nConserve momentum: \\(p_{at}=mv-\\hbar q\\).\n1c. Energy after absorption\nEnergy conservation gives \\(E_{at}=mv^2/2+\\hbar\\omega_L\\). Equivalently, \\((mv-\\hbar q)^2/(2m)+\\hbar\\omega_0\\) reduces to this at the retained order.\n2a. Backward photon energy\nBackward Doppler redshift cancels the incident resonance blueshift, leaving \\(E_\\gamma\\simeq\\hbar\\omega_L\\).\n2b. Backward photon momentum\n\\(p_\\gamma=-\\hbar\\omega_L/c=-\\hbar q\\).\n2c. Atom after backward emission\nThe emitted backward momentum restores the incident loss: \\(p_{at}=mv\\) to retained order.\n2d. Atom energy after backward emission\nThe atom returns to its internal ground state and original momentum, so \\(E_{at}=mv^2/2\\).\n3a. Forward photon energy\nThe emitted light is Doppler blueshifted in addition to the incident resonance shift: \\(E_\\gamma=\\hbar\\omega_L(1+2v/c)\\).\n3b. Forward photon momentum\n\\(p_\\gamma=E_\\gamma/c=\\hbar\\omega_L(1+2v/c)/c\\).\n3c. Atom after forward emission\n\\(p_{at}=mv-2\\hbar q\\). The extra photon Doppler term is a product of the two small ratios when compared with mv, so it is discarded here.\n3d. Atom energy after forward emission\nExpand \\((mv-2\\hbar q)^2/(2m)\\) to first order in recoil relative to mv: \\[E_{at}=\\frac12mv^2-2\\hbar qv.\\] This also follows from 1c minus 3a. The official solution's corresponding expression loses a factor two in the kinetic-energy change. The native key uses the conservation-consistent result.\n4a. Mean emitted photon energy\n\\(\\overline E_\\gamma=\\hbar\\omega_L(1+v/c)\\).\n4b. Mean emitted photon momentum\nThe residual \\(\\hbar qv/c\\) is a product of the two small ratios relative to mv, so the retained mean emitted momentum is zero.\n4c. Mean final atomic energy\nAverage 2d and the corrected 3d: \\[\\overline E_{at}=mv^2/2-\\hbar qv.\\] The source's half-sized average loss inherits the factor error in 3d.\n4d. Mean final atomic momentum\nAverage mv and \\(mv-2\\hbar q\\), yielding \\(mv-\\hbar q\\).\n5a. Mean energy transfer\n\\[\\Delta E=-\\hbar qv=-\\hbar\\omega_Lv/c.\\] It equals v times mean momentum transfer to the retained order. The official answer has an erroneous factor one half, inconsistent with both conservation and 5b.\n5b. Mean momentum transfer\n\\(\\Delta p=-\\hbar q\\).\n6a. Co-propagating energy transfer\nThe resonance condition is \\(\\omega_0=\\omega_L^{\\prime}(1-v/c)\\). Reversing the photon momentum reverses the first-order work, giving \\(\\Delta E=+\\hbar\\omega_L^{\\prime}v/c\\). This corrects the same factor-one-half error in the official answer.\n6b. Co-propagating momentum transfer\n\\(\\Delta p=+\\hbar\\omega_L^{\\prime}/c\\).\n7a. Two-beam force\nLet \\(\\delta=\\omega_0-\\omega_L\\), \\(q=\\omega_L/c\\), \\(D=\\Gamma^2/4+2\\Omega_R^2\\). The +x beam is seen at \\(\\omega_L-qv\\), and the -x beam at \\(\\omega_L+qv\\). Thus \\[F=N\\Gamma\\hbar q\\Omega_R^2\\left[\\frac1{(\\delta+qv)^2+D}-\\frac1{(\\delta-qv)^2+D}\\right].\\]\n8a. Linear friction force\nWriting \\(D_0=\\delta^2+\\Gamma^2/4+2\\Omega_R^2\\), the denominator difference is \\(-4\\delta qv/D_0^2\\). Hence \\[F=-Nbv,\\qquad b=\\frac{4\\hbar q^2\\Omega_R^2\\Gamma\\delta}{D_0^2}.\\] Here b is the damping coefficient per atom, not the total coefficient Nb.\n8b. Positive force condition\nBlue detuning, \\(\\omega_L>\\omega_0\\), gives \\(\\delta<0\\) and positive force.\n8c. Zero force condition\nAt exact resonance \\(\\omega_L=\\omega_0\\), the two rates are equal. The force is also zero at v = 0 for any detuning.\n8d. Cooling condition\nRed detuning, \\(\\omega_L<\\omega_0\\), gives positive b and a force opposite to v.\n8e. Cooling for opposite motion\nThe linear force is odd in v. The same red-detuning condition \\(\\omega_L<\\omega_0\\) gives a force opposing either velocity sign.\n9a. Velocity decay\nTotal mass is Nm, so \\(Nm\\dot v=-Nbv\\). Therefore \\[v(\\tau)=v_0e^{-b\\tau/m}.\\] Dividing a total force coefficient by the single-atom mass without cancelling N would be inconsistent.\n9b. Temperature decay\nEvery velocity component in the one-dimensional model is reduced by \\(e^{-b\\tau/m}\\). Since temperature is proportional to mean-square velocity, \\[T(\\tau)=T_0e^{-2b\\tau/m}.\\] Recoil diffusion and other heating prevent the model from describing arbitrarily low temperatures.",
+    "figures": [],
+    "shared": false
+  }
+}

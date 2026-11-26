@@ -1,0 +1,314 @@
+{
+  "problemId": "apho-2025-t2",
+  "version": "87014cefc8ca30a6a279643bcc53dd6963508f467813249764754af7b17661bb",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Ring gyromagnetic ratio",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Q",
+        "M"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use Q, M. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Signed Larmor frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\gamma",
+        "B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\gamma, B. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Dipole coupling energy",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "\\gamma",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu_0, \\gamma, d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Exchange effective field",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Spin evolution",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Spin-wave dispersion",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "J",
+        "S",
+        "k",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "J",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use J, S, k, a. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "b.4",
+      "label": "Magnon effective mass",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "J",
+        "S",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "J",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\hbar, J, S, a. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "b.5",
+      "label": "Neutron-scattering mass",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Independent-spin probability ratio",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "h",
+        "k_B",
+        "T"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use h, k_B, T. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Polarization curve",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "c.3",
+      "label": "Ground-state energy",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.4",
+      "sourcePart": "c.4",
+      "label": "Prescribed average-energy replacement",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.5",
+      "sourcePart": "c.5",
+      "label": "Self-consistency and critical temperature",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "J",
+        "k_B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "J",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use J for the Ising coupling J̃ in this field."
+    },
+    {
+      "id": "c.6",
+      "sourcePart": "c.6",
+      "label": "Near-critical branches",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.7",
+      "sourcePart": "c.7",
+      "label": "Magnetic phases in the approximation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

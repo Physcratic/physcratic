@@ -1,0 +1,219 @@
+{
+  "problemId": "ipho-2023-t2",
+  "version": "d4745cc2a83a0f5d516b66990b86a59bd5eb23222053081f0510ecc26eedef65",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Largest binding per nucleon",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Stable atomic number",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Equal-fission threshold",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Gravitational binding threshold",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Gravitational clock rate",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "f",
+        "c",
+        "t"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "f",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "t",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use f for positive Delta phi and t for Delta tau_I."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Shapiro time delay",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M",
+        "c",
+        "x_N",
+        "x_E",
+        "d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "x_N",
+          "assumptions": [],
+          "min": -20,
+          "max": -10
+        },
+        {
+          "symbol": "x_E",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 100,
+          "max": 200
+        },
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1
+        }
+      ],
+      "help": "Use M for white-dwarf mass and x_N<0."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Binary delay range",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M",
+        "c",
+        "\\varepsilon"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\varepsilon",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.001,
+          "max": 0.1
+        }
+      ],
+      "help": "Use M for white-dwarf mass."
+    },
+    {
+      "id": "c.4",
+      "sourcePart": "C.4",
+      "label": "White-dwarf mass from data",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "c.5",
+      "sourcePart": "C.5",
+      "label": "Inspiral frequency exponent",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "c.6",
+      "sourcePart": "C.6",
+      "label": "Gravitational-wave profile",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

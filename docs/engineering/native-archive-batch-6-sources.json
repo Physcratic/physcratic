@@ -1,0 +1,456 @@
+[
+  {
+    "id": "ipho-2005-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2005-t1-statement/document.pdf",
+    "originalSha256": "7ab175fc3932a60b47f0f7999e1ad5cd91c12f9d47ff54c47b958f05bf04a847",
+    "nodes": 39,
+    "figures": [
+      "/corpus/figures/native/batch6-satellite-impulse.png",
+      "/corpus/figures/native/batch6-satellite-conic.png",
+      "/corpus/figures/native/batch6-satellite-asymptote.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2005-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2005-t1-solution/document.pdf",
+    "originalSha256": "727521a1884ddd4aecea001f600f536f2a9070de2e053a4207fc24755f7dbd33",
+    "nodes": 35,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2005-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2005-t2-statement/document.pdf",
+    "originalSha256": "ccdc01b92366f30ddeb017eeba5223765b436ddfdee0101ea774c8ae0e76ef49",
+    "nodes": 21,
+    "figures": [
+      "/corpus/figures/native/batch6-rotating-coil.png",
+      "/corpus/figures/native/batch6-rotating-discs.png",
+      "/corpus/figures/native/batch6-ampere-balance.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2005-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2005-t2-solution/document.pdf",
+    "originalSha256": "08581879a750b3f096d3a605c25bfd04fe63bee32f331d920ab463d06ec2d6e5",
+    "nodes": 17,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2009-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2009-t1-statement/document.pdf",
+    "originalSha256": "d33c90b9353747045d51c1fcf29c28290371fcdc036ae79aa6dc41409bc56560",
+    "nodes": 51,
+    "figures": [
+      "/corpus/figures/native/batch6-tidal-bulges.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2009-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2009-t1-solution/document.pdf",
+    "originalSha256": "ce30702d56bfd330316994aa217f3b66b716b465efadcdebc9ecdf21982982be",
+    "nodes": 49,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2010-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2010-t1-statement/document.pdf",
+    "originalSha256": "67701ceca004cc12a187b6f0d8dc950a73ec9af64dc1a22b2f7e0bba0af0d195",
+    "nodes": 30,
+    "figures": [
+      "/corpus/figures/native/batch6-screening.png",
+      "/corpus/figures/native/batch6-charge-pendulum.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2010-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2010-t1-solution/document.pdf",
+    "originalSha256": "b7b89a6e6394a7b4a10d21c091d0eb90b9b58ed5bac5df9044e69c82e9fbe20f",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2013-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2013-t1-statement/document.pdf",
+    "originalSha256": "2c684cd54d06972ad1b220c0d9554a70e56112e984bcb3590be5c084a94a9875",
+    "nodes": 30,
+    "figures": [
+      "/corpus/figures/native/batch6-meteor-track.png",
+      "/corpus/figures/native/batch6-isochron.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2013-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2013-t1-solution/document.pdf",
+    "originalSha256": "b98f225380755f27a81ae8b7250fb000861d3c6833abdfc9fd171c8c2877336a",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2013-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2013-t2-statement/document.pdf",
+    "originalSha256": "5f7951cb064f66701ac13e3b584cc74d2af76da8725b134b6f325f6010950be8",
+    "nodes": 37,
+    "figures": [
+      "/corpus/figures/native/batch6-plasmon-model.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2013-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2013-t2-solution/document.pdf",
+    "originalSha256": "2c8f13c50b96025ff547e77747e80bcfcd927c78c37928b141ffdaa335c54cb1",
+    "nodes": 35,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2014-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2014-t3-statement/document.pdf",
+    "originalSha256": "0e3dcc253bdf2e889af946083bcba30328cdcc920ac2a3da0fa54c94bcce2138",
+    "nodes": 23,
+    "figures": [
+      "/corpus/figures/native/batch6-gas-discharge.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2014-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2014-t3-solution/document.pdf",
+    "originalSha256": "910439829cf48dfcc008f560e0fac1dda8f44e694ab450b2b392574b3f98cad5",
+    "nodes": 21,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2015-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2015-t1-statement/document.pdf",
+    "originalSha256": "8a2011423c093bffb23b121b63e7e07f8422f20a49d5a6521623a58d44759f9c",
+    "nodes": 30,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2015-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2015-t1-solution/document.pdf",
+    "originalSha256": "1fc4e7a3ecf0c6eecd1d5ff3602c73a6f45e3d8b07079a8b199bc67e3f94dff4",
+    "nodes": 29,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2015-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2015-t2-statement/document.pdf",
+    "originalSha256": "408546e55fec4a800aebb7ea20aaddc70bf87e9e5899772518130da6aa98a891",
+    "nodes": 31,
+    "figures": [
+      "/corpus/figures/native/batch6-mechanical-step.png",
+      "/corpus/figures/native/batch6-optical-refraction.png",
+      "/corpus/figures/native/batch6-matter-slits.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2015-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2015-t2-solution/document.pdf",
+    "originalSha256": "009df4f7fef4808869f07c156686856957df76f4a2fc0c3a1b9380557c091cb8",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2015-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2015-t3-statement/document.pdf",
+    "originalSha256": "9d713aaa58ff54b62a0c07496328cb82b5d209fc0e6ba4eab0ca57825a72c892",
+    "nodes": 26,
+    "figures": [
+      "/corpus/figures/native/batch6-reactor-layout.png",
+      "/corpus/figures/native/batch6-moderator-collision.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2015-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2015-t3-solution/document.pdf",
+    "originalSha256": "9beed7a47d96aad3014b1c664affeb9cfd8ebc7b00dd93a98be9989280afb821",
+    "nodes": 23,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2019-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2019-t1-statement/document.pdf",
+    "originalSha256": "96b623b665b38e671740257d7e28b7b2b2d92db3450be39e5043f00e22ef6927",
+    "nodes": 19,
+    "figures": [
+      "/corpus/figures/native/batch6-slinky-collapse.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2019-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2019-t1-solution/document.pdf",
+    "originalSha256": "b6edd014adb2f8bab5a47289b137f3b61f84186bd602b7212fa86088e7bbbce2",
+    "nodes": 17,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2019-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2019-t3-statement/document.pdf",
+    "originalSha256": "30182f27b8154b5fa2e7c12b99e11b98c3a3dc136b77ad74722df26bdf040362",
+    "nodes": 29,
+    "figures": [
+      "/corpus/figures/native/batch6-thermoacoustic-stack.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2019-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2019-t3-solution/document.pdf",
+    "originalSha256": "21e25ca7ce7449d7936893b7a96394f9b19395d671d0e8388ad3398b1e8e6be4",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2022-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2022-t3-statement/document.pdf",
+    "originalSha256": "d3fc5f300c6854c3a0d91554f7c52b9cb54d2bb3b9d15dfcea0a2d38ea983bf6",
+    "nodes": 10,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2022-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2022-t3-solution/document.pdf",
+    "originalSha256": "48eeb9fdd698aa0d48ef95694d5ac72615ba204d38ad43761930345c73964a88",
+    "nodes": 9,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2023-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2023-t2-statement/document.pdf",
+    "originalSha256": "1952ff21f907107b23c3757af34ecdcb362f38b56085aae32bc183d287beb4cd",
+    "nodes": 26,
+    "figures": [
+      "/corpus/figures/native/batch6-pulsar-path.png",
+      "/corpus/figures/native/batch6-binary-orbit.png",
+      "/corpus/figures/native/batch6-shapiro-data.png",
+      "/corpus/figures/native/batch6-wave-profiles.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2023-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2023-t2-solution/document.pdf",
+    "originalSha256": "a202c939bb78a0e384830b2e2d901a660661051ecba28214ab64f7dfd1b9942d",
+    "nodes": 21,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2023-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2023-t3-statement/document.pdf",
+    "originalSha256": "fe25d0f5ef076db853d8b64a1a9d58ca343665087ab8afe1dec294e53d8a9016",
+    "nodes": 23,
+    "figures": [
+      "/corpus/figures/native/batch6-wetting-boards.png",
+      "/corpus/figures/native/batch6-surface-block.png",
+      "/corpus/figures/native/batch6-floating-rods.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2023-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2023-t3-solution/document.pdf",
+    "originalSha256": "d86cee21f6fe4322ef9a796061ac6021a63115e56e0285593ce33141b527d7fc",
+    "nodes": 19,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2006-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2006-t2-statement/document.pdf",
+    "originalSha256": "9a229d0e841347a9ec2d8d3fd134c7b59621440fac408b3585a890facbf6e49a",
+    "nodes": 22,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2006-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2006-t2-solution/document.pdf",
+    "originalSha256": "7f912dd1f1d611176ba80b3670f50a20a5c0fbd365a81cd8a6610aa89f76b8cc",
+    "nodes": 23,
+    "figures": [
+      "/corpus/figures/native/batch6-pendulum-portrait.png",
+      "/corpus/figures/native/batch6-friction-portrait.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2011-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2011-t2-statement/document.pdf",
+    "originalSha256": "8462e48e92094017d3ec904a8c6cbc60c680d7a28266016fa1a86a57aab44b15",
+    "nodes": 20,
+    "figures": [
+      "/corpus/figures/native/batch6-driven-block.png",
+      "/corpus/figures/native/batch6-door-hinge.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2011-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2011-t2-solution/document.pdf",
+    "originalSha256": "be31437d7e2a5c5c64285d270cd8b3b84581e004e4c4fe10e48c0ed7640e6881",
+    "nodes": 17,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2013-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2013-t1-statement/document.pdf",
+    "originalSha256": "c367ae27d70e1b04de8be8dcb550696c20fc3a004a5ec5df192bb6a5ca83f766",
+    "nodes": 20,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2013-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2013-t1-solution/document.pdf",
+    "originalSha256": "162c21f08ae1fa1fcb27b693b8fea70d56d06e02364209034dba470e5ca7c895",
+    "nodes": 21,
+    "figures": [
+      "/corpus/figures/native/batch6-cylinder-image-geometry.png",
+      "/corpus/figures/native/batch6-current-ampere-loop.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2014-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2014-t3-statement/document.pdf",
+    "originalSha256": "3507ee19e53fa1e9a782722f3d6c51d6ade6d3dda3d132519c757fca7ad4bfe7",
+    "nodes": 20,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2014-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2014-t3-solution/document.pdf",
+    "originalSha256": "11fdc9aa88f96d31f6c601046ddd5230f9ae70dd27d41a69679771154b76b8c5",
+    "nodes": 20,
+    "figures": [
+      "/corpus/figures/native/batch6-lens-geometry.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2018-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2018-t2-statement/document.pdf",
+    "originalSha256": "06c54bf0fe8e9e4d1e5ccc104ff608a41bff74cde4bea53c8f87f2eb1396400b",
+    "nodes": 34,
+    "figures": [
+      "/corpus/figures/native/batch6-graphene-spacing.png",
+      "/corpus/figures/native/batch6-nanotube-bonds.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2018-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2018-t2-solution/document.pdf",
+    "originalSha256": "abac49a42939d8a4639c07e9892560fb8336b1f5c0cf7e503e30b1a059d804ad",
+    "nodes": 31,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  }
+]

@@ -1,0 +1,428 @@
+[
+  {
+    "id": "apho-2024-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2024-t1-statement/document.pdf",
+    "originalSha256": "2e39c2cb44119a4f92adb2d688ac13f54d14b582956ca192d2565fee0ce64ab9",
+    "nodes": 19,
+    "figures": [
+      "/corpus/figures/native/batch9-fountain.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2024-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2024-t1-solution/document.pdf",
+    "originalSha256": "0479d1a959a85cdd88e3b90de100fe675b6dbe3a14aad1da131488d475b6e036",
+    "nodes": 17,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2024-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2024-t2-statement/document.pdf",
+    "originalSha256": "bedb16eb1c7436e141e6481a6e0a38f0db4fe4a6f15d8daa9ebb8825760c54fe",
+    "nodes": 22,
+    "figures": [
+      "/corpus/figures/native/batch9-snell.png",
+      "/corpus/figures/native/batch9-semicircle-rays.png",
+      "/corpus/figures/native/batch9-optical-rod.png",
+      "/corpus/figures/native/batch9-optical-fibre.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2024-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2024-t2-solution/document.pdf",
+    "originalSha256": "bafdebf0c9cab74075b42734bceb73b32ccffc0949f629d83de4ccd67fd0e471",
+    "nodes": 17,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2016-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2016-t1-statement/document.pdf",
+    "originalSha256": "bb5f498da4d5f0fe13e8540346780e17a12a1a5aefd1f3ee1f1b8c8bab724300",
+    "nodes": 33,
+    "figures": [
+      "/corpus/figures/native/batch9-hidden-disk.png",
+      "/corpus/figures/native/batch9-tilted-cylinder.png",
+      "/corpus/figures/native/batch9-suspended-cylinder.png",
+      "/corpus/figures/native/batch9-station-wheel.png",
+      "/corpus/figures/native/batch9-station-oscillator.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2016-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2016-t1-solution/document.pdf",
+    "originalSha256": "8cc8664f1cfc01c33270e65a9571aec3d8adff673189acb02be2cfb36637f75f",
+    "nodes": 27,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2024-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2024-t3-statement/document.pdf",
+    "originalSha256": "b76c445714fb8c56a197163171c4f80abbc99cc2c35bed577cfd127bba74d5dc",
+    "nodes": 35,
+    "figures": [
+      "/corpus/figures/native/batch9-quasar-occultation.png",
+      "/corpus/figures/native/batch9-quasar-spectrum.png",
+      "/corpus/figures/native/batch9-quasar-jet.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2024-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2024-t3-solution/document.pdf",
+    "originalSha256": "5b275efc5059714722f09f05768797e4afb424c028e70e4767d35fb0719e5bf0",
+    "nodes": 31,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2017-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2017-t2-statement/document.pdf",
+    "originalSha256": "56af240e6ee694b30404ad210c50544a8e2b37ff656a8dd2f26909c06a314e4f",
+    "nodes": 30,
+    "figures": [
+      "/corpus/figures/native/batch9-yogi-seismogram.png",
+      "/corpus/figures/native/batch9-dnp-seismogram.png",
+      "/corpus/figures/native/batch9-seismic-layers.png",
+      "/corpus/figures/native/batch9-tsunami-uplift.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2017-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2017-t2-solution/document.pdf",
+    "originalSha256": "e7dfa9566d96ca5dea0442227b4bc6364045619492862f3806fa3eec06fc448d",
+    "nodes": 25,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2017-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2017-t1-statement/document.pdf",
+    "originalSha256": "250263c0501cf00c413bb068fdea601a2b7b0adc9ff94d0fbcb170cea378e24b",
+    "nodes": 50,
+    "figures": [
+      "/corpus/figures/native/batch9-vortex-circulation.png",
+      "/corpus/figures/native/batch9-vortex-beaker.png",
+      "/corpus/figures/native/batch9-opposite-vortices.png",
+      "/corpus/figures/native/batch9-equal-vortices.png",
+      "/corpus/figures/native/batch9-vortex-lattice.png",
+      "/corpus/figures/native/batch9-vortex-ring-flow.png",
+      "/corpus/figures/native/batch9-rectangular-vortex.png",
+      "/corpus/figures/native/batch9-vortex-shift.png",
+      "/corpus/figures/native/batch9-charged-vortex.png",
+      "/corpus/figures/native/batch9-charged-ring.png",
+      "/corpus/figures/native/batch9-vortex-wall.png",
+      "/corpus/figures/native/batch9-vortex-corner.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2017-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2017-t1-solution/document.pdf",
+    "originalSha256": "5543d7cf45403b3139af927526f892fdf0f180845b4929d50c24c8ccf3fb616d",
+    "nodes": 37,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2022-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2022-t2-statement/document.pdf",
+    "originalSha256": "b5bc5ffcd53a30943215d5a4bb8d48221ed6ae6e0cfb3d397bbda07ec4494481",
+    "nodes": 28,
+    "figures": [
+      "/corpus/figures/native/batch9-rotating-bead.png",
+      "/corpus/figures/native/batch9-bead-forces.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2022-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2022-t2-solution/document.pdf",
+    "originalSha256": "3781256cd2e3b3b30a595b7160acef2cba706f5dd484554180dbe2e30fb31922",
+    "nodes": 25,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2017-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2017-t3-statement/document.pdf",
+    "originalSha256": "39c6a0c5b6c28dc54e4c4ae4ca67c02f7369631705b69b2dcb2ae45c6c4bce73",
+    "nodes": 31,
+    "figures": [
+      "/corpus/figures/native/batch9-rocket-stage.png",
+      "/corpus/figures/native/batch9-rocket-spin.png",
+      "/corpus/figures/native/batch9-rocket-precession.png",
+      "/corpus/figures/native/batch9-eddy-shell.png",
+      "/corpus/figures/native/batch9-rocket-orbit.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2017-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2017-t3-solution/document.pdf",
+    "originalSha256": "a68dd4493eccde788e9d805bab0b21561e255b6c6d206d4d5d4e3773734d588a",
+    "nodes": 25,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2016-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2016-t1-statement/document.pdf",
+    "originalSha256": "a09471cbeaa43759b19fa7f508b687156ab4dbdcbb753b4aba827ef348d67a76",
+    "nodes": 20,
+    "figures": [
+      "/corpus/figures/native/batch9-lattice-configurations.png",
+      "/corpus/figures/native/batch9-lattice-indices.png",
+      "/corpus/figures/native/batch9-lattice-two.png",
+      "/corpus/figures/native/batch9-lattice-force.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2016-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2016-t1-solution/document.pdf",
+    "originalSha256": "c318b8f120d4f6fa54dde09d89a9881695e13111e0dc02f4ff7de28c1b92d8dd",
+    "nodes": 15,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2023-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2023-t2-statement/document.pdf",
+    "originalSha256": "3bbff44638e7bbd44d369a4469014b73095efedb60708fa2d9d4dac7107add44",
+    "nodes": 34,
+    "figures": [
+      "/corpus/figures/native/batch9-rolling-ball.png",
+      "/corpus/figures/native/batch9-charged-ball.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2023-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2023-t2-solution/document.pdf",
+    "originalSha256": "58a38d67e7f097a033c6ec735a7a231c5476ee91556605f9bb2fd8592c0638f9",
+    "nodes": 31,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2023-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2023-t3-statement/document.pdf",
+    "originalSha256": "897d0121a46051f906b7a141f9249a585c4ed3e389b7e8426194da709b45cba0",
+    "nodes": 24,
+    "figures": [
+      "/corpus/figures/native/batch9-cavitation-balance.png",
+      "/corpus/figures/native/batch9-cavitation-crevice.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2023-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2023-t3-solution/document.pdf",
+    "originalSha256": "ece1e5c3ed1d16e798b12e213c0ce7e72fa5902003689143d26381c9c5a92355",
+    "nodes": 21,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2023-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2023-t1-statement/document.pdf",
+    "originalSha256": "c107325e7d34217900653f8dc337ceddb80aa9e7cd2e1ff53c591f2cd92c8e28",
+    "nodes": 44,
+    "figures": [
+      "/corpus/figures/native/batch9-iss-history.png",
+      "/corpus/figures/native/batch9-iss-recent-altitude.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2023-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2023-t1-solution/document.pdf",
+    "originalSha256": "b96f04c5f589bcddb0076c92f7e691786ca5f411734001136215b30546d7fac2",
+    "nodes": 41,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2015-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-apho-2015-t2-statement/document.pdf",
+    "originalSha256": "93fea0aa00d3d25dc88221a9e80bff5a93986132db869cf7467bebd7dbba5c9c",
+    "nodes": 30,
+    "figures": [
+      "/corpus/figures/native/batch9-electron-gyro.png",
+      "/corpus/figures/native/batch9-magnetic-mirror.png",
+      "/corpus/figures/native/batch9-terrestrial-pitch.png",
+      "/corpus/figures/native/batch9-oxygen-levels.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "apho-2015-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-apho-2015-t2-solution/document.pdf",
+    "originalSha256": "3555ec0187782336bb332dc86f932905f83ca97c5efd2d5d66bcc93717500a09",
+    "nodes": 25,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2022-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2022-t2-statement/document.pdf",
+    "originalSha256": "6566f8eff10a54679574c2834ed1d1e9888fe4533a5b6d7f546d061fe53c0337",
+    "nodes": 37,
+    "figures": [
+      "/corpus/figures/native/batch9-dark-current.png",
+      "/corpus/figures/native/batch9-shield-flow.png",
+      "/corpus/figures/native/batch9-shield-gap.png",
+      "/corpus/figures/native/batch9-porous-plug.png",
+      "/corpus/figures/native/batch9-helium-uv.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2022-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2022-t2-solution/document.pdf",
+    "originalSha256": "c55c66cb13929fbae8d4d65513c05f93580fb37b4616f0e1cf5516441bb1fa97",
+    "nodes": 31,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2025-t1",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2025-t1-statement/document.pdf",
+    "originalSha256": "866d34e6f1c5469c9a33761f9b8fea94e41620cb28831ed5401b056febdc4485",
+    "nodes": 40,
+    "figures": [
+      "/corpus/figures/native/batch9-galaxy-rotation.png",
+      "/corpus/figures/native/batch9-galactic-sightline.png",
+      "/corpus/figures/native/batch9-hydrogen-spectrum.png",
+      "/corpus/figures/native/batch9-tully-fisher.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2025-t1",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2025-t1-solution/document.pdf",
+    "originalSha256": "4551f43739a66723fae135aa80f5811cca0c719a9d8e9ca2d72c63ec9d28d988",
+    "nodes": 35,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2025-t2",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2025-t2-statement/document.pdf",
+    "originalSha256": "2a23bf9c8451fbaa7036ca6eaf83aaae49995d3b5aa5f2600874296319ddd333",
+    "nodes": 29,
+    "figures": [
+      "/corpus/figures/native/batch9-submerged-tube.png",
+      "/corpus/figures/native/batch9-lifting-regimes.png",
+      "/corpus/figures/native/batch9-barometric-bulb.png",
+      "/corpus/figures/native/batch9-pressure-wave.png",
+      "/corpus/figures/native/batch9-cox-pulleys.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2025-t2",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2025-t2-solution/document.pdf",
+    "originalSha256": "4845538076deabf1207426c57ee2948fe8d9939163b26fb68e77761a45ffedb8",
+    "nodes": 23,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2025-t3",
+    "kind": "statement",
+    "originalPdf": "/corpus/documents/english-ipho-2025-t3-statement/document.pdf",
+    "originalSha256": "d8715ed3a2c6e552f294aef451382db869c8e7fd800621a7b1b30886c705cdd8",
+    "nodes": 31,
+    "figures": [
+      "/corpus/figures/native/batch9-bubble-growth.png",
+      "/corpus/figures/native/batch9-bubble-train.png",
+      "/corpus/figures/native/batch9-burst-film.png",
+      "/corpus/figures/native/batch9-helmholtz.png",
+      "/corpus/figures/native/batch9-bottle-expansion.png"
+    ],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  },
+  {
+    "id": "ipho-2025-t3",
+    "kind": "solution",
+    "originalPdf": "/corpus/documents/english-ipho-2025-t3-solution/document.pdf",
+    "originalSha256": "fed9e276bcc33b300fcf58a510554ccbe503f0a5da1b27ab22b9414aeca7c913",
+    "nodes": 25,
+    "figures": [],
+    "review": "transcribed-and-page-compared",
+    "independentReview": "pending"
+  }
+]

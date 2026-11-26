@@ -1,0 +1,191 @@
+{
+  "problemId": "ipho-2008-t2",
+  "version": "12c57503a633086b98da09e6c5f6628fe89a0c9718a0c4b36767937e85564525",
+  "parts": [
+    {
+      "id": "1.1",
+      "sourcePart": "1.1",
+      "label": "Wavefront construction",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "1.2",
+      "sourcePart": "1.2",
+      "label": "Wavefront cone angle",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\beta",
+        "n"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.8,
+          "max": 0.95
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1.5,
+          "max": 2
+        }
+      ],
+      "help": "Use \\beta, n. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "2",
+      "sourcePart": "2",
+      "label": "Ring centre and radius",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "3.1",
+      "sourcePart": "3.1",
+      "label": "Threshold radiator pressures",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "3.2.pressure",
+      "sourcePart": "3.2.pressure",
+      "label": "Half-radius kaon ring",
+      "kind": "numeric",
+      "unit": "atm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in atm, without a unit suffix."
+    },
+    {
+      "id": "3.2.angles",
+      "sourcePart": "3.2.angles",
+      "label": "Ring angles and proton visibility",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "4.1",
+      "sourcePart": "4.1",
+      "label": "Momentum-to-angle width",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "4.2",
+      "sourcePart": "4.2",
+      "label": "Resolvable momentum width",
+      "kind": "numeric",
+      "unit": "GeV/c",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in GeV/c, without a unit suffix."
+    },
+    {
+      "id": "5.1",
+      "sourcePart": "5.1",
+      "label": "Water radiation threshold",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "M",
+        "c",
+        "n"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1.1,
+          "max": 2
+        }
+      ],
+      "help": "Use M, c, n. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "5.2",
+      "sourcePart": "5.2",
+      "label": "Radioactive particles",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "6.1",
+      "sourcePart": "6.1",
+      "label": "Chromatic angular spread",
+      "kind": "numeric",
+      "unit": "deg",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in deg, without a unit suffix."
+    },
+    {
+      "id": "6.2.1",
+      "sourcePart": "6.2.1",
+      "label": "Two broadening mechanisms",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "6.2.2",
+      "sourcePart": "6.2.2",
+      "label": "Ring colour ordering",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

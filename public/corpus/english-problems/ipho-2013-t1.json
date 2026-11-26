@@ -1,1 +1,600 @@
-{"id":"ipho-2013-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2013_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2013_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2013-t1-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"   \n \n   Data sheet  \nT \n \nPage 1 of 1 \n \n \nData sheet: Table of physical parameters \n \nSpeed of light in vacuum \n                   \nPlanck's constant over    \n                   \nGravitational constant \n                       \nGravitational acceleration \n             \nElementary charge  \n                 \nElectric permittivity of vacuum  \n                           \nElectron mass  \n                   \nAvogadro constant  \n                     \nBoltzmann constant  \n                       \nStony meteorite, specific heat \n                      \nStony meteorite, thermal conductivity \n                  \nStony meteorite, density \n                    \nStony meteorite, melting point \n              \nStony meteorite, specific melting heat  \n                   \nSilver, molar mass  \n                         \nSilver, density  \n                      \nSilver, specific heat capacity \n                        \nWater, molar mass \n                         \nWater, density \n                      \nWater, specific heat capacity \n                         \nWater, heat of vaporization \n                      \nWater, boiling temperature \n                     \nIce, density of glacier \n                      \nSteam, specific heat capacity \n                          \nEarth, mass of the \n                  \nEarth, radius of the  \n               \nSun, mass of the  \n                 \nSun, radius of the \n               \nAverage Sun-Earth distance \n                 \n \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 1 of 4 \n \nIntroduction \nA meteoroid is a small particle (typically smaller than 1 m) from a comet or an asteroid. A \nmeteoroid that impacts the ground is called a meteorite. \n \nOn the night of 17 January 2009 many people near the Baltic Sea saw the glowing trail or fireball of \na meteoroid falling through the atmosphere of the Earth. In Sweden a surveillance camera recorded \na video of the event, see Fig. 1.1(a). From these pictures and eyewitness accounts it was possible to \nnarrow down the impact area, and six weeks later a meteorite with the mass 0.025 kg was found in \nthe vicinity of the town Maribo in southern Denmark. Measurements on the meteorite, now named \nMaribo, and its orbit in the sky showed interesting results. Its speed when entering the atmosphere \nhad been exceptionally high. Its age,           year, shows that it had been formed shortly after \nthe birth of the solar system. The Maribo meteorite is possibly a part of Comet Encke.  \n \n \nThe speed of Maribo \nThe fireball was moving in westerly direction, heading 285q relative to north, toward the location \nwhere the meteorite was subsequently found, as sketched in Fig. 1.1. The meteorite was found at a \ndistance 195 km from the surveillance camera in the direction 230q relative to north. \n \n1.1 \nUse this and the data in Fig. 1.1 to calculate the average speed of Maribo in the time \ninterval between frames 155 and 161. The curvature of the Earth and the gravitational \nforce on the meteoroid can both be neglected. \n1.3 \n \n \nThrough the atmosphere and melting? \nThe friction from the air on a meteoroid moving in the higher atmosphere depends in a complicated \nway on the shape and velocity of the meteoroid, and on the temperature and density of the atmo-\nsphere. As a reasonable approximation the friction force   in the upper atmosphere is given by the \nexpression           , where   is a constant,      the density of the atmosphere,   the projec-\nted cross-section area of the meteorite, and   its speed.    \n      \nThe following simplifying assumptions are made to analyze the meteoroid: The object entering the \natmosphere was a sphere of mass         , radius          , temperature         , and \nspeed                . The density of the atmosphere is constant (its value 40 km above the \nsurface of the Earth),                     , and the friction coefficient is       . \n  \n1.2a Estimate how long time after entering the atmosphere it takes the meteoroid to have its \nspeed reduced by 10 % from    to        . You can neglect the gravitational force on \nthe meteoroid and assume, that it maintains its mass and shape. \n0.7 \n1.2b Calculate how many times larger the kinetic energy      of the meteoroid entering the \natmosphere is than the energy       necessary for melting it completely (see data sheet). \n0.3 \n \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 2 of 4 \n \n  \n(a) \n \n  \n(b) \nFrame \nTime Azimuth Altitude \n \n155 \n1.46 s \n215q \n19.2q \n \n161 \n2.28 s \n221q \n14.7q \n \nLanding at M \n230q \n 0.0q \n \n(c) \n \nFigure 1.1 (a) Azimuth is the clockwise angular position from north in the horizontal plane, and \naltitude is the angular position above the horizon. A series of frames recorded by the surveillance \ncamera in Sweden, showing the motion of Maribo as a fireball on its way down through the \natmosphere. (b) The data from two frames indicating the time, the direction (azimuth) in degrees, \nas seen by the camera (C), and the height above the horizon (altitude) in degrees. (c) Sketch of the \ndirections of the path (magenta arrow) of Maribo relative to north (N) and of the landing site (M) \nin Denmark as seen by the camera (C). \n \nHeating of Maribo during its fall in the atmosphere \nWhen the stony meteoroid Maribo entered the atmosphere at supersonic speed it appeared as a fire-\nball because the surrounding air was glowing. Nevertheless, only the outermost layer of Maribo was \nheated. Assume that Maribo is a homogenous sphere with density    , specific heat capacity    , \nand thermal conductivity     (for values see the data sheet). Furthermore, when entering the \natmosphere, it had the temperature         . While falling through the atmosphere its surface \ntemperature was constant            due to the air friction, thus gradually heating up the interior.  \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 3 of 4 \n \n     After falling a time   in the atmosphere, an outer shell of Maribo of thickness   will have been \nheated to a temperature significantly larger than   . This thickness can be estimated by dimensional \nanalysis as the simple product of powers of the thermodynamic parameters:        \n     \n     \n .  \n  \n1.3a Determine by dimensional (unit) analysis the value of the four powers  ,  ,  , and  . \n0.6 \n1.3b Calculate the thickness   after a fall time      , and determine the ratio     . \n0.4 \n \nThe age of a meteorite \nThe chemical properties of radioactive elements may be different, so during the crystallization of \nthe minerals in a given meteorite, some minerals will have a high content of a specific radioactive \nelement and others a low content. This difference can be used to determine the age of a meteorite by \nradiometric dating of its radioactive minerals. \n     As a specific example, we study the isotope 87Rb (element no. 37), which decays into the stable \nisotope 87Sr (element no. 38) with a half-life of              year, relative to the stable isotope \n86Sr. At the time of crystallization the ratio 87Sr/86Sr was identical for all minerals, while the ratio \n87Rb/86Sr was different. As time passes on, the amount of 87Rb decreases by decay, while \nconsequently the amount of 87Sr increases. As a result, the ratio 87Sr/86Sr will be different today. In \nFig. 1.2(a), the points on the horizontal line refer to the ratio 87Rb/86Sr in different minerals at the \ntime, when they are crystallized.  \n \nFigure 1.2 (a) The ratio 87Sr/86Sr in different minerals at the time     of crystallization (open \ncircles) and at present time (filled circles). (b) The isochron-line for three different mineral samples \ntaken from a meteorite at present time. \n \n1.4a Write down the decay scheme for the transformation of \n  \n  \n  \n to \n  \n  \n  \n. \n0.3 \n1.4b \nShow that the present-time ratio 87Sr/86Sr plotted versus the present-time ratio 87Rb/86Sr \nin different mineral samples from the same meteorite forms a straight line, the so-called \nisochron-line, with slope      (     ). Here   is the time since the formation of the \nminerals, while   is the decay constant inversely proportional to half-life   . \n0.7 \n1.4c Determine the age    of the meteorite using the isochron-line of Fig. 1.2(b). \n0.4 \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 4 of 4 \n \n \nComet Encke, from which Maribo may originate \nIn its orbit around the Sun, the minimum and maximum distances between comet Encke and the \nSun are                  and                 , respectively. \n \n1.5 Calculate the orbital period        of comet Encke. \n0.6 \n \n \nConsequences of an asteroid impact on Earth \n65 million years ago Earth was hit by a huge asteroid with density                    , radius \n           , and final speed of                 . This impact resulted in the extermination \nof most of the life on Earth and the formation of the enormous Chicxulub Crater. Assume that an \nidentical asteroid would hit Earth today in a completely inelastic collision, and use the fact that the \nmoment of inertia of Earth is 0.83 times that for a homogeneous sphere of the same mass and \nradius. The moment of inertia of a homogeneous sphere with mass   and radius   is \n \n    . \nNeglect any changes in the orbit of the Earth. \n \n1.6a Let the asteroid hit the North Pole. Find the maximum change in angular orientation of \nthe axis of Earth after the impact. \n0.7 \n1.6b Let the asteroid hit the Equator in a radial impact. Find the change       in the duration \nof one revolution of Earth after the impact. \n0.7 \n1.6c Let the asteroid hit the Equator in a tangential impact in the equatorial plane. Find the \nchange       in the duration of one revolution of Earth after the impact. \n0.7 \n \n \nMaximum impact speed \nConsider a celestial body, gravitationally bound in the solar system, which impacts the surface of \nEarth with a speed     . Initially the effect of the gravitational field of the Earth on the body can be \nneglected. Disregard the friction in the atmosphere, the effect of other celestial bodies, and the \nrotation of the Earth. \n \n1.7 Calculate     \n   , the largest possible value of     . \n1.6 \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2013-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"    \n \n   The Maribo Meteorite  \nT1 \n \nPage 1 of 3 \n \nSolutions \n1.1  \n \nTop view: Triangle MBC: |  |        ,                   , and \n         , so                      .  \nThen |  |  \n|  |    (    )\n   (    )\n         . \nTriangle DBC: |  |          ,                    ,and         ,  \nso                      . \nThen |  |  \n|  |    (    )\n   (    )\n           \nTriangle EBC: |  |          ,                    , and         ,  \nso                      . \nThen |  |  \n|  |    (    )\n   (    )\n          . \nTriangle EDC:                   Horizontal distance traveled by \nMaribo:|  |  \n|  |    (    )\n   (    )\n          \nSide view: Triangle CDF: |  |  |  |    (    )           \nTriangle CEG: |  |  |  |    (    )           \nThus vertical distance travelled by Maribo: |  |  |  |          . \nTotal distance travelled by Maribo from frame 155 to 161: \n|  |  √|  |  (|  |  |  |)          . \nThe speed of Maribo is   \n        \n                        \n \n1.3 \n \n1.2a \nNewton's second law:   \n  \n            \n     yields  \n \n      \n        \n \n  \n   . \nBy integration   \n  \n        \n  (\n \n     )\n \n         .  \nAlternative solution: The average force on the meteoroid when the speed decreases from \n   to        can be estimated to              \n  (       ) . Using that the accele-\nration is approximately constant,              \n  (       )    , results in \n   \n       \n   \n       . \n0.7 \nC \nTurned sideview, not to \nscale \nN \nTop \nview  \nFrame 155  \nFrame 161  \nM\nE \nD \nB \nF \nG \nM \n195 km \nC \nB \nD \nE \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 2 of 3 \n \n1.2b     \n      \n \n    \n \n   (      )        \n       \n                 . \n0.3 \n \n1.3a \n[ ]  [ ] [   ] [   ]  [   ]  [ ] [      ] [         ]  [           ] , \nso [ ]  [  ]   [ ]        [ ]       [ ]    .   \nThus      ,             ,            , and         . \nFrom which (       )   ( \n \n   \n \n   \n \n   \n \n )  and  ( )  √\n    \n      . \n0.6 \n1.3b  (   )   1.6 mm \n \n                         . \n0.4 \n \n1.4a Rb-Sr decay scheme: \n  \n  \n  \n \n   \n  \n  \n \n \n  \n    ̅  \n0.3 \n1.4b \n     ( )       ( )    and Rb Sr:       ( )       ( )  [     ( )       ( )]. \nThus      ( )       ( )  (     )     ( ), and dividing by       we obtain the \nequation of a straight line: \n     ( )\n       \n     ( )\n      (     )\n     ( )\n     . \n0.7 \n1.4c \nSlope:         \n           \n    \n       and     \n  ( )\n \n              .  \n \nSo      (   )  \n  \n  (   )\n  ( )                 . \n0.4 \n \n1.5 \nKepler's 3rd law on comet Encke and Earth, with the orbital semi-major axis of Encke \ngiven by   \n \n (         ). Thus         (\n \n  )\n \n                        .  \n0.6 \n  \n1.6a \nFor Earth around its rotation axis:  Angular velocity    \n  \n                  . \nMoment of inertia        \n \n     \n                 .  \nAngular momentum                            .  \nAsteroid:      \n  \n     \n                    and angular momentum  \n                                   .      is perpendicular to   , so by \nconservation angular momentum:     (  )           =          .The axis tilt \n                  (so the North Pole moves             ). \n0.7 \n1.6b \nAt vertical impact       so  (    )   . Thus        (   )   , and since  \n             \n               we obtain                    . The change \nin rotation period is       (\n \n       \n \n  )     \n   \n  \n             . \n0.7 \n1.6c \nAt tangential impact      is parallel to    so         (       )(      ) and \nthus       (\n \n       \n \n  )    (\n      \n        \n \n  )              . \n0.7 \n\n    \n \n   The Maribo Meteorite  \nT1 \n \nPage 3 of 3 \n \n \n \n1.7 \nMaximum impact speed     \n    arises from three contributions:  \n \n(I) The velocity    of the body at distance    (Earth orbit radius) from the Sun, \n   √\n    \n  \n          .  \n(II) The orbital velocity of the Earth,     \n    \n                .  \n(III) Gravitational attraction from the Earth and kinetic energy seen from the Earth:  \n       \n \n (     )    \n   \n   \n \n (    \n   )\n .  \n \nIn conclusion:     \n    √(     )   \n    \n  \n          . \n1.6 \n \n \nTotal \n9.0 \n   \n  \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2013-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2013_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2013-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Maribo Meteorite"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "On 17 January 2009 a camera recorded a meteor over the Baltic Sea. A 0.025 kg fragment was later found near Maribo. Use \\(G=6.67\\times10^{-11}\\), Earth's mass \\(m_E=5.97\\times10^{24}\\,\\mathrm{kg}\\), radius \\(R_E=6.38\\times10^6\\,\\mathrm m\\), Sun's mass \\(m_S=1.99\\times10^{30}\\,\\mathrm{kg}\\), and Earth-Sun distance \\(a_E=1.50\\times10^{11}\\,\\mathrm m\\). Stony material has \\(c=1.2\\times10^3\\,\\mathrm{J/(kg\\,K)}\\), conductivity \\(k_s=2.0\\,\\mathrm{W/(m\\,K)}\\), density \\(\\rho=3.3\\times10^3\\,\\mathrm{kg/m^3}\\), melting point \\(T_m=1.7\\times10^3\\,\\mathrm K\\), and latent heat \\(L=2.6\\times10^5\\,\\mathrm{J/kg}\\). During atmospheric heating, take the surface temperature to be a constant \\(1000\\,\\mathrm K\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1. Camera speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch6-meteor-track.png",
+        "alt": "Original map showing camera C, meteor landing M, 195 km baseline, azimuth 230 degrees and track heading 285 degrees."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The meteor travels on a straight track heading \\(285^\\circ\\) clockwise from north towards the landing site, 195 km from the camera at azimuth \\(230^\\circ\\). Frame 155 at 1.46 s has azimuth \\(215^\\circ\\), altitude \\(19.2^\\circ\\). Frame 161 at 2.28 s has azimuth \\(221^\\circ\\), altitude \\(14.7^\\circ\\). Find its mean speed, neglecting Earth curvature and gravity."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2a. Atmospheric deceleration"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An entering sphere has mass \\(m_M=30\\,\\mathrm{kg}\\), radius \\(R_M=0.13\\,\\mathrm m\\), temperature \\(T_0=200\\,\\mathrm K\\), and speed \\(v_M=2.91\\times10^4\\,\\mathrm{m/s}\\). Drag is \\(F=k\\rho_{\\rm atm}Av^2\\), with \\(k=0.60\\), \\(\\rho_{\\rm atm}=4.1\\times10^{-3}\\,\\mathrm{kg/m^3}\\), and \\(A=\\pi R_M^2\\). Estimate time to slow to \\(0.90v_M\\), keeping shape and mass fixed and ignoring gravity."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2b. Energy available for melting"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find initial kinetic energy divided by the energy needed to melt the sphere completely."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3a. Thermal penetration powers"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Only an outer layer is heated while the surface stays at constant high temperature. Use dimensional analysis on \\(x\\sim t^\\alpha\\rho^\\beta c^\\gamma k_s^\\delta\\) to determine all four powers."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3b. Heated-layer thickness"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find \\(x\\) and \\(x/R_M\\) after 5 s."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4a. Radioactive decay scheme"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch6-isochron.png",
+        "alt": "Original initial and present isotope ratios and the measured isochron line, with labelled axes and tick marks."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Write the decay of \\(^{87}_{37}\\mathrm{Rb}\\) to \\(^{87}_{38}\\mathrm{Sr}\\). The Rb half-life is \\(4.9\\times10^{10}\\) years."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4b. Isochron proof"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At crystallization, all minerals have the same \\(^{87}\\mathrm{Sr}/{}^{86}\\mathrm{Sr}\\), but different \\(^{87}\\mathrm{Rb}/{}^{86}\\mathrm{Sr}\\). Show that their present ratios form a line of slope \\(e^{\\lambda t}-1\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4c. Radiometric age"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Read the slope from the original isochron graph and find the age."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.5. Comet Encke period"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Comet Encke has minimum and maximum solar distances \\(4.95\\times10^{10}\\,\\mathrm m\\) and \\(6.16\\times10^{11}\\,\\mathrm m\\). Find its period."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6a. Maximum pole-impact tilt"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An asteroid of density \\(3.0\\times10^3\\,\\mathrm{kg/m^3}\\), radius 5.0 km and impact speed \\(2.5\\times10^4\\,\\mathrm{m/s}\\) strikes the North Pole in a completely inelastic collision. Earth has inertia \\(I_E=0.83(2/5)m_ER_E^2\\). Find the maximum axis tilt. Neglect orbital changes and use a 24 h initial day."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6b. Radial equatorial impact"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For the same asteroid, find the change in day length for a radial equatorial impact."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6c. Tangential equatorial impact"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the change in day length for a prograde tangential equatorial impact. Also discuss the opposite direction."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.7. Maximum impact speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the largest surface impact speed of a body initially gravitationally bound to the solar system. Ignore atmosphere, other bodies and Earth rotation."
+          }
+        ]
+      }
+    ],
+    "text": "The Maribo Meteorite\nOn 17 January 2009 a camera recorded a meteor over the Baltic Sea. A 0.025 kg fragment was later found near Maribo. Use \\(G=6.67\\times10^{-11}\\), Earth's mass \\(m_E=5.97\\times10^{24}\\,\\mathrm{kg}\\), radius \\(R_E=6.38\\times10^6\\,\\mathrm m\\), Sun's mass \\(m_S=1.99\\times10^{30}\\,\\mathrm{kg}\\), and Earth-Sun distance \\(a_E=1.50\\times10^{11}\\,\\mathrm m\\). Stony material has \\(c=1.2\\times10^3\\,\\mathrm{J/(kg\\,K)}\\), conductivity \\(k_s=2.0\\,\\mathrm{W/(m\\,K)}\\), density \\(\\rho=3.3\\times10^3\\,\\mathrm{kg/m^3}\\), melting point \\(T_m=1.7\\times10^3\\,\\mathrm K\\), and latent heat \\(L=2.6\\times10^5\\,\\mathrm{J/kg}\\). During atmospheric heating, take the surface temperature to be a constant \\(1000\\,\\mathrm K\\).\n1.1. Camera speed\n\nThe meteor travels on a straight track heading \\(285^\\circ\\) clockwise from north towards the landing site, 195 km from the camera at azimuth \\(230^\\circ\\). Frame 155 at 1.46 s has azimuth \\(215^\\circ\\), altitude \\(19.2^\\circ\\). Frame 161 at 2.28 s has azimuth \\(221^\\circ\\), altitude \\(14.7^\\circ\\). Find its mean speed, neglecting Earth curvature and gravity.\n1.2a. Atmospheric deceleration\nAn entering sphere has mass \\(m_M=30\\,\\mathrm{kg}\\), radius \\(R_M=0.13\\,\\mathrm m\\), temperature \\(T_0=200\\,\\mathrm K\\), and speed \\(v_M=2.91\\times10^4\\,\\mathrm{m/s}\\). Drag is \\(F=k\\rho_{\\rm atm}Av^2\\), with \\(k=0.60\\), \\(\\rho_{\\rm atm}=4.1\\times10^{-3}\\,\\mathrm{kg/m^3}\\), and \\(A=\\pi R_M^2\\). Estimate time to slow to \\(0.90v_M\\), keeping shape and mass fixed and ignoring gravity.\n1.2b. Energy available for melting\nFind initial kinetic energy divided by the energy needed to melt the sphere completely.\n1.3a. Thermal penetration powers\nOnly an outer layer is heated while the surface stays at constant high temperature. Use dimensional analysis on \\(x\\sim t^\\alpha\\rho^\\beta c^\\gamma k_s^\\delta\\) to determine all four powers.\n1.3b. Heated-layer thickness\nFind \\(x\\) and \\(x/R_M\\) after 5 s.\n1.4a. Radioactive decay scheme\n\nWrite the decay of \\(^{87}_{37}\\mathrm{Rb}\\) to \\(^{87}_{38}\\mathrm{Sr}\\). The Rb half-life is \\(4.9\\times10^{10}\\) years.\n1.4b. Isochron proof\nAt crystallization, all minerals have the same \\(^{87}\\mathrm{Sr}/{}^{86}\\mathrm{Sr}\\), but different \\(^{87}\\mathrm{Rb}/{}^{86}\\mathrm{Sr}\\). Show that their present ratios form a line of slope \\(e^{\\lambda t}-1\\).\n1.4c. Radiometric age\nRead the slope from the original isochron graph and find the age.\n1.5. Comet Encke period\nComet Encke has minimum and maximum solar distances \\(4.95\\times10^{10}\\,\\mathrm m\\) and \\(6.16\\times10^{11}\\,\\mathrm m\\). Find its period.\n1.6a. Maximum pole-impact tilt\nAn asteroid of density \\(3.0\\times10^3\\,\\mathrm{kg/m^3}\\), radius 5.0 km and impact speed \\(2.5\\times10^4\\,\\mathrm{m/s}\\) strikes the North Pole in a completely inelastic collision. Earth has inertia \\(I_E=0.83(2/5)m_ER_E^2\\). Find the maximum axis tilt. Neglect orbital changes and use a 24 h initial day.\n1.6b. Radial equatorial impact\nFor the same asteroid, find the change in day length for a radial equatorial impact.\n1.6c. Tangential equatorial impact\nFind the change in day length for a prograde tangential equatorial impact. Also discuss the opposite direction.\n1.7. Maximum impact speed\nFind the largest surface impact speed of a body initially gravitationally bound to the solar system. Ignore atmosphere, other bodies and Earth rotation.",
+    "figures": [
+      "/corpus/figures/native/batch6-meteor-track.png",
+      "/corpus/figures/native/batch6-isochron.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2013-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "The Maribo Meteorite"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.1. Camera speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Intersect each horizontal camera bearing with the line through the landing site heading \\(285^\\circ\\). The horizontal camera ranges are \\(195\\sin55^\\circ/\\sin70^\\circ\\) and \\(195\\sin55^\\circ/\\sin64^\\circ\\) km. Their heights are these ranges times \\(\\tan19.2^\\circ\\) and \\(\\tan14.7^\\circ\\). Combine the horizontal track displacement with the height difference and divide by \\(0.82\\,\\mathrm s\\). The result is about \\(29.1\\,\\mathrm{km/s}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2a. Atmospheric deceleration"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integrate \\(m_M\\dot v=-k\\rho_{\\rm atm}Av^2\\): \\[t=\\frac{m_M}{k\\rho_{\\rm atm}\\pi R_M^2v_M}\\left(\\frac1{0.9}-1\\right)\\simeq0.88\\,\\mathrm s.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.2b. Energy available for melting"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The mass cancels: \\[\\frac{E_{\\rm kin}}{E_{\\rm melt}}=\\frac{v_M^2/2}{c(T_m-T_0)+L}\\simeq2.1\\times10^2.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3a. Thermal penetration powers"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The dimensions of heat conduction give \\(x=\\sqrt{k_st/(\\rho c)}\\). Thus \\((\\alpha,\\beta,\\gamma,\\delta)=(1/2,-1/2,-1/2,1/2)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.3b. Heated-layer thickness"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(x=\\sqrt{k_st/(\\rho c)}=1.6\\,\\mathrm{mm}\\), and \\(x/R_M=0.012\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4a. Radioactive decay scheme"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[{}^{87}_{37}\\mathrm{Rb}\\longrightarrow{}^{87}_{38}\\mathrm{Sr}+{}^0_{-1}e+\\bar\\nu_e.\\] This is beta-minus decay."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4b. Isochron proof"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Rb decays as \\(N_R(t)=N_R(0)e^{-\\lambda t}\\), while daughter Sr increases by \\(N_R(0)-N_R(t)\\). Divide by stable \\(N_{86}\\): \\[\\frac{N_{87\\rm Sr}(t)}{N_{86}}=\\frac{N_{87\\rm Sr}(0)}{N_{86}}+(e^{\\lambda t}-1)\\frac{N_R(t)}{N_{86}}.\\] This is the requested straight line with a common intercept."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.4c. Radiometric age"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The graph rises from approximately 0.700 to 0.712 over a horizontal span 0.25. Its slope is about 0.050. Therefore \\(t=T_{1/2}\\ln(1+a)/\\ln2=3.4\\times10^9\\) years."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.5. Comet Encke period"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Its semi-major axis is the mean of the two distances. Kepler's law gives \\(T=2\\pi\\sqrt{a^3/(Gm_S)}=3.30\\) years."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6a. Maximum pole-impact tilt"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The asteroid mass is \\(1.57\\times10^{15}\\,\\mathrm{kg}\\). Its largest angular momentum is \\(m_av_aR_E\\), perpendicular to Earth's spin. Hence \\(\\Delta\\theta\\simeq m_av_aR_E/(I_E\\omega_E)=4.27\\times10^{-8}\\,\\mathrm{rad}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6b. Radial equatorial impact"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "No angular momentum is added, but \\(\\Delta I=m_aR_E^2\\). Thus \\(\\Delta T\\simeq T\\Delta I/I_E=6.84\\times10^{-5}\\,\\mathrm s\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.6c. Tangential equatorial impact"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use \\((I_E+m_aR_E^2)\\omega_f=I_E\\omega_E+m_av_aR_E\\). To first order, \\(\\Delta T/T=\\Delta I/I_E-\\Delta L/L_E\\), giving \\(-3.62\\times10^{-3}\\,\\mathrm s\\). A retrograde impact changes the angular-momentum term's sign and lengthens the day."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "1.7. Maximum impact speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The largest heliocentric speed at Earth's orbit approaches solar escape speed \\(\\sqrt{2Gm_S/a_E}\\). A head-on encounter adds Earth's orbital speed \\(\\sqrt{Gm_S/a_E}\\). Earth's gravity then adds escape-speed squared: \\[v_{\\max}=\\sqrt{(\\sqrt2+1)^2Gm_S/a_E+2Gm_E/R_E}\\simeq72.8\\,\\mathrm{km/s}.\\]"
+          }
+        ]
+      }
+    ],
+    "text": "The Maribo Meteorite\n1.1. Camera speed\nIntersect each horizontal camera bearing with the line through the landing site heading \\(285^\\circ\\). The horizontal camera ranges are \\(195\\sin55^\\circ/\\sin70^\\circ\\) and \\(195\\sin55^\\circ/\\sin64^\\circ\\) km. Their heights are these ranges times \\(\\tan19.2^\\circ\\) and \\(\\tan14.7^\\circ\\). Combine the horizontal track displacement with the height difference and divide by \\(0.82\\,\\mathrm s\\). The result is about \\(29.1\\,\\mathrm{km/s}\\).\n1.2a. Atmospheric deceleration\nIntegrate \\(m_M\\dot v=-k\\rho_{\\rm atm}Av^2\\): \\[t=\\frac{m_M}{k\\rho_{\\rm atm}\\pi R_M^2v_M}\\left(\\frac1{0.9}-1\\right)\\simeq0.88\\,\\mathrm s.\\]\n1.2b. Energy available for melting\nThe mass cancels: \\[\\frac{E_{\\rm kin}}{E_{\\rm melt}}=\\frac{v_M^2/2}{c(T_m-T_0)+L}\\simeq2.1\\times10^2.\\]\n1.3a. Thermal penetration powers\nThe dimensions of heat conduction give \\(x=\\sqrt{k_st/(\\rho c)}\\). Thus \\((\\alpha,\\beta,\\gamma,\\delta)=(1/2,-1/2,-1/2,1/2)\\).\n1.3b. Heated-layer thickness\n\\(x=\\sqrt{k_st/(\\rho c)}=1.6\\,\\mathrm{mm}\\), and \\(x/R_M=0.012\\).\n1.4a. Radioactive decay scheme\n\\[{}^{87}_{37}\\mathrm{Rb}\\longrightarrow{}^{87}_{38}\\mathrm{Sr}+{}^0_{-1}e+\\bar\\nu_e.\\] This is beta-minus decay.\n1.4b. Isochron proof\nRb decays as \\(N_R(t)=N_R(0)e^{-\\lambda t}\\), while daughter Sr increases by \\(N_R(0)-N_R(t)\\). Divide by stable \\(N_{86}\\): \\[\\frac{N_{87\\rm Sr}(t)}{N_{86}}=\\frac{N_{87\\rm Sr}(0)}{N_{86}}+(e^{\\lambda t}-1)\\frac{N_R(t)}{N_{86}}.\\] This is the requested straight line with a common intercept.\n1.4c. Radiometric age\nThe graph rises from approximately 0.700 to 0.712 over a horizontal span 0.25. Its slope is about 0.050. Therefore \\(t=T_{1/2}\\ln(1+a)/\\ln2=3.4\\times10^9\\) years.\n1.5. Comet Encke period\nIts semi-major axis is the mean of the two distances. Kepler's law gives \\(T=2\\pi\\sqrt{a^3/(Gm_S)}=3.30\\) years.\n1.6a. Maximum pole-impact tilt\nThe asteroid mass is \\(1.57\\times10^{15}\\,\\mathrm{kg}\\). Its largest angular momentum is \\(m_av_aR_E\\), perpendicular to Earth's spin. Hence \\(\\Delta\\theta\\simeq m_av_aR_E/(I_E\\omega_E)=4.27\\times10^{-8}\\,\\mathrm{rad}\\).\n1.6b. Radial equatorial impact\nNo angular momentum is added, but \\(\\Delta I=m_aR_E^2\\). Thus \\(\\Delta T\\simeq T\\Delta I/I_E=6.84\\times10^{-5}\\,\\mathrm s\\).\n1.6c. Tangential equatorial impact\nUse \\((I_E+m_aR_E^2)\\omega_f=I_E\\omega_E+m_av_aR_E\\). To first order, \\(\\Delta T/T=\\Delta I/I_E-\\Delta L/L_E\\), giving \\(-3.62\\times10^{-3}\\,\\mathrm s\\). A retrograde impact changes the angular-momentum term's sign and lengthens the day.\n1.7. Maximum impact speed\nThe largest heliocentric speed at Earth's orbit approaches solar escape speed \\(\\sqrt{2Gm_S/a_E}\\). A head-on encounter adds Earth's orbital speed \\(\\sqrt{Gm_S/a_E}\\). Earth's gravity then adds escape-speed squared: \\[v_{\\max}=\\sqrt{(\\sqrt2+1)^2Gm_S/a_E+2Gm_E/R_E}\\simeq72.8\\,\\mathrm{km/s}.\\]",
+    "figures": [],
+    "shared": false
+  }
+}

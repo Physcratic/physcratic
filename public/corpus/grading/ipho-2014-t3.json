@@ -1,0 +1,263 @@
+{
+  "problemId": "ipho-2014-t3",
+  "version": "6a2dd9415904b7a649ff91d6ec4f271a9bb74111fe94ac4a3dd71899b69d94bd",
+  "parts": [
+    {
+      "id": "a1",
+      "sourcePart": "A1",
+      "label": "Density growth constants",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a2",
+      "sourcePart": "A2",
+      "label": "Two ionizers",
+      "kind": "numeric",
+      "unit": "1/cm^3",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in 1/cm^3, without a unit suffix."
+    },
+    {
+      "id": "a3",
+      "sourcePart": "A3",
+      "label": "Current-voltage law",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "\\beta",
+        "U",
+        "S",
+        "r",
+        "L",
+        "Z_{ext}"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "U",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "Z_{ext}",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use e, \\beta, U, S, r, L, Z_{ext}. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a4",
+      "sourcePart": "A4",
+      "label": "Low-voltage resistivity",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r",
+        "Z_{ext}",
+        "e",
+        "\\beta"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "Z_{ext}",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use r, Z_{ext}, e, \\beta. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b1",
+      "sourcePart": "B1",
+      "label": "Electron current constants",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b2",
+      "sourcePart": "B2",
+      "label": "Ion current constants",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b3",
+      "sourcePart": "B3",
+      "label": "Anode boundary",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b4",
+      "sourcePart": "B4",
+      "label": "Cathode boundary",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b5",
+      "sourcePart": "B5",
+      "label": "Finite total current",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "Z_{ext}",
+        "S",
+        "\\alpha",
+        "\\gamma",
+        "L"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "Z_{ext}",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.2,
+          "max": 0.5
+        },
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.01,
+          "max": 0.1
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.2,
+          "max": 0.5
+        }
+      ],
+      "help": "Use e, Z_{ext}, S, \\alpha, \\gamma, L. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b6",
+      "sourcePart": "B6",
+      "label": "Critical gap length",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\gamma",
+        "\\alpha"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\alpha",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\gamma, \\alpha. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

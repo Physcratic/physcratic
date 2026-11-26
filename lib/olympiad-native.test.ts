@@ -16,7 +16,11 @@ import secondLedger from "../docs/engineering/native-archive-batch-2-sources.jso
 import thirdLedger from "../docs/engineering/native-archive-batch-3-sources.json";
 import fourthLedger from "../docs/engineering/native-archive-batch-4-sources.json";
 import fifthLedger from "../docs/engineering/native-archive-batch-5-sources.json";
-const ledger = [...firstLedger, ...secondLedger, ...thirdLedger, ...fourthLedger, ...fifthLedger];
+import sixthLedger from "../docs/engineering/native-archive-batch-6-sources.json";
+import seventhLedger from "../docs/engineering/native-archive-batch-7-sources.json";
+import eighthLedger from "../docs/engineering/native-archive-batch-8-sources.json";
+import ninthLedger from "../docs/engineering/native-archive-batch-9-sources.json";
+const ledger = [...firstLedger, ...secondLedger, ...thirdLedger, ...fourthLedger, ...fifthLedger, ...sixthLedger, ...seventhLedger, ...eighthLedger, ...ninthLedger];
 
 for (const definition of olympiadDefinitions) {
   test(definition.problemId + " has bounded typed fields and accepts the verified reference forms", () => {
@@ -27,7 +31,7 @@ for (const definition of olympiadDefinitions) {
       if (part.kind === "self-review") {
         assert.equal(checkArchivePart(part, "anything", definition.problemId).status, "self-review");
       } else {
-        const input = part.kind === "numeric" ? String(part.target) : part.canonical;
+        const input = part.canonical;
         assert.equal(checkArchivePart(part, input, definition.problemId).status, "correct", part.id + ": " + input);
         assert.notEqual(checkArchivePart(part, part.wrong[0], definition.problemId).status, "correct", part.id + " must reject a changed result");
       }

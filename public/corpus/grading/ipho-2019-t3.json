@@ -1,0 +1,451 @@
+{
+  "problemId": "ipho-2019-t3",
+  "version": "5dab645808fe1386c6a7112c065eca0a057ee351bcbac003024dd24784265bd3",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Longest wavelength",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "L"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use L. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Volume amplitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "a",
+        "k",
+        "V_0",
+        "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use a, k, V_0, x. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "A.3",
+      "label": "Pressure amplitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "a",
+        "\\omega",
+        "\\rho_0",
+        "k",
+        "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use a, \\omega, \\rho_0, k, x. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "A.4",
+      "label": "Sound speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\gamma",
+        "p_0",
+        "\\rho_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "p_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\gamma, p_0, \\rho_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "A.5",
+      "label": "Temperature amplitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "a",
+        "k",
+        "\\gamma",
+        "T_0",
+        "x"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use a, k, \\gamma, T_0, x. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.6",
+      "sourcePart": "A.6",
+      "label": "Thermal effect on the tube",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Stack temperature amplitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "a",
+        "\\tau",
+        "l"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use l for stack length ell."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Critical thermal gradient",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k",
+        "l",
+        "\\gamma",
+        "T_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use l for stack length ell."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Linearized heat-flow law",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "B.4",
+      "label": "Volume phase coefficients",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "B.5",
+      "label": "Acoustic work",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\gamma",
+        "\\beta",
+        "\\tau",
+        "t_c",
+        "k",
+        "a",
+        "S",
+        "\\omega"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\gamma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "t_c",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.2,
+          "max": 1
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use t_c for the critical temperature difference tau_cr."
+    },
+    {
+      "id": "b.6",
+      "sourcePart": "B.6",
+      "label": "Heat transported per cycle",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\beta",
+        "\\tau",
+        "t_c",
+        "a",
+        "S",
+        "\\omega",
+        "l"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\beta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "t_c",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.2,
+          "max": 1
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "l",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use t_c for tau_cr and l for stack length."
+    },
+    {
+      "id": "b.7",
+      "sourcePart": "B.7",
+      "label": "Engine efficiency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "t_c",
+        "\\eta_c",
+        "\\tau"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "t_c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\eta_c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\tau",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use t_c for tau_cr."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

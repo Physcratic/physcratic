@@ -1,1 +1,593 @@
-{"id":"ipho-2019-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2019_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2019_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2019-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Theory\nQ3-1\nEnglish (Oﬃcial)\nThermoacoustic Engine\nA thermoacoustic engine is a device that converts heat into acoustic power, or sound waves - a form of\nmechanical work. Like many other heat machines, it can be operated in reverse to become a refrigerator,\nusing sound to pump heat from a cold to a hot reservoir. The high operating frequencies reduce heat\nconduction and eliminate the need for any working chamber conﬁnement. Unlike many other engine\ntypes, the thermoacoustic engine has no moving parts except the working ﬂuid itself.\nThe eﬃciencies of thermoacoustic machines are typically lower than other engine types, but they have\nadvantages in set up and maintenance costs. This creates opportunities for renewable energy applica-\ntions, such as solar-thermal power plants and utilization of waste heat. Our analysis will focus on the\ncreation of acoustic energy within the system, ignoring the extraction or conversion for powering exter-\nnal devices.\nPart A: Sound wave in a closed tube (3.7 points)\nConsider a thermally insulating tube of length 𝐿and cross-sectional area 𝑆, whose axis lies along the 𝑥\ndirection. The two ends of the tube are located at 𝑥= 0 and 𝑥= 𝐿. The tube is ﬁlled with an ideal gas\nand is sealed on both ends. At equilibrium, the gas has temperature 𝑇0, pressure 𝑝0 and mass density\n𝜌0. Assume that viscosity can be ignored and that the gas motion is only in the 𝑥direction. The gas\nproperties are uniform in the perpendicular 𝑦and 𝑧directions.\nFigure 1\nA.1\nWhen a standing sound wave forms, the gas elements oscillate in the 𝑥direction\nwith angular frequency 𝜔. The amplitude of the oscillations depends on each\nelement’s equilibrium position 𝑥along the tube. The longitudinal displacement\nof each gas element from its equilibrium position 𝑥is given by\n𝑢(𝑥, 𝑡) = 𝑎sin(𝑘𝑥) cos(𝜔𝑡) = 𝑢1(𝑥) cos(𝜔𝑡)\n(1)\n(please note the 𝑢here describes the displacement of a gas element)\n \nwhere 𝑎≪𝐿is a positive constant, 𝑘= 2𝜋/𝜆is the wavenumber and 𝜆is the\nwavelength. What is the maximum possible wavelength 𝜆max in this system?\n0.3pt\nWe will assume throughout the question an oscillation mode of 𝜆= 𝜆max.\nNow, consider a narrow parcel of gas, located at rest between 𝑥and 𝑥+ Δ𝑥(Δ𝑥≪𝐿). As a result of the\ndisplacement wave of Task A.1, the parcel oscillates along the 𝑥axis and undergoes a change in volume\nand other thermodynamic properties.\nThroughout the following tasks assume all these changes to the thermodynamic properties to be small\ncompared to the unperturbed values.\n\nTheory\nQ3-2\nEnglish (Oﬃcial)\nA.2\nThe parcel volume 𝑉(𝑥, 𝑡) oscillates around the equilibrium value of 𝑉0 = 𝑆Δ𝑥\nand has the form\n𝑉(𝑥, 𝑡) = 𝑉0 + 𝑉1(𝑥) cos(𝜔𝑡).\n(2)\nObtain an expression for 𝑉1(𝑥) in terms of 𝑉0, 𝑎, 𝑘and 𝑥.\n0.5pt\nA.3\nAssume that the total pressure of the gas, as a result of the sound wave, takes\nthe approximate form\n𝑝(𝑥, 𝑡) = 𝑝0 −𝑝1(𝑥) cos(𝜔𝑡).\n(3)\nConsidering the forces acting on the parcel of gas, compute the amplitude 𝑝1(𝑥)\nof the pressure oscillation to leading order, in terms of the position 𝑥, the equi-\nlibrium density 𝜌0, the displacement amplitude 𝑎and the wave parameters 𝑘\nand 𝜔.\n0.7pt\nAt acoustic frequencies, the thermal conductivity of the gas can be neglected. We will treat the expansion\nand contraction of gas parcels as purely adiabatic, satisfying the relation 𝑝𝑉𝛾= const, where 𝛾is the\nadiabatic constant.\nA.4\nUse the relation above and the results of the previous tasks to obtain an expres-\nsion for the speed of sound waves 𝑐= 𝜔/𝑘in the tube, to ﬁrst order. Express\nyour answer in terms of 𝑝0, 𝜌0 and the adiabatic constant 𝛾.\n0.3pt\nA.5\nThe change in the gas temperature due to the adiabatic expansion and contrac-\ntion, as a result of the sound wave, takes the form:\n𝑇(𝑥, 𝑡) = 𝑇0 −𝑇1(𝑥) cos(𝜔𝑡).\n(4)\nCompute the amplitude 𝑇1(𝑥) of the temperature oscillations in terms of 𝑇0, 𝛾,\n𝑎, 𝑘and 𝑥.\n0.7pt\nA.6\nFor the purpose of this task only, we assume a weak thermal interaction be-\ntween the tube and the gas. As a result, the standing sound wave remains\nalmost unchanged, but the gas can exchange a small amount of heat with the\ntube. The heating due to viscosity can be neglected.\nFor each of the points in Figure 2 (A, C at the edges of the tube, B at the center)\nstate whether the temperature of the tube at that point will increase, decrease\nor remain the same over a long time.\n1.2pt\nFigure 2\n\nTheory\nQ3-3\nEnglish (Oﬃcial)\nPart B: Sound wave ampliﬁcation induced by external thermal contact (6.3 points)\nA stack of thin well-spaced solid plates is placed inside the tube. The plates of the stack are aligned in\nparallel to the tube axis, so as not to obstruct the ﬂow of gas along the tube. The center of the stack is\npositioned at 𝑥0 = 𝐿/4, and spans a width of ℓ≪𝐿along the tube axis, ﬁlling its entire cross section.\nThe right and left edges of the stack are held at temperature difference 𝜏. The left edge of the stack, at\n𝑥𝐻= 𝑥0 −ℓ/2, is held by an external thermal reservoir at temperature 𝑇𝐻= 𝑇0 + 𝜏/2, and at the same\ntime, its right edge, at 𝑥𝐶= 𝑥0 + ℓ/2, is held at a temperature 𝑇𝐶= 𝑇0 −𝜏/2.\nThe plate stack allows a slight longitudinal heat ﬂow to maintain a constant temperature gradient be-\ntween its edges, such that 𝑇plate(𝑥) = 𝑇0 −𝑥−𝑥0\nℓ\n𝜏.\nFigure 3. A sketch of the system. (A) and (B) denote the hot and cold heat reservoirs respec-\ntively. (D) denotes the stack.\nTo analyze the effect of the thermal contact between the plate stack and the gas on the sound waves in\nthe tube, make the following assumptions:\n• As in the previous part, all changes to the thermodynamic properties are small compared to the\nunperturbed values.\n• The system operates in the fundamental standing-wave mode of the longest possible wavelength.\nIt is only slightly modiﬁed by the presence of the plate stack.\n• The stack is much shorter than the wavelength ℓ≪𝜆max, and can be positioned far enough from\nboth displacement and pressure nodes, so that the displacement 𝑢(𝑥, 𝑡) ≈𝑢(𝑥0, 𝑡) and the pressure\n𝑝(𝑥, 𝑡) ≈𝑝(𝑥0, 𝑡) may be considered uniform over the entire length of the stack.\n• We may neglect any edge effects, caused by the parcels moving in and out of the stack.\n• The temperature difference between the ends of the plate stack, i.e. between the hot and the cold\nreservoirs, is small compared to the absolute temperature: 𝜏≪𝑇0.\n• Heat conduction through the stack, through the gas, and along the tube are all negligible. The only\nsigniﬁcant sources of heat transfer are convection due to the motion of the gas and conduction\nbetween the gas and the stack.\n\nTheory\nQ3-4\nEnglish (Oﬃcial)\nB.1\nConsider a speciﬁc parcel of gas in the region of the stack, originally at 𝑥0 = 𝐿/4.\nAs the parcel moves within the stack, the local temperature of the nearby part\nof the stack changes as follows:\n𝑇env(𝑡) = 𝑇0 −𝑇st cos(𝜔𝑡).\n(5)\nExpress 𝑇st in terms of 𝑎, 𝜏and ℓ.\n0.4pt\nB.2\nAbove which critical temperature difference 𝜏cr will the gas be conveying heat\nfrom the hot reservoir to the cold one? Express 𝜏cr in terms of 𝑇0, 𝛾, 𝑘and ℓ.\n1.0pt\nB.3\nObtain the general approximate expression for the heat ﬂow 𝑑𝑄\n𝑑𝑡into a small\nparcel of gas as a linear function of its volume and pressure change rates. Ex-\npress your answer in terms of the rate of volume change 𝑑𝑉\n𝑑𝑡, the rate of pressure\nchange 𝑑𝑝\n𝑑𝑡, the unperturbed equilibrium values of parcel pressure and volume\n𝑝0 ,𝑉0 and the adiabatic index 𝛾. (You may use the expression for the molar heat\ncapacity at constant volume 𝑐𝑣=\n𝑅\n𝛾−1, where 𝑅is the gas constant.)\n0.8pt\nThe limited heat ﬂow rate between the parcel and the stack causes a phase difference between the\npressure and volume oscillations of the parcel. We will see how this generates work.\nLet the heat ﬂux into the parcel from the stack be proportional to the temperature difference between\nthe parcel and the neighboring element of the stack, given approximately by 𝑑𝑄\n𝑑𝑡= −𝛽𝑉0(𝑇st−𝑇1) cos(𝜔𝑡).\nHere 𝑇1 and 𝑇st are the temperature oscillation amplitudes of the gas parcel and the neighbouring stack\nfrom Tasks A.5 and B.1, respectively, and 𝛽> 0 is a constant. Assume that at the machine’s operating\nfrequencies, the change in gas temperature as a result of this heat ﬂow is insigniﬁcant compared to both\n𝑇1 and 𝑇st.\nB.4\nIn order to calculate work, we will consider a change to the volume of the mov-\ning parcel as a result of the thermal contact with the stack. Let us write the\npressure and the volume of the parcel under the stack’s inﬂuence in the form:\n𝑝= 𝑝0 + 𝑝𝑎sin(𝜔𝑡) −𝑝𝑏cos(𝜔𝑡),\n𝑉= 𝑉0 + 𝑉𝑎sin(𝜔𝑡) + 𝑉𝑏cos(𝜔𝑡).\n(6)\nGiven 𝑝𝑎and 𝑝𝑏, ﬁnd the coeﬃcients 𝑉𝑎and 𝑉𝑏. Express your answer in terms of\n𝑝𝑎, 𝑝𝑏, 𝑝0, 𝑉0, 𝛾, 𝜏, 𝜏cr, 𝛽, 𝜔, 𝑎and ℓ.\n1.9pt\nB.5\nObtain an approximate expression for the acoustic work per unit volume 𝑤pro-\nduced by the gas parcel over one cycle. Integrate over the volume of the stack\nto obtain the total work 𝑊tot generated by the gas over one cycle. Express 𝑊tot\nin terms of 𝛾, 𝜏, 𝜏cr, 𝛽, 𝜔, 𝑎, 𝑘and 𝑆.\n0.8pt\n\nTheory\nQ3-5\nEnglish (Oﬃcial)\nB.6\nObtain an approximate expression for the heat 𝑄tot transported from the left\nside of the plane 𝑥= 𝑥0 to the right, over a cycle. Express your answer in terms\nof 𝜏, 𝜏cr, 𝛽, 𝜔, 𝑎, 𝑆, ℓ.\n(Hint: you may use the formula 𝑗= 𝑄𝑑𝑢\n𝑑𝑡for the heat current due convection.)\n0.8pt\nB.7\nFind the eﬃciency 𝜂of the thermoacoustic engine. The eﬃciency is deﬁned as\nthe ratio of the generated acoustic work to the heat drawn from the hot reser-\nvoir. Express your answer in terms of the temperature difference 𝜏between\nthe hot and the cold reservoir, the critical temperature difference 𝜏cr and the\nCarnot eﬃciency 𝜂𝑐= 1 −𝑇𝐶/𝑇𝐻.\n0.6pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2019-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3],"initialPage":1,"shared":false,"text":"      Theory IPhO 2019 \n \nQ1-1 \n \n \n \n \n \nS3-1 \n \nThermoacoustic engine – Solution \nPart A: Sound wave in a closed tube \nA.1. The boundary conditions are: 𝑢(0, 𝑡) = 𝑢(𝐿, 𝑡) = 0. As a result, sin (\n2𝜋\n𝜆𝐿) = 0, so we get \n𝜆max = 2𝐿. \nA.2. We get \n𝑉(𝑥, 𝑡) = 𝑆⋅(Δ𝑥+ 𝑢(𝑥+ Δ𝑥, 𝑡) −𝑢(𝑥, 𝑡)) = 𝑆Δ𝑥⋅(1 + 𝑢′) = 𝑉0 + 𝑉0𝑢′. \nThus, \n𝑉(𝑥, 𝑡) = 𝑉0 + 𝑎𝑘𝑉0 cos(𝑘𝑥) cos(𝜔𝑡)      \n ⇒       𝑉1(𝑥) = 𝑎𝑘𝑉0 cos(𝑘𝑥). \nA.3. We use Newton’s Second Law 𝜌0𝑢̈ = −𝑝′ to deduce 𝑝′ = −𝜌0𝑢̈ = 𝜌0𝑎𝜔2 sin(𝑘𝑥)cos (𝜔𝑡), \nso that \n𝑝(𝑥, 𝑡) = 𝑝0 −𝑎\n𝜔2\n𝑘𝜌0cos (𝑘𝑥)cos (𝜔𝑡)      \n ⇒       𝑝1(𝑥) = 𝑎\n𝜔2\n𝑘𝜌0cos (𝑘𝑥). \nA.4. Using 𝑎≪𝐿, we obtain \n𝑝1(𝑥)\n𝑝0\n= 𝛾\n𝑉1(𝑥)\n𝑉0 . As a result, \n𝜌0\n𝑝0\n𝜔2\n𝑘= 𝛾⋅𝑘, and 𝑐= √\n𝛾𝑝0\n𝜌0 . \nA.5. The relative change in 𝑇(𝑥, 𝑡) is the sum of the relative changes in 𝑉(𝑥, 𝑡) and 𝑝(𝑥, 𝑡). As a \nresult, \n𝑇1(𝑥) =\n𝑇0\n𝑝0 𝑝1(𝑥) −\n𝑇0\n𝑉0 𝑉1(𝑥) = (𝛾−1) 𝑇0\n𝑉0 𝑉1(𝑥) = 𝑎𝑘(𝛾−1)𝑇0 cos(𝑘𝑥). \nA.6. The movement of the gas parcels inside the tube conveys heat along its boundary. To \ndetermine the direction of the convection, we combining the result of Task A.5 and the \nexpression (1) for 𝑢(𝑥, 𝑡). We see that when 0 < 𝑥<\n𝐿\n2, the gas is colder when the displacement \n𝑢(𝑥, 𝑡) is positive. Likewise, when \n𝐿\n2 < 𝑥< 𝐿, the gas is colder when the displacement 𝑢(𝑥, 𝑡) is \nnegative. Hence, heat flows into the gas near the point B, cooling it down, and out of the gas near \nthe points A and C, heating them up. \nPart B: Sound wave amplification induced by external thermal contact \nB.1. We get \n𝑇env(𝑡) = 𝑇plate(𝑥0 + 𝑢(𝑥0, 𝑡)) = 𝑇0 −\n𝜏\nℓ⋅𝑢(𝑥0, 𝑡), \n\n      Theory IPhO 2019 \n \nQ1-1 \n \n \n \n \n \nS3-2 \n \nso that: \n𝑇st =\n𝑎𝜏\nℓsin(𝑘𝑥0) =\n𝑎𝜏\nℓ√2. \nB.2. The gas will convey heat from the hot reservoir to the cold one if the parcels are colder than \nthe environment when 𝑢(𝑥0, 𝑡) < 0, and hotter when 𝑢(𝑥0, 𝑡) > 0. This occurs precisely if \n𝑇st > 𝑇1. \nPlugging in the results of Tasks A.5 and B.1, we get \n𝑎𝜏cr\nℓsin(𝑘𝑥0) = 𝑎𝑘(𝛾−1)𝑇0 cos(𝑘𝑥0)     \n ⇒       𝜏cr = 𝑘ℓ(𝛾−1)𝑇0. \nB.3. Using the first law of thermodynamics, we get \n𝑑𝑄\n𝑑𝑡=\n𝑑𝐸\n𝑑𝑡+ 𝑝\n𝑑𝑉\n𝑑𝑡. \nPlugging in the relation 𝐸=\n1\n𝛾−1 𝑝𝑉, we see that: \n𝑑𝑄\n𝑑𝑡=\n1\n𝛾−1\n𝑑\n𝑑𝑡(𝑝𝑉) + 𝑝\n𝑑𝑉\n𝑑𝑡=\n1\n𝛾−1 𝑉\n𝑑𝑝\n𝑑𝑡+\n𝛾\n𝛾−1 𝑝\n𝑑𝑉\n𝑑𝑡≈\n1\n𝛾−1 𝑉0\n𝑑𝑝\n𝑑𝑡+\n𝛾\n𝛾−1 𝑝0\n𝑑𝑉\n𝑑𝑡. \nB.4. We plug the expression for \n𝑑𝑄\n𝑑𝑡 into the result of Task B.3. This gives: \n1\n𝛾−1 𝑉0\n𝑑𝑝\n𝑑𝑡+\n𝛾\n𝛾−1 𝑝0\n𝑑𝑉\n𝑑𝑡= 𝛽𝑉0(𝑇st −𝑇1) ⋅cos (𝜔𝑡). \nWe now plug in the data given in equation (6), and get (by considering terms with cos (𝜔𝑡) and \nsin (𝜔𝑡) separately): \n1\n𝛾−1 𝑉0𝑝𝑎𝜔+\n𝛾\n𝛾−1 𝑝0𝑉𝑎𝜔= 𝛽𝑉0(𝑇st −𝑇1) \n1\n𝛾−1 𝑉0𝑝𝑏𝜔−\n𝛾\n𝛾−1 𝑝0𝑉𝑏𝜔= 0 \nand thus, we can already express 𝑉𝑏 as \n𝑉𝑏=\n1\n𝛾𝑝𝑏⋅\n𝑉0\n𝑝0. \nFor 𝑉𝑎, we plug in the results of Tasks B.1 and B.2, \n𝑇st −𝑇1 =\n𝑎\nℓ√2 (𝜏−𝜏cr), \n\n      Theory IPhO 2019 \n \nQ1-1 \n \n \n \n \n \nS3-3 \n \ngiving: \n𝑉𝑎= (−\n1\n𝛾𝑝𝑎−\n𝛾−1\n𝛾\n𝛽\n𝜔\n𝑎\nℓ√2 (𝜏−𝜏cr)) ⋅\n𝑉0\n𝑝0. \nB.5. We want to integrate the mechanical work generated, ∫𝑝𝑑𝑉, and averaging the result over \na long time. To do this, we substitute our expressions (6) for the perturbed 𝑝 and 𝑉. Since the \naverage of cos (𝜔𝑡)sin (𝜔𝑡) is 0, and that of sin2(𝜔𝑡) and cos2(𝜔𝑡) is \n1\n2, we get: \n𝑉0\n𝑆ℓ𝑊tot = −𝜋⋅(𝑝𝑎𝑉𝑏+ 𝑝𝑏𝑉𝑎). \nUsing the result of B.4, we get \n𝑉0\n𝑆ℓ𝑊tot =\n𝜋\n𝜔⋅\n𝛾−1\n𝛾𝛽\n𝑎\nℓ√2 (𝜏−𝜏cr) ⋅𝑉0\n𝑝𝑏\n𝑝0. \nTo leading order, 𝑝𝑏 is the unperturbed wave 𝑝𝑏≈𝑝1(𝑥0) = 𝑎\n𝜔2\n𝑘𝜌0 cos(𝑘𝑥0) = 𝑎𝑘𝛾𝑝0\n1\n√2. \nSimplifying, we get \n𝑊tot =\n𝜋\n𝜔𝑆⋅\n𝛾−1\n𝛾𝛽\n𝑎\n√2 (𝜏−𝜏cr) ⋅\n𝑝𝑏\n𝑝0 =\n𝜋\n2𝜔(𝛾−1)𝛽(𝜏−𝜏cr)𝑘𝑎2𝑆. \nB.6. We want to compute the amount of heat convection over one cycle. This means that we \nneed to take the amount of heat moving in or out of the parcel, and weigh it by the position of \nthe parcel at that time. Thus, the total heat conveyed by the parcel, integrated along a cycle, is: \n𝑄tot =\n1\nΔ𝑥∫\n𝑑𝑄\n𝑑𝑡𝑢⋅𝑑𝑡. \nThis expression can be computed to leading order using \n𝑑𝑄\n𝑑𝑡= 𝛽𝑉0(𝑇st −𝑇1) ⋅cos (𝜔𝑡) and the \nunperturbed displacement 𝑢(𝑥0, 𝑡) =\n𝑎\n√2 cos (𝜔𝑡). This gives \n𝑄tot =\n𝜋\n𝜔𝛽𝑉0(𝑇st −𝑇1) 𝑎\n√2 =\n𝜋\n𝜔𝛽𝑉0 ⋅\n𝑎\nℓ√2 (𝜏−𝜏cr) ⋅\n𝑎\n√2 =\n𝜋\n2𝜔𝛽(𝜏−𝜏cr) 𝑎2𝑆\nℓ. \nB.7. Dividing the results of Tasks B.5 and B.6, we obtain the expression: \n𝜂=\n𝑊tot\n𝑄tot = (𝛾−1)𝑘ℓ=\n𝜏cr\n𝑇0 =\n𝜏cr\n𝜏⋅\n𝜏\n𝑇0 =\n𝜏cr\n𝜏⋅𝜂𝑐. \n \n","textExtraction":"available"}}
+{
+  "id": "ipho-2019-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2019_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2019-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thermoacoustic Engine"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An ideal gas fills a sealed insulating tube of length \\(L\\) and cross-section \\(S\\), along x. Equilibrium pressure, temperature and density are \\(p_0,T_0,\\rho_0\\). Ignore viscosity and transverse variation. A small standing-wave displacement is \\(u(x,t)=a\\sin(kx)\\cos(\\omega t)\\), with \\(a\\ll L\\) and \\(k=2\\pi/\\lambda\\). Use the longest allowed wavelength throughout. A narrow parcel has \\(V_0=S\\Delta x\\). Write \\(V=V_0+V_1(x)\\cos\\omega t\\), \\(p=p_0-p_1(x)\\cos\\omega t\\), and \\(T=T_0-T_1(x)\\cos\\omega t\\). Changes are small, and compression is adiabatic with index \\(\\gamma\\) unless thermal contact is specified."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1. Longest wavelength"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the longest allowed wavelength."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2. Volume amplitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the signed volume-oscillation coefficient."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3. Pressure amplitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use forces on a parcel to find the pressure coefficient."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.4. Sound speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find sound speed using the adiabatic relation."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.5. Temperature amplitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the temperature coefficient."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.6. Thermal effect on the tube"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For this task only, allow weak thermal interaction with the tube while keeping the wave approximately unchanged. State long-time temperature changes at the left end A, centre B and right end C."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1. Stack temperature amplitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch6-thermoacoustic-stack.png",
+        "alt": "Original tube with short parallel-plate stack at L/4, hot and cold reservoir connections and stack edges."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A short stack of plates parallel to x is centred at \\(x_0=L/4\\), length \\(\\ell\\ll L\\), filling cross-section \\(S\\). Its left and right edges are held at \\(T_H=T_0+\\tau/2\\) and \\(T_C=T_0-\\tau/2\\). The plate temperature is \\(T_0-(x-x_0)\\tau/\\ell\\). For a parcel at \\(x_0\\), write its local environment temperature as \\(T_0-T_{st}\\cos\\omega t\\) and find \\(T_{st}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2. Critical thermal gradient"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the critical \\(\\tau_{cr}\\) above which gas transports heat from hot to cold. Assume \\(\\tau\\ll T_0\\), nearly uniform pressure and displacement over the stack, no edge effects, and negligible axial conduction. Only gas-stack conduction and convective transport matter."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.3. Linearized heat-flow law"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find \\(dQ/dt\\) in terms of \\(\\dot V,\\dot p,p_0,V_0,\\gamma\\). You may use \\(c_v=R/(\\gamma-1)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.4. Volume phase coefficients"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The heat input is \\(\\dot Q=-\\beta V_0(T_{st}-T_1)\\cos\\omega t\\), with \\(\\beta>0\\). Its temperature perturbation is negligible at operating frequency. Write \\(p=p_0+p_a\\sin\\omega t-p_b\\cos\\omega t\\), \\(V=V_0+V_a\\sin\\omega t+V_b\\cos\\omega t\\). Given \\(p_a,p_b\\), find \\(V_a,V_b\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.5. Acoustic work"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find work per parcel volume over a cycle, then total work \\(W_{tot}\\) over the stack."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.6. Heat transported per cycle"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find heat carried from left to right across \\(x=x_0\\) per cycle. You may use convective current \\(j=Q\\,du/dt\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.7. Engine efficiency"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the ratio of acoustic work to heat drawn from the hot reservoir, in terms of \\(\\tau,\\tau_{cr}\\) and Carnot efficiency \\(\\eta_c=1-T_C/T_H\\)."
+          }
+        ]
+      }
+    ],
+    "text": "Thermoacoustic Engine\nAn ideal gas fills a sealed insulating tube of length \\(L\\) and cross-section \\(S\\), along x. Equilibrium pressure, temperature and density are \\(p_0,T_0,\\rho_0\\). Ignore viscosity and transverse variation. A small standing-wave displacement is \\(u(x,t)=a\\sin(kx)\\cos(\\omega t)\\), with \\(a\\ll L\\) and \\(k=2\\pi/\\lambda\\). Use the longest allowed wavelength throughout. A narrow parcel has \\(V_0=S\\Delta x\\). Write \\(V=V_0+V_1(x)\\cos\\omega t\\), \\(p=p_0-p_1(x)\\cos\\omega t\\), and \\(T=T_0-T_1(x)\\cos\\omega t\\). Changes are small, and compression is adiabatic with index \\(\\gamma\\) unless thermal contact is specified.\nA.1. Longest wavelength\nFind the longest allowed wavelength.\nA.2. Volume amplitude\nFind the signed volume-oscillation coefficient.\nA.3. Pressure amplitude\nUse forces on a parcel to find the pressure coefficient.\nA.4. Sound speed\nFind sound speed using the adiabatic relation.\nA.5. Temperature amplitude\nFind the temperature coefficient.\nA.6. Thermal effect on the tube\nFor this task only, allow weak thermal interaction with the tube while keeping the wave approximately unchanged. State long-time temperature changes at the left end A, centre B and right end C.\nB.1. Stack temperature amplitude\n\nA short stack of plates parallel to x is centred at \\(x_0=L/4\\), length \\(\\ell\\ll L\\), filling cross-section \\(S\\). Its left and right edges are held at \\(T_H=T_0+\\tau/2\\) and \\(T_C=T_0-\\tau/2\\). The plate temperature is \\(T_0-(x-x_0)\\tau/\\ell\\). For a parcel at \\(x_0\\), write its local environment temperature as \\(T_0-T_{st}\\cos\\omega t\\) and find \\(T_{st}\\).\nB.2. Critical thermal gradient\nFind the critical \\(\\tau_{cr}\\) above which gas transports heat from hot to cold. Assume \\(\\tau\\ll T_0\\), nearly uniform pressure and displacement over the stack, no edge effects, and negligible axial conduction. Only gas-stack conduction and convective transport matter.\nB.3. Linearized heat-flow law\nFind \\(dQ/dt\\) in terms of \\(\\dot V,\\dot p,p_0,V_0,\\gamma\\). You may use \\(c_v=R/(\\gamma-1)\\).\nB.4. Volume phase coefficients\nThe heat input is \\(\\dot Q=-\\beta V_0(T_{st}-T_1)\\cos\\omega t\\), with \\(\\beta>0\\). Its temperature perturbation is negligible at operating frequency. Write \\(p=p_0+p_a\\sin\\omega t-p_b\\cos\\omega t\\), \\(V=V_0+V_a\\sin\\omega t+V_b\\cos\\omega t\\). Given \\(p_a,p_b\\), find \\(V_a,V_b\\).\nB.5. Acoustic work\nFind work per parcel volume over a cycle, then total work \\(W_{tot}\\) over the stack.\nB.6. Heat transported per cycle\nFind heat carried from left to right across \\(x=x_0\\) per cycle. You may use convective current \\(j=Q\\,du/dt\\).\nB.7. Engine efficiency\nFind the ratio of acoustic work to heat drawn from the hot reservoir, in terms of \\(\\tau,\\tau_{cr}\\) and Carnot efficiency \\(\\eta_c=1-T_C/T_H\\).",
+    "figures": [
+      "/corpus/figures/native/batch6-thermoacoustic-stack.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2019-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Thermoacoustic Engine"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.1. Longest wavelength"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Displacement vanishes at both sealed ends, so the fundamental has \\(kL=\\pi\\) and \\(\\lambda_{max}=2L\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.2. Volume amplitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The length change is \\(\\Delta x\\,\\partial u/\\partial x\\). Thus \\(V_1=akV_0\\cos kx\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.3. Pressure amplitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Linearized Newton's law is \\(\\rho_0\\ddot u=-\\partial p/\\partial x\\). Integrate in x to obtain \\[p_1=\\frac{a\\omega^2\\rho_0}{k}\\cos kx.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.4. Sound speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Linearizing \\(pV^\\gamma=\\mathrm{constant}\\) gives \\(p_1/p_0=\\gamma V_1/V_0\\). Therefore \\(c=\\omega/k=\\sqrt{\\gamma p_0/\\rho_0}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.5. Temperature amplitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Linearize the ideal-gas relation: \\(T_1/T_0=p_1/p_0-V_1/V_0\\). Thus \\(T_1=ak(\\gamma-1)T_0\\cos kx\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A.6. Thermal effect on the tube"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Displacement and temperature are correlated so parcels carry heat away from the centre towards both ends. A and C warm, while B cools. The effect is thermal pumping by the acoustic motion, not viscous heating."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.1. Stack temperature amplitude"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Substitute parcel displacement \\(u(x_0,t)=a\\cos\\omega t/\\sqrt2\\). Then \\(T_{st}=a\\tau/(\\ell\\sqrt2)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.2. Critical thermal gradient"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Heat follows hot to cold when \\(T_{st}>T_1(x_0)\\). Equating amplitudes gives \\[\\tau_{cr}=k\\ell(\\gamma-1)T_0.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.3. Linearized heat-flow law"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "From \\(E=pV/(\\gamma-1)\\) and \\(\\dot Q=\\dot E+p\\dot V\\), keep first-order changes: \\[\\dot Q=\\frac{V_0\\dot p+\\gamma p_0\\dot V}{\\gamma-1}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.4. Volume phase coefficients"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Match cosine and sine in B3, using \\(T_{st}-T_1=a(\\tau-\\tau_{cr})/(\\ell\\sqrt2)\\): \\[V_b=\\frac{V_0p_b}{\\gamma p_0},\\quad V_a=-\\frac{V_0}{\\gamma p_0}\\left[p_a+\\frac{(\\gamma-1)\\beta a(\\tau-\\tau_{cr})}{\\omega\\ell\\sqrt2}\\right].\\] The source has an intermediate sign typo in its heat-input substitution. These final coefficients follow the question's negative heat-input convention."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.5. Acoustic work"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integrate \\(\\oint p\\,dV=-\\pi(p_aV_b+p_bV_a)\\). Thus \\(w=-\\pi(p_aV_b+p_bV_a)/V_0\\). With leading \\(p_b=ak\\gamma p_0/\\sqrt2\\), \\[W_{tot}=wS\\ell=\\frac\\pi{2\\omega}(\\gamma-1)\\beta(\\tau-\\tau_{cr})ka^2S.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.6. Heat transported per cycle"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integration by parts of the convected heat gives \\(Q_{tot}=-(1/\\Delta x)\\oint\\dot Q\\,u\\,dt\\). Substitute the heat-input and displacement cosines: \\[Q_{tot}=\\frac\\pi{2\\omega}\\frac{\\beta(\\tau-\\tau_{cr})a^2S}{\\ell}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B.7. Engine efficiency"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Dividing B5 by B6 gives \\(\\eta=(\\gamma-1)k\\ell=\\tau_{cr}/T_0\\). Since \\(\\eta_c\\simeq\\tau/T_0\\) for \\(\\tau\\ll T_0\\), \\[\\eta\\simeq\\frac{\\tau_{cr}}\\tau\\eta_c.\\] This is the leading weak-gradient result on the engine branch \\(\\tau>\\tau_{cr}\\)."
+          }
+        ]
+      }
+    ],
+    "text": "Thermoacoustic Engine\nA.1. Longest wavelength\nDisplacement vanishes at both sealed ends, so the fundamental has \\(kL=\\pi\\) and \\(\\lambda_{max}=2L\\).\nA.2. Volume amplitude\nThe length change is \\(\\Delta x\\,\\partial u/\\partial x\\). Thus \\(V_1=akV_0\\cos kx\\).\nA.3. Pressure amplitude\nLinearized Newton's law is \\(\\rho_0\\ddot u=-\\partial p/\\partial x\\). Integrate in x to obtain \\[p_1=\\frac{a\\omega^2\\rho_0}{k}\\cos kx.\\]\nA.4. Sound speed\nLinearizing \\(pV^\\gamma=\\mathrm{constant}\\) gives \\(p_1/p_0=\\gamma V_1/V_0\\). Therefore \\(c=\\omega/k=\\sqrt{\\gamma p_0/\\rho_0}\\).\nA.5. Temperature amplitude\nLinearize the ideal-gas relation: \\(T_1/T_0=p_1/p_0-V_1/V_0\\). Thus \\(T_1=ak(\\gamma-1)T_0\\cos kx\\).\nA.6. Thermal effect on the tube\nDisplacement and temperature are correlated so parcels carry heat away from the centre towards both ends. A and C warm, while B cools. The effect is thermal pumping by the acoustic motion, not viscous heating.\nB.1. Stack temperature amplitude\nSubstitute parcel displacement \\(u(x_0,t)=a\\cos\\omega t/\\sqrt2\\). Then \\(T_{st}=a\\tau/(\\ell\\sqrt2)\\).\nB.2. Critical thermal gradient\nHeat follows hot to cold when \\(T_{st}>T_1(x_0)\\). Equating amplitudes gives \\[\\tau_{cr}=k\\ell(\\gamma-1)T_0.\\]\nB.3. Linearized heat-flow law\nFrom \\(E=pV/(\\gamma-1)\\) and \\(\\dot Q=\\dot E+p\\dot V\\), keep first-order changes: \\[\\dot Q=\\frac{V_0\\dot p+\\gamma p_0\\dot V}{\\gamma-1}.\\]\nB.4. Volume phase coefficients\nMatch cosine and sine in B3, using \\(T_{st}-T_1=a(\\tau-\\tau_{cr})/(\\ell\\sqrt2)\\): \\[V_b=\\frac{V_0p_b}{\\gamma p_0},\\quad V_a=-\\frac{V_0}{\\gamma p_0}\\left[p_a+\\frac{(\\gamma-1)\\beta a(\\tau-\\tau_{cr})}{\\omega\\ell\\sqrt2}\\right].\\] The source has an intermediate sign typo in its heat-input substitution. These final coefficients follow the question's negative heat-input convention.\nB.5. Acoustic work\nIntegrate \\(\\oint p\\,dV=-\\pi(p_aV_b+p_bV_a)\\). Thus \\(w=-\\pi(p_aV_b+p_bV_a)/V_0\\). With leading \\(p_b=ak\\gamma p_0/\\sqrt2\\), \\[W_{tot}=wS\\ell=\\frac\\pi{2\\omega}(\\gamma-1)\\beta(\\tau-\\tau_{cr})ka^2S.\\]\nB.6. Heat transported per cycle\nIntegration by parts of the convected heat gives \\(Q_{tot}=-(1/\\Delta x)\\oint\\dot Q\\,u\\,dt\\). Substitute the heat-input and displacement cosines: \\[Q_{tot}=\\frac\\pi{2\\omega}\\frac{\\beta(\\tau-\\tau_{cr})a^2S}{\\ell}.\\]\nB.7. Engine efficiency\nDividing B5 by B6 gives \\(\\eta=(\\gamma-1)k\\ell=\\tau_{cr}/T_0\\). Since \\(\\eta_c\\simeq\\tau/T_0\\) for \\(\\tau\\ll T_0\\), \\[\\eta\\simeq\\frac{\\tau_{cr}}\\tau\\eta_c.\\] This is the leading weak-gradient result on the engine branch \\(\\tau>\\tau_{cr}\\).",
+    "figures": [],
+    "shared": false
+  }
+}

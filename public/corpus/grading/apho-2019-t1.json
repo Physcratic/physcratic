@@ -1,0 +1,319 @@
+{
+  "problemId": "apho-2019-t1",
+  "version": "8cb6af43450e318ebc140786dbed5e3bbfe4214b933da6bd21f8385da8e0c4ff",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Wave speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c_0",
+        "\\epsilon_r",
+        "\\mu_r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "c_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon_r",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu_r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use c_0, \\epsilon_r, \\mu_r. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Coaxial electric field",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Capacitance per length",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\epsilon",
+        "b",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\epsilon",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1
+        }
+      ],
+      "help": "Use \\epsilon, b, a. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Inductance per length",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu",
+        "b",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1
+        }
+      ],
+      "help": "Use \\mu, b, a. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "a.5",
+      "label": "Characteristic impedance",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Wire above ground plane",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "d",
+        "a",
+        "\\mu",
+        "\\epsilon"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "d",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 30,
+          "max": 50
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1
+        },
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\epsilon",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use d, a, \\mu, \\epsilon. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Voltage reflection coefficient",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "Z_1",
+        "Z_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "Z_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "Z_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use Z_1, Z_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Reflection phase inversion",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "d.1",
+      "label": "Quantum-dot potential and addition energy",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "d.2",
+      "label": "Equilibrium addition-energy scale",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "e",
+        "C_g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "C_g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use e, C_g. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "d.3",
+      "sourcePart": "d.3",
+      "label": "Thermal condition",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.4",
+      "sourcePart": "d.4",
+      "label": "Tunnelling time and resistance",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e.1",
+      "sourcePart": "e.1",
+      "label": "Bare SET reflection contrast",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "e.2",
+      "sourcePart": "e.2",
+      "label": "Series-inductor matching circuit",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "f.1",
+      "sourcePart": "f.1",
+      "label": "Single-lead quantum-dot readout",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "f.2",
+      "sourcePart": "f.2",
+      "label": "Additional matching element",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

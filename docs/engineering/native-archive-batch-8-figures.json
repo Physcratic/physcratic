@@ -1,0 +1,902 @@
+[
+  {
+    "path": "/corpus/figures/native/batch8-mortar-geometry.png",
+    "source": "/corpus/documents/english-ipho-2008-t1-statement/document.pdf",
+    "sourceSha256": "06d0070a48ec398a02c337a160be4b0d59e106257b7e95ad53d139fb2e95114e",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      85,
+      485,
+      760,
+      685
+    ],
+    "sha256": "400fdcc92306d5cb794ccc0161d8a8d094894509279d74ce35df918e103a2e3b"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-mortar-cycle.png",
+    "source": "/corpus/documents/english-ipho-2008-t1-statement/document.pdf",
+    "sourceSha256": "06d0070a48ec398a02c337a160be4b0d59e106257b7e95ad53d139fb2e95114e",
+    "page": 3,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      130,
+      160,
+      755,
+      1035
+    ],
+    "sha256": "a9a32577b1b378eb9b7442cf045f053f12a097377103bb93750bc715df4803e8"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-lens-ring.png",
+    "source": "/corpus/documents/english-ipho-2021-t2-statement/document.pdf",
+    "sourceSha256": "7c90dde74ecbae904c90324acf177348b68ef8f5b00b865e890bd5a3cf296a2f",
+    "page": 1,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      388,
+      585,
+      564
+    ],
+    "sha256": "3fdc7a5eda6038c1b464986eafaaf7ff8811245bef85503a86c7537e466a6a58"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-lens-pulse.png",
+    "source": "/corpus/documents/english-ipho-2021-t2-statement/document.pdf",
+    "sourceSha256": "7c90dde74ecbae904c90324acf177348b68ef8f5b00b865e890bd5a3cf296a2f",
+    "page": 2,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      653,
+      585,
+      875
+    ],
+    "sha256": "bd406b9413520c4c2fb17b3aa6a018c46a328315b866e9b495464337ff514534"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-lens-circuit.png",
+    "source": "/corpus/documents/english-ipho-2021-t2-statement/document.pdf",
+    "sourceSha256": "7c90dde74ecbae904c90324acf177348b68ef8f5b00b865e890bd5a3cf296a2f",
+    "page": 3,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      836,
+      585,
+      976
+    ],
+    "sha256": "658d54518f2936c6e19b0669557fc26c31967b275148820e1f5a0ca42b63b296"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-colloid-channel.png",
+    "source": "/corpus/documents/english-ipho-2023-t1-statement/document.pdf",
+    "sourceSha256": "4fef805edaaa3c236c1e6a326bb5dd217e2915bee3bddfeb42652355cd7154c0",
+    "page": 2,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      79,
+      477,
+      754,
+      632
+    ],
+    "sha256": "c8a3f6df7fe65109690949d6ba1d8d060949ddb63b6ce6cbf1fc5db7ffd65264"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-colloid-histogram.png",
+    "source": "/corpus/documents/english-ipho-2023-t1-statement/document.pdf",
+    "sourceSha256": "4fef805edaaa3c236c1e6a326bb5dd217e2915bee3bddfeb42652355cd7154c0",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      79,
+      235,
+      754,
+      457
+    ],
+    "sha256": "733755fcf1aaf97c22e74b59406b8f31b67faa9d34b64655a95268aca23ccd74"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-microbe-msd.png",
+    "source": "/corpus/documents/english-ipho-2023-t1-statement/document.pdf",
+    "sourceSha256": "4fef805edaaa3c236c1e6a326bb5dd217e2915bee3bddfeb42652355cd7154c0",
+    "page": 5,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      212,
+      340,
+      622,
+      648
+    ],
+    "sha256": "5b424d2fe303884af02d1e5d2741c637a5a5bc2d5688b7673279e0636e962faa"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-greenhouse-spectra.png",
+    "source": "/corpus/documents/english-ipho-2024-t1-statement/document.pdf",
+    "sourceSha256": "a513d544b6dc80e8fd6454d908e14b378b6e4306cb3bc49d26f826558862803a",
+    "page": 3,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      160,
+      246,
+      685,
+      584
+    ],
+    "sha256": "66c59d9af716392182a591aa8d80bda3cc00af622d65863ea9c0be3c842f67b2"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-greenhouse-flows.png",
+    "source": "/corpus/documents/english-ipho-2024-t1-statement/document.pdf",
+    "sourceSha256": "a513d544b6dc80e8fd6454d908e14b378b6e4306cb3bc49d26f826558862803a",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      82,
+      182,
+      761,
+      631
+    ],
+    "sha256": "444432a8ab459dfdf83376d5cac6ca675a66b5554c39b4b6d13daffc9655fa8d"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-paul-ring.png",
+    "source": "/corpus/documents/english-ipho-2024-t2-statement/document.pdf",
+    "sourceSha256": "0f3b3e4f6162f1e0341cfe0ab33b22e98fadb3d9750de53ebf2fb169d9263df4",
+    "page": 1,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      153,
+      598,
+      691,
+      902
+    ],
+    "sha256": "9ff30e1e2dc853efb37231e080354db3fd42a15afc63de8bdb0eb8b8fb22a0ef"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-paul-micromotion.png",
+    "source": "/corpus/documents/english-ipho-2024-t2-statement/document.pdf",
+    "sourceSha256": "0f3b3e4f6162f1e0341cfe0ab33b22e98fadb3d9750de53ebf2fb169d9263df4",
+    "page": 3,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      197,
+      182,
+      647,
+      428
+    ],
+    "sha256": "b46b39dae23d9255bf767ca0288680e1313be20836382ce7dff5e4bca6054a40"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-doppler-rate.png",
+    "source": "/corpus/documents/english-ipho-2024-t2-statement/document.pdf",
+    "sourceSha256": "0f3b3e4f6162f1e0341cfe0ab33b22e98fadb3d9750de53ebf2fb169d9263df4",
+    "page": 5,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      82,
+      182,
+      712,
+      524
+    ],
+    "sha256": "47e5882f509318c05b99028182e1a00daa1ee32eae44408bf5ee509a72aec017"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-star-density-gradient.png",
+    "source": "/corpus/documents/english-ipho-2024-t3-statement/document.pdf",
+    "sourceSha256": "2ff2d180492f1655f30d2655847b2aeaff827d69ccba54ff5d0dbcb9f7489ddb",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      82,
+      217,
+      761,
+      644
+    ],
+    "sha256": "416b7e0362bd8fbde983bd90f592be8f9d63421d8b9d86ad1e30433f99812dc2"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-hall-setup.png",
+    "source": "/corpus/documents/english-apho-2015-t1-statement/document.pdf",
+    "sourceSha256": "71e314181b1b58b3a4f62e823e917f4810c46a466265b348325ebe4963d9fe91",
+    "page": 2,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      128,
+      149,
+      710,
+      773
+    ],
+    "sha256": "d64e48edb3db5ac0c53ca400887c1853e00068745fa0e7f0b1e5a3a833cabba1"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-etalon-apparatus.png",
+    "source": "/corpus/documents/english-apho-2015-t3-statement/document.pdf",
+    "sourceSha256": "81a3d2e03f8585eca26cb872c2e4181b652f792b6c7677ad97526bd3e66879a4",
+    "page": 1,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      180,
+      500,
+      655,
+      815
+    ],
+    "sha256": "a79df6d27b76a56edc92c009e68f0f4cc5f039cda2a738ca329672a15aad045f"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-etalon-linewidth.png",
+    "source": "/corpus/documents/english-apho-2015-t3-statement/document.pdf",
+    "sourceSha256": "81a3d2e03f8585eca26cb872c2e4181b652f792b6c7677ad97526bd3e66879a4",
+    "page": 2,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      240,
+      520,
+      630,
+      795
+    ],
+    "sha256": "cf5f4e6df2f03312e2013031fe5a23ea38a82f9351e2bdf7762aacec33a51ebb"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-zeeman-transitions.png",
+    "source": "/corpus/documents/english-apho-2015-t3-statement/document.pdf",
+    "sourceSha256": "81a3d2e03f8585eca26cb872c2e4181b652f792b6c7677ad97526bd3e66879a4",
+    "page": 3,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      245,
+      440,
+      625,
+      665
+    ],
+    "sha256": "3f1b6b566e83958b04c8447e720d7a75bb6c4d23f9c61b4a3c194bd6754b2b27"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-zeeman-rings.png",
+    "source": "/corpus/documents/english-apho-2015-t3-statement/document.pdf",
+    "sourceSha256": "81a3d2e03f8585eca26cb872c2e4181b652f792b6c7677ad97526bd3e66879a4",
+    "page": 3,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      235,
+      850,
+      650,
+      1090
+    ],
+    "sha256": "d8bacf9b2259d57ba4e829e255f08c639440b56bcf8794f04a421855f81c4f9b"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-cosmic-sphere.png",
+    "source": "/corpus/documents/english-ipho-2017-t3-statement/document.pdf",
+    "sourceSha256": "23dab6c537a9007370eba4f67c31c715c71f2aaa856716b7a3fdee357b543e61",
+    "page": 1,
+    "renderScale": 1.4,
+    "renderSize": [
+      833,
+      1179
+    ],
+    "crop": [
+      300,
+      508,
+      532,
+      735
+    ],
+    "sha256": "bbfbe04d115366e7c2df0dacf98fc2d6cd954590d1873ddfee5b1fbfd29c5183"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-coaxial-magnets.png",
+    "source": "/corpus/documents/english-ipho-2022-t1-statement/document.pdf",
+    "sourceSha256": "0f90f13d7fc724fdda8393698e0e7450f3c1e47970bd91b36dbd96eefeaff99d",
+    "page": 1,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      280,
+      855,
+      570,
+      995
+    ],
+    "sha256": "e11bfbb8a2349dda2b44feece4148fde5cf65ae5812e2b69f1bd85604a5c8f80"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-chain-end.png",
+    "source": "/corpus/documents/english-ipho-2022-t1-statement/document.pdf",
+    "sourceSha256": "0f90f13d7fc724fdda8393698e0e7450f3c1e47970bd91b36dbd96eefeaff99d",
+    "page": 2,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      355,
+      495,
+      480,
+      855
+    ],
+    "sha256": "9396248be970c3b98e042f3501206598533fa8c30550348a2f6715a636c8336b"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-plate-lines.png",
+    "source": "/corpus/documents/english-ipho-2022-t1-solution/document.pdf",
+    "sourceSha256": "083e6564c94c7dd195009bf058386c34b39ef782e6c942d2f20db75fe1fcb7c0",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      32,
+      930,
+      408,
+      1080
+    ],
+    "sha256": "f57be8954cd9ef43a3aa09d0298865a344788b70a5455a35838d70a09a8ae4e0"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-square-spheres.png",
+    "source": "/corpus/documents/english-ipho-2022-t1-statement/document.pdf",
+    "sourceSha256": "0f90f13d7fc724fdda8393698e0e7450f3c1e47970bd91b36dbd96eefeaff99d",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      289,
+      389,
+      545,
+      560
+    ],
+    "sha256": "bca6a0dc809cc82f4879bc78c97097d1bcc2cf6d37c8610f650ce40e1d12329a"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-triangular-spheres.png",
+    "source": "/corpus/documents/english-ipho-2022-t1-statement/document.pdf",
+    "sourceSha256": "0f90f13d7fc724fdda8393698e0e7450f3c1e47970bd91b36dbd96eefeaff99d",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      289,
+      667,
+      545,
+      838
+    ],
+    "sha256": "dcb17b075654f44248665312a01266d923990e3b173f9273aa86133f4358552c"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-superconductor-ring.png",
+    "source": "/corpus/documents/english-apho-2016-t3-statement/document.pdf",
+    "sourceSha256": "2c1d1c4d62c9e78a235a96cebd86ce699b030e6d52b906ba0f3410dd7dde554b",
+    "page": 2,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      210,
+      220,
+      650,
+      420
+    ],
+    "sha256": "4f1f9ee927cf71f0967ae75076a4d790bce50ffab4d2876ee84bc23f4b311246"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-ising-internal.png",
+    "source": "/corpus/documents/english-apho-2016-t3-statement/document.pdf",
+    "sourceSha256": "2c1d1c4d62c9e78a235a96cebd86ce699b030e6d52b906ba0f3410dd7dde554b",
+    "page": 5,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      83,
+      413,
+      707,
+      630
+    ],
+    "sha256": "d134cb2a6e81b063e4d68c2c4edd2bc7960b6ca5b7284d5cf0229494c6bbe249"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-black-hole-scattering.png",
+    "source": "/corpus/documents/english-apho-2017-t2-statement/document.pdf",
+    "sourceSha256": "e39d71efe30ec9eae62b74f90c31675b6075baa92e42cac9182d0284c868202a",
+    "page": 2,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      210,
+      530,
+      720,
+      690
+    ],
+    "sha256": "45d2db6b62e7e3eac5e695b535a46a3df6292d2511bddc91b8d9d7bc7b662129"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-binary-formation.png",
+    "source": "/corpus/documents/english-apho-2017-t2-statement/document.pdf",
+    "sourceSha256": "e39d71efe30ec9eae62b74f90c31675b6075baa92e42cac9182d0284c868202a",
+    "page": 5,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      110,
+      790,
+      725,
+      1050
+    ],
+    "sha256": "abfb53fd6a053d30276a26be128925171fd9b9fe6b6008c8812276992ef66562"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-heated-bar.png",
+    "source": "/corpus/documents/english-apho-2018-t3-statement/document.pdf",
+    "sourceSha256": "64100f01973713343700f62a8b5e51a76c7985f2a5bf8265322fa31fd3ad7292",
+    "page": 3,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      147,
+      349,
+      687,
+      536
+    ],
+    "sha256": "b780fc7774534d0929b30db4dca110e2c691c93f22d1404af557ed36561f0366"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-thermoelectric-generator.png",
+    "source": "/corpus/documents/english-apho-2018-t3-statement/document.pdf",
+    "sourceSha256": "64100f01973713343700f62a8b5e51a76c7985f2a5bf8265322fa31fd3ad7292",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      467,
+      585,
+      815
+    ],
+    "sha256": "4c5d96bbd91f1e41e7586692db60f9419f1a7069752ad823a8e11b05b6601453"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-thermoelectric-cooler.png",
+    "source": "/corpus/documents/english-apho-2018-t3-statement/document.pdf",
+    "sourceSha256": "64100f01973713343700f62a8b5e51a76c7985f2a5bf8265322fa31fd3ad7292",
+    "page": 6,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      592,
+      585,
+      933
+    ],
+    "sha256": "ef427e063ce747c7d1d1bfd283ee9704f07efe6eccb45e68d37875c0c14c06ee"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-water-hammer-pipe.png",
+    "source": "/corpus/documents/english-apho-2021-t1-statement/document.pdf",
+    "sourceSha256": "2a1fb6322b5c85c41fde5e2ba952d8c18f8f3ebe43bc6875421a2d04a9aeb746",
+    "page": 1,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      79,
+      722,
+      833,
+      967
+    ],
+    "sha256": "5ed600ad9c7f5a02e0f54870fdde4d57bc316322b6309c0bd8928b8387672cf9"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-water-hammer-valve.png",
+    "source": "/corpus/documents/english-apho-2021-t1-statement/document.pdf",
+    "sourceSha256": "2a1fb6322b5c85c41fde5e2ba952d8c18f8f3ebe43bc6875421a2d04a9aeb746",
+    "page": 2,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      147,
+      502,
+      687,
+      784
+    ],
+    "sha256": "9a84741f4f45bb804d90569c522ec431542940a1ded5b79ca43a4ded5e5c525b"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-anisotropic-interface.png",
+    "source": "/corpus/documents/english-apho-2021-t2-statement/document.pdf",
+    "sourceSha256": "c2fe02a61d641a44e6a8c3f6048a87061736e7d65ccbf217ccb2797d87f863dd",
+    "page": 3,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      315,
+      235,
+      518,
+      387
+    ],
+    "sha256": "ada30c100aebf6fc49db250ea97f44167c6aaee5ca84578d6ca90ddb931bbc78"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-downconversion-cones.png",
+    "source": "/corpus/documents/english-apho-2021-t2-statement/document.pdf",
+    "sourceSha256": "c2fe02a61d641a44e6a8c3f6048a87061736e7d65ccbf217ccb2797d87f863dd",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      438,
+      585,
+      564
+    ],
+    "sha256": "d3f3b554c0f98fcc367a83c48032a7a7ce4159bfde5672d2dd337b3e7de0dcdd"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-entangled-polarizers.png",
+    "source": "/corpus/documents/english-apho-2021-t2-statement/document.pdf",
+    "sourceSha256": "c2fe02a61d641a44e6a8c3f6048a87061736e7d65ccbf217ccb2797d87f863dd",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      282,
+      916,
+      552,
+      1065
+    ],
+    "sha256": "78d189e47a59e072715e2e0896c5ed08a808a94d3e56a39b2bb5fdd76b89508c"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-monopole-film.png",
+    "source": "/corpus/documents/english-apho-2021-t3-statement/document.pdf",
+    "sourceSha256": "aae77264d35880893c40cc5dd551c54e44965c9dfe19ee04b2a34e67e4d1dd17",
+    "page": 2,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      235,
+      585,
+      425
+    ],
+    "sha256": "e9740bb4e7e648d69e3ef8ca5033f86a2b7a1f5aca48d0a5869bc67e07d94708"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-moving-dipole-film.png",
+    "source": "/corpus/documents/english-apho-2021-t3-statement/document.pdf",
+    "sourceSha256": "aae77264d35880893c40cc5dd551c54e44965c9dfe19ee04b2a34e67e4d1dd17",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      643,
+      585,
+      833
+    ],
+    "sha256": "8e4d7d8b9a388cbd26a8b0b2f8efb418a7e4073991db17e7e3469f82e8f64d29"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-stern-gerlach-beam.png",
+    "source": "/corpus/documents/english-apho-2022-t1-statement/document.pdf",
+    "sourceSha256": "2ea57b3ea45d3e0688ee32a6883d8bde86bec6863a4187c645bf8ae26e3a8fa9",
+    "page": 1,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      79,
+      362,
+      754,
+      735
+    ],
+    "sha256": "68b9752c7b3b2cb1f4f235bdd03fb8a3e0936935517795e0c9a711bcfcbfdfe7"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-stern-gerlach-poles.png",
+    "source": "/corpus/documents/english-apho-2022-t1-statement/document.pdf",
+    "sourceSha256": "2ea57b3ea45d3e0688ee32a6883d8bde86bec6863a4187c645bf8ae26e3a8fa9",
+    "page": 2,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      250,
+      565,
+      590,
+      975
+    ],
+    "sha256": "11e3a1394704bf096846986d60a30783b2e19cd1e3db0dc96dc2433d8b01009b"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-mountain-curvature.png",
+    "source": "/corpus/documents/english-apho-2022-t3-statement/document.pdf",
+    "sourceSha256": "8fc87dbae975d577745dfdfe351b3419172145f2aad70a83a0563db53beee55c",
+    "page": 3,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      230,
+      410,
+      610,
+      570
+    ],
+    "sha256": "4aa28b5f9e4f579cfd7f65745032f52263dabec98c9e7532657de347d9ad85b8"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-larmor-ring.png",
+    "source": "/corpus/documents/english-apho-2025-t2-statement/document.pdf",
+    "sourceSha256": "5d83bac49bd75466a699c054a5cd70d0e141cac327bd5260733869154a20536f",
+    "page": 1,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      181,
+      928,
+      653,
+      1070
+    ],
+    "sha256": "25c1955ad5a54eb00eb70a014d1927a9e77043bcd92a0984b192e40b555a33e1"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-spin-ring-coupling.png",
+    "source": "/corpus/documents/english-apho-2025-t2-statement/document.pdf",
+    "sourceSha256": "5d83bac49bd75466a699c054a5cd70d0e141cac327bd5260733869154a20536f",
+    "page": 2,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      405,
+      585,
+      506
+    ],
+    "sha256": "e7e86cee6fa2d1496ed7efaf608c8b261a5457866888c34eb32fc577de9c335e"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-spin-wave.png",
+    "source": "/corpus/documents/english-apho-2025-t2-statement/document.pdf",
+    "sourceSha256": "5d83bac49bd75466a699c054a5cd70d0e141cac327bd5260733869154a20536f",
+    "page": 3,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      717,
+      585,
+      900
+    ],
+    "sha256": "6b79284c29c5b8cab084926fe0d1a165c682ee73f28cf56d62ca1ceeb17c6b40"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-neutron-scattering.png",
+    "source": "/corpus/documents/english-apho-2025-t2-statement/document.pdf",
+    "sourceSha256": "5d83bac49bd75466a699c054a5cd70d0e141cac327bd5260733869154a20536f",
+    "page": 4,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      493,
+      585,
+      628
+    ],
+    "sha256": "61653094720db40df6f0fb470b7d6a79c6e2399804e0b3458bbaedecb01589c8"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-atmospheric-layer.png",
+    "source": "/corpus/documents/english-apho-2025-t3-statement/document.pdf",
+    "sourceSha256": "1bf6709ccd044f96985d6cb75373f6711e878046493cfcf0dda5e0c72ce68258",
+    "page": 1,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      349,
+      919,
+      484,
+      1048
+    ],
+    "sha256": "a6139c5d53b0f06f33e75e99e51a96f3331d4e547453c17c6919b8f980070465"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-air-parcel.png",
+    "source": "/corpus/documents/english-apho-2025-t3-statement/document.pdf",
+    "sourceSha256": "1bf6709ccd044f96985d6cb75373f6711e878046493cfcf0dda5e0c72ce68258",
+    "page": 3,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      315,
+      549,
+      518,
+      712
+    ],
+    "sha256": "c6536605c09b7d36a816e3b549063c34bf1686da292fdc49cae7dca5b674ba8e"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-halo-prism.png",
+    "source": "/corpus/documents/english-apho-2025-t3-statement/document.pdf",
+    "sourceSha256": "1bf6709ccd044f96985d6cb75373f6711e878046493cfcf0dda5e0c72ce68258",
+    "page": 5,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      147,
+      753,
+      687,
+      901
+    ],
+    "sha256": "a636899f11b13f84312d4c13bddf015fe9ded8ee3c95d813b7952ef38e88593f"
+  },
+  {
+    "path": "/corpus/figures/native/batch8-ice-hexagon.png",
+    "source": "/corpus/documents/english-apho-2025-t3-statement/document.pdf",
+    "sourceSha256": "1bf6709ccd044f96985d6cb75373f6711e878046493cfcf0dda5e0c72ce68258",
+    "page": 6,
+    "renderScale": 1.4,
+    "renderSize": [
+      834,
+      1179
+    ],
+    "crop": [
+      248,
+      335,
+      585,
+      481
+    ],
+    "sha256": "467b854cd583b6fa0b4555c3e5e49cec18799c745614291034ecb5a6d84354e9"
+  }
+]

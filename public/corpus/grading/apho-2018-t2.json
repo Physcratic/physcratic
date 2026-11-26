@@ -1,0 +1,266 @@
+{
+  "problemId": "apho-2018-t2",
+  "version": "97d263d4830de70937f27e939bd3c372f422d459f76a5e65520477ae81373dd3",
+  "parts": [
+    {
+      "id": "1.1",
+      "sourcePart": "1.1",
+      "label": "Uniform-section tower height",
+      "kind": "numeric",
+      "unit": "km",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in km, without a unit suffix."
+    },
+    {
+      "id": "1.2",
+      "sourcePart": "1.2",
+      "label": "Maximum stress location",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "R_G"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "R_G",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use R_G. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "1.3",
+      "sourcePart": "1.3",
+      "label": "Maximum uniform-section stress",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "g",
+        "R",
+        "R_G"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 2
+        },
+        {
+          "symbol": "R_G",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "help": "Enter the stress formula. Include the steel ratio in your working."
+    },
+    {
+      "id": "2.1",
+      "sourcePart": "2.1",
+      "label": "Morse expansion",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "2.2",
+      "sourcePart": "2.2",
+      "label": "Bond spring constant",
+      "kind": "numeric",
+      "unit": "N/m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in N/m, without a unit suffix."
+    },
+    {
+      "id": "2.3",
+      "sourcePart": "2.3",
+      "label": "Nanotube Young modulus",
+      "kind": "numeric",
+      "unit": "GPa",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in GPa, without a unit suffix."
+    },
+    {
+      "id": "2.4",
+      "sourcePart": "2.4",
+      "label": "Maximum bond extension",
+      "kind": "numeric",
+      "unit": "nm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in nm, without a unit suffix."
+    },
+    {
+      "id": "2.5",
+      "sourcePart": "2.5",
+      "label": "Nanotube tensile strength",
+      "kind": "numeric",
+      "unit": "GPa",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in GPa, without a unit suffix."
+    },
+    {
+      "id": "2.6",
+      "sourcePart": "2.6",
+      "label": "Nanotube effective density",
+      "kind": "numeric",
+      "unit": "kg/m^3",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kg/m^3, without a unit suffix."
+    },
+    {
+      "id": "3.1",
+      "sourcePart": "3.1",
+      "label": "Uniform-stress taper",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "A_S",
+        "\\rho",
+        "g",
+        "R",
+        "\\sigma",
+        "R_G",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "A_S",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 2
+        },
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R_G",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 5,
+          "max": 8
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.2,
+          "max": 2
+        }
+      ],
+      "help": "Use A_S, \\rho, g, R, \\sigma, R_G, h. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "3.2",
+      "sourcePart": "3.2",
+      "label": "Equal-end-area tower radius",
+      "kind": "numeric",
+      "unit": "km",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in km, without a unit suffix."
+    },
+    {
+      "id": "3.3",
+      "sourcePart": "3.3",
+      "label": "Taper ratio",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "3.4",
+      "sourcePart": "3.4",
+      "label": "Counterweight relation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "4.1",
+      "sourcePart": "4.1",
+      "label": "Earth escape release radius",
+      "kind": "numeric",
+      "unit": "km",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in km, without a unit suffix."
+    },
+    {
+      "id": "4.2",
+      "sourcePart": "4.2",
+      "label": "Solar distance extrema",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

@@ -1,1 +1,760 @@
-{"id":"apho-2021-t3","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/apho/APhO_2021_Q3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/apho/APhO_2021_S3.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-apho-2021-t3-statement/document.pdf","pages":[],"sourcePages":[1,2,3,4,5],"initialPage":1,"shared":false,"text":"Theory\nQ3-1\nEnglish (Official)\nMagnetic Levitation\nUseful Information\n(1) Directional derivative of a spatial function 𝑓( ⃗𝑟), given by\n⃗∇𝑓( ⃗𝑟), has\n⃗∇𝑓≡( ̂𝑥𝜕\n𝜕𝑥+\n̂𝑦𝜕\n𝜕𝑦+\n̂𝑧𝜕\n𝜕𝑧)𝑓( ⃗𝑟), where\n𝜕\n𝜕𝑥𝑓( ⃗𝑟) denotes a partial derivative of 𝑓( ⃗𝑟) with respect to 𝑥while\nkeeping 𝑦and 𝑧unchanged.\n(2) Integral:\n∫\n∞\n0\n𝑑𝑡\n(𝑎+𝑝𝑡)\n[(𝑎+𝑝𝑡)2+(𝑏+𝑞𝑡)2]3/2 =\n1\n𝑏𝑝−𝑎𝑞(\n𝑏\n√\n𝑎2+𝑏2 −\n𝑞\n√𝑝2+𝑞2 ).\nIntroduction\nWe intend to study the motion of a small magnetic dipole in the vicinity of a conducting thin film. In\nthe problem text, the terms dipole and monopole are to be regarded, respectively, as synonymous with\nmagnetic dipole and magnetic monopole.\nA dipole consisting of a spherical permanent magnet with a uniform magnetization\n⃗\n𝑀(magnetic dipole\nmoment per unit volume) and a uniform mass density 𝜌0 may be treated as a point-like object when its\nradius 𝑅is small. Such a dipole representation is good for describing the magnetic field that the dipole\nproduces everywhere outside of its sphere. The representation is also a good approximation for the\nforce acting on the dipole from an applied magnetic field, whenever distances of field sources from the\ndipole are much larger than 𝑅.\nA point-like dipole can be considered as a pair of monopoles carrying negative and positive magnetic\ncharges −𝑞m and 𝑞m respectively. The pair has a vanishingly small separation, but possesses a finite\nmagnetic dipole moment\n⃗𝑚= 𝑞m ⃗𝛿m. Here\n⃗\n𝛿m is the displacement vector from the south monopole (−𝑞m)\nto the north monopole (+𝑞m). The position of the point-like dipole is chosen to be that of the north\nmonopole.\nThe magnetic field\n⃗𝐵mp from a monopole 𝑞m is assumed to have a Coulombic form, given by\n⃗𝐵mp = 𝜇0𝑞m\n4𝜋𝑟2\n̂𝑟,\n(1)\nwhere\n⃗𝑟is the displacement vector from 𝑞m to the observation point (or field point),\n̂𝑟is the unit vector\n̂𝑟= ⃗𝑟/𝑟, and 𝜇0 is the free-space permeability. The force exerted by an applied magnetic field\n⃗𝐵′ on 𝑞m is\ngiven by\n⃗𝐹= 𝑞m ⃗𝐵′. It follows, from extending the concept of the monopole field just described in Eq.(1),\nthat the magnetic field\n⃗𝐵from a point-dipole is derivable from a scalar potential Φ , given by the form\n⃗𝐵= −⃗∇Φ. The scalar potential Φ is also called the magnetic potential.\nThe conducting thin film is uniform with thickness 𝑑in the 𝑧direction (Fig. 1). It extends horizontally in 𝑥\nand 𝑦directions to infinity and its upper surface is located at a distance ℎfrom either a point monopole\nor a dipole. We consider only the case ℎ≫𝑑. This allows us to take the electric current density induced\nin the film to be independent of 𝑧. We also assume that the displacement current effect to be negligible.\n\nTheory\nQ3-2\nEnglish (Official)\nFig.1 A monopole 𝑞m appears at a distance ℎfrom a conducting thin film of thickness 𝑑. The\norigin of the coordinates is located on the upper surface.\nThe problem is divided into three parts. In Part A, the system consists of a monopole and a thin film,\nwhile in Parts B and C, a moving dipole and a thin film.\nWe choose the 𝑧= 0 plane to coincide with the upper surface of the thin film. The vector\n⃗𝜌= 𝑥̂𝑥+𝑦̂𝑦= 𝜌̂𝜌\ndenotes the in-plane position vector.\nPart A. Sudden appearance of a magnetic monopole: initial response and subsequent\ntime evolution of the response in the thin film (3.0 points)\nWe first focus on the initial response of the conducting thin film when at time 𝑡= 0 a north monopole\n𝑞m appears suddenly at the position\n⃗𝑟mp = ℎ̂𝑧(ℎ> 0), as is shown in Fig. 1. The monopole remains\nstationary in all later times (𝑡> 0).\nOur interest here is the initial total magnetic field\n⃗𝐵( ⃗𝜌, 𝑧) in regions 𝑧≥0 and 𝑧≤−𝑑, and the induced\nelectric current density in the thin film. The total magnetic field\n⃗𝐵=\n⃗𝐵mp +\n⃗𝐵′, where magnetic fields\n⃗𝐵mp and\n⃗𝐵′ are, respectively, due to the monopole and the induced current in the thin film. The initial\n⃗𝐵( ⃗𝜌, 𝑧) we refer to is at the time 𝑡0, which falls within the interval ℎ/𝑐≤𝑡0 ≪𝜏c. Here 𝜏c is a time constant\ncharacterizing the subsequent response of the thin film, and 𝑐is the speed of light in vacuum. In this\nproblem, we take the limit ℎ/𝑐→0 and hence let 𝑡0 = 0.\nThe calculation of the initial total magnetic field\n⃗𝐵( ⃗𝜌, 𝑧) (at 𝑡0 = 0) is facilitated by introducing an image\nmonopole. For\n⃗𝐵( ⃗𝜌, 𝑧) in the region 𝑧≥0, the image monopole has a magnetic charge 𝑞m and is located\nat 𝑧= −ℎ. On the other hand, for\n⃗𝐵( ⃗𝜌, 𝑧) in the region 𝑧≤−𝑑, the image monopole has a magnetic\ncharge −𝑞m and is located at 𝑧= ℎ.\nInitial response\nA.1\nObtain the initial total magnetic field\n⃗𝐵( ⃗𝜌, 𝑧) in 𝑧≥0 at 𝑡0 = 0.\n0.4pt\nA.2\nObtain the initial total magnetic field\n⃗𝐵( ⃗𝜌, 𝑧) in 𝑧≤−𝑑at 𝑡0 = 0.\n0.2pt\nA.3\nFind the initial magnetic flux ΦB through surfaces at 𝑧= 0, and at 𝑧= −𝑑.\n0.4pt\nA.4\nObtain the initial induced electric current density\n⃗𝑗( ⃗𝜌) in the conducting thin film\nat 𝑡0 = 0.\n0.6pt\n\nTheory\nQ3-3\nEnglish (Official)\nFor 𝑡> 0, the total magnetic field\n⃗𝐵becomes\n⃗𝐵( ⃗𝜌, 𝑧; 𝑡) =\n⃗𝐵mp( ⃗𝜌, 𝑧) +\n⃗𝐵′( ⃗𝜌, 𝑧; 𝑡), by superposition, with\n⃗𝐵′( ⃗𝜌, 𝑧; 𝑡) due to the induced electric current in the thin film. You are required below to obtain an equation\nfor 𝐵′\n𝑧(𝜌, 𝑧; 𝑡) near the 𝑧= 0 thin film surface. The time-evolution behavior of 𝐵′\n𝑧would reveal a moving\nimage-monopole picture for the description of the\n⃗𝐵′ field near 𝑧≈0 in 𝑡> 0.\nThe equation for 𝐵′\n𝑧inside the thin film is given below,\n𝜕2𝐵′\n𝑧(𝜌, 𝑧; 𝑡)\n𝜕𝑧2\n= 𝜇0𝜎𝜕𝐵′\n𝑧(𝜌, 𝑧; 𝑡)\n𝜕𝑡\n.\n(2)\nThis equation has been obtained from imposing inside the thin film the Maxwell equation and the Ohmic\nbehavior of the conducting thin film ( ⃗𝑗= 𝜎⃗𝐸, where 𝜎is the electrical conductivity) while neglecting the\ndisplacement-current effect. Term being neglected on the left-hand side of Eq.(2) is 1\n𝜌\n𝜕\n𝜕𝜌(𝜌𝜕𝐵′\n𝑧\n𝜕𝜌), based on\nthe ℎ≫𝑑condition.\nSubsequent response\nA.5\nObtain from Eq. (2) an equation of 𝐵′\n𝑧(𝜌, 𝑧; 𝑡) near 𝑧≈0. The equation contains\nfirst partial derivatives of 𝐵′\n𝑧(𝜌, 𝑧; 𝑡) with respect to 𝑧, and, separately, to 𝑡.\n0.6pt\nA.6\nSolve for the general form of 𝐵′\n𝑧(𝜌, 𝑧; 𝑡) near 𝑧≈0 in 𝑡> 0.\n0.4pt\nA.7\nShow that your solution in A.6 reveals a moving image-monopole picture for the\nmagnetic field 𝐵′\n𝑧(𝜌, 𝑧≈0; 𝑡), with a downwardly moving velocity. Find the speed\n𝑣0 of the image monopole in terms of known parameters from the problem text.\n0.4pt\nPart B. Magnetic force acting on a point-like dipole moving with a constant velocity and\nat a constant h (4.0 points)\nThe moving image-monopole concept developed in A.7 for 𝐵′\n𝑧near 𝑧≈0 can be assumed to hold also\nfor the\n⃗𝐵′ field in the 𝑧≥0 region. This assumption is good as long as the time evolution is sufficiently\nslow in the conducting thin film response.\nFig. 2 A monopole 𝑞m moves with a constant velocity\n⃗𝑣and a constant height ℎfrom the con-\nducting thin film. As shown are its coordinates at 𝑡= 0.\nA monopole 𝑞m (Fig. 2) is caused to move in a constant velocity 𝑣̂𝑥, with 𝑣≪𝑐, and a constant height,\nat 𝑧= ℎ, motion up to the present moment (𝑡= 0). Its present coordinates (𝑥, 𝑦) are (0, 0). Our focus is\n\nTheory\nQ3-4\nEnglish (Official)\non the magnetic potential Φ+ due to all image monopoles generated by this moving monopole along its\ntrajectory.\nBy splitting 𝑞m's trajectory into discrete time steps (a very small time step 𝜏), we replace the motion\nof the 𝑞m by a hopping at the beginning moment of each time step. The hopping is represented by a\nsimultaneous removal and creation of the monopoles. The position of the created monopole coincides\nwith a point on its trajectory right at the beginning moment of this time step. Thus the position of\nthe removed monopole coincides with its trajectory position at the beginning moment of the previous\ntime step. This is achieved by a simultaneous sudden appearance of two magnetic monopoles: 𝑞m and\n−𝑞m at, respectively, the trajectory positions corresponding to the beginning moments of this and the\nprevious time step. The two positions are separated by a hopping distance Δ𝑥= 𝑣𝜏. This time-step\napproach facilitates the determination of all the image magnetic monopoles, and their positions, that\nare generated in all the time steps.\nA moving monopole\nB.1\nWrite down the present (𝑡= 0) positions of all the image monopoles of the\ntypes 𝑞m and −𝑞m. The beginning moments of the time steps are at 𝑡= −𝑛𝜏,\nwhere 𝑛≥0.\n0.8pt\nB.2\nFind the summation form of the magnetic potential Φ+(𝑥, 𝑧) at 𝑡= 0 from all the\nimage monopoles in B.1. Calculate Φ+(𝑥, 𝑧).\n0.7pt\nFig. 3 A dipole with an upward-pointing magnetic dipole moment\n⃗𝑚moves with a constant ⃗𝑣\nand a constant height ℎfrom the conducting thin film. As shown are its coordinates at 𝑡= 0.\nNow consider a point-like moving magnetic dipole as shown in Fig. 3. The dipole, with a dipole moment\n⃗𝑚= 𝑚̂𝑧, is caused to move in a constant velocity 𝑣̂𝑥, and a constant height (𝑧= ℎ) motion up to the\npresent moment (𝑡= 0), where its present coordinates are at (0, 0). The point-like dipole can be rep-\nresented by two slightly displaced monopoles as has been mentioned in the Introduction section. The\nlocation of the magnetic dipole is chosen to be that of the north monopole, and\n⃗𝑚is assumed kept fixed.\nA moving dipole\nB.3\nFind the force\n⃗𝐹acting upon the point-like magnetic dipole by the conducting\nthin film at 𝑡= 0.\n1.5pt\nRelation between 𝑣0 and 𝑣\nFor the numerical evaluation in this Part below, we consider a conducting thin film that is made of copper,\n\nTheory\nQ3-5\nEnglish (Official)\nsuch that 𝜎= 5.9 × 107 Ω−1m−1, 𝑑= 0.50 cm, and ℎ= 5.0 cm.\nB.4\nCalculate the value of 𝑣0, the speed of the image dipole as according to A.7.\n0.3pt\nIt is known that the penetration depth 𝛿(called skin depth), which distance an electromagnetic wave can\npenetrate into a conducting slab, depends on the angular frequency 𝜔of the wave. The dependence is\ngiven by\n𝛿= √\n2\n𝜔𝜇0𝜎.\n(3)\nFor the consideration below, we take 𝜔= 𝑣L/ℎ, where 𝑣L equals the larger velocity of 𝑣and 𝑣0.\nB.5\nObtain the 𝑣dependence of 𝑣0(𝑣) in both the small and the large 𝑣regimes.\n0.4pt\nB.6\nObtain the critical velocity 𝑣= 𝑣c at which the two regimes in B.5 meet.\n0.3pt\nPart C. Motion of the magnetic dipole when the conducting thin film is superconducting\n(3.0 points)\nThe consideration above can be applied to the case of type-I superconductors, where magnetic fields are\ncompletely repelled from the superconductors (the Meissner effect) at all times, by taking the limit that\nelectrical conductivity 𝜎→∞.\nHere we consider a point-like magnetic dipole with a horizontal magnetic dipole moment\n⃗𝑚= 𝑚̂𝑥, a\nmass 𝑀0, and located at (𝑥, 𝑦, 𝑧) = (0, 0, ℎ). We focus on vertical motions of the magnetic dipole under\nthe action of a gravitational field, with gravitational acceleration\n⃗𝑔= −𝑔̂𝑧. Weak coupling between the\ngiven dipole orientation and its center-of-mass motion is assumed and is neglected. As such, we fix the\nmagnetic dipole moment, as is given above, for our considerations below. In addition, we assume an\nultra-high vacuum environment so that no damping to the motion from the residual air needs to be\nconsidered.\nC.1\nFind the equilibrium distance ℎ0 of the dipole from the superconducting thin\nfilm.\n1.2pt\nC.2\nFind the dipole angular frequency Ω of oscillations about the equilibrium.\n0.8pt\nPhysical parameters for a spherical permanent magnet are as follows: radius 𝑅= 1.0 𝜇m, mass density\n𝜌0 = 7400 kg m−3, 𝑔= 9.8 m s−2, 𝜇0 = 4𝜋× 10−7 TA−1m, and magnetization |\n⃗\n𝑀| = 75 × 10−2 T/𝜇0.\nC.3\nCalculate the value of ℎ0.\n0.7pt\nC.4\nCalculate the value of Ω .\n0.3pt\n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-apho-2021-t3-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"1 \n \nTheory 3 Magnetic Levitation:  Solution \nPart A.   Sudden appearance of a magnetic monopole: initial response and subsequent  \n               time evolution of the response in the thin film \nInitial response \nA.1 In the 𝑧≥0 region, excluding the point occupied by the monopole, the magnetic field  \n       𝐵⃗ = 𝐵⃗ ′ + 𝐵⃗ mp at 𝑡= 𝑡0 = 0  is given by \n𝐵⃗ mp =\n𝜇0𝑞m\n4𝜋\n(𝑧−ℎ)𝑧̂+𝜌⃗ \n[(𝑧−ℎ)2+𝜌2]3 2\n⁄  ,                                           (A-1) \n𝐵⃗ ′ = \n𝜇0𝑞m\n4𝜋\n(𝑧+ℎ)𝑧̂+𝜌⃗ \n[(𝑧+ℎ)2+𝜌2]3 2\n⁄  ,                                             (A-2) \n 𝐵⃗ =\n𝜇0𝑞m\n4𝜋[\n(𝑧−ℎ)𝑧̂+𝜌⃗ \n[(𝑧−ℎ)2+𝜌2]3 2\n⁄ +\n(𝑧+ℎ)𝑧̂+𝜌⃗ \n[(𝑧+ℎ)2+𝜌2]3 2\n⁄ ] .        (A-3) \nA.2 In the 𝑧≤−𝑑 region, the magnetic field 𝐵⃗ = 𝐵⃗ ′ + 𝐵⃗ mp at 𝑡= 𝑡0 = 0 is given by \n        𝐵⃗ = 0.                                                                                                (A-4)                                                         \nA.3 From Eq. (A-3),   𝐵𝑧\n′ = 0 at 𝑧= 0 for all 𝜌.     \n       Therefore, the total magnetic flux ΦB = 0 at 𝑧= 0.                        (A-5) \n       From Eq. (A-4),  𝐵𝑧\n′ = 0 at 𝑧= −𝑑.   \n       Therefore, the total magnetic flux ΦB = 0 at 𝑧= −𝑑.                     (A-6) \nA.4  Applying Ampere’s law along the path shown in the figure below, and using the            \napproximation 𝑑≪ℎ, we have \n \n𝐵𝜌(𝜌, 𝑧= 0)𝑑𝜌= 𝜇0 𝑗(𝜌) 𝑑𝜌∙𝑑,                          (A-7) \n \nwhere the contributions from the 𝐵𝑧𝑑 terms are smaller by a factor 𝑑ℎ\n⁄  and neglected.  \n \n \nThe induced current density is given by \n \n𝑗 (𝜌 ) =\n1\n𝜇0𝑑𝑧̂ × 𝐵⃗ (𝜌 , 𝑧= 0) =\n𝑞m\n2𝜋𝑑\n𝑧̂×𝜌⃗ \n(ℎ2+𝜌2)3 2\n⁄  .                (A-8) \n \nSubsequent response \nA.5 Consider the form of an integral of Eq.(2), in the Question sheet, over the film thickness, we \nget, for 𝑧≈0 inside the film (that is  𝑧< 0 and |𝑧| ≪𝑑), that  \n \n        \n𝜕𝐵𝑧′\n𝜕𝑧|\n𝑧−\n𝜕𝐵𝑧′\n𝜕𝑧|\n−𝑑−𝑧= 𝜇0𝜎(𝑑+ 2𝑧)\n𝜕𝐵𝑧′\n𝜕𝑡≈𝜇0𝜎𝑑\n𝜕𝐵𝑧′\n𝜕𝑡.                           (A-9) \n\n2 \n \n       Since 𝐵𝑧\n′ is an even function of 𝑧′ = 𝑧+ 𝑑2\n⁄ , therefore we have \n𝜕𝐵𝑧′\n𝜕𝑧|\n𝑧= −\n𝜕𝐵𝑧′\n𝜕𝑧|\n−𝑑−𝑧 so that \nthe left-hand side of Eq.(A-9) becomes 2\n𝜕\n𝜕𝑧𝐵𝑧\n′(𝜌, 𝑧; 𝑡). The right-hand side is approximated by \nthe 𝑧-independent term of 𝐵𝑧\n′ inside the film thickness. On the other hand,  the 𝑧-dependent term \nof 𝐵𝑧\n′ is even in 𝑧′ and is of order ~ 𝑧′2𝑑ℎ\n⁄  so that it can be neglected based on the ℎ≫𝑑 \ncondition. As such the right-hand side is represented by 𝐵𝑧\n′(𝜌, 𝑧; 𝑡).  Putting these results together, \nwe get \n       2\n𝜕\n𝜕𝑧𝐵𝑧\n′(𝜌, 𝑧; 𝑡) = 𝜇0𝜎𝑑\n𝜕\n𝜕𝑡𝐵𝑧\n′(𝜌, 𝑧; 𝑡) \n     ⇒    \n𝜕\n𝜕𝑡𝐵𝑧\n′(𝜌, 𝑧; 𝑡) = 𝑣0 \n𝜕\n𝜕𝑧𝐵𝑧\n′(𝜌, 𝑧; 𝑡).                                     (A-10) \nHere 𝑧≈0,  and   𝑣0 = 2 (𝜇0𝜎𝑑)\n⁄\n. \nA.6 The equation in A.5, namely, Eq.(A-10) supports a solution of the form \n \n            𝐵′\n𝑧(𝜌, 𝑧; 𝑡) = 𝑓(𝜌, 𝑧+ 𝑣0𝑡),                                                          (A-11) \n       and at 𝑧≈0. \nA.7 At 𝑡= 0, 𝐵𝑧\n′(𝜌, 𝑧≥0) = \n𝜇0𝑞m\n4𝜋\n(𝑧+ℎ)\n[(𝑧+ℎ)2+𝜌2]3 2\n⁄ , which is of the form \n       𝐵𝑧\n′(𝜌, 𝑧≥0) = 𝐹(𝜌, 𝑧+ ℎ).                                                               (A-12)                      \n \n      For 𝑡> 0, we have according to Eq.(A-11), the replacement  \n      𝑧→𝑧+ 𝑣0𝑡,  to the 𝐵𝑧\n′(𝜌, 𝑧; 𝑡= 0).                                                    (A-13) \n     In other words,  𝐵𝑧\n′(𝜌, 𝑧≈0; 𝑡) = 𝐹(𝜌, 𝑧+ 𝑣0𝑡+ ℎ).  \n     This corresponds to a physical picture of a moving image monopole, with its position   \n     𝑧mp = −ℎ−𝑣0𝑡.                                                                                  (A-14) \n    Finally,      𝑣0 = 2 (𝜇0𝜎𝑑)\n⁄\n.                                                                  (A-15) \n \nPart B.  Magnetic force acting on a point-like magnetic dipole moving at a constant 𝒉 with \na constant velocity \nA moving monopole \nB.1 The present locations of all the image magnetic monopoles of type 𝑞m are at \n \n          (𝑥, 𝑧) = [−𝑛𝑣𝜏, −ℎ−𝑛𝑣0𝜏],  for 𝑛≥0.                                          (B-1)                                     \n        \n\n3 \n \n The locations of all the image magnetic monopoles −𝑞m are at \n       (𝑥, 𝑧) = [−(𝑛+ 1)𝑣𝜏, −ℎ−𝑛𝑣0𝜏 ], for  𝑛≥0.                                   (B-2) \nB.2 The magnetic potential Φ+(𝑥, 𝑧) due to all the image magnetic monopoles at 𝑡= 0 is given \nby, in summation form \n         Φ+(𝑥, 𝑧) =\n𝜇0𝑞𝑚\n4𝜋∑\n1\n√(𝑥+𝑛𝑣𝜏)2+(𝑧+ℎ+𝑛𝑣0𝜏)2 −\n𝜇0𝑞𝑚\n4𝜋∑\n1\n√(𝑥+(𝑛+1)𝑣𝜏)2+(𝑧+ℎ+𝑛𝑣0𝜏)2\n∞\n𝑛=0\n∞\n𝑛=0\n , \n     ⇒       Φ+(𝑥, 𝑧) =\n𝜇0𝑞𝑚\n4𝜋∑\n[\n1\n√(𝑥+𝑛𝑣𝜏)2+(𝑧+ℎ+𝑛𝑣0𝜏)2 −\n1\n√(𝑥+(𝑛+1)𝑣𝜏)2+(𝑧+ℎ+𝑛𝑣0𝜏)2]\n∞\n𝑛=0\n.         (B-3) \n \n        In integral form \n        Φ+(𝑥, 𝑧) =\n𝜇0𝑞𝑚\n4𝜋𝜏∫\n𝑑𝑡′\n∞\n0\n[\n1\n√(𝑥+𝑣𝑡′)2+(𝑧+ℎ+𝑣0𝑡′)2 −\n1\n√(𝑥+𝑣𝑡′+𝑣𝜏)2+(𝑧+ℎ+𝑣0𝑡′)2],                (B-4) \n                        = \n𝜇0𝑞𝑚\n4𝜋𝜏∫\n𝑑𝑡′\n∞\n0\n(𝑥+𝑣𝑡′)𝑣𝜏\n[(𝑥+𝑣𝑡′)2+(𝑧+ℎ+𝑣0𝜏)2]3 2\n⁄  ,                                                        (B-5) \n    ⇒   Φ+(𝑥, 𝑧) =\n𝜇0𝑞𝑚𝑣\n4𝜋\n \n1\n(𝑧+ℎ)𝑣−𝑣0𝑥[\n𝑧+ℎ\n√𝑥2+(𝑧+ℎ)2 −\n𝑣0\n√𝑣2+𝑣02].                           (B-6) \n \nA moving dipole \nB.3 \n    The total magnetic potential  \n \n    ΦT(𝑥, 𝑧) = Φ+(𝑥, 𝑧) + Φ−(𝑥, 𝑧),                                                                                   (B-7) \n    where   Φ−(𝑥, 𝑧) = −Φ+(𝑥, 𝑧−𝛿m). \n    ΦT(𝑥, 𝑧) = Φ+(𝑥, 𝑧) −Φ+(𝑥, 𝑧−𝛿m) \n                               = 𝛿m × 𝜕Φ+(𝑥, 𝑧) 𝜕𝑧\n⁄\n.                                                                        (B-8) \n \n\n4 \n \nΦT(𝑥, 𝑧) = −\n𝜇0𝑚𝑣\n4𝜋[\n𝑣\n[(𝑧+ℎ)𝑣−𝑣0𝑥]2 (\n𝑧+ℎ\n√𝑥2+(𝑧+ℎ)2 −\n𝑣0\n√𝑣2+𝑣02) −\n𝑥2\n[(𝑧+ℎ)𝑣−𝑣0𝑥][𝑥2+(𝑧+ℎ)2]3/2].    (B-9) \n Force acting on the point-like magnetic dipole: \n \n                𝐹𝑧= −𝑞𝑚\n𝑑\n𝑑𝑧ΦT(0, 𝑧)|\n𝑧=ℎ+ 𝑞𝑚\n𝑑\n𝑑𝑧ΦT(0, 𝑧)|\n𝑧=ℎ−𝛿m\n.                                        (B-10) \n \n                     𝐹𝑧= −\n𝜇0𝑚𝑞m\n2𝜋\n(1 −\n𝑣0\n√𝑣2+𝑣02) [\n1\n(2ℎ)3 −\n1\n(2ℎ−𝛿m)3].                                           (B-11) \n \n            ⇒        𝐹𝑧=\n3𝜇0𝑚2\n32𝜋ℎ4 [1 −\n𝑣0\n√𝑣2+𝑣02].                                                                           (B-12) \n  \n                𝐹𝑥= −𝑞𝑚\n𝑑\n𝑑𝑥ΦT(𝑥, ℎ)|\n𝑥=0 + 𝑞𝑚\n𝑑\n𝑑𝑥ΦT(𝑥, ℎ−𝛿m)|\n𝑥=0,                                 (B-13) \n \n       ⇒             𝐹𝑥= −\n3𝜇0𝑚2\n32𝜋ℎ4\n𝑣0\n𝑣[1 −\n𝑣0\n√𝑣2+𝑣02].                                                                   (B-14) \n                 \nRelation between  𝒗𝟎 and 𝒗 and their relation \nB.4                𝑣0 =\n2\n𝜇0𝜎𝑑=\n2\n4𝜋×10−7×5.9×107×0.5×10−2 = 5.4 m s\n⁄  .                                          (B-15) \n \nB.5    In the small  𝑣 regime, meaning that 𝑣 is smaller than a certain typical velocity of the \nsystem (or a critical velocity 𝑣c to be considered in the next task B.6) we have the characteristics \nbasically akin to that of 𝑣≈0. For 𝑣= 0, the frequency 𝜔 is associated with 𝑣0 ℎ\n⁄ . Making use \nof the parameters given in B.4, the skin depth (Eq.(3) in the question sheet) 𝛿 is given by \n𝛿= √\n2\n𝜔𝜇0𝜎= √\n2ℎ\n𝑣0𝜇0𝜎= 1.58 c.m., which is more than three times greater than 𝑑. \nThus we have, in the small 𝑣 regime, \n  𝑣0(𝑣) = 𝑣0.                                                                                                                       (B-16) \n \n\n5 \n \n In the large  𝑣 regime, we have the skin depth 𝛿< 𝑑 so that the effect thin film thickness  \n𝑑eff = 𝛿,                                                                                                            (B-17) \nwithin which the field is more or less uniform (i.e. 𝑧 independent). \nIn this case,  𝜔= 𝑣ℎ\n⁄ ,                                                                                      (B-18) \nso the  \n 𝑣0(𝑣) =\n2\n𝜇0𝜎𝛿=\n2\n𝜇0𝜎√\n𝜔𝜇0𝜎\n2\n= √\n2\n𝜇0𝜎\n𝑣\nℎ= √𝑑\nℎ𝑣 𝑣0,    or     \n  𝑣0(𝑣) = 𝑣0√𝑑\nℎ √\n𝑣\n𝑣0    .                                                                                       (B-19) \n \nB.6   The critical velocity 𝑣c is determined from the condition 𝛿= 𝑑 : \n            𝑑= √\n2\n𝜇0𝜎𝑣c ℎ\n⁄    ⇒     𝑣c =\n2ℎ\n𝑑2𝜇0𝜎= 𝑣0\nℎ\n𝑑  .                                                         (B-20) \n \nPart C   Motion of the magnetic dipole when the conducting thin film is superconducting \n    When the electrical conductivity 𝜎→∞, the receding velocity 𝑣0 →0 so that there will not be \na whole series of image magnetic monopoles. Instead, the image is simply one image magnetic \ndipole mirroring the instantaneous position of the magnetic dipole. In this case, the image \nmagnetic dipole is 𝑚⃗⃗ = 𝑚𝑥̂ located at the location (𝑥, 𝑦, 𝑧) = (0,0, −ℎ). It is then clear, from the \nsymmetry of the image configuration, that the force on the magnetic dipole from the image \naligns only along 𝑧̂. For our convenience, we take the magnetic monopole −𝑞m to locate at 𝑥=\n0, and for the magnetic monopole 𝑞m the location 𝑥= 𝛿m. \nC.1 \nThe total magnetic potential ΦT(𝑥, 𝑧) from the image magnetic dipole is \nΦT(𝑥, 𝑧) = −\n𝜇0𝑞m\n4𝜋\n1\n√𝑥2+(𝑧+ℎ)2 +\n𝜇0𝑞m\n4𝜋\n1\n√(𝑥−𝛿m)2+(𝑧+ℎ)2.                                       (C-1)                       \nApproach 1: \nThe total vertical force 𝐹𝑧\n′ acting on the magnetic dipole from the image magnetic dipole is given \nby \n𝐹𝑧\n′ = (−𝑞m) [−\n𝜕\n𝜕𝑧ΦT]|𝑥=0,\n𝑧=ℎ\n+ 𝑞m [−\n𝜕\n𝜕𝑧ΦT]|𝑥=𝛿,\n𝑧=ℎ\n                                                 (C-2) \n \n \n\n6 \n \n𝐹𝑧\n′ = 𝜇0𝑞m\n2\n4𝜋\n𝑧+ ℎ\n[𝑥2 + (𝑧+ ℎ)2]3 2\n⁄ |\n𝑥=0,\n𝑧=ℎ\n−𝜇0𝑞m\n2\n4𝜋\n𝑧+ ℎ\n[(𝑥−𝛿m)2 + (𝑧+ ℎ)2]3 2\n⁄ |\n𝑥=0,\n𝑧=ℎ\n \n                          −\n𝜇0𝑞m\n2\n4𝜋\n𝑧+ℎ\n[𝑥2+(𝑧+ℎ)2]3 2\n⁄ |𝑥=𝛿m,\n𝑧=ℎ\n+\n𝜇0𝑞m\n2\n4𝜋\n𝑧+ℎ\n[(𝑥−𝛿m)2+(𝑧+ℎ)2]3 2\n⁄ |𝑥=𝛿m,\n𝑧=ℎ\n  , \n                 𝐹𝑧\n′ = 2\n𝜇0𝑞m\n2\n4𝜋(\n1\n2ℎ)\n2\n[1 − \n1\n(1+( 𝛿\n2ℎ)\n2\n)\n3 2\n⁄ ]  .                                                                 (C-3) \n     𝐹𝑧\n′ =\n3𝜇0𝑚2\n64𝜋ℎ4.                                                                                                    (C-4)                   \nEquilibrium condition: \n𝐹𝑧\n′ −𝑀0𝑔= 0,                                                                                                    (C-5) \n⇒     \n3𝜇0𝑚2\n64𝜋ℎ04 =  𝑀0𝑔, \n⇒            ℎ0 = [\n3𝜇0𝑚2\n64𝜋𝑀0𝑔]\n1\n4 .                                                                            (C-6) \n \nApproach 2: \nWe can use the direct force calculation. \n𝐹𝑧\n′ = 2\n𝜇0𝑞m\n2\n4𝜋[(\n1\n2ℎ)\n2\n−\n2ℎ\n(𝛿𝑚\n2 +(2ℎ)2)\n3 2\n⁄ ]                                                   (C-7) \n     =  \n𝜇0𝑞m\n2\n2𝜋(\n1\n2ℎ)\n2\n[1 − \n1\n(1+( 𝛿\n2ℎ)\n2\n)\n3 2\n⁄ ]                                                   (C-8) \n     =\n3𝜇0𝑚2\n64𝜋ℎ4. \nThe equilibrium condition 𝐹𝑧\n′ −𝑀0𝑔= 0 gives the same equilibrium position ℎ0 as in Eq. (C-6), \n⇒        ℎ0 = [\n3𝜇0𝑚2\n64𝜋𝑀0𝑔]\n1\n4. \n \nC.2 \nThe oscillation frequency about the equilibrium is obtained from \n\n7 \n \n𝐹𝑧\n′ ≈𝑀0 +\n𝑑𝐹𝑧′\n𝑑𝑧∆𝑧,                                                                                                 (C-9) \nwhere ∆𝑧= 𝑧−ℎ0. \nAnd from \n𝑑𝐹𝑧′\n𝑑𝑧= −𝑘= −𝑀0Ω2                                                                             (C-10) \nwe have \n𝑘= −\n𝑑\n𝑑𝑧\n3𝜇0𝑚2\n64𝜋ℎ4 =\n3𝜇0𝑚2\n16𝜋ℎ0\n5 =\n4\nℎ0\n3𝜇0𝑚2\n64𝜋ℎ04 =\n4𝑀0𝑔\nℎ0\n= 𝑀0Ω2                                          (C-11) \nThe angular oscillation frequency \n        Ω = √\n4𝑔\nℎ0 .                                                                                                        (C-12) \n \nC.3             \n     ℎ0 = [\n3𝜇0(4\n3𝜋𝑅3𝑀)\n2\n64𝜋(4\n3𝜋𝑅3𝜌0𝑔)]\n1 4\n⁄\n= [\n𝑅3𝑀2𝜇0\n16𝜌0𝑔]\n1 4\n⁄\n                                                               (C-13) \n \n         ℎ0 = [\n10−18×752×10−4\n16×7400×9.8×𝜇0]\n1 4\n⁄\nm = 25. μm.                                                            (C-14) \n \nC.4        Ω = √\n4𝑔\nℎ0 = √\n4×9.8\n30×10−6 s−1 = 1.3 kHz.                                                      (C-15) \n","textExtraction":"available"}}
+{
+  "id": "apho-2021-t3",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/apho/APhO_2021_Q3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/apho/APhO_2021_S3.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2021-t3-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Magnetic levitation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A small spherical permanent magnet can be treated as a point dipole m=q_mδm, represented by south and north magnetic charges −qm,+qm with displacement δm from south to north. The north pole defines its position. A monopole produces \\(\\mathbf B=\\mu_0q_m\\hat r/(4\\pi r^2)\\) and experiences force qmB. Write B=−∇Φ. A uniform conducting film extends infinitely in xy, occupies −d≤z≤0, has conductivity σ, and lies height h below the source, with h≫d. Neglect displacement current and take induced volume current uniform across d. In A a north monopole appears at (0,0,h) at t=0 and remains there. Neglect propagation delay. Initially its image above the film calculation is +qm at (0,0,−h), and below-film calculation uses −qm at the real source position. The supplied film equation is ∂²B′z/∂z²=μ0σ∂B′z/∂t after neglecting lateral derivatives in the thin-film approximation. In B a source moves along +x at fixed h for its whole prior history and is at x=0 now. In C take a type-I superconductor with σ→∞ and a horizontally fixed dipole m x̂ of mass M0 in gravity −g ẑ. Ignore orientation coupling and air damping."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch8-monopole-film.png",
+        "alt": "Original magnetic monopole above a thin conducting film with height h and thickness d."
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.1. Initial field above the film"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find total B(ρ,z) at t=0 for z≥0 away from the monopole."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.2. Initial field below the film"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the initial total field for z≤−d."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.3. Initial surface flux"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find initial magnetic flux through either film surface."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.4. Induced current density"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the initial induced volume current j(ρ) using the thin-film approximation."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.5. First-order surface evolution"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integrate the film equation across thickness to obtain a first-order equation near z≈0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.6. Surface evolution solution"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the general form of B′z near the surface for t>0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.7. Receding image speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Show the induced field represents a downward-moving image and find its speed."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.1. Hopping-source images"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Approximate motion by hops vτ at times −nτ,n≥0. Each hop creates +qm at the new position and −qm at the old. Give present image positions for both types."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.2. Image monopole potential"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Write and evaluate the image-potential sum Φ+(x,z) in the y=0 plane as τ tends to zero."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.3. Lift and drag on a vertical dipole"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "img",
+        "src": "/corpus/figures/native/batch8-moving-dipole-film.png",
+        "alt": "Original vertical dipole travelling horizontally above the conducting film."
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The moving dipole has fixed moment m ẑ. Find its force at the present position (0,0,h)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.4. Copper image speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For σ=\\(5.9\\times10^{7}\\) Ω⁻¹m⁻¹,d=0.50 cm,h=5.0 cm calculate v0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.5. Skin-depth correction"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The skin depth is δ=√[2/(ωμ0σ)] with ω=max(v,v0)/h. Estimate v0(v) in low- and high-speed regimes, replacing film thickness by skin depth if smaller."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.6. Crossover speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find vc where the low- and high-speed estimates meet."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.1. Superconducting equilibrium height"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find h0 for the horizontal dipole of mass M0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.2. Vertical oscillation frequency"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find angular frequency Ω of small vertical oscillations."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.3. Micromagnet height"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A sphere has R=1.0 μm,ρ0=7400 kg/m³,magnetization M=0.75 T/μ0 and g=9.8 m/s². Calculate h0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.4. Micromagnet oscillations"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Calculate Ω for that sphere."
+          }
+        ]
+      }
+    ],
+    "text": "Magnetic levitation\nA small spherical permanent magnet can be treated as a point dipole m=q_mδm, represented by south and north magnetic charges −qm,+qm with displacement δm from south to north. The north pole defines its position. A monopole produces \\(\\mathbf B=\\mu_0q_m\\hat r/(4\\pi r^2)\\) and experiences force qmB. Write B=−∇Φ. A uniform conducting film extends infinitely in xy, occupies −d≤z≤0, has conductivity σ, and lies height h below the source, with h≫d. Neglect displacement current and take induced volume current uniform across d. In A a north monopole appears at (0,0,h) at t=0 and remains there. Neglect propagation delay. Initially its image above the film calculation is +qm at (0,0,−h), and below-film calculation uses −qm at the real source position. The supplied film equation is ∂²B′z/∂z²=μ0σ∂B′z/∂t after neglecting lateral derivatives in the thin-film approximation. In B a source moves along +x at fixed h for its whole prior history and is at x=0 now. In C take a type-I superconductor with σ→∞ and a horizontally fixed dipole m x̂ of mass M0 in gravity −g ẑ. Ignore orientation coupling and air damping.\n\na.1. Initial field above the film\nFind total B(ρ,z) at t=0 for z≥0 away from the monopole.\na.2. Initial field below the film\nFind the initial total field for z≤−d.\na.3. Initial surface flux\nFind initial magnetic flux through either film surface.\na.4. Induced current density\nFind the initial induced volume current j(ρ) using the thin-film approximation.\na.5. First-order surface evolution\nIntegrate the film equation across thickness to obtain a first-order equation near z≈0.\na.6. Surface evolution solution\nFind the general form of B′z near the surface for t>0.\na.7. Receding image speed\nShow the induced field represents a downward-moving image and find its speed.\nb.1. Hopping-source images\nApproximate motion by hops vτ at times −nτ,n≥0. Each hop creates +qm at the new position and −qm at the old. Give present image positions for both types.\nb.2. Image monopole potential\nWrite and evaluate the image-potential sum Φ+(x,z) in the y=0 plane as τ tends to zero.\nb.3. Lift and drag on a vertical dipole\n\nThe moving dipole has fixed moment m ẑ. Find its force at the present position (0,0,h).\nb.4. Copper image speed\nFor σ=\\(5.9\\times10^{7}\\) Ω⁻¹m⁻¹,d=0.50 cm,h=5.0 cm calculate v0.\nb.5. Skin-depth correction\nThe skin depth is δ=√[2/(ωμ0σ)] with ω=max(v,v0)/h. Estimate v0(v) in low- and high-speed regimes, replacing film thickness by skin depth if smaller.\nb.6. Crossover speed\nFind vc where the low- and high-speed estimates meet.\nc.1. Superconducting equilibrium height\nFind h0 for the horizontal dipole of mass M0.\nc.2. Vertical oscillation frequency\nFind angular frequency Ω of small vertical oscillations.\nc.3. Micromagnet height\nA sphere has R=1.0 μm,ρ0=7400 kg/m³,magnetization M=0.75 T/μ0 and g=9.8 m/s². Calculate h0.\nc.4. Micromagnet oscillations\nCalculate Ω for that sphere.",
+    "figures": [
+      "/corpus/figures/native/batch8-monopole-film.png",
+      "/corpus/figures/native/batch8-moving-dipole-film.png"
+    ],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-apho-2021-t3-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Magnetic levitation"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.1. Initial field above the film"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Sum the real and positive image fields: \\[\\mathbf B=\\frac{\\mu_0q_m}{4\\pi}\\left[\\frac{\\boldsymbol\\rho+(z-h)\\hat z}{(\\rho^2+(z-h)^2)^{3/2}}+\\frac{\\boldsymbol\\rho+(z+h)\\hat z}{(\\rho^2+(z+h)^2)^{3/2}}\\right].\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.2. Initial field below the film"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The negative image at the source cancels its field in the lower region, so B=0."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.3. Initial surface flux"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At z=0 the two normal components cancel pointwise, and below the film the field vanishes. The total flux through any patch of either surface is zero. The source writes B′z=0 in one explanation, but it is the total Bz that vanishes, not the image contribution by itself."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.4. Induced current density"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Ampère's law across the film gives \\(\\mathbf j=(\\hat z\\times\\mathbf B_{above})/(\\mu_0d)\\). Thus \\[\\mathbf j=\\frac{q_m}{2\\pi d}\\frac{\\hat z\\times\\boldsymbol\\rho}{(h^2+\\rho^2)^{3/2}}.\\] The current is azimuthal and produces the opposing initial normal field."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.5. First-order surface evolution"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The induced normal field is even about the midplane, so its derivatives at opposite faces are opposite. Neglect variation of its time derivative across d. Integration gives \\(2\\partial_zB_z^{\\prime}=\\mu_0\\sigma d\\,\\partial_tB_z^{\\prime}\\), or \\(\\partial_tB_z^{\\prime}=v_0\\partial_zB_z^{\\prime}\\), with v0=2/(μ0σd)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.6. Surface evolution solution"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The characteristic solution is \\(B_z^{\\prime}(\\rho,z;t)=f(\\rho,z+v_0t)\\), with f determined by the initial induced field."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "a.7. Receding image speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The initial image field depends on z+h. Replacing z by z+v0t places the image at zimage=−h−v0t. Thus the downward speed is \\(v_0=2/(\\mu_0\\sigma d)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.1. Hopping-source images"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Positive images are at \\((-nv\\tau,0,-h-nv_0\\tau)\\). Negative images are at \\((-(n+1)v\\tau,0,-h-nv_0\\tau)\\). Their differing lateral positions retain the history of motion."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.2. Image monopole potential"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Put H=z+h. The sum is \\[\\Phi_+=\\frac{\\mu_0q_m}{4\\pi}\\sum_{n\\ge0}\\left[\\frac1{\\sqrt{(x+nv\\tau)^2+(H+nv_0\\tau)^2}}-\\frac1{\\sqrt{(x+(n+1)v\\tau)^2+(H+nv_0\\tau)^2}}\\right].\\] Its continuum limit is \\(\\mu_0q_mv/(4\\pi)\\int_0^\\infty(x+vt)[(x+vt)^2+(H+v_0t)^2]^{-3/2}dt\\). Evaluation gives \\[\\Phi_+=\\frac{\\mu_0q_mv}{4\\pi(Hv-v_0x)}\\left[\\frac H{\\sqrt{x^2+H^2}}-\\frac{v_0}{\\sqrt{v^2+v_0^2}}\\right].\\] At a removable zero of the denominator use the integral or its continuous limit."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.3. Lift and drag on a vertical dipole"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Form the image-dipole potential \\(\\Phi_T=\\delta_m\\partial_z\\Phi_+\\), differentiate for the field, then take the north-minus-south force while holding the image source fixed during field differentiation. This yields \\[F_z=\\frac{3\\mu_0m^2}{32\\pi h^4}\\left(1-\\frac{v_0}{\\sqrt{v^2+v_0^2}}\\right),\\quad F_x=-\\frac{v_0}{v}F_z,\\quad F_y=0.\\] Lift is positive and drag negative for v>0. Both vanish continuously as v tends to zero."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.4. Copper image speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(v_0=2/(\\mu_0\\sigma d)\\simeq5.4\\,\\mathrm{m/s}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.5. Skin-depth correction"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "At low v the skin depth exceeds d, so v0(v)=2/(μ0σd), the B4 constant. At high v, δ<d and ω≈v/h, so \\[v_0(v)=\\frac2{\\mu_0\\sigma\\delta}=\\sqrt{\\frac{2v}{\\mu_0\\sigma h}}=\\sqrt{v_0dv/h}.\\] This is an effective-thickness estimate beyond the uniform-through-thickness low-speed model."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "b.6. Crossover speed"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Set δ=d with ω=vc/h: \\(v_c=2h/(\\mu_0\\sigma d^2)=v_0h/d\\). For the copper dimensions it is about 54 m/s."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.1. Superconducting equilibrium height"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For a perfect diamagnetic plane the horizontal image has the same horizontal moment at z=−h. Its repulsive force is \\(F_z=3\\mu_0m^2/(64\\pi h^4)\\). Balance M0g to obtain \\[h_0=[3\\mu_0m^2/(64\\pi M_0g)]^{1/4}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.2. Vertical oscillation frequency"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The derivative of the magnetic force at h0 is −4M0g/h0. Thus \\(\\Omega=\\sqrt{4g/h_0}\\). This is angular frequency in rad/s."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.3. Micromagnet height"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Use m=(4πR³/3)M and M0=(4πR³/3)ρ0. Then \\(h_0=[\\mu_0M^2R^3/(16\\rho_0g)]^{1/4}\\simeq25\\,\\mathrm{\\mu m}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "c.4. Micromagnet oscillations"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Using h0≈25 μm, \\(\\Omega\\simeq1.25\\times10^3\\,\\mathrm{rad/s}\\), or f≈200 Hz. The source loosely labels the angular frequency in kHz and substitutes a rounded 30 μm in one line. Angular frequency and cycles per second are distinguished here."
+          }
+        ]
+      }
+    ],
+    "text": "Magnetic levitation\na.1. Initial field above the film\nSum the real and positive image fields: \\[\\mathbf B=\\frac{\\mu_0q_m}{4\\pi}\\left[\\frac{\\boldsymbol\\rho+(z-h)\\hat z}{(\\rho^2+(z-h)^2)^{3/2}}+\\frac{\\boldsymbol\\rho+(z+h)\\hat z}{(\\rho^2+(z+h)^2)^{3/2}}\\right].\\]\na.2. Initial field below the film\nThe negative image at the source cancels its field in the lower region, so B=0.\na.3. Initial surface flux\nAt z=0 the two normal components cancel pointwise, and below the film the field vanishes. The total flux through any patch of either surface is zero. The source writes B′z=0 in one explanation, but it is the total Bz that vanishes, not the image contribution by itself.\na.4. Induced current density\nAmpère's law across the film gives \\(\\mathbf j=(\\hat z\\times\\mathbf B_{above})/(\\mu_0d)\\). Thus \\[\\mathbf j=\\frac{q_m}{2\\pi d}\\frac{\\hat z\\times\\boldsymbol\\rho}{(h^2+\\rho^2)^{3/2}}.\\] The current is azimuthal and produces the opposing initial normal field.\na.5. First-order surface evolution\nThe induced normal field is even about the midplane, so its derivatives at opposite faces are opposite. Neglect variation of its time derivative across d. Integration gives \\(2\\partial_zB_z^{\\prime}=\\mu_0\\sigma d\\,\\partial_tB_z^{\\prime}\\), or \\(\\partial_tB_z^{\\prime}=v_0\\partial_zB_z^{\\prime}\\), with v0=2/(μ0σd).\na.6. Surface evolution solution\nThe characteristic solution is \\(B_z^{\\prime}(\\rho,z;t)=f(\\rho,z+v_0t)\\), with f determined by the initial induced field.\na.7. Receding image speed\nThe initial image field depends on z+h. Replacing z by z+v0t places the image at zimage=−h−v0t. Thus the downward speed is \\(v_0=2/(\\mu_0\\sigma d)\\).\nb.1. Hopping-source images\nPositive images are at \\((-nv\\tau,0,-h-nv_0\\tau)\\). Negative images are at \\((-(n+1)v\\tau,0,-h-nv_0\\tau)\\). Their differing lateral positions retain the history of motion.\nb.2. Image monopole potential\nPut H=z+h. The sum is \\[\\Phi_+=\\frac{\\mu_0q_m}{4\\pi}\\sum_{n\\ge0}\\left[\\frac1{\\sqrt{(x+nv\\tau)^2+(H+nv_0\\tau)^2}}-\\frac1{\\sqrt{(x+(n+1)v\\tau)^2+(H+nv_0\\tau)^2}}\\right].\\] Its continuum limit is \\(\\mu_0q_mv/(4\\pi)\\int_0^\\infty(x+vt)[(x+vt)^2+(H+v_0t)^2]^{-3/2}dt\\). Evaluation gives \\[\\Phi_+=\\frac{\\mu_0q_mv}{4\\pi(Hv-v_0x)}\\left[\\frac H{\\sqrt{x^2+H^2}}-\\frac{v_0}{\\sqrt{v^2+v_0^2}}\\right].\\] At a removable zero of the denominator use the integral or its continuous limit.\nb.3. Lift and drag on a vertical dipole\nForm the image-dipole potential \\(\\Phi_T=\\delta_m\\partial_z\\Phi_+\\), differentiate for the field, then take the north-minus-south force while holding the image source fixed during field differentiation. This yields \\[F_z=\\frac{3\\mu_0m^2}{32\\pi h^4}\\left(1-\\frac{v_0}{\\sqrt{v^2+v_0^2}}\\right),\\quad F_x=-\\frac{v_0}{v}F_z,\\quad F_y=0.\\] Lift is positive and drag negative for v>0. Both vanish continuously as v tends to zero.\nb.4. Copper image speed\n\\(v_0=2/(\\mu_0\\sigma d)\\simeq5.4\\,\\mathrm{m/s}\\).\nb.5. Skin-depth correction\nAt low v the skin depth exceeds d, so v0(v)=2/(μ0σd), the B4 constant. At high v, δ<d and ω≈v/h, so \\[v_0(v)=\\frac2{\\mu_0\\sigma\\delta}=\\sqrt{\\frac{2v}{\\mu_0\\sigma h}}=\\sqrt{v_0dv/h}.\\] This is an effective-thickness estimate beyond the uniform-through-thickness low-speed model.\nb.6. Crossover speed\nSet δ=d with ω=vc/h: \\(v_c=2h/(\\mu_0\\sigma d^2)=v_0h/d\\). For the copper dimensions it is about 54 m/s.\nc.1. Superconducting equilibrium height\nFor a perfect diamagnetic plane the horizontal image has the same horizontal moment at z=−h. Its repulsive force is \\(F_z=3\\mu_0m^2/(64\\pi h^4)\\). Balance M0g to obtain \\[h_0=[3\\mu_0m^2/(64\\pi M_0g)]^{1/4}.\\]\nc.2. Vertical oscillation frequency\nThe derivative of the magnetic force at h0 is −4M0g/h0. Thus \\(\\Omega=\\sqrt{4g/h_0}\\). This is angular frequency in rad/s.\nc.3. Micromagnet height\nUse m=(4πR³/3)M and M0=(4πR³/3)ρ0. Then \\(h_0=[\\mu_0M^2R^3/(16\\rho_0g)]^{1/4}\\simeq25\\,\\mathrm{\\mu m}\\).\nc.4. Micromagnet oscillations\nUsing h0≈25 μm, \\(\\Omega\\simeq1.25\\times10^3\\,\\mathrm{rad/s}\\), or f≈200 Hz. The source loosely labels the angular frequency in kHz and substitutes a rounded 30 μm in one line. Angular frequency and cycles per second are distinguished here.",
+    "figures": [],
+    "shared": false
+  }
+}

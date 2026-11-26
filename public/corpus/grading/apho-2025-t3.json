@@ -1,0 +1,491 @@
+{
+  "problemId": "apho-2025-t3",
+  "version": "853c5139ee5d1198139bcab270c43ea5947fc092def020508a64cdf108e54ac9",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Absorbed solar power",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "a",
+        "R_E",
+        "F_s"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.4
+        },
+        {
+          "symbol": "R_E",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "F_s",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use a, R_E, F_s. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Airless temperature",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "One-layer greenhouse temperature",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Diatomic vibrational frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k",
+        "m_A",
+        "m_B"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m_B",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use k, m_A, m_B. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Vibrational photon",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\hbar",
+        "\\omega_d"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\hbar",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_d",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\hbar, \\omega_d. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Doppler-shift convention",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "b.4",
+      "label": "Velocity normalization",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "m",
+        "k_B",
+        "T"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use m, k_B, T. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "b.5",
+      "label": "Thermal spectral profile",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.6",
+      "sourcePart": "b.6",
+      "label": "Doppler width and sketch",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "f_0",
+        "k_B",
+        "T",
+        "m",
+        "c"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "f_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "k_B",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use f_0, k_B, T, m, c. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Hydrostatic pressure gradient",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\rho",
+        "g"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\rho",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\rho, g. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Ideal-gas gradient",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu",
+        "g",
+        "p",
+        "R",
+        "T"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "p",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use μ for μair."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "c.3",
+      "label": "Isothermal barometric law",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "p_0",
+        "\\mu",
+        "g",
+        "z",
+        "R",
+        "T"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "p_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use μ for μair."
+    },
+    {
+      "id": "c.4",
+      "sourcePart": "c.4",
+      "label": "Dry adiabatic lapse rate",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu",
+        "g",
+        "c_p"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "g",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c_p",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu, g, c_p. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.5",
+      "sourcePart": "c.5",
+      "label": "Buoyancy stability",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "d.1",
+      "label": "Clausius-Clapeyron slope",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu",
+        "L",
+        "p_s",
+        "R",
+        "T"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "L",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "p_s",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "T",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use μ for water molar mass."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "d.2",
+      "label": "Saturation-pressure law",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.3",
+      "sourcePart": "d.3",
+      "label": "Cloud formation temperature",
+      "kind": "numeric",
+      "unit": "K",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in K, without a unit suffix."
+    },
+    {
+      "id": "e.1",
+      "sourcePart": "e.1",
+      "label": "Prism deviation law",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e.2",
+      "sourcePart": "e.2",
+      "label": "Hexagonal-ice deviation plot",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e.3",
+      "sourcePart": "e.3",
+      "label": "Bright halo angle",
+      "kind": "numeric",
+      "unit": "degrees",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in degrees, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

@@ -1,0 +1,298 @@
+{
+  "problemId": "ipho-2004-t3",
+  "version": "c0d3eb63bfa2e954095b3c05b5ff81606bf8a1b29a7bf11de6a89307ab2db71e",
+  "parts": [
+    {
+      "id": "a.amplitude",
+      "sourcePart": "a.amplitude",
+      "label": "Displacement amplitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "F_0",
+        "m",
+        "\\omega_0",
+        "\\omega",
+        "b"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "F_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use F_0, m, \\omega_0, \\omega, b. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.phase",
+      "sourcePart": "a.phase",
+      "label": "Phase relation",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "b",
+        "\\omega",
+        "m",
+        "\\omega_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.2,
+          "max": 0.8
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1.5,
+          "max": 3
+        }
+      ],
+      "help": "Use b, \\omega, m, \\omega_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.frequency",
+      "sourcePart": "b.frequency",
+      "label": "Lock-in frequency condition",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.output",
+      "sourcePart": "b.output",
+      "label": "Lock-in output magnitude",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "V_i",
+        "V_R",
+        "\\phi_i"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "V_i",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\phi_i",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use V_i and V_R for the input and reference amplitudes. Enter the nonnegative magnitude."
+    },
+    {
+      "id": "c",
+      "sourcePart": "c",
+      "label": "Phase-shifted microscope signal",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c_1",
+        "c_2",
+        "V_R",
+        "b",
+        "\\omega_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "c_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c_2",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "V_R",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use V_R for reference amplitude."
+    },
+    {
+      "id": "d",
+      "sourcePart": "d",
+      "label": "Detectable mass change",
+      "kind": "numeric",
+      "unit": "kg",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in kg, without a unit suffix."
+    },
+    {
+      "id": "e",
+      "sourcePart": "e",
+      "label": "Force-gradient frequency",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\omega_0",
+        "c_3",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 2,
+          "max": 4
+        },
+        {
+          "symbol": "c_3",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 0.3
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "help": "Use \\omega_0, c_3, m. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "f.formula",
+      "sourcePart": "f.formula",
+      "label": "Trapped-charge depth",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "k_e",
+        "q",
+        "Q",
+        "m",
+        "\\omega_0",
+        "w"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "k_e",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\omega_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "w",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use w for the positive frequency shift. q and Q may be treated as positive charge magnitudes, since their product is positive."
+    },
+    {
+      "id": "f.value",
+      "sourcePart": "f.value",
+      "label": "Charge depth value",
+      "kind": "numeric",
+      "unit": "nm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in nm, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

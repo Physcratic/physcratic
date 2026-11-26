@@ -4,7 +4,7 @@ import { createRequire } from 'node:module';
 import { createServer } from 'node:http';
 import { mkdtemp, readFile, rm, mkdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
-import { basename, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { olympiadDefinitions } from '../lib/olympiad/keys.ts';
 import { handleArchiveGrade } from '../lib/archive-grading-request.ts';
@@ -14,6 +14,7 @@ const tools = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS || '/tmp/ph
 const { chromium } = tools('playwright');
 const { default: AxeBuilder } = tools('@axe-core/playwright');
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
+const katexCss = require.resolve('katex/dist/katex.min.css');
 const index = JSON.parse(await readFile('lib/corpus/import-index.json','utf8'));
 const records = new Map(await Promise.all(olympiadDefinitions.map(async d => [d.problemId,importedProblemSchema.parse(JSON.parse(await readFile('public'+index.problems.find(p=>p.id===d.problemId).path,'utf8')))])));
 const temp = await mkdtemp(join(tmpdir(),'physcratic-native-'));
@@ -31,6 +32,10 @@ try {
         res.setHeader('Content-Type',url.pathname.endsWith('.css')?'text/css':'application/javascript');
         res.end(await readFile(join(temp,basename(url.pathname))));return;
       }
+      if(url.pathname === '/katex.css' || /^\/fonts\/KaTeX_[A-Za-z0-9_-]+\.(woff2?|ttf)$/.test(url.pathname)) {
+        res.setHeader('Content-Type', url.pathname === '/katex.css' ? 'text/css' : url.pathname.endsWith('.woff2') ? 'font/woff2' : url.pathname.endsWith('.woff') ? 'font/woff' : 'font/ttf');
+        res.end(await readFile(url.pathname === '/katex.css' ? katexCss : join(dirname(katexCss), 'fonts', basename(url.pathname))));return;
+      }
       if(url.pathname.startsWith('/corpus/')&&!url.pathname.includes('..')){
         res.setHeader('Content-Type',url.pathname.endsWith('.png')?'image/png':url.pathname.endsWith('.pdf')?'application/pdf':'application/json');
         res.end(await readFile('public'+url.pathname));return;
@@ -47,7 +52,7 @@ try {
       }
       const record=records.get(url.searchParams.get('id'));if(!record){res.writeHead(404);res.end();return;}
       res.setHeader('Content-Type','text/html; charset=utf-8');
-      res.end('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Native olympiad test</title><link rel="stylesheet" href="/style.css"></head><body><div id="root"></div><script>window.__nativeRecord='+JSON.stringify(record).replaceAll('<','\\u003c')+'</script><script type="module" src="/bundle.js"></script></body></html>');
+      res.end('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Native olympiad test</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/katex.css"></head><body><div id="root"></div><script>window.__nativeRecord='+JSON.stringify(record).replaceAll('<','\\u003c')+'</script><script type="module" src="/bundle.js"></script></body></html>');
     }catch(e){res.writeHead(500);res.end(String(e));}
   });
   await new Promise(r=>server.listen(0,'127.0.0.1',r));origin='http://127.0.0.1:'+server.address().port;
@@ -68,7 +73,7 @@ try {
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);checks++;
     for(const part of definition.parts){
       if(part.kind==='self-review')await page.getByLabel('Your reasoning for '+part.sourcePart,{exact:true}).fill('My reasoning stays separate from automatic checking.');
-      else if(part.kind==='numeric')await page.locator('input[inputmode="decimal"]').nth(definition.parts.filter(p=>p.kind==='numeric').indexOf(part)).fill(String(part.target));
+      else if(part.kind==='numeric')await page.locator('input[inputmode="decimal"]').nth(definition.parts.filter(p=>p.kind==='numeric').indexOf(part)).fill(part.canonical);
       else{
         const field=page.locator('math-field').filter({visible:true}).nth(definition.parts.filter(p=>p.kind==='expression').indexOf(part));
         await field.waitFor();await field.evaluate((el,value)=>{el.value=value;el.dispatchEvent(new Event('input',{bubbles:true}));},part.canonical);
@@ -89,7 +94,7 @@ try {
     await page.evaluate(()=>Promise.all(document.getAnimations().filter(a=>Number.isFinite(a.effect?.getComputedTiming().endTime)).map(a=>a.finished.catch(()=>{}))));// the Solved note fades in, and axe must not read it half blended
     const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
     assert.deepEqual(axe.violations.filter(v=>['serious','critical'].includes(v.impact)),[]);checks++;
-    await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:'work/native-'+definition.problemId+'-'+width+'-'+theme+'.png'});
+    await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:'work/native-'+(process.env.NATIVE_BROWSER_SESSION || 'verified')+'-'+definition.problemId+'-'+width+'-'+theme+'.png'});
     await context.close();
   }
   assert.equal(persistentPosts,0,'signed-in native checks must not reach a persistence/provider endpoint');checks++;

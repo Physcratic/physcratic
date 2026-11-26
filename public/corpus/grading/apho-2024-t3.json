@@ -1,0 +1,166 @@
+{
+  "problemId": "apho-2024-t3",
+  "version": "b1f48cb6a675e3c4971b85ebc33bab595404ef8d081fe0571681256a084e32d5",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Lunar angular motion",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "One lunar diameter",
+      "kind": "numeric",
+      "unit": "min",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in min, without a unit suffix."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Occultation oscillations",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "B.2",
+      "label": "Component reappearance",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "B.3",
+      "label": "Angular component separation",
+      "kind": "numeric",
+      "unit": "arcsec",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in arcsec, without a unit suffix."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Spectral redshift",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Gravitational-redshift hypothesis",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Cosmological distance",
+      "kind": "numeric",
+      "unit": "Mpc",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in Mpc, without a unit suffix."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "D.1",
+      "label": "Spectral luminosity",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "D.2",
+      "label": "Integrated radio luminosity",
+      "kind": "numeric",
+      "unit": "W",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in W, without a unit suffix."
+    },
+    {
+      "id": "d.3",
+      "sourcePart": "D.3",
+      "label": "Luminosity comparison",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e.1",
+      "sourcePart": "E.1",
+      "label": "Annihilation photon energy",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "e.2",
+      "sourcePart": "E.2",
+      "label": "Accretion power",
+      "kind": "numeric",
+      "unit": "W",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in W, without a unit suffix."
+    },
+    {
+      "id": "f.1",
+      "sourcePart": "F.1",
+      "label": "Minimum-energy ratio",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "f.2",
+      "sourcePart": "F.2",
+      "label": "Jet magnetic field",
+      "kind": "numeric",
+      "unit": "T",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in T, without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}

@@ -1,1 +1,625 @@
-{"id":"ipho-2015-t1","importedOn":"2026-10-31","language":"en","sources":[{"kind":"statement","url":"https://olimpicos.net/files/ipho/IPhO_2015_Q1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."},{"kind":"solution","url":"https://olimpicos.net/files/ipho/IPhO_2015_S1.pdf","note":"Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."}],"statement":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2015-t1-statement/document.pdf","pages":[],"sourcePages":[1,2],"initialPage":1,"shared":false,"text":" \n \nPage 1 of 2 \nT-1 \nQ \n \nParticles from the Sun1 \n(Total Marks: 10) \n \nPhotons from the surface of the Sun and neutrinos from its core can tell us about solar temperatures and also \nconfirm that the Sun shines because of nuclear reactions. \nThroughout this problem, take the mass of the Sun to be                , its radius,         \n     , its luminosity (radiation energy emitted per unit time),               , and the Earth-Sun \ndistance,               . \nNote: \n   ∫       ( \n   \n  )               \n    ∫        (  \n    \n    \n  )               \n     ∫        (  \n     \n     \n    \n  )               \n \nA Radiation from the sun : \n \nA1 \nAssume that the Sun radiates like a perfect blackbody. Use this fact to calculate the temperature,   , of the \nsolar surface. \n0.3 \n \nThe spectrum of solar radiation can be approximated well by the Wien distribution law. Accordingly, the \nsolar energy incident on any surface on the Earth per unit time per unit frequency interval,     , is given by \n        \n \n  \n \n   \n                   \nwhere   is the frequency and    is the area of the surface normal to the direction of the incident radiation. \nNow, consider a solar cell which consists of a thin disc of semiconducting material of area,  , placed \nperpendicular to the direction of the Sun’  rays. \n \nA2 \nUsing the Wien approximation, express the total radiated solar power,    , incident on the surface of the \nsolar cell, in terms of  ,   ,   ,    and the fundamental constants  ,  ,   . \n0.3 \nA3 \nExpress the number of photons,      , per unit time per unit frequency interval incident on the surface of \nthe solar cell in terms of  ,   ,   ,   ,   and the fundamental constants  ,  ,   . \n0.2 \n \nTh         du          r  l  f  h    l r   ll h     “b  d    ”  f    r y,   . We assume the following \nmodel.  Every photon of energy      excites an electron across the band gap. This electron contributes an \nenergy,   , as the useful output energy, and any extra energy is dissipated as heat (not converted to useful \nenergy). \n \nA4 \nDefine             where       . Express the useful output power of the cell,   u , in terms of   ,  , \n  ,   ,    and the fundamental constants  ,  ,   . \n1.0 \nA5 \nExpress the efficiency,  , of this solar cell in terms of    . \n0.2 \nA6 \nMake a qualitative sketch of   versus   . The values at       and       should be clearly shown. What \nis the slope of       at       and      ? \n1.0 \nA7 \nLet    be the value of     for which   is maximum. Obtain the cubic equation that gives   . Estimate the \nvalue of    within an accuracy of       . Hence calculate      . \n1.0 \nA8 \nThe band gap of pure silicon is           . Calculate the efficiency,    , of a silicon solar cell using this \nvalue. \n0.2 \n                                                 \n1 Amol Dighe (TIFR), Anwesh Mazumdar (HBCSE-TIFR) and  Vijay A. Singh  (ex-National Coordinator, Science Olympiads) \nwere the principal authors of this problem. The contributions of the Academic Committee, Academic Development Group and the \nInternational Board are gratefully acknowledged. \n\n \n \nPage 2 of 2 \nT-1 \nQ \nIn the late nineteenth century, Kelvin and Helmholtz (KH) proposed a hypothesis to explain how the Sun \nshines. They postulated that starting as a very large cloud of matter of mass,   , and negligible density, the \nSun has been shrinking continuously. The shining of the Sun would then be due to the release of \ngravitational potential energy through this slow contraction. \nA9 \nLet us assume that the density of matter is uniform inside the Sun. Find the total gravitational potential \nenergy,  , of the Sun at present, in terms of G,    and   . \n0.3 \nA10 Estimate the maximum possible time,     (in years), for which the Sun could have been shining, according \nto the KH hypothesis. Assume that the luminosity of the Sun has been constant throughout this period. \n0.5 \n \nThe     calculated above does not match the age of the solar system estimated from studies of meteorites. \nThis shows that the energy source of the Sun cannot be purely gravitational. \n \nB Neutrinos from the Sun : \nIn 1938, Hans Bethe proposed that nuclear fusion of hydrogen into helium in the core of the Sun is the source \nof its energy. The net nuclear reaction is: \n                 \n \n \n \nTh  “ l   r     u r    ”,   , produced in this reaction may be taken to be massless. They escape  the Sun \nand their detection  on the  Earth  confirms  the  occurrence  of  nuclear  reactions  inside the  Sun. Energy carried \naway by the neutrinos can be neglected in this problem. \n \nB1 \nCalculate the flux density,   , of the number of neutrinos arriving at the Earth, in units of          The \nenergy released in the above reaction is               . Assume that the energy radiated by the Sun is \nentirely due to this reaction.  \n0.6 \n \nTravelling from the core of the Sun to the Earth, some of the electron neutrinos,   , are converted to other \ntypes of neutrinos,   . The efficiency of the detector for detecting    is 1/6 of its efficiency for detecting   . \nIf there is no neutrino conversion, we expect to detect an average of    neutrinos in a year. However, due to \nthe conversion, an average of    neutrinos (   and    combined) are actually detected per year. \n \nB2 \nIn terms of     and   , calculate what fraction,   , of    is converted to   . \n0.4 \n \nIn order to detect neutrinos, large detectors filled with water are constructed. Although the interactions of \nneutrinos with matter are very rare, occasionally they knock out electrons from water molecules in the \ndetector. These energetic electrons move through water at high speeds, emitting electromagnetic radiation \nin the process. As long as the speed of such an electron is greater than the speed of light in water (refractive \nindex,  ), this radiation, called Cherenkov radiation, is emitted in the shape of a cone. \n \nB3 \nAssume that an electron knocked out by a neutrino loses energy at a constant rate of   per unit time, while it \ntravels through water. If this electron emits Cherenkov radiation for a time,   , determine the energy \nimparted to this electron (     r  d  by the neutrino, in terms of  ,   , n,    and  . (Assume the electron to \nbe at rest before its interaction with the neutrino.) \n2.0 \n \nThe fusion of H into He inside the Sun takes place in several steps. Nucleus of \n  \n \n (rest mass,    ) is \nproduced in one of these intermediate steps. Subsequently, it can absorb an electron, producing \na    \n \nnucleus (rest mass,     <    ) and emitting a   . The corresponding nuclear reaction is: \n        \n       \n \n \n \n \n \nWhen a Be nucleus                      is at rest and absorbs an electron also at rest, the emitted \nneutrino has energy                . However, the    nuclei are in random thermal motion due to the \ntemperature    at the core of the Sun, and act as moving neutrino sources. As a result, the energy of emitted \nneutrinos fluctuates with a root mean square (rms) value      . \n \nB4 \nIf      =           , calculate the rms speed of the Be nuclei,    , and hence estimate   . (Hint:       \ndepends on the rms value of the component of velocity along the line of sight). \n2.0 \n \n","textExtraction":"available"},"solution":{"format":"pdf","pdf":"/corpus/documents/english-ipho-2015-t1-solution/document.pdf","pages":[],"sourcePages":[1,2,3,4,5,6,7],"initialPage":1,"shared":false,"text":"Theoretical Task 1 (T-1) : Solutions\n1 of 7\nParticles from the Sun1\nPhotons from the surface of the Sun and neutrinos from its core can tell us about solar temperatures\nand also conﬁrm that the Sun shines because of nuclear reactions.\nThroughout this problem, take the mass of the Sun to be M⊙= 2.00 × 1030 kg, its radius, R⊙=\n7.00 × 108 m, its luminosity (radiation energy emitted per unit time), L⊙= 3.85 × 1026 W, and the\nEarth-Sun distance, d⊙= 1.50 × 1011 m.\nNote:\n(i)\nZ\nxeaxdx =\n\u0012x\na −1\na2\n\u0013\neax + constant\n(ii)\nZ\nx2eaxdx =\n\u0012x2\na −2x\na2 + 2\na3\n\u0013\neax + constant\n(iii)\nZ\nx3eaxdx =\n\u0012x3\na −3x2\na2 + 6x\na3 −6\na4\n\u0013\neax + constant\nA. Radiation from the Sun :\n(A1) Assume that the Sun radiates like a perfect blackbody. Use this fact to calculate the temperature,\nTs , of the solar surface.\n[0.3]\nSolution:\nStefan’s law: L⊙= (4πR2\n⊙)(σT 4\ns )\nTs =\n\u0012\nL⊙\n4πR2\n⊙σ\n\u00131/4\n= 5.76 × 103 K\nThe spectrum of solar radiation can be approximated well by the Wien distribution law. Accordingly,\nthe solar energy incident on any surface on the Earth per unit time per unit frequency interval, u(ν),\nis given by\nu(ν) = A R2\n⊙\nd2\n⊙\n2πh\nc2 ν3 exp(−hν/kBTs),\nwhere A is the area of the surface normal to the direction of the incident radiation.\nNow, consider a solar cell which consists of a thin disc of semiconducting material of area, A, placed\nperpendicular to the direction of the Sun’s rays.\n(A2) Using the Wien approximation, express the total power, Pin, incident on the surface of the solar\ncell, in terms of A, R⊙, d⊙, Ts and the fundamental constants c, h, kB.\n[0.3]\n1Amol Dighe (TIFR), Anwesh Mazumdar (HBCSE-TIFR) and Vijay A. Singh (ex-National Coordinator, Science\nOlympiads) were the principal authors of this problem. The contributions of the Academic Committee, Academic De-\nvelopment Group and the International Board are gratefully acknowledged.\n\nTheoretical Task 1 (T-1) : Solutions\n2 of 7\nSolution:\nPin =\nZ ∞\n0\nu(ν)dν =\nZ ∞\n0\nA R2\n⊙\nd2\n⊙\n2πh\nc2 ν3 exp(−hν/kBTs)dν\nLet x = hν\nkBTs\n. Then, ν = kBTs\nh x\ndν = kBTs\nh dx.\nPin = 2πhAR2\n⊙\nc2d2\n⊙\n(kBTs)4\nh4\nZ ∞\n0\nx3e−xdx = 2πk4\nB\nc2h3 Ts\n4 A R2\n⊙\nd2\n⊙\n· 6 = 12πk4\nB\nc2h3 Ts\n4 A R2\n⊙\nd2\n⊙\n(A3) Express the number of photons, nγ(ν), per unit time per unit frequency interval incident on the\nsurface of the solar cell in terms of A, R⊙, d⊙, Ts ν and the fundamental constants c, h, kB.\n[0.2]\nSolution:\nnγ(ν)\n=\nu(ν)\nhν\n=\nA R2\n⊙\nd2\n⊙\n2π\nc2 ν2 exp(−hν/kBTs)\nThe semiconducting material of the solar cell has a “band gap” of energy, Eg. We assume the follow-\ning model. Every photon of energy E ≥Eg excites an electron across the band gap. This electron\ncontributes an energy, Eg , as the useful output energy, and any extra energy is dissipated as heat (not\nconverted to useful energy).\n(A4) Deﬁne xg = hνg/kBTs where Eg = hνg. Express the useful output power of the cell, Pout, in\nterms of xg, A, R⊙, d⊙, Ts and the fundamental constants c, h, kB.\n[1.0]\nSolution:\nThe useful power output is the useful energy quantum per photon, Eg ≡hνg, multiplied by\nthe number of photons with energy, E ≥Eg.\nPout\n=\nhνg\nZ ∞\nνg\nnγ(ν)dν\n=\nhνg A R2\n⊙\nd2\n⊙\n2π\nc2\nZ ∞\nνg\nν2 exp(−hν/kBTs)dν\n=\nkBTsxg A R2\n⊙\nd2\n⊙\n2π\nc2\n\u0012kBTs\nh\n\u00133 Z ∞\nxg\nx2e−xdx\n=\n2πk4\nB\nc2h3 Ts\n4 A R2\n⊙\nd2\n⊙\nxg(x2\ng + 2xg + 2)e−xg\n(A5) Express the efﬁciency, η, of this solar cell in terms of xg.\n[0.2]\n\nTheoretical Task 1 (T-1) : Solutions\n3 of 7\nSolution:\nEfﬁciency η = Pout\nPin\n= xg\n6 (x2\ng + 2xg + 2)e−xg\n(A6) Make a qualitative sketch of η versus xg. The values at xg = 0 and xg →∞should be clearly\nshown. What is the slope of η(xg) at xg = 0 and xg →∞?\n[1.0]\nSolution:\nη = 1\n6 (x3\ng + 2x2\ng + 2xg)e−xg\nPut limiting values, η(0) = 0\nη(∞) = 0.\nSince the polynomial has all positive coefﬁcients, it increases monotonically; the exponential\nfunction decreases monotonically. Therefore, η has only one maximum.\ndη\ndxg\n= 1\n6(−x3\ng + x2\ng + 2xg + 2)e−xg\ndη\ndxg\n\f\f\f\f\nxg=0\n= 1\n3\ndη\ndxg\n\f\f\f\f\nxg→∞\n= 0\nxg\nη\n(A7) Let x0 be the value of xg for which η is maximum. Obtain the cubic equation that gives x0.\nEstimate the value of x0 within an accuracy of ±0.25. Hence calculate η(x0).\n[1.0]\nSolution:\nThe maximum will be for dη\ndxg\n= 1\n6(−x3\ng + x2\ng + 2xg + 2)e−xg = 0\n⇒p(xg) ≡x3\ng −x2\ng −2xg −2 = 0\nA Numerical Solution by the Bisection Method:\nNow,\np(0)\n=\n−2\np(1)\n=\n−4\np(2)\n=\n−2\np(3)\n=\n10\n⇒\n2 < x0 < 3\np(2.5)\n=\n2.375\n⇒\n2 < x0 < 2.5\np(2.25)\n=\n−0.171\n⇒\n2.25 < x0 < 2.5\nThe approximate value of xg where η is maximum is x0 = 2.27.\n\nTheoretical Task 1 (T-1) : Solutions\n4 of 7\nAlternative methods leading to the same result are acceptable.\nη(2.27) = 0.457\n(A8) The band gap of pure silicon is Eg = 1.11 eV. Calculate the efﬁciency, ηSi, of a silicon solar cell\nusing this value.\n[0.2]\nSolution:\nxg = 1.11 × 1.60 × 10−19\n1.38 × 10−23 × 5763 = 2.23\nηSi = xg\n6 (x2\ng + 2xg + 2)e−xg = 0.457\nIn the late nineteenth century, Kelvin and Helmholtz (KH) proposed a hypothesis to explain how the\nSun shines. They postulated that starting as a very large cloud of matter of mass, M⊙, and negligible\ndensity, the Sun has been shrinking continuously. The shining of the Sun would then be due to the\nrelease of gravitational energy through this slow contraction.\n(A9) Let us assume that the density of matter is uniform inside the Sun. Find the total gravitational\npotential energy, Ω, of the Sun at present, in terms of G, M⊙and R⊙.\n[0.3]\nSolution:\nThe total gravitational potential energy of the Sun: Ω= −\nZ M⊙\n0\nGm dm\nr\nFor constant density, ρ = 3M⊙\n4πR3\n⊙\nm = 4\n3πr3ρ\ndm = 4πr2ρdr\nΩ= −\nZ R⊙\n0\nG\n\u00124\n3πr3ρ\n\u0013 \u00004πr2ρ\n\u0001 dr\nr = −16π2Gρ2\n3\nR5\n⊙\n5\n= −3\n5\nGM 2\n⊙\nR⊙\n(A10) Estimate the maximum possible time τKH (in years), for which the Sun could have been shin-\ning, according to the KH hypothesis. Assume that the luminosity of the Sun has been constant\nthroughout this period.\n[0.5]\nSolution:\nτKH = −Ω\nL⊙\nτKH = 3GM 2\n⊙\n5R⊙L⊙\n= 1.88 × 107years\nThe τKH calculated above does not match the age of the solar system estimated from studies of mete-\norites. This shows that the energy source of the Sun cannot be purely gravitational.\n\nTheoretical Task 1 (T-1) : Solutions\n5 of 7\nB. Neutrinos from the Sun:\nIn 1938, Hans Bethe proposed that nuclear fusion of hydrogen into helium in the core of the Sun is\nthe source of its energy. The net nuclear reaction is:\n41H −→4He + 2e+ + 2νe\nThe “electron neutrinos”, νe, produced in this reaction may be taken to be massless. They escape the\nSun and their detection on Earth conﬁrms the occurrence of nuclear reactions inside the Sun. Energy\ncarried away by the neutrinos can be neglected in this problem.\n(B1) Calculate the ﬂux density, Φν, of the number of neutrinos arriving at the Earth, in units of\nm−2 s−1. The energy released in the above reaction is ∆E = 4.0 × 10−12 J. Assume that the\nenergy radiated by the Sun is almost entirely due to this reaction.\n[0.6]\nSolution:\n4.0 × 10−12 J ↔2ν\n⇒Φν =\nL⊙\n4πd2\n⊙δE × 2 =\n3.85 × 1026\n4π × (1.50 × 1011)2 × 4.0 × 10−12 × 2 = 6.8 × 1014 m−2 s−1.\nTravelling from the core of the Sun to the Earth, some of the electron neutrinos, νe, are converted to\nother types of neutrinos, νx. The efﬁciency of the detector for detecting νx is 1/6th of its efﬁciency\nfor detecting νe. If there is no neutrino conversion, we expect to detect an average of N1 neutrinos in\na year. However, due to the conversion, an average of N2 neutrinos (νe and νx combined) are actually\ndetected per year.\n(B2) In terms of N1 and N2, calculate what fraction, f, of νe is converted to νx.\n[0.4]\nSolution:\nN1\n=\nϵN0\nNe\n=\nϵN0(1 −f)\nNx\n=\nϵN0f/6\nN2\n=\nNe + Nx\nOR\n(1 −f)N1 + f\n6N1 = N2\n⇒f = 6\n5\n\u0012\n1 −N2\nN1\n\u0013\n\nTheoretical Task 1 (T-1) : Solutions\n6 of 7\nIn order to detect neutrinos, large detectors ﬁlled with water are constructed. Although the interactions\nof neutrinos with matter are very rare, occasionally they knock out electrons from water molecules in\nthe detector. These energetic electrons move through water at high speeds, emitting electromagnetic\nradiation in the process. As long as the speed of such an electron is greater than the speed of light\nin water (refractive index, n), this radiation, called Cherenkov radiation, is emitted in the shape of a\ncone.\n(B3) Assume that an electron knocked out by a neutrino loses energy at a constant rate of α per\nunit time, while it travels through water. If this electron emits Cherenkov radiation for a time\n∆t, determine the energy imparted to this electron (Eimparted) by the neutrino, in terms of\nα, ∆t, n, me, c. (Assume the electron to be at rest before its interaction with the neutrino.)\n[2.0]\nSolution:\nWhen the electron stops emitting Cherenkov radiation, its speed has reduced to vstop = c/n.\nIts total energy at this time is\nEstop =\nmec2\nq\n1 −v2\nstop/c2 =\nnmec2\n√\nn2 −1\nThe energy of the electron when it was knocked out is\nEstart = α∆t + nmec2\n√\nn2 −1\nBefore interacting, the energy of the electron was equal to mec2.\nThus, the energy imparted by the neutrino is\nEimparted = Estart −mec2 = α∆t +\n\u0012\nn\n√\nn2 −1 −1\n\u0013\nmec2\nThe fusion of H into He inside the Sun takes place in several steps. Nucleus of 7Be (rest mass, mBe)\nis produced in one of these intermediate steps. Subsequently, it can absorb an electron, producing a\n7Li nucleus (rest mass mLi < mBe) and emitting a νe. The corresponding nuclear reaction is:\n7Be + e−−→7Li + νe .\nWhen a Be nucleus (mBe = 11.65×10−27 kg) is at rest and absorbs an electron also at rest, the emitted\nneutrino has energy Eν = 1.44 × 10−13 J. However, the Be nuclei are in random thermal motion due\nto the temperature Tc at the core of the Sun, and act as moving neutrino sources. As a result, the\nenergy of emitted neutrinos ﬂuctuates with a root mean square value ∆Erms.\n(B4) If ∆Erms = 5.54 × 10−17 J, calculate the rms speed of the Be nuclei, VBe and hence estimate Tc.\n(Hint: ∆Erms depends on the rms value of the component of velocity along the line of sight.)\n[2.0]\n\nTheoretical Task 1 (T-1) : Solutions\n7 of 7\nSolution:\nMoving 7Be nuclei give rise to Doppler effect for neutrinos. Since the fractional change\nin energy (∆Erms/Eν ∼10−4) is small, the Doppler shift may be considered in the non-\nrelativistic limit (a relativistic treatment gives almost same answer). Taking the line of sight\nalong the z-direction,\n∆Erms\nEν\n=\nvz,rms\nc\n=\n3.85 × 10−4\n= 1\n√\n3\nVBe\nc\n⇒VBe =\n√\n3 × 3.85 × 10−4 × 3.00 × 108 m s−1 = 2.01 × 105 m s−1.\nThe average temperature is obtained by equating the average kinetic energy to the thermal\nenergy.\n1\n2mBeV 2\nBe = 3\n2kBTc\n⇒\nTc = 1.13 × 107 K\n","textExtraction":"available"}}
+{
+  "id": "ipho-2015-t1",
+  "importedOn": "2026-10-31",
+  "language": "en",
+  "sources": [
+    {
+      "kind": "statement",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_Q1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    },
+    {
+      "kind": "solution",
+      "url": "https://olimpicos.net/files/ipho/IPhO_2015_S1.pdf",
+      "note": "Original English Problem / Solution PDF linked by Olimpicos; not its LaTeX transcription. Attribution retained; a free download does not establish republication rights."
+    }
+  ],
+  "statement": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2015-t1-statement/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Particles from the Sun"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Treat the Sun as a blackbody with mass \\(M=2.00\\times10^{30}\\,\\mathrm{kg}\\), radius \\(R=7.00\\times10^8\\,\\mathrm m\\), luminosity \\(L=3.85\\times10^{26}\\,\\mathrm W\\), and Earth distance \\(d=1.50\\times10^{11}\\,\\mathrm m\\). Use \\(c=3.00\\times10^8\\,\\mathrm{m/s}\\), \\(h=6.63\\times10^{-34}\\,\\mathrm{J\\,s}\\), \\(k_B=1.38\\times10^{-23}\\,\\mathrm{J/K}\\), \\(\\sigma=5.67\\times10^{-8}\\,\\mathrm{W/(m^2K^4)}\\), \\(G=6.67\\times10^{-11}\\,\\mathrm{SI}\\), and \\(m_e=9.11\\times10^{-31}\\,\\mathrm{kg}\\). A cell of area \\(A\\) is normal to sunlight. In the Wien approximation its received power per frequency interval is \\(u(\\nu)=AR^2d^{-2}(2\\pi h/c^2)\\nu^3e^{-h\\nu/(k_BT_s)}\\). Integrals of polynomial times exponential may be evaluated by integration by parts."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A1. Solar surface temperature"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the blackbody surface temperature."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A2. Incident cell power"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integrate the Wien spectrum to find total incident power."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A3. Photon spectrum"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the photon number per unit time per unit frequency."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A4. Useful cell power"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "A photon with energy at least band gap \\(E_g=h\\nu_g\\) supplies useful energy \\(E_g\\). Other photons supply none. Put \\(x_g=E_g/(k_BT_s)\\). Find output power."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A5. Efficiency function"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the efficiency as a function of dimensionless gap."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A6. Efficiency graph"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Sketch efficiency, marking the values and slopes at zero gap and at infinite gap."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A7. Best gap and efficiency"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Find the cubic for the optimum gap, estimate its root to within \\(\\pm0.25\\), and calculate maximum efficiency."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A8. Silicon efficiency"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For silicon use \\(E_g=1.11\\,\\mathrm{eV}\\). Calculate efficiency."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A9. Gravitational solar energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "For uniform solar density, find total gravitational potential energy."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A10. Kelvin-Helmholtz lifetime"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Assuming constant luminosity and contraction from negligible initial density, estimate the longest shining time supported by gravitational energy."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B1. Solar neutrino flux"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The net reaction \\(4\\,{}^1\\mathrm H\\to{}^4\\mathrm{He}+2e^++2\\nu_e\\) releases \\(\\Delta E=4.0\\times10^{-12}\\,\\mathrm J\\). Ignore energy carried away by neutrinos. Find neutrino flux at Earth."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B2. Converted neutrino fraction"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Detector efficiency for converted \\(\\nu_x\\) is one sixth of that for \\(\\nu_e\\). Without conversion it would count \\(N_1\\) per year, but observes \\(N_2\\). Find the converted fraction."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B3. Energy transferred to an electron"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "An initially resting electron receives energy from a neutrino, then loses energy at constant rate \\(\\alpha\\) in water of refractive index \\(n>1\\). It emits Cherenkov radiation for \\(\\Delta t\\). Find the transferred energy."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B4. Core temperature from line broadening"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Electron capture \\({}^7\\mathrm{Be}+e^-\\to{}^7\\mathrm{Li}+\\nu_e\\) gives rest-source neutrino energy \\(E_\\nu=1.44\\times10^{-13}\\,\\mathrm J\\). Thermal Be nuclei of mass \\(11.65\\times10^{-27}\\,\\mathrm{kg}\\) give rms energy width \\(5.54\\times10^{-17}\\,\\mathrm J\\). Find their rms speed and core temperature."
+          }
+        ]
+      }
+    ],
+    "text": "Particles from the Sun\nTreat the Sun as a blackbody with mass \\(M=2.00\\times10^{30}\\,\\mathrm{kg}\\), radius \\(R=7.00\\times10^8\\,\\mathrm m\\), luminosity \\(L=3.85\\times10^{26}\\,\\mathrm W\\), and Earth distance \\(d=1.50\\times10^{11}\\,\\mathrm m\\). Use \\(c=3.00\\times10^8\\,\\mathrm{m/s}\\), \\(h=6.63\\times10^{-34}\\,\\mathrm{J\\,s}\\), \\(k_B=1.38\\times10^{-23}\\,\\mathrm{J/K}\\), \\(\\sigma=5.67\\times10^{-8}\\,\\mathrm{W/(m^2K^4)}\\), \\(G=6.67\\times10^{-11}\\,\\mathrm{SI}\\), and \\(m_e=9.11\\times10^{-31}\\,\\mathrm{kg}\\). A cell of area \\(A\\) is normal to sunlight. In the Wien approximation its received power per frequency interval is \\(u(\\nu)=AR^2d^{-2}(2\\pi h/c^2)\\nu^3e^{-h\\nu/(k_BT_s)}\\). Integrals of polynomial times exponential may be evaluated by integration by parts.\nA1. Solar surface temperature\nFind the blackbody surface temperature.\nA2. Incident cell power\nIntegrate the Wien spectrum to find total incident power.\nA3. Photon spectrum\nFind the photon number per unit time per unit frequency.\nA4. Useful cell power\nA photon with energy at least band gap \\(E_g=h\\nu_g\\) supplies useful energy \\(E_g\\). Other photons supply none. Put \\(x_g=E_g/(k_BT_s)\\). Find output power.\nA5. Efficiency function\nFind the efficiency as a function of dimensionless gap.\nA6. Efficiency graph\nSketch efficiency, marking the values and slopes at zero gap and at infinite gap.\nA7. Best gap and efficiency\nFind the cubic for the optimum gap, estimate its root to within \\(\\pm0.25\\), and calculate maximum efficiency.\nA8. Silicon efficiency\nFor silicon use \\(E_g=1.11\\,\\mathrm{eV}\\). Calculate efficiency.\nA9. Gravitational solar energy\nFor uniform solar density, find total gravitational potential energy.\nA10. Kelvin-Helmholtz lifetime\nAssuming constant luminosity and contraction from negligible initial density, estimate the longest shining time supported by gravitational energy.\nB1. Solar neutrino flux\nThe net reaction \\(4\\,{}^1\\mathrm H\\to{}^4\\mathrm{He}+2e^++2\\nu_e\\) releases \\(\\Delta E=4.0\\times10^{-12}\\,\\mathrm J\\). Ignore energy carried away by neutrinos. Find neutrino flux at Earth.\nB2. Converted neutrino fraction\nDetector efficiency for converted \\(\\nu_x\\) is one sixth of that for \\(\\nu_e\\). Without conversion it would count \\(N_1\\) per year, but observes \\(N_2\\). Find the converted fraction.\nB3. Energy transferred to an electron\nAn initially resting electron receives energy from a neutrino, then loses energy at constant rate \\(\\alpha\\) in water of refractive index \\(n>1\\). It emits Cherenkov radiation for \\(\\Delta t\\). Find the transferred energy.\nB4. Core temperature from line broadening\nElectron capture \\({}^7\\mathrm{Be}+e^-\\to{}^7\\mathrm{Li}+\\nu_e\\) gives rest-source neutrino energy \\(E_\\nu=1.44\\times10^{-13}\\,\\mathrm J\\). Thermal Be nuclei of mass \\(11.65\\times10^{-27}\\,\\mathrm{kg}\\) give rms energy width \\(5.54\\times10^{-17}\\,\\mathrm J\\). Find their rms speed and core temperature.",
+    "figures": [],
+    "shared": false
+  },
+  "solution": {
+    "format": "html",
+    "referencePdf": "/corpus/documents/english-ipho-2015-t1-solution/document.pdf",
+    "nodes": [
+      {
+        "type": "element",
+        "tag": "h2",
+        "children": [
+          {
+            "type": "text",
+            "text": "Particles from the Sun"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A1. Solar surface temperature"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(L=4\\pi R^2\\sigma T_s^4\\), so \\(T_s=(L/(4\\pi R^2\\sigma))^{1/4}\\simeq5760\\,\\mathrm K\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A2. Incident cell power"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "With \\(x=h\\nu/(k_BT_s)\\), \\(\\int_0^\\infty x^3e^{-x}dx=6\\). Hence \\[P_{in}=\\frac{12\\pi AR^2(k_BT_s)^4}{d^2c^2h^3}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A3. Photon spectrum"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Divide spectral power by \\(h\\nu\\): \\[n_\\gamma(\\nu)=\\frac{2\\pi AR^2}{d^2c^2}\\nu^2e^{-h\\nu/(k_BT_s)}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A4. Useful cell power"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Integrate photon rate above the threshold and multiply by \\(E_g\\): \\[P_{out}=\\frac{2\\pi AR^2(k_BT_s)^4}{d^2c^2h^3}x_g(x_g^2+2x_g+2)e^{-x_g}.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A5. Efficiency function"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\[\\eta(x_g)=\\frac{x_g(x_g^2+2x_g+2)e^{-x_g}}6.\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A6. Efficiency graph"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The curve starts at \\(\\eta(0)=0\\) with slope \\(1/3\\), rises to one maximum, then tends to zero with slope tending to zero from below. Both endpoints have zero efficiency."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A7. Best gap and efficiency"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Differentiation gives \\(x_0^3-x_0^2-2x_0-2=0\\). Its positive root is \\(x_0\\simeq2.27\\), with \\(\\eta_{max}\\simeq0.457\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A8. Silicon efficiency"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(k_BT_s\\simeq0.496\\,\\mathrm{eV}\\), so \\(x_g\\simeq2.24\\) and \\(\\eta_{Si}\\simeq0.457\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A9. Gravitational solar energy"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Build the sphere shell by shell, integrating \\(-GM(r)\\,dM/r\\). The result is \\(\\Omega=-3GM^2/(5R)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "A10. Kelvin-Helmholtz lifetime"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(\\tau_{KH}=|\\Omega|/L=3GM^2/(5RL)\\simeq1.88\\times10^7\\) years, far below the solar-system age."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B1. Solar neutrino flux"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "There are two neutrinos per reaction, giving \\(\\Phi_\\nu=2L/(4\\pi d^2\\Delta E)=6.8\\times10^{14}\\,\\mathrm{m^{-2}s^{-1}}\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B2. Converted neutrino fraction"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "\\(N_2=N_1(1-f)+N_1f/6\\), so \\(f=(6/5)(1-N_2/N_1)\\)."
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B3. Energy transferred to an electron"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "Emission stops when \\(v=c/n\\), leaving total energy \\(m_ec^2n/\\sqrt{n^2-1}\\). Add \\(\\alpha\\Delta t\\), then subtract the initial rest energy: \\[E_{imp}=\\alpha\\Delta t+m_ec^2\\left(\\frac n{\\sqrt{n^2-1}}-1\\right).\\]"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "h3",
+        "children": [
+          {
+            "type": "text",
+            "text": "B4. Core temperature from line broadening"
+          }
+        ]
+      },
+      {
+        "type": "element",
+        "tag": "p",
+        "children": [
+          {
+            "type": "text",
+            "text": "The line-of-sight Doppler width obeys \\(\\Delta E_{rms}/E_\\nu=v_{z,rms}/c\\). Isotropy gives \\(V_{rms}=\\sqrt3v_{z,rms}=2.01\\times10^5\\,\\mathrm{m/s}\\). From \\(mV_{rms}^2/2=3k_BT_c/2\\), \\(T_c=1.13\\times10^7\\,\\mathrm K\\)."
+          }
+        ]
+      }
+    ],
+    "text": "Particles from the Sun\nA1. Solar surface temperature\n\\(L=4\\pi R^2\\sigma T_s^4\\), so \\(T_s=(L/(4\\pi R^2\\sigma))^{1/4}\\simeq5760\\,\\mathrm K\\).\nA2. Incident cell power\nWith \\(x=h\\nu/(k_BT_s)\\), \\(\\int_0^\\infty x^3e^{-x}dx=6\\). Hence \\[P_{in}=\\frac{12\\pi AR^2(k_BT_s)^4}{d^2c^2h^3}.\\]\nA3. Photon spectrum\nDivide spectral power by \\(h\\nu\\): \\[n_\\gamma(\\nu)=\\frac{2\\pi AR^2}{d^2c^2}\\nu^2e^{-h\\nu/(k_BT_s)}.\\]\nA4. Useful cell power\nIntegrate photon rate above the threshold and multiply by \\(E_g\\): \\[P_{out}=\\frac{2\\pi AR^2(k_BT_s)^4}{d^2c^2h^3}x_g(x_g^2+2x_g+2)e^{-x_g}.\\]\nA5. Efficiency function\n\\[\\eta(x_g)=\\frac{x_g(x_g^2+2x_g+2)e^{-x_g}}6.\\]\nA6. Efficiency graph\nThe curve starts at \\(\\eta(0)=0\\) with slope \\(1/3\\), rises to one maximum, then tends to zero with slope tending to zero from below. Both endpoints have zero efficiency.\nA7. Best gap and efficiency\nDifferentiation gives \\(x_0^3-x_0^2-2x_0-2=0\\). Its positive root is \\(x_0\\simeq2.27\\), with \\(\\eta_{max}\\simeq0.457\\).\nA8. Silicon efficiency\n\\(k_BT_s\\simeq0.496\\,\\mathrm{eV}\\), so \\(x_g\\simeq2.24\\) and \\(\\eta_{Si}\\simeq0.457\\).\nA9. Gravitational solar energy\nBuild the sphere shell by shell, integrating \\(-GM(r)\\,dM/r\\). The result is \\(\\Omega=-3GM^2/(5R)\\).\nA10. Kelvin-Helmholtz lifetime\n\\(\\tau_{KH}=|\\Omega|/L=3GM^2/(5RL)\\simeq1.88\\times10^7\\) years, far below the solar-system age.\nB1. Solar neutrino flux\nThere are two neutrinos per reaction, giving \\(\\Phi_\\nu=2L/(4\\pi d^2\\Delta E)=6.8\\times10^{14}\\,\\mathrm{m^{-2}s^{-1}}\\).\nB2. Converted neutrino fraction\n\\(N_2=N_1(1-f)+N_1f/6\\), so \\(f=(6/5)(1-N_2/N_1)\\).\nB3. Energy transferred to an electron\nEmission stops when \\(v=c/n\\), leaving total energy \\(m_ec^2n/\\sqrt{n^2-1}\\). Add \\(\\alpha\\Delta t\\), then subtract the initial rest energy: \\[E_{imp}=\\alpha\\Delta t+m_ec^2\\left(\\frac n{\\sqrt{n^2-1}}-1\\right).\\]\nB4. Core temperature from line broadening\nThe line-of-sight Doppler width obeys \\(\\Delta E_{rms}/E_\\nu=v_{z,rms}/c\\). Isotropy gives \\(V_{rms}=\\sqrt3v_{z,rms}=2.01\\times10^5\\,\\mathrm{m/s}\\). From \\(mV_{rms}^2/2=3k_BT_c/2\\), \\(T_c=1.13\\times10^7\\,\\mathrm K\\).",
+    "figures": [],
+    "shared": false
+  }
+}

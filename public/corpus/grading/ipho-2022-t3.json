@@ -1,0 +1,65 @@
+{
+  "problemId": "ipho-2022-t3",
+  "version": "0f1238ab2ac7acfe99bac48e376171cefa5e6c6bb26e98ec46a54b3ca917845b",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Spaghetto strength",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Wet sand strength",
+      "kind": "numeric",
+      "unit": "N",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in N, without a unit suffix."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Relativistic expedition range",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "D.1",
+      "label": "Threshold floating-ball radius",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r_0",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use r_0. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

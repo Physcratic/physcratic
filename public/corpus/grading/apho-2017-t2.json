@@ -1,0 +1,342 @@
+{
+  "problemId": "apho-2017-t2",
+  "version": "483201853b24543de594a59cb0b0bdb95464f40d5b3eb139b151d2baeac6b91c",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Weak scattering coefficient",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Longitudinal impulse",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M",
+        "m",
+        "b",
+        "v"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "b",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "v",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, M, m, b, v. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Dynamical friction",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Coulomb logarithm",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Circular binary energy",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Gravitational focusing",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "r_m",
+        "G",
+        "M_2",
+        "\\sigma"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "r_m",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M_2",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use r_m, G, M_2, \\sigma. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Collision interval",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.4",
+      "sourcePart": "b.4",
+      "label": "Slingshot shrinkage",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.5",
+      "sourcePart": "b.5",
+      "label": "Radius-halving time",
+      "kind": "numeric",
+      "unit": "Gy",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in Gy, without a unit suffix."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Radiative shrinkage",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "G",
+        "M",
+        "c",
+        "a"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use G, M, c, a. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Radiative merger time",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "c",
+        "a_2",
+        "G",
+        "M"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "c",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "a_2",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "G",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "M",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use c, a_2, G, M. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "c.3",
+      "label": "Hubble-time radius",
+      "kind": "numeric",
+      "unit": "pc",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in pc, without a unit suffix."
+    },
+    {
+      "id": "d.1",
+      "sourcePart": "d.1",
+      "label": "Galaxy circular speed",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\sigma"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\sigma",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\sigma. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "d.2",
+      "sourcePart": "d.2",
+      "label": "Frictional orbital decay",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.3",
+      "sourcePart": "d.3",
+      "label": "Binary formation radius",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.4",
+      "sourcePart": "d.4",
+      "label": "Initial sinking time",
+      "kind": "numeric",
+      "unit": "Gy",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in Gy, without a unit suffix."
+    },
+    {
+      "id": "d.5",
+      "sourcePart": "d.5",
+      "label": "Transition to radiation",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.6",
+      "sourcePart": "d.6",
+      "label": "Late-stage durations",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "d.7",
+      "sourcePart": "d.7",
+      "label": "Total evolution time",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

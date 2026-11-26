@@ -1,0 +1,146 @@
+{
+  "problemId": "ipho-2022-t1",
+  "version": "9f350173515b08af6abbf23bf109bd7720bb3d3bf902431c3868e5b1c31993ee",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "a.1",
+      "label": "Distant coaxial magnets",
+      "kind": "numeric",
+      "unit": "N",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in N, without a unit suffix."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "a.2",
+      "label": "Equivalent circulating current",
+      "kind": "numeric",
+      "unit": "A",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in A, without a unit suffix."
+    },
+    {
+      "id": "a.3",
+      "sourcePart": "a.3",
+      "label": "Closely spaced cylinders",
+      "kind": "numeric",
+      "unit": "N",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in N, without a unit suffix."
+    },
+    {
+      "id": "a.4",
+      "sourcePart": "a.4",
+      "label": "Hanging sphere chain",
+      "kind": "numeric",
+      "unit": "m",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in m, without a unit suffix."
+    },
+    {
+      "id": "a.5",
+      "sourcePart": "a.5",
+      "label": "Field near a long chain end",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "\\mu_0",
+        "J",
+        "\\delta",
+        "r"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "\\mu_0",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "J",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\delta",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "r",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use \\mu_0, J, \\delta, r. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "b.1",
+      "label": "Field lines at a permeable plate",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2",
+      "sourcePart": "b.2",
+      "label": "Contact force and orientation",
+      "kind": "numeric",
+      "unit": "N",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in N, without a unit suffix."
+    },
+    {
+      "id": "b.3",
+      "sourcePart": "b.3",
+      "label": "Magnet between circular plates",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "c.1",
+      "label": "Square lattice",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "c.2",
+      "label": "Triangular lattice",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

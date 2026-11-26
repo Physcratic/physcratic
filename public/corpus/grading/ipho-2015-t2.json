@@ -1,0 +1,259 @@
+{
+  "problemId": "ipho-2015-t2",
+  "version": "e88eaa541cdd8fbda4dbe98de230ba5edc574d00a64374f1b4530d4caa47fe0d",
+  "parts": [
+    {
+      "id": "a1",
+      "sourcePart": "A1",
+      "label": "Energy across the step",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v_1",
+        "V_0",
+        "m"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v_1",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 3,
+          "max": 5
+        },
+        {
+          "symbol": "V_0",
+          "assumptions": [],
+          "min": 0.1,
+          "max": 0.3
+        },
+        {
+          "symbol": "m",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "help": "Use v_1, V_0, m. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a2",
+      "sourcePart": "A2",
+      "label": "Tangential momentum",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "v_1",
+        "\\theta_1",
+        "\\theta_2"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "v_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta_1",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "\\theta_2",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use v_1, \\theta_1, \\theta_2. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "a3",
+      "sourcePart": "A3",
+      "label": "Stationary action",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b1",
+      "sourcePart": "B1",
+      "label": "Fermat and refraction",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results, derivations and sketches, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b2",
+      "sourcePart": "B2",
+      "label": "Graded-index beam slope",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "n",
+        "n_0"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "n",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 2,
+          "max": 3
+        },
+        {
+          "symbol": "n_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 1.5
+        }
+      ],
+      "help": "Use n for n(y). Enter the downward branch."
+    },
+    {
+      "id": "b3",
+      "sourcePart": "B3",
+      "label": "Beam trajectory",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "n_0",
+        "k",
+        "y"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "n_0",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 2
+        },
+        {
+          "symbol": "k",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 0.1,
+          "max": 1
+        },
+        {
+          "symbol": "y",
+          "assumptions": [],
+          "min": -3,
+          "max": -0.1
+        }
+      ],
+      "help": "Use n_0, k, y. Enter the requested expression. Derivation and any sketches require self-review."
+    },
+    {
+      "id": "b4",
+      "sourcePart": "B4",
+      "label": "Bottom intersection",
+      "kind": "numeric",
+      "unit": "cm",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in cm, without a unit suffix."
+    },
+    {
+      "id": "c1",
+      "sourcePart": "C1",
+      "label": "Wave phase and action",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "A",
+        "h"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "A",
+          "assumptions": [
+            "positive"
+          ]
+        },
+        {
+          "symbol": "h",
+          "assumptions": [
+            "positive"
+          ]
+        }
+      ],
+      "help": "Use A for the action change."
+    },
+    {
+      "id": "c2",
+      "sourcePart": "C2",
+      "label": "First-order phase difference",
+      "kind": "numeric",
+      "unit": "rad",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in rad, without a unit suffix."
+    },
+    {
+      "id": "d1",
+      "sourcePart": "D1",
+      "label": "Electron accelerating voltage",
+      "kind": "numeric",
+      "unit": "V",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in V, without a unit suffix."
+    },
+    {
+      "id": "d2",
+      "sourcePart": "D2",
+      "label": "Two-slit phase",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "d3",
+      "sourcePart": "D3",
+      "label": "Nearest interference minimum",
+      "kind": "numeric",
+      "unit": "um",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter positive distance in micrometres. State direction in your working."
+    },
+    {
+      "id": "d4",
+      "sourcePart": "D4",
+      "label": "Minimum electron flux",
+      "kind": "numeric",
+      "unit": "1/(m^2 s)",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the result in 1/(m^2 s), without a unit suffix."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, sketches and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare every accompanying numerical evaluation, direction, approximation, sketch and proof with the worked solution."
+    }
+  ]
+}

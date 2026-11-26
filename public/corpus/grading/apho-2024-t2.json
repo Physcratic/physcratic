@@ -1,0 +1,125 @@
+{
+  "problemId": "apho-2024-t2",
+  "version": "e99884f575f674d5acb3b2e6f7663227394fc557f9bc34a8b8583e288b2e4428",
+  "parts": [
+    {
+      "id": "a.1",
+      "sourcePart": "A.1",
+      "label": "Two colours",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "a.2",
+      "sourcePart": "A.2",
+      "label": "Index difference",
+      "kind": "numeric",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Enter the dimensionless result."
+    },
+    {
+      "id": "b.1",
+      "sourcePart": "B.1",
+      "label": "Return to the polymer",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2.i",
+      "sourcePart": "B.2.i",
+      "label": "Oil at the far end",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "b.2.ii",
+      "sourcePart": "B.2.ii",
+      "label": "Immersion in water",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.1",
+      "sourcePart": "C.1",
+      "label": "Straight-fibre acceptance",
+      "kind": "expression",
+      "unit": "",
+      "symbols": [
+        "n_1",
+        "n_2",
+        "n_3"
+      ],
+      "symbolConditions": [
+        {
+          "symbol": "n_1",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1.45,
+          "max": 1.5
+        },
+        {
+          "symbol": "n_2",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1.35,
+          "max": 1.4
+        },
+        {
+          "symbol": "n_3",
+          "assumptions": [
+            "positive"
+          ],
+          "min": 1,
+          "max": 1.1
+        }
+      ],
+      "help": "Enter sin(theta_a), within the regime where it is below one."
+    },
+    {
+      "id": "c.2",
+      "sourcePart": "C.2",
+      "label": "Bent-fibre acceptance",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "c.3",
+      "sourcePart": "C.3",
+      "label": "Acceptance angles in air",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Write all requested results and reasoning, then compare with the worked solution. This part requires self-review."
+    },
+    {
+      "id": "working",
+      "sourcePart": "Working",
+      "label": "Derivations, diagrams and accompanying results",
+      "kind": "self-review",
+      "unit": "",
+      "symbols": [],
+      "symbolConditions": [],
+      "help": "Automatic fields check only the labelled result. Compare all accompanying calculations, approximations, directions, sketches and proofs with the worked solution."
+    }
+  ]
+}
