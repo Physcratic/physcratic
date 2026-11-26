@@ -116,6 +116,7 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
       );
       return;
     }
+    const asked = epoch.current;
     if (
       enabled &&
       !(await confirm({
@@ -126,6 +127,8 @@ export function SolutionPermissions({ problemId }: { problemId: string }) {
       }))
     )
       return;
+    // A read or another save may have run while the sheet was open. This answer was for the data it showed.
+    if (lock.current || epoch.current !== asked) return;
     const original = data;
     lock.current = true;
     setBusy(true);

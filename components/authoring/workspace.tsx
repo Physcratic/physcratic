@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, FilePlus2, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -54,6 +54,9 @@ function WorkspaceBody({
   const [items, setItems] = useState<DraftItem[]>([]),
     [cursor, setCursor] = useState<string | null>(null);
   const [selected, setSelected] = useState<EditorDraft | null>(null);
+  // The sheet answers later than the click. A list action reads its row again from the latest list.
+  const itemsRef = useRef(items);
+  itemsRef.current = items;
   /** "list": My drafts, where Problem Studio opens. "new": the editor on a blank problem that is saved at the first edit. */
   const [view, setView] = useState<"new" | "list">("list");
   const [fresh, setFresh] = useState<EditorDraft>(() => blankDraft());
@@ -303,6 +306,8 @@ function WorkspaceBody({
                             confirmLabel: "Remove from public",
                             danger: true,
                           }))) return;
+                          const current = itemsRef.current.find((row) => row.problemId === item.problemId);
+                          if (!current || current.state !== "published") return;
                           setBusy(true);
                           setError("");
                           setRemovalNotice("");
@@ -310,7 +315,7 @@ function WorkspaceBody({
                             const result = await draftRequest(
                               `${editorBase}/${item.problemId}/unpublish`,
                               "POST",
-                              { version: item.version },
+                              { version: current.version },
                             );
                             setItems(previous => previous.map(row => row.problemId === item.problemId
                               ? { ...row, state: result.state, version: result.version }
@@ -344,13 +349,15 @@ function WorkspaceBody({
                           }))
                         )
                           return;
+                        const current = itemsRef.current.find((row) => row.problemId === item.problemId);
+                        if (!current || current.state === "published") return;
                         setBusy(true);
                         setError("");
                         try {
                           await draftRequest(
                             `${editorBase}/${item.problemId}`,
                             "DELETE",
-                            { version: item.version },
+                            { version: current.version },
                           );
                           try {
                             sessionStorage.removeItem(

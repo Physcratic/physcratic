@@ -80,11 +80,12 @@ export function PartOptions({
                 danger: true,
               }))
             ) {
+              // The sheet answers later than the click, so the draft is checked again when the change is made.
               if (
                 !hasPrivate
               )
                 edit((d) => {
-                  d.privateParts.push(entry);
+                  if (!d.privateParts.some((p) => p.partId === part.id)) d.privateParts.push(entry);
                 });
               answer?.onChosen?.(mode);
               edit((d) => (answer?.setMode ?? setPartAnswerMode)(d, part.id, mode));

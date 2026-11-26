@@ -257,6 +257,9 @@ export function BlocksEditor({
 }) {
   const [notice, setNotice] = useState("");
   const confirm = useConfirm();
+  // The sheet answers later than the click, so a block is removed from the blocks and the handler of the latest render.
+  const latest = useRef({ blocks, onChange });
+  latest.current = { blocks, onChange };
   return (
     <div className="space-y-4">
       <p className="sr-only" role="status">
@@ -309,9 +312,11 @@ export function BlocksEditor({
                   }))
                 )
                   return false;
-                onChange(blocks.filter((b) => b.id !== block.id));
+                const current = latest.current.blocks;
+                if (!current.some((b) => b.id === block.id)) return false;
+                latest.current.onChange(current.filter((b) => b.id !== block.id));
                 setNotice(
-                  `${label} block deleted. ${blocks.length - 1} remain.`,
+                  `${label} block deleted. ${current.length - 1} remain.`,
                 );
               }}
             />

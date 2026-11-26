@@ -6,7 +6,7 @@ Problem Studio no longer uses native browser confirms. One component, `component
 
 Removing a block that has content in the Simple editor now asks with the same sheet. The app has a toast hook but nothing uses it, so there was no undo pattern to reuse. An empty block goes without a question. The separate Remove image button is unchanged.
 
-Browser tests answer the sheet through `tests/confirm-sheet.mjs` instead of `page.on("dialog")`. The new `tests/confirm-sheet.browser.mjs` checks open, Escape, backdrop, Cancel, focus return, one run on confirm and axe with the sheet open at 1440px and 375px in light and dark. Making Cancel confirm makes it fail.
+Browser tests answer the sheet through `tests/confirm-sheet.mjs` instead of `page.on("dialog")`. The new `tests/confirm-sheet.browser.mjs` checks open, Escape, backdrop, Cancel, focus return, one run on confirm and axe with the sheet open at 1440px and 375px in light and dark. Making Cancel confirm makes it fail. After review, a block removal reads the latest blocks after the sheet answer and removes by id, so a picture that finishes uploading while the sheet is open is kept. The permissions save checks again after its sheet, list actions read their row again, the sheet sits above the tour card, and the tests assert that the sheets appear.
 
 ## Problem Studio Simple polish (24 November 2026)
 

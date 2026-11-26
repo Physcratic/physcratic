@@ -18,4 +18,7 @@ export async function autoConfirm(target, mode = "accept") {
   }, mode);
 }
 export const setConfirmMode = (page, mode) => page.evaluate((m) => { window.__confirmMode = m; }, mode);
-export const confirmsAsked = (page) => page.evaluate(() => window.__confirmAsked ?? []);
+export const confirmsAsked = (page) => page.evaluate(() => {
+  if (!Array.isArray(window.__confirmAsked)) throw new Error("autoConfirm was not installed on this page");
+  return window.__confirmAsked;
+});

@@ -105,8 +105,24 @@ try {
       await context.close();
     }
   }
+  // A picture that finishes uploading while the sheet is open is kept when the block is removed.
+  {
+    const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+    const page = await context.newPage();
+    page.on("pageerror", (e) => errors.push(e.message));
+    await page.goto(`${origin}/?page=blocks`);
+    await page.getByRole("button", { name: "Delete Blocks block 1", exact: true }).click();
+    const sheet = page.getByRole("alertdialog");
+    await sheet.waitFor();
+    await page.evaluate(() => window.__addPicture());
+    await page.waitForFunction(() => document.querySelector('[data-testid="ids"]')?.textContent === "text-1,picture-1");
+    await sheet.getByRole("button", { name: "Remove block", exact: true }).click();
+    await sheet.waitFor({ state: "detached" });
+    assert.equal(await page.getByTestId("ids").innerText(), "picture-1", "the block is removed by id and the picture that landed meanwhile is kept");
+    await context.close();
+  }
   assert.deepEqual(errors, [], "no page errors");
-  console.log("PASS confirm sheet: opens, Escape and backdrop and Cancel run nothing, focus returns, confirm runs once, axe clean open at 1440px and 375px in light and dark.");
+  console.log("PASS confirm sheet: opens, Escape and backdrop and Cancel run nothing, focus returns, confirm runs once, a picture added while the sheet is open is kept, axe clean open at 1440px and 375px in light and dark.");
 } finally {
   await browser?.close();
   server?.close();

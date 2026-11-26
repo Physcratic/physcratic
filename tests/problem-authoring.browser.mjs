@@ -920,9 +920,13 @@ try {
   )).rows[0];
   const beforeRemoval = await retained();
   await setConfirmMode(page, "cancel");
+  const askedBeforeRemoval = (await confirmsAsked(page)).length;
   await remove.click();
+  await until(async () => (await confirmsAsked(page)).length === askedBeforeRemoval + 1, "the remove from public sheet appears");
+  assert.match((await confirmsAsked(page)).at(-1).title, /from public\?$/, "the sheet asks about removing the problem from public");
   await page.locator("[data-confirm-sheet]").waitFor({ state: "detached" });
-  assert.equal((await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state, "published");
+  await page.waitForTimeout(1500);
+  assert.equal((await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state, "published", "Cancel removes nothing");
   await setConfirmMode(page, "accept");
   const removalUrl = `**/drafts/${id}/unpublish`;
   await page.route(removalUrl, route => route.fulfill({ status: 503, json: { error: "Unavailable" } }), { times: 1 });

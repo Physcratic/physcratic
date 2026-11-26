@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { CONFIRM_LAYER } from "@/components/tour/tour-layer";
 
 export type ConfirmOptions = {
   title: string;
@@ -58,9 +59,10 @@ export function ConfirmProvider({ children }: { children: React.ReactNode }) {
       <AlertDialog open={options !== null} onOpenChange={(open) => { if (!open) settle(false); }}>
         {options && (
           <AlertDialogPortal>
-            <AlertDialogOverlay onClick={() => settle(false)} />
+            <AlertDialogOverlay style={{ zIndex: CONFIRM_LAYER }} onClick={() => settle(false)} />
             <AlertDialogPrimitive.Content
               data-confirm-sheet
+              style={{ zIndex: CONFIRM_LAYER }}
               onCloseAutoFocus={(event) => {
                 event.preventDefault();
                 if (opener.current?.isConnected) opener.current.focus();
