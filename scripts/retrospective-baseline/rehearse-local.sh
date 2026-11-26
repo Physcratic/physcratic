@@ -16,7 +16,7 @@ trap cleanup EXIT
 docker_local run -d --rm --name "$container" -e POSTGRES_PASSWORD=synthetic-only -p 127.0.0.1::5432 postgres:18.7-alpine >/dev/null
 db() { docker_local exec -i "$container" psql -X -q -v ON_ERROR_STOP=1 -U postgres "$@"; }
 for attempt in {1..25}; do
-  if docker_local exec "$container" pg_isready -U postgres >/dev/null 2>&1; then break; fi
+  if docker_local exec "$container" pg_isready -h 127.0.0.1 -U postgres >/dev/null 2>&1; then break; fi
   sleep 1
 done
 openssl req -x509 -newkey rsa:2048 -nodes -days 1 -subj '/CN=127.0.0.1' -addext 'subjectAltName=IP:127.0.0.1' \
@@ -241,20 +241,38 @@ if node "$package/verify.mjs" "$scratch/hostname.plan.json" "$hostname_digest" "
 fi
 test ! -e "$scratch/hostname.json"
 rg -qi 'certificate.*does not match host name' "$scratch/hostname.log"
-node --input-type=module - "$scratch" <<'JS'
+psql_version=$(psql --version)
+printf 'Transport client: %s\n' "$psql_version"
+node --input-type=module - "$scratch" "$psql_version" <<'JS'
 import assert from 'node:assert/strict';
 import { readFileSync as read, writeFileSync as write } from 'node:fs';
-import { attestPsqlOutput } from './scripts/retrospective-baseline/transport.mjs';
-const dir = process.argv[2];
+import { attestPsqlOutput, captureTransport } from './scripts/retrospective-baseline/transport.mjs';
+const [dir, psqlVersion] = process.argv.slice(2);
 const proxy = JSON.parse(read(dir+'/proxy.json'));
 const direct = JSON.parse(read(dir+'/core.json'));
 assert.equal(direct.target.backendTls.ssl, true);
 assert.deepEqual(proxy.target.backendTls, { ssl:false, protocol:null });
 assert.equal(proxy.clientTls.sslMode,'verify-full');
-assert.match(proxy.clientTls.conninfo, /^SSL connection \(protocol: TLSv1\.[23],/);
+assert.match(captureTransport(proxy).client.protocol, /^TLSv1\.[23]$/);
+if (psqlVersion.startsWith('psql (PostgreSQL) 18.')) {
+  assert.match(proxy.clientTls.conninfo, /^SSL Connection\|true\nSSL Protocol\|TLSv1\.[23]$/);
+} else if (/^psql \(PostgreSQL\) 1[5-7]\./.test(psqlVersion)) {
+  assert.match(proxy.clientTls.conninfo, /^SSL connection \(protocol: TLSv1\.[23],/);
+}
 assert.equal(JSON.parse(read(dir+'/proxy.result.json')).status,'CATALOGUE_MATCH_PENDING_REVIEW');
+const actualConninfo = proxy.clientTls.conninfo;
 delete proxy.clientTls;
 const snapshot = JSON.stringify(proxy);
+const aligned = ' SSL Connection       | true\n SSL Protocol         | TLSv1.3';
+assert.equal(captureTransport(attestPsqlOutput('Connection Information\r\n'+aligned.replaceAll('\n','\r\n')+'\r\n'+snapshot)).client.protocol,'TLSv1.3');
+for (const evidence of [
+  'SSL Protocol|TLSv1.3',
+  'SSL Connection|false\nSSL Protocol|TLSv1.3',
+  'SSL Connection|true\nSSL Protocol|TLSv1.1',
+  'SSL Connection|true\nSSL Connection|false\nSSL Protocol|TLSv1.3',
+  'SSL Connection|true\nSSL Protocol|TLSv1.3\nSSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, compression: off)',
+  actualConninfo+'\n'+actualConninfo,
+]) assert.throws(() => attestPsqlOutput(evidence+'\n'+snapshot), /Missing or unsupported client TLS/);
 assert.throws(() => attestPsqlOutput(snapshot), /Missing or unsupported client TLS/);
 write(dir+'/missing-client-tls.json',snapshot);
 JS
