@@ -38,5 +38,5 @@ export function applyColour(choice: ColourChoice, root: Pick<HTMLElement, "setAt
   }
 }
 
-/** Runs in the page head before first paint. It repeats colourChoice on purpose, so it needs no bundle. */
+/** Runs in the page head before first paint, from public/colour-theme.js, which a test keeps equal to this text. It repeats colourChoice on purpose, so it needs no bundle. */
 export const colourScript = `(function(){var d=document.documentElement,c="${defaultColour}";try{var v=localStorage.getItem("${colourStorageKey}");if(${colourOptions.map((o) => `v==="${o.value}"`).join("||")})c=v}catch(e){}d.setAttribute("data-colour",c)})()`;

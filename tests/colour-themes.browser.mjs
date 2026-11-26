@@ -8,7 +8,7 @@ import { mkdtemp, readFile, rm, mkdir } from "node:fs/promises";
 import { execFileSync } from "node:child_process";
 import { join, basename } from "node:path";
 import { tmpdir } from "node:os";
-import { colourScript, colourStorageKey } from "../lib/colour-theme.ts";
+import { colourStorageKey } from "../lib/colour-theme.ts";
 const require = createRequire(import.meta.url);
 const browserTools = process.env.AUTHORING_BROWSER_TOOLS ? createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, "package.json")) : require;
 const { chromium } = browserTools("playwright");
@@ -28,9 +28,10 @@ try {
       res.setHeader("Content-Type", path.endsWith("js") ? "application/javascript" : "text/css");
       return res.end(await readFile(join(temp, basename(path))));
     }
+    if (path === "/colour-theme.js") { res.setHeader("Content-Type", "application/javascript"); return res.end(await readFile("public/colour-theme.js")); }
     res.setHeader("Content-Type", "text/html");
     // The stylesheet and the colour script are in the head, as in the app. The second script records what the page looked like at that moment.
-    res.end(`<!doctype html><html lang="en" class="bg-background"><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Colour themes test</title><link rel="stylesheet" href="/style.css"><script>${colourScript}</script><script>window.__first={colour:document.documentElement.getAttribute("data-colour"),primary:getComputedStyle(document.documentElement).getPropertyValue("--primary").trim()}</script></head><body class="bg-background text-foreground"><div id="root"></div><script src="/bundle.js"></script></body></html>`);
+    res.end(`<!doctype html><html lang="en" class="bg-background"><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>Colour themes test</title><link rel="stylesheet" href="/style.css"><script src="/colour-theme.js"></script><script>window.__first={colour:document.documentElement.getAttribute("data-colour"),primary:getComputedStyle(document.documentElement).getPropertyValue("--primary").trim()}</script></head><body class="bg-background text-foreground"><div id="root"></div><script src="/bundle.js"></script></body></html>`);
   });
   await new Promise((r) => server.listen(0, "127.0.0.1", r));
   const origin = `http://127.0.0.1:${server.address().port}`;

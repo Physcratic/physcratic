@@ -50,9 +50,11 @@ test("the first paint script sets the stored colour theme and falls back to Ink 
   assert.equal(runScript("throws"), "ink", "blocked storage shows Ink");
 });
 
-test("the script is in the page head, before the body, so the theme is set before the first paint", () => {
+test("the script is a file in the page head, before the body, so the theme is set before the first paint and nothing is inline", () => {
   const layout = readFileSync("app/layout.tsx", "utf8");
-  const script = layout.indexOf("__html: colourScript");
-  assert.ok(layout.includes('import { colourScript } from "@/lib/colour-theme"'));
+  const script = layout.indexOf('<script src="/colour-theme.js" />');
   assert.ok(layout.indexOf("<head>") > 0 && script > layout.indexOf("<head>") && script < layout.indexOf("</head>") && layout.indexOf("</head>") < layout.indexOf("<body"));
+  assert.ok(!layout.includes("dangerouslySetInnerHTML"), "an inline script would need a nonce or a hash under the nonce based policy");
+  assert.ok(!/<script[^>]*\sasync|<script[^>]*\sdefer/.test(layout), "it must block, so the theme is set before paint");
+  assert.equal(readFileSync("public/colour-theme.js", "utf8").trim(), colourScript, "the file is the tested script");
 });

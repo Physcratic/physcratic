@@ -65,6 +65,7 @@ for (const [label, scope] of Object.entries(scopes)) {
     const t = (name: string) => toRgb(token(scope, name))
     const text: [string, string, string][] = [
       ["body text on the page", "foreground", "background"], ["body text on the card", "foreground", "card"],
+      ["destructive text on the page", "destructive", "background"], ["destructive text on the card", "destructive", "card"],
       ["muted text on the page", "muted-foreground", "background"], ["muted text on the card", "muted-foreground", "card"], ["muted text on the muted surface", "muted-foreground", "muted"],
       ["main action text", "primary-foreground", "primary"], ["accent text", "accent-foreground", "accent"], ["destructive text", "destructive-foreground", "destructive"],
     ]
