@@ -300,7 +300,7 @@ function ArchiveAnswerWorkspace({ problemId, onCorrect, onSeeHint, nextHref, res
             <p>{summary.detail}</p>
             <div className="flex flex-wrap gap-2 pt-2">
               {summary.needsAnotherTry && <Button type="button" variant="outline" className="min-h-11 bg-background" onClick={tryAgain}><RotateCcw data-icon="inline-start" />Try again</Button>}
-              {summary.needsAnotherTry && onSeeHint && <Button type="button" variant="outline" className="min-h-11 bg-background" onClick={onSeeHint}><Lightbulb data-icon="inline-start" />See hint</Button>}
+              {summary.needsAnotherTry && onSeeHint && <Button type="button" variant="outline" className="min-h-11 bg-background" onClick={onSeeHint}><Lightbulb data-icon="inline-start" className="text-amber" />See hint</Button>}
               {summary.allCorrect && nextHref && <Button asChild className="min-h-11"><Link href={nextHref}>Next problem<ArrowRight data-icon="inline-end" /></Link></Button>}
             </div>
           </FeedbackBox>}

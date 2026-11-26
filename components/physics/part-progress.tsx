@@ -44,10 +44,10 @@ export function useJustSolved(solved: boolean): boolean {
   return watcher.current.next(solved);
 }
 
-/** A calm note that the problem is solved. A short fade in, and none under reduced motion. */
+/** A calm note that the problem is solved, with a soft green glow. The glow never carries the meaning alone, because the note has its icon and its word. A short fade in, and none under reduced motion. */
 export function SolvedBanner() {
   return (
-    <p role="status" className="mt-2 flex items-center gap-2 rounded-lg border border-success bg-success-tint p-4 text-base font-semibold text-foreground motion-safe:animate-in motion-safe:fade-in motion-safe:duration-300">
+    <p role="status" className="mt-2 flex items-center gap-2 rounded-lg border border-success bg-success-tint p-4 text-base font-semibold text-foreground shadow-[var(--glow-success)] motion-safe:animate-in motion-safe:fade-in motion-safe:duration-300">
       <CircleCheck aria-hidden="true" className="size-5 shrink-0 text-success-ink" />
       Solved
     </p>

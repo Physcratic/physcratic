@@ -6,6 +6,13 @@ const family = (name) => ({
   foreground: `hsl(var(--${name}-foreground))`,
 });
 
+/** A meaning accent from three tokens in app/globals.css: the strong colour for small icons, the soft tint and the ink for text on the tint. */
+const accent = (name) => ({
+  DEFAULT: `hsl(var(--${name}))`,
+  tint: `hsl(var(--${name}-tint))`,
+  ink: `hsl(var(--${name}-ink))`,
+});
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -28,6 +35,10 @@ module.exports = {
         progress: family("progress"),
         danger: family("danger"),
         idle: family("idle"),
+        rose: accent("rose"),
+        amber: accent("amber"),
+        violet: accent("violet"),
+        teal: accent("teal"),
         hero: {
           DEFAULT: "hsl(var(--hero))",
           foreground: "hsl(var(--hero-foreground))",

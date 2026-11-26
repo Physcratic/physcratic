@@ -19,6 +19,8 @@ on:
       - 'tests/authored-student-harness.tsx'
       - 'tests/simple-options*'
       - 'tests/confirm-sheet*'
+      - 'tests/colour-themes*'
+      - 'lib/colour-theme.ts'
       - 'components/auth-form.tsx'
       - 'tests/auth-spacing*'
       - 'tests/authored-public-solutions*'
@@ -84,6 +86,10 @@ jobs:
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/authored-browser-tools
         run: node --import tsx tests/confirm-sheet.browser.mjs
+      - name: Colour themes, first paint, previews and axe
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/authored-browser-tools
+        run: node --import tsx tests/colour-themes.browser.mjs
       - name: Sign-up and sign-in spacing, Terms row and hint
         env:
           AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/authored-browser-tools
