@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent, type ReactNode } from "react";
 import useSWR, { useSWRConfig } from "swr";
 import { FileUp, Loader2, Save, X } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
@@ -32,11 +32,16 @@ export function SolutionSubmissionForm({ problemId }: { problemId: string }) {
   const { data: session, isPending, error: sessionError } = authClient.useSession();
   const account = !isPending && !sessionError ? session?.user.id : undefined;
   const { data: source, error: sourceError, mutate: retrySource } = useSWR(account ? [`/api/submission-info/${problemId}`, account] as const : null, loadInfo, { keepPreviousData: false });
-  if (isPending) return <p role="status">Checking your account.</p>;
-  if (sessionError) return <Alert variant="destructive"><AlertTitle>Account unavailable</AlertTitle><AlertDescription>Reload to retry. Work recovered in this tab stays private to the account that wrote it.</AlertDescription></Alert>;
-  if (!account) return <div className="flex flex-col items-start gap-3"><p>Sign in to save typed solutions and upload private files.</p><Button asChild><Link href={`/sign-in?returnTo=${encodeURIComponent(`/dashboard/problems/${problemId}`)}`}>Sign in to submit</Link></Button></div>;
-  if (!source) return sourceError ? <Alert variant="destructive"><AlertTitle>Source verification failed</AlertTitle><AlertDescription><Button variant="outline" onClick={() => void retrySource()}>Retry verification</Button></AlertDescription></Alert> : <p role="status">Loading the problem version.</p>;
+  if (isPending) return <SolutionGate><p role="status">Checking your account.</p></SolutionGate>;
+  if (sessionError) return <SolutionGate><Alert variant="destructive"><AlertTitle>Account unavailable</AlertTitle><AlertDescription>Reload to retry. Work recovered in this tab stays private to the account that wrote it.</AlertDescription></Alert></SolutionGate>;
+  if (!account) return <SolutionGate><div className="flex flex-col items-start gap-3"><p>Sign in to save typed solutions and upload private files.</p><Button asChild><Link href={`/sign-in?returnTo=${encodeURIComponent(`/dashboard/problems/${problemId}`)}`}>Sign in to submit</Link></Button></div></SolutionGate>;
+  if (!source) return <SolutionGate>{sourceError ? <Alert variant="destructive"><AlertTitle>Source verification failed</AlertTitle><AlertDescription><Button variant="outline" onClick={() => void retrySource()}>Retry verification</Button></AlertDescription></Alert> : <p role="status">Loading the problem version.</p>}</SolutionGate>;
   return <SolutionEditor key={`${account}:${problemId}`} account={account} problemId={problemId} source={source} sourceError={Boolean(sourceError)} retrySource={() => void retrySource()} />;
+}
+
+/** Public calculator access must not depend on a successful account or source lookup. */
+function SolutionGate({ children }: { children: ReactNode }) {
+  return <Card className="shadow-none"><CardHeader><CardTitle>Your solution</CardTitle><CardDescription>Submit one subpart at a time. Write reasoning and calculator-style equations in plain text. No LaTeX required. You can also attach a photo or PDF of your working.</CardDescription></CardHeader><CardContent className="flex min-w-0 flex-col gap-6"><PlainMathCheck />{children}</CardContent></Card>;
 }
 
 function SolutionEditor({ account, problemId, source, sourceError, retrySource }: { account: string; problemId: string; source: Source; sourceError: boolean; retrySource: () => void }) {

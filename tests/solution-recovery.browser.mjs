@@ -13,7 +13,7 @@ const { chromium } = external('playwright');
 const axe = process.env.AXE_CORE_PATH || createRequire(external.resolve('@axe-core/playwright')).resolve('axe-core/axe.min.js');
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
 const temp = await mkdtemp(join(tmpdir(), 'physcratic-written-recovery-'));
-let server, browser, origin, version = 'a'.repeat(64), loseNext = false, holdNext = false, release;
+let server, browser, origin, version = 'a'.repeat(64), loseNext = false, holdNext = false, sourceDown = false, release;
 const requests = [], saved = new Map();
 function reply(res, value, status = 200) { res.writeHead(status, { 'content-type': 'application/json', 'cache-control': 'no-store' }); res.end(JSON.stringify(value)); }
 try {
@@ -25,7 +25,7 @@ try {
     const path = new URL(req.url, origin).pathname;
     res.setHeader('cache-control', 'no-store');
     if (path === '/bundle.js' || path === '/style.css') { res.setHeader('content-type', path.endsWith('.js') ? 'text/javascript' : 'text/css'); res.end(await readFile(join(temp, path.slice(1)))); return; }
-    if (path.startsWith('/api/submission-info/')) { reply(res, { problemVersion: version, gradingEnabled: false, ratedEnabled: false, rating: null, parts: [] }); return; }
+    if (path.startsWith('/api/submission-info/')) { if (sourceDown) reply(res, { error: 'Source unavailable' }, 503); else reply(res, { problemVersion: version, gradingEnabled: false, ratedEnabled: false, rating: null, parts: [] }); return; }
     if (path === '/api/individual-rating') { reply(res, { rating: null, ratedAttempts: 0, initialRating: 1200, history: [] }); return; }
     if (path === '/api/solution-evidence') { reply(res, { id: randomUUID(), filename: 'work.png', mediaType: 'image/png', bytes: 8, sha256: 'b'.repeat(64) }); return; }
     if (path === '/api/submissions') {
@@ -100,6 +100,19 @@ try {
   assert.equal(await working.inputValue(), 'Old version working'); assert.equal(await working.isDisabled(), true);
   await page.reload(); await wait(); assert.equal(await working.inputValue(), '', 'old-version draft is never silently reassigned');
   console.log('Written recovery: account and version boundaries passed.');
+  await page.evaluate(() => window.__setPracticeSession(null)); await page.getByRole('link', { name: 'Sign in to submit' }).waitFor();
+  assert.equal(await working.count(), 0, 'guest tools expose no private working');
+  await page.getByText('Equation calculator', { exact: true }).first().click();
+  await page.getByLabel('Equation', { exact: true }).first().fill('2+2');
+  await page.getByRole('button', { name: 'Calculate', exact: true }).first().click(); await page.getByText('result = 4', { exact: true }).waitFor();
+  await page.evaluate(() => window.__setPracticeSession('A', true, true)); await page.getByText('Checking your account.', { exact: true }).waitFor();
+  assert.equal(await page.getByText('Equation calculator', { exact: true }).count(), 1);
+  assert.equal(await working.count(), 0);
+  sourceDown = true;
+  await page.evaluate(() => window.__setPracticeSession('C')); await page.getByText('Source verification failed', { exact: true }).waitFor();
+  assert.equal(await page.getByText('Equation calculator', { exact: true }).count(), 1, 'source failure retains public calculator');
+  sourceDown = false; await page.getByRole('button', { name: 'Retry verification', exact: true }).click(); await wait();
+  console.log('Written recovery: guest and unavailable-account/source calculator access passed.');
   for (const width of [375, 1440]) for (const dark of [false, true]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.evaluate(dark => document.documentElement.classList.toggle('dark', dark), dark);

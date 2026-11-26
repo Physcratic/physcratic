@@ -12,6 +12,8 @@ Files, file names, storage URLs and upload queues are not cached. A draft's sele
 
 Account and problem changes remount the editor and abort outstanding browser requests. Late responses cannot replace the next account's state. Submission and evidence POSTs carry the existing `X-Practice-Account` header and reject mismatched authenticated cookies before request parsing or writes. Missing headers retain legacy session-authorized behavior. Source metadata is public but its client cache is scoped per account. A changed source version freezes new editing/submission of the old draft, preserves download and original pending retry, and never silently migrates old answers into the new version.
 
+The existing equation calculator stays available to guests and while account/source checks are pending or unavailable. Those public tools never mount private draft recovery. The focused browser regression verifies guest calculation and calculator access during pending account and failed source lookups.
+
 Storage access, parsing and quota failures keep in-memory text available with a warning and download action. Corrupt recovery is left untouched. A new POST cannot begin unless its retry snapshot is stored. If the server replies but the receipt cannot be stored, the original key remains pending for recovery. This deliberately prioritizes avoiding duplicate attempts over submitting without a reload-safe retry key.
 
 ## Acceptance
