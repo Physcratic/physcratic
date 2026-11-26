@@ -145,7 +145,7 @@ function SolutionEditor({ account, problemId, source, sourceError, retrySource }
       <PlainMathCheck />
       <IndividualRatingSummary userId={account} />
       <div className="flex flex-col items-start gap-2">
-        <p className="text-sm text-muted-foreground">Text is kept for reloads in this tab. Closing the tab removes recovery. Attach files again after reloading.</p>
+        <p className="text-sm text-muted-foreground">Text recovery is limited to this browser tab. Download your working before closing it. Attach unsubmitted files again after reloading.</p>
         <Button type="button" variant="outline" onClick={download}>Download working</Button>
       </div>
       {journal.warning && <p role="alert" className="text-sm text-destructive">{journal.warning}</p>}
