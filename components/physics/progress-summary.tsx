@@ -39,7 +39,7 @@ export function checkedInLastWeek(entries: readonly { lastCheckedAt: string }[],
 
 /** The one big number, the solved count, with its word. The soft green tint shows only once something is solved. The recent line shows only when there is something to say. */
 export function SolvedSummary({ solved, recent }: { solved: number; recent: number }) {
-  const { Icon, box, ink } = solved > 0 ? { Icon: CircleCheck, box: "border-success bg-success-tint", ink: "text-success-ink" } : { Icon: CircleDashed, box: "border-border bg-card", ink: "text-idle-ink" };
+  const { Icon, box, ink } = solved > 0 ? { Icon: CircleCheck, box: "border-success bg-success-tint bg-[image:var(--header-tint)]", ink: "text-success-ink" } : { Icon: CircleDashed, box: "border-border bg-card", ink: "text-idle-ink" };
   return (
     <div className={`flex items-center gap-4 rounded-lg border px-4 py-2 sm:w-fit sm:pr-8 ${box}`}>
       <Icon aria-hidden="true" className={`size-8 shrink-0 ${ink}`} />

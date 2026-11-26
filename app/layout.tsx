@@ -94,6 +94,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-background" suppressHydrationWarning>
+      <head>
+        {/* Sets the colour theme before the first paint, the way next-themes does for Light and Dark. It is a file, not inline, so a
+            nonce based policy needs nothing more for it. public/colour-theme.js is lib/colour-theme.ts colourScript, and a test keeps them equal. */}
+        {/* It must block, so it runs before the first paint. That is the point of this script. */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="/colour-theme.js" />
+      </head>
       <body className={`${plexSans.variable} ${plexMono.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
