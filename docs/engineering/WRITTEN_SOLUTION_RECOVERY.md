@@ -19,7 +19,7 @@ Storage access, parsing and quota failures keep in-memory text available with a 
 - Unit coverage: Unicode text, account/problem/version isolation, exact pending retry including evidence metadata, invalid/corrupt/oversized recovery, storage failures, receipt-write failures, definitive versus ambiguous errors and request byte limits.
 - Rendered browser coverage uses the actual form and synthetic sessions/transport: reload/export, committed save with lost reply, exact retry without a duplicate attempt, receipt reload without resubmission, account switch, stale cookies, delayed response, source-version change, blocked storage, desktop/mobile and light/dark axe checks.
 - The browser transport is synthetic. It does not establish live database, Blob, provider or production-session qualification. Existing origin, grading, rating and private evidence checks remain in force.
-- Current local unit run: 23 focused tests passed. Focused TypeScript check passed using the matching existing dependency installation. Rendered browser and full CI results are pending during implementation.
+- Focused recovery, route-boundary and existing request/security/dashboard coverage passed across 24 checks. The rendered browser test passed, including attachment retries, lost receipts, reload, export, account/version changes, storage failure and light/dark mobile/desktop axe checks. CI TypeScript and configured ESLint passed on the initial head. Full exact-head CI is tracked in [PR #265](https://github.com/Physcratic/physcratic/pull/265). Windows copy-rule baseline comparisons use POSIX paths and fail locally on unchanged files, so Linux CI is authoritative for that existing check.
 
 ## Release boundaries
 

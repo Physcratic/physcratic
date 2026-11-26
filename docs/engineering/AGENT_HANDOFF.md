@@ -2,7 +2,7 @@
 
 ## Written solution recovery (26 November 2026)
 
-Branch `codex/written-solution-recovery` adds tab-scoped written-text recovery, exact pending retries, download and account-boundary guards without enabling practice saving. [Behavior and acceptance](WRITTEN_SOLUTION_RECOVERY.md). Focused unit and TypeScript checks pass. Browser and full CI evidence remain pending. Next batch is progress-label clarification after this change is reviewed. No production operations.
+Branch `codex/written-solution-recovery` adds tab-scoped written-text recovery, exact pending retries, download and account-boundary guards without enabling practice saving. [Behavior and acceptance](WRITTEN_SOLUTION_RECOVERY.md). Focused recovery/security tests and rendered-browser recovery pass. CI TypeScript and lint pass on the initial head. Full exact-head CI is tracked in [PR #265](https://github.com/Physcratic/physcratic/pull/265). Next batch is progress-label clarification after this change is reviewed. No production operations.
 
 ## Retrospective baseline transport (26 November 2026)
 

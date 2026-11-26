@@ -102,11 +102,9 @@ try {
   console.log('Written recovery: account and version boundaries passed.');
   for (const width of [375, 1440]) for (const dark of [false, true]) {
     await page.setViewportSize({ width, height: 1000 });
-    await page.evaluate(async dark => {
-      document.documentElement.classList.toggle('dark', dark);
-      getComputedStyle(document.body).color;
-      await Promise.all(document.getAnimations().filter(a => a instanceof CSSTransition).map(a => a.finished.catch(() => {})));
-    }, dark);
+    await page.evaluate(dark => document.documentElement.classList.toggle('dark', dark), dark);
+    // Theme colors transition for 150 ms. Check the settled theme, not an intermediate blend.
+    await page.waitForTimeout(300);
     await page.addScriptTag({ path: axe });
     const result = await page.evaluate(async () => window.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa'] } }));
     assert.deepEqual(result.violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => ({ target: n.target, html: n.html, failure: n.failureSummary })) })), [], `axe ${width} dark=${dark}`);
