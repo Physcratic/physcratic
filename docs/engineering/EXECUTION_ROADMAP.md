@@ -1,3 +1,7 @@
+## Site title uses a spaced hyphen (26 November 2026)
+
+The default site title is now "Physcratic - Physics Olympiad practice for IPhO, APhO, EuPhO", a plain hyphen with a space on each side, still 60 characters. The home page title, its Open Graph title and the dashboard route read `SITE.defaultTitle`, so they follow. The social image in `app/opengraph-image.tsx` strips the new "Physcratic - " prefix, so its tagline is unchanged. The page title template in `app/layout.tsx` (`%s | Physcratic`) was not part of this change. `lib/site-title.test.ts` pins the title, the length and the prefix the image strips.
+
 ## Colour themes, meaning accents and effects, U13 (26 November 2026)
 
 Three colour themes, Paper, Ink (the default) and Sky, change colour only. Ink is written on `:root` in `app/globals.css`. Paper and Sky are written on a `data-colour` attribute, and every theme defines every colour token in light and dark. The new values map onto the existing success, progress, danger and idle families, so there is one palette. The owner's soft line is not the border, because borders must keep 3:1, so the border token is a darker step of each theme's line. Sky's green was darkened a little so white text on it keeps 4.5:1. The Paper dark values keep the previous dark hues. Ink and Sky dark use the same hues with lighter main actions.
