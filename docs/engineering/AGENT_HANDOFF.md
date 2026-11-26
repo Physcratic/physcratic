@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Written solution recovery (26 November 2026)
+
+Branch `codex/written-solution-recovery` adds tab-scoped written-text recovery, exact pending retries, download and account-boundary guards without enabling practice saving. [Behavior and acceptance](WRITTEN_SOLUTION_RECOVERY.md). Focused unit and TypeScript checks pass. Browser and full CI evidence remain pending. Next batch is progress-label clarification after this change is reviewed. No production operations.
+
 ## Retrospective baseline transport (26 November 2026)
 
 The owner verified the direct inspection and pooled runtime LOGINs. The retrospective capture now observes client TLS through the same verify-full psql invocation as the read-only snapshot. It accepts both legacy and PostgreSQL 18 conninfo output, including the unaligned PostgreSQL 18 table, and preserves the backend SSL flag and protocol separately. The Windows checkout keeps the 0020 source pin in LF. [Owner preflight and pending acceptance](RETROSPECTIVE_BASELINE_ACCEPTANCE.md#owner-connection-preflight-26-november-2026). Phase 5B and Step 2 gates remain in place.

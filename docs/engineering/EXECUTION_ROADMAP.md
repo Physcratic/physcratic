@@ -1,3 +1,7 @@
+## Written solution recovery (26 November 2026)
+
+Branch `codex/written-solution-recovery` adds tab-scoped written-text recovery, exact pending retries, download and account-boundary guards without enabling practice saving. [Behavior and acceptance](WRITTEN_SOLUTION_RECOVERY.md). Focused unit and TypeScript checks pass. Browser and full CI evidence remain pending. Next batch is progress-label clarification after this change is reviewed. No production operations.
+
 ## Retrospective baseline client TLS (26 November 2026)
 
 Use the [updated read-only runner](../../scripts/retrospective-baseline/README.md#windows-powershell-and-psql) with the existing verified client TLS configuration. It preserves the compute's backend SSL observation alongside client evidence from the same capture invocation with legacy or PostgreSQL 18 psql. Phase 5B remains on hold for the independently reviewed capture, existing Step 2 checks and explicit owner acceptance. The 0025 and 0026 tracks remain separate.

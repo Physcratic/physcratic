@@ -8,6 +8,7 @@ import { evidenceMatches } from "@/lib/submission-security";
 import { getSubmissionSource } from "@/lib/submission-source";
 import { readSubmissionJson, RequestBodyTimeoutError } from "@/lib/submission-request";
 import { isSubmissionOrigin, submissionError, submissionUser } from "@/lib/submission-server";
+import { dashboardAccountMatches } from "@/lib/dashboard-practice";
 
 export const runtime = "nodejs";
 export async function GET(request: Request) {
@@ -25,6 +26,7 @@ export async function POST(request: Request) {
     if (!isSubmissionOrigin(request)) return submissionError("Request origin rejected.", 403);
     const user = await submissionUser(request);
     if (!user) return submissionError("Sign in to save your attempt.", 401);
+    if (!dashboardAccountMatches(request, user.id)) return submissionError("The account changed. Return to the account that wrote this attempt before retrying.", 409);
     if (request.headers.get("content-type")?.split(";")[0].trim().toLowerCase() !== "application/json") return submissionError("Send a JSON submission.", 415);
     let input: unknown;
     try {
