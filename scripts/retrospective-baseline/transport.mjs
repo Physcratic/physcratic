@@ -5,11 +5,22 @@ import { fileURLToPath } from "node:url";
 
 const sslMode = "verify-full";
 const tlsLine = /^SSL connection \(protocol: (TLSv1\.[23]), cipher: [A-Za-z0-9_-]+, compression: (?:on|off)(?:, ALPN: [A-Za-z0-9_.-]+)?\)$/;
+const tlsConnectionRow = /^\s*SSL Connection\s*\|\s*true\s*$/;
+const tlsProtocolRow = /^\s*SSL Protocol\s*\|\s*(TLSv1\.[23])\s*$/;
+
+function conninfoProtocol(conninfo) {
+  const lines = conninfo.split(/\r?\n/);
+  if (lines.length === 1) return tlsLine.exec(lines[0])?.[1];
+  // PostgreSQL 18 prints two separate rows even with -qAt. Require each
+  // exactly once so disabled, duplicated or mixed evidence fails closed.
+  if (lines.length !== 2 || !lines.some(line => tlsConnectionRow.test(line))) return undefined;
+  return lines.map(line => tlsProtocolRow.exec(line)).find(Boolean)?.[1];
+}
 
 export function captureTransport(capture) {
   const tls = capture.clientTls;
   const protocol = tls?.sslMode === sslMode && typeof tls.conninfo === "string"
-    ? tlsLine.exec(tls.conninfo)?.[1] : undefined;
+    ? conninfoProtocol(tls.conninfo) : undefined;
   const backend = capture.target?.backendTls;
   if (!protocol || typeof backend?.ssl !== "boolean"
     || (backend.ssl ? !/^TLSv1(?:\.[0-9]+)?$/.test(backend.protocol) : backend.protocol !== null)) {
@@ -20,14 +31,14 @@ export function captureTransport(capture) {
 
 export function attestPsqlOutput(stdout) {
   const lines = stdout.trim().split(/\r?\n/);
-  const observations = lines.slice(0, -1).filter(line => line.startsWith("SSL connection"));
-  if (observations.length !== 1 || !tlsLine.test(observations[0])) {
+  const conninfo = lines.slice(0, -1).filter(line => /^\s*SSL (?:connection|Connection|Protocol)\b/.test(line)).join("\n");
+  if (!conninfoProtocol(conninfo)) {
     throw Error("Missing or unsupported client TLS observation from psql conninfo");
   }
-  // Retain only the TLS line from conninfo. The rest is connection metadata.
+  // Retain only the observed TLS sentence or table rows, leaving out other connection metadata.
   const snapshot = JSON.parse(lines.at(-1));
   if (snapshot.captureVersion !== 2) throw Error("Unexpected SQL capture format");
-  const capture = { ...snapshot, clientTls: { sslMode, conninfo: observations[0] } };
+  const capture = { ...snapshot, clientTls: { sslMode, conninfo } };
   if (!captureTransport(capture)) throw Error("Incomplete client or backend transport observation");
   return capture;
 }

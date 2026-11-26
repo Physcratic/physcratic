@@ -2,7 +2,7 @@
 
 ## Retrospective baseline transport (26 November 2026)
 
-The owner verified the direct inspection and pooled runtime LOGINs. The retrospective capture now observes client TLS through the same verify-full psql invocation as the read-only snapshot. It preserves the backend SSL flag and protocol separately. The Windows checkout keeps the 0020 source pin in LF. [Owner preflight and pending acceptance](RETROSPECTIVE_BASELINE_ACCEPTANCE.md#owner-connection-preflight-26-november-2026). Phase 5B and Step 2 gates remain in place.
+The owner verified the direct inspection and pooled runtime LOGINs. The retrospective capture now observes client TLS through the same verify-full psql invocation as the read-only snapshot. It accepts both legacy and PostgreSQL 18 conninfo output, including the unaligned PostgreSQL 18 table, and preserves the backend SSL flag and protocol separately. The Windows checkout keeps the 0020 source pin in LF. [Owner preflight and pending acceptance](RETROSPECTIVE_BASELINE_ACCEPTANCE.md#owner-connection-preflight-26-november-2026). Phase 5B and Step 2 gates remain in place.
 
 ## Problem Studio confirm sheet, U7e (25 November 2026)
 
