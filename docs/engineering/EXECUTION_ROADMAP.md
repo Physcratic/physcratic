@@ -1,3 +1,7 @@
+## Site title uses a spaced hyphen (26 November 2026)
+
+The default site title is now "Physcratic - Physics Olympiad practice for IPhO, APhO, EuPhO", a plain hyphen with a space on each side, still 60 characters. The home page title, its Open Graph title and the dashboard route read `SITE.defaultTitle`, so they follow. The social image in `app/opengraph-image.tsx` strips the new "Physcratic - " prefix, so its tagline is unchanged. The page title template in `app/layout.tsx` (`%s | Physcratic`) was not part of this change. `lib/site-title.test.ts` pins the title, the length and the prefix the image strips.
+
 ## Retrospective baseline client TLS (26 November 2026)
 
 Use the [updated read-only runner](../../scripts/retrospective-baseline/README.md#windows-powershell-and-psql) with the existing verified client TLS configuration. It preserves the compute's backend SSL observation alongside client evidence from the same capture invocation with legacy or PostgreSQL 18 psql. Phase 5B remains on hold for the independently reviewed capture, existing Step 2 checks and explicit owner acceptance. The 0025 and 0026 tracks remain separate.

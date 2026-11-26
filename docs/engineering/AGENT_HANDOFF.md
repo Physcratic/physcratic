@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Site title uses a spaced hyphen (26 November 2026)
+
+The default site title is now "Physcratic - Physics Olympiad practice for IPhO, APhO, EuPhO", a plain hyphen with a space on each side, still 60 characters. The home page title, its Open Graph title and the dashboard route read `SITE.defaultTitle`, so they follow. The social image in `app/opengraph-image.tsx` strips the new "Physcratic - " prefix, so its tagline is unchanged. The page title template in `app/layout.tsx` (`%s | Physcratic`) was not part of this change. `lib/site-title.test.ts` pins the title, the length and the prefix the image strips.
+
 ## Retrospective baseline transport (26 November 2026)
 
 The owner verified the direct inspection and pooled runtime LOGINs. The retrospective capture now observes client TLS through the same verify-full psql invocation as the read-only snapshot. It accepts both legacy and PostgreSQL 18 conninfo output, including the unaligned PostgreSQL 18 table, and preserves the backend SSL flag and protocol separately. The Windows checkout keeps the 0020 source pin in LF. [Owner preflight and pending acceptance](RETROSPECTIVE_BASELINE_ACCEPTANCE.md#owner-connection-preflight-26-november-2026). Phase 5B and Step 2 gates remain in place.
