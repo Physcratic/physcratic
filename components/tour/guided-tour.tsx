@@ -3,7 +3,7 @@ import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from
 import { createPortal } from "react-dom";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { tours, type TourId, type TourStep } from "./tours";
+import { REVEAL_EVENT, tours, type TourId, type TourStep } from "./tours";
 import { ringLayer } from "./tour-layer";
 import { TourText } from "./tour-text";
 import { clearRunning, hasSeen, markSeen, readRunning, TOUR_EVENT, writeRunning } from "./tour-storage";
@@ -82,7 +82,8 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
   const previous = (from: number) => {
     for (let i = from - 1; i >= 0; i--) {
       const { path, targets } = effective(tour.steps[i], compact);
-      if ((!path || path.test(pathname)) && findTarget(targets)) return i;
+      // A step on another Studio step is not on screen yet. Going back opens it again.
+      if ((!path || path.test(pathname)) && (tour.steps[i].reveal || findTarget(targets))) return i;
     }
     return -1;
   };
@@ -142,6 +143,7 @@ export function GuidedTour({ tourId }: { tourId: TourId }) {
     let tries = 0;
     setMissing(false);
     setNarrow(window.innerWidth < 640);
+    if (base?.reveal) window.dispatchEvent(new CustomEvent(REVEAL_EVENT, { detail: base.reveal }));
     const look = () => {
       const found = findTarget(step.targets);
       if (found) {

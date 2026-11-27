@@ -12,7 +12,7 @@ const server = (d: EditorDraft) => publishableDraftSchema.safeParse(payload(d));
 const codesOf = (d: EditorDraft) => new Set((server(d).error?.issues ?? []).map((i) => codeOfIssue(i)));
 const ALL_CODES = [...Object.values(ISSUE_CODES), "unknown"] as IssueCode[];
 // The forms issueTarget gives and Simple renders as data-simple-field.
-const TARGET = /^(title|source|rights|difficulty|topics|statement|parts|o:problem|[qaupso]:(main|[0-9a-f-]{36}))$/;
+const TARGET = /^(title|source|rights|difficulty|topics|statement|parts|o:problem|review|[qaupso]:(main|[0-9a-f-]{36}))$/;
 
 test("every code has a step and a target", () => {
   const d = validDraft();

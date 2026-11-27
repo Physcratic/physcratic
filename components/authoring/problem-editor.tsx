@@ -608,6 +608,7 @@ export function ProblemEditor({
               otherIssues={otherIssues}
               publishing={busy}
               onUnpublish={unpublish}
+              onPreview={() => setTab("preview")}
               onPublish={() => {
                 if (phase === "saving" || phase === "conflict") return;
                 void session.publish("publish", publishRequest);

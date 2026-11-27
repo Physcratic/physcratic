@@ -79,6 +79,15 @@ function partsNeedingKey(p: Payload): string[] {
   });
 }
 
+/** Each part a broken private entry is for: the schema is asked about a draft that keeps only that entry. */
+function partsWithMismatchedKey(p: Payload): string[] {
+  return p.privateParts.flatMap((entry, i) => {
+    const probe = copy(p);
+    probe.privateParts = [probe.privateParts[i]];
+    return has(probe, "mismatched-private-part") ? [entry.partId] : [];
+  });
+}
+
 /** Each image the description rule is about: the schema is asked again with every other image described. */
 function imagesNeedingAlt(p: Payload): Image[] {
   const images = imagesOf(p);
@@ -98,6 +107,13 @@ export function publishBlockers(d: EditorDraft): PublishBlocker[] {
   const seen = new Set<IssueCode>();
   for (const issue of issuesOf(p)) {
     const code = codeOfIssue(issue);
+    if (code === "mismatched-private-part") {
+      if (seen.has(code)) continue;
+      seen.add(code);
+      const ids = [...new Set(partsWithMismatchedKey(p))];
+      blockers.push(...(ids.length ? ids.map((partId) => ({ code, partId, step: STEP_OF_CODE[code] })) : [{ code, step: STEP_OF_CODE[code] }]));
+      continue;
+    }
     if (code === "part-needs-key" || code === "image-needs-alt") {
       // These rules repeat or summarise. Each part or image they are about is listed once.
       if (seen.has(code)) continue;
@@ -116,7 +132,8 @@ export function publishBlockers(d: EditorDraft): PublishBlocker[] {
     }
     const partId = partOfPath(p, issue.path);
     const list = issue.path[0] === "content" && (issue.path[1] === "topicTags" || issue.path[1] === "methodTags") ? issue.path[1] : undefined;
-    blockers.push({ code, ...(partId ? { partId } : {}), ...(list ? { list } : {}), step: STEP_OF_CODE[code] });
+    // A tag issue is fixed with the tags, in Details, whatever its code.
+    blockers.push({ code, ...(partId ? { partId } : {}), ...(list ? { list } : {}), step: list ? "details" : STEP_OF_CODE[code] });
   }
   const rank = (b: PublishBlocker) => PUBLISH_STEPS.indexOf(b.step);
   return blockers.map((b, i) => ({ b, i })).sort((x, y) => rank(x.b) - rank(y.b) || x.i - y.i).map(({ b }) => b);
@@ -136,13 +153,17 @@ export function blockerField(b: PublishBlocker, d: EditorDraft): string {
       return part?.blocks.find((x) => x.kind === "image")?.id === b.blockId ? `picture:${b.partId}` : `options:${b.partId}`;
     }
     case "missing-title-or-rights":
-      return "title";
+      // One rule covers three fields. Focus goes to the first one that is empty.
+      return !d.content.title.trim() ? "title" : !d.content.provenance.rightsDeclaration.trim() ? "rights" : "source";
     case "missing-difficulty":
       return "difficulty";
     case "duplicate-tag":
       return b.list === "topicTags" ? "topics" : "options:problem";
     default:
       if (b.list === "topicTags") return "topics";
+      if (b.list === "methodTags") return "options:problem";
+      // A rule Simple has no field for is listed on the Review step.
+      if (b.step === "review") return "review";
       if (b.partId && b.step === "answer") return `answer:${b.partId}`;
       return b.partId ? `options:${b.partId}` : "options:problem";
   }
