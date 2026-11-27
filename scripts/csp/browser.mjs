@@ -93,7 +93,7 @@ for (const name of browserNames) {
           const response = await page.goto(server.origin + '/dashboard', { waitUntil: 'networkidle' });
           assert.equal(response.status(), 200);
           assert.equal(Boolean(response.headers()['content-security-policy']), mode !== 'report');
-          await page.getByRole('heading', { name: 'Recommended problem', exact: true }).waitFor();
+          await page.getByRole('heading', { name: 'Random Arena problem', exact: true }).waitFor();
           await page.locator('nav[aria-label="Main navigation"] a[href="/dashboard?view=problems"]:visible').click();
           await page.getByLabel('Find a problem', { exact: true }).fill('Mind the Gap');
           await page.locator('#arena-results a[href="/dashboard/problems/arena-mind-the-gap"]').first().click();
