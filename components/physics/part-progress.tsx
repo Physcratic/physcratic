@@ -49,7 +49,7 @@ export function SolvedBanner() {
   return (
     <p role="status" className="mt-2 flex items-center gap-2 rounded-lg border border-success bg-success-tint p-4 text-base font-semibold text-foreground shadow-[var(--glow-success)] motion-safe:animate-in motion-safe:fade-in motion-safe:duration-300">
       <CircleCheck aria-hidden="true" className="size-5 shrink-0 text-success-ink" />
-      Solved
+      All checkable answers correct
     </p>
   );
 }

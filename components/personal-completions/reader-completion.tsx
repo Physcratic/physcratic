@@ -60,8 +60,9 @@ export function ReaderCompletion({ account, problemKey }: { account: string; pro
       className={data.completed ? "border-success bg-success-tint text-success-ink hover:bg-success-tint hover:text-success-ink" : undefined}
       onClick={() => void update(!data.completed)}>
       {data.completed && <Check aria-hidden="true" />}
-      {data.completed ? "Completed" : "Mark completed"}
+      {data.completed ? "Marked complete" : "Mark complete"}
     </Button>
+    <p className="text-sm text-muted-foreground">Your personal mark. It does not check your answers.</p>
     {writeFailed && <p role="alert" className="text-sm text-destructive">Could not save completion.</p>}
   </div>;
 }

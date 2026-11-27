@@ -18,11 +18,11 @@ export function CompletionHistory({ account, active }: { account: string; active
   const next = error ? null : data?.nextCursor;
 
   return <section aria-labelledby="completed-problems-heading" className="space-y-2 border-t pt-4">
-    <h3 id="completed-problems-heading" className="font-semibold">Completed problems</h3>
-    {error ? <p role="alert" className="text-sm text-destructive">Could not load completed problems.</p>
-      : !data ? <p role="status" className="text-sm text-muted-foreground">Loading completed problems…</p>
+    <h3 id="completed-problems-heading" className="font-semibold">Problems you marked complete</h3>
+    {error ? <p role="alert" className="text-sm text-destructive">Could not load problems you marked complete.</p>
+      : !data ? <p role="status" className="text-sm text-muted-foreground">Loading problems you marked complete…</p>
       : <>
-        <p role="status" className="text-sm text-muted-foreground">{data.count} completed</p>
+        <p role="status" className="text-sm text-muted-foreground">{data.count} marked complete</p>
         {data.items.length > 0 && <ul className="divide-y">
           {data.items.map(item => <li key={item.key}>
             <Link href={item.href} prefetch={false}

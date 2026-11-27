@@ -12,7 +12,7 @@ const text = (markup: string) => markup.replace(/<[^>]+>/g, " ").replace(/\s+/g,
 const statuses = ["solved", "in-progress", "not-graded"] as const satisfies readonly ProgressStatus[];
 
 test("every status badge says its status in words, with an icon and the count in text, never colour alone", () => {
-  const words = { solved: "Solved correctly", "in-progress": "Not yet solved", "not-graded": "Not graded" } as const;
+  const words = { solved: "All checkable answers correct", "in-progress": "Checks unfinished", "not-graded": "Not graded" } as const;
   for (const status of statuses) {
     const out = html(createElement(Card, null, createElement(ProgressCardHeader, { status, count: 3 })));
     assert.match(out, new RegExp(`<h2[^>]*>.*${words[status]} .*>3</span></h2>`), status);
@@ -33,10 +33,10 @@ test("red is kept for something wrong, so no progress list uses it", () => {
 
 test("the solved summary shows the big number with its word, and the recent line only when there is one", () => {
   const some = html(createElement(SolvedSummary, { solved: 5, recent: 2 }));
-  assert.equal(text(some), "5 solved 2 checked in the last 7 days");
+  assert.equal(text(some), "5 with all checkable answers correct 2 checked in the last 7 days");
   assert.match(some, /text-4xl/);
   assert.match(some, /<svg[^>]*aria-hidden="true"/);
-  assert.equal(text(html(createElement(SolvedSummary, { solved: 0, recent: 0 }))), "0 solved");
+  assert.equal(text(html(createElement(SolvedSummary, { solved: 0, recent: 0 }))), "0 with all checkable answers correct");
 });
 
 test("checked in the last 7 days counts only dates inside the week, and only what the page already has", () => {

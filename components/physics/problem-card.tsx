@@ -248,13 +248,13 @@ export function ProblemCard({
             : <span className="font-medium">{source}</span>}
           {attempted !== undefined && (
             <span className={attempted ? "font-semibold text-foreground" : undefined}>
-              {attempted ? "Attempted" : "Not attempted"}
+              {attempted ? "Saved attempt" : "No saved attempt"}
             </span>
           )}
           {year !== undefined && <span>{year}</span>}
           {task && <span>{task}</span>}
           {completed && <span data-personal-completion className="inline-flex items-center gap-1.5 font-medium text-success-ink">
-            <Check aria-hidden="true" className="size-4" />Completed
+            <Check aria-hidden="true" className="size-4" />Marked complete
           </span>}
         </p>
         <Heading

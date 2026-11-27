@@ -11,9 +11,9 @@ const card = (page, key) => area(page).locator(`[data-problem-card="${key}"]`);
 const next = page => area(page).getByRole("button", { name:"Next page", exact:true });
 const prev = page => area(page).getByRole("button", { name:"Previous page", exact:true });
 const search = page => page.getByPlaceholder("Search by problem or tag…");
-const badge = page => area(page).getByText("Completed", {exact:true});
+const badge = page => area(page).getByText("Marked complete", {exact:true});
 const getCollection = response => new URL(response.url()).pathname === collection;
-const completed = (page,key) => card(page,key).getByText("Completed",{exact:true});
+const completed = (page,key) => card(page,key).getByText("Marked complete",{exact:true});
 
 async function noPrevious(page) {
   await prev(page).waitFor();
@@ -47,10 +47,10 @@ export async function verifyArenaPersonalization({ origin, pool, open, users, sw
     assert.equal(new Set([...earlier,...tail]).size,earlier.length+tail.length);
     await completed(page,`authored:${authoredId}`).waitFor();
     // The real authored attempt predates republication. Its indicator is still independent of the mark.
-    await card(page,`authored:${authoredId}`).getByText("Attempted",{exact:true}).waitFor();
+    await card(page,`authored:${authoredId}`).getByText("Saved attempt",{exact:true}).waitFor();
 
     // Mark an unfinished second-page problem from its real reader, then return to a restarted collection.
-    const candidate = cards(page).filter({hasNotText:"Completed"}).first();
+    const candidate = cards(page).filter({hasNotText:"Marked complete"}).first();
     const key = await candidate.getAttribute("data-problem-card");
     assert.ok(key?.startsWith("arena:"));
     const title = await candidate.getByRole("heading").innerText();

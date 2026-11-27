@@ -29,8 +29,38 @@ test("mixed and wrong results ask for another try", () => {
   const mixed = summariseCheck([r("correct"), r("incorrect")]);
   assert.equal(mixed.needsAnotherTry, true);
   assert.equal(mixed.tone, "warning");
-  assert.equal(summariseCheck([r("invalid")]).tone, "error");
+  assert.equal(summariseCheck([r("invalid")]).tone, "warning");
   assert.equal(summariseCheck([r("correct"), r("unanswered")]).needsAnotherTry, false);
+});
+
+test("unreadable and undecided checks never claim an incorrect answer", () => {
+  for (const status of ["invalid", "inconclusive"] as const) {
+    for (const results of [[r(status)], [r("correct"), r(status)], [r("self-review"), r(status)]]) {
+      const summary = summariseCheck(results);
+      assert.equal(summary.tone, "warning");
+      assert.equal(summary.allCorrect, false);
+      assert.doesNotMatch(summary.headline, /Not correct|to revisit/);
+      assert.match(summary.detail, /0 incorrect/);
+      assert.match(summary.detail, status === "invalid" ? /unreadable/ : /undecided/);
+    }
+  }
+  assert.equal(summariseCheck([r("invalid")]).needsAnotherTry, true);
+  assert.equal(summariseCheck([r("inconclusive")]).needsAnotherTry, false);
+  const mixed = summariseCheck([r("incorrect"), r("invalid"), r("inconclusive")]);
+  assert.match(mixed.detail, /1 incorrect, 1 answer unreadable, 1 check undecided/);
+  assert.equal(mixed.needsAnotherTry, true);
+});
+
+test("self-review and paper work have no automatic correctness claim", () => {
+  const manual = summariseCheck([r("self-review")]);
+  assert.equal(manual.headline, "Review your working");
+  assert.equal(manual.tone, "neutral");
+  assert.equal(manual.needsAnotherTry, false);
+  const mixed = summariseCheck([r("correct"), r("self-review")]);
+  assert.equal(mixed.headline, "All checkable answers correct");
+  assert.match(mixed.detail, /1 part to check yourself/);
+  assert.equal(mixed.allCorrect, false, "existing continuation eligibility does not change");
+  assert.equal(summariseCheck([r("correct"), r("unanswered")]).headline, "Correct so far");
 });
 
 test("saved receipts describe durability without changing correctness or guest feedback", () => {

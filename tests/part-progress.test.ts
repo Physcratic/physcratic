@@ -126,7 +126,7 @@ test("the Solved note appears on the change to solved, not for a problem that is
   assert.equal(watcher.next(false), false, "an edit that undoes it hides it");
   assert.equal(watcher.next(true), true, "and solving again shows it again");
   const banner = html(createElement(SolvedBanner));
-  assert.equal(text(banner), "Solved");
+  assert.equal(text(banner), "All checkable answers correct");
   assert.match(banner, /<svg[^>]*aria-hidden="true"/);
   assert.match(banner, /role="status"/);
 });
@@ -141,7 +141,7 @@ test("the Solved note fades in only when motion is allowed, and has no confetti 
 
 test("the zero state of the solved summary is the plain card with a neutral icon and no green", () => {
   const zero = html(createElement(SolvedSummary, { solved: 0, recent: 0 }));
-  assert.equal(text(zero), "0 solved");
+  assert.equal(text(zero), "0 with all checkable answers correct");
   assert.match(zero, /border-border bg-card/);
   assert.match(zero, /text-idle-ink/);
   assert.match(zero, /<svg[^>]*aria-hidden="true"/);
@@ -149,6 +149,6 @@ test("the zero state of the solved summary is the plain card with a neutral icon
   const some = html(createElement(SolvedSummary, { solved: 1, recent: 0 }));
   assert.match(some, /border-success bg-success-tint/);
   assert.doesNotMatch(some, /idle/);
-  assert.equal(text(some), "1 solved");
+  assert.equal(text(some), "1 with all checkable answers correct");
   assert.notEqual(/<svg[^>]*class="([^"]*)"/.exec(zero)![1].includes("lucide-circle-check"), /<svg[^>]*class="([^"]*)"/.exec(some)![1].includes("lucide-circle-check"), "the icon differs");
 });

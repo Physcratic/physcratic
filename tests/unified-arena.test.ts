@@ -18,9 +18,9 @@ test("the completed card adds a status without adding another control", () => {
   summary:"Original",elo:1350,estimatedDifficulty:null,author:null,completed:true,
  });
  const html = renderToStaticMarkup(React.createElement(UnifiedProblemCard, { problem: entry }));
- assert.match(html, /aria-hidden="true"[^>]*>[\s\S]*Completed/);
+ assert.match(html, /aria-hidden="true"[^>]*>[\s\S]*Marked complete/);
  assert.equal((html.match(/<a[\s>]/g) ?? []).length, 1);
- assert.doesNotMatch(renderToStaticMarkup(React.createElement(UnifiedProblemCard, { problem: { ...entry, completed: undefined } })), /Completed/);
+ assert.doesNotMatch(renderToStaticMarkup(React.createElement(UnifiedProblemCard, { problem: { ...entry, completed: undefined } })), /Marked complete/);
 });
 
 test("attempted and personal completion render independently", () => {
@@ -30,8 +30,8 @@ test("attempted and personal completion render independently", () => {
  });
  for (const attempted of [undefined,false,true]) for (const completed of [undefined,true] as const) {
   const html = renderToStaticMarkup(React.createElement(UnifiedProblemCard,{problem:{...entry,completed},attempted}));
-  assert.equal(html.includes(">Attempted<"),attempted===true);
-  assert.equal(html.includes(">Not attempted<"),attempted===false);
+  assert.equal(html.includes(">Saved attempt<"),attempted===true);
+  assert.equal(html.includes(">No saved attempt<"),attempted===false);
   assert.equal(html.includes("data-personal-completion"),completed===true);
  }
 });
