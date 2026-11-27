@@ -82,7 +82,7 @@ try{
   }
   const id=`T${mobile?1:0}${theme}`;await session(page,id);await page.locator('input[inputmode="decimal"]').waitFor();assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'');
   await grade(page,'1');await waitText(page,'Saved to your account. Your dashboard will update.');assert.equal(await page.getByText(/Nothing is saved\./).count(),0,'durable receipt feedback must not claim unsaved');
-  await page.locator('[data-testid="dashboard"]').filter({hasText:'0 with all checkable answers correct, 1 saved'}).waitFor();
+  await page.locator('[data-testid="dashboard"]').filter({hasText:'0 solved, 1 saved'}).waitFor();
   await page.getByRole('heading',{name:'Checks unfinished 1',exact:true}).waitFor();
   dropNext=true;await grade(page,'4.9');await waitText(page,'The save is unconfirmed.');assert.equal(await count(id),2);
   const original=bodies.at(-1);await page.locator('input[inputmode="decimal"]').fill('2');
