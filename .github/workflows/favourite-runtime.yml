@@ -1,0 +1,47 @@
+name: Favourite runtime LOGIN
+on:
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'lib/**'
+      - 'tests/**'
+      - 'scripts/runtime-role/**'
+      - 'scripts/activation/**'
+      - 'scripts/production-upgrade/**'
+      - 'scripts/authoring-release-production/package/test-fixture.mjs'
+      - 'migrations/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig*.json'
+      - '.github/workflows/favourite-runtime.yml'
+permissions:
+  contents: read
+jobs:
+  database:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    services:
+      postgres:
+        image: postgres:18.7-alpine
+        env:
+          POSTGRES_PASSWORD: local-test-only
+          POSTGRES_DB: physcratic_authoring_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Real sessions and restricted LOGIN through favourite routes
+        env:
+          AUTHORING_TEST_DATABASE_URL: postgresql://postgres:local-test-only@127.0.0.1:5432/physcratic_authoring_test
+        run: node --require ./tests/server-only-register.cjs --import tsx --test tests/favourite-history-runtime.pg.test.ts

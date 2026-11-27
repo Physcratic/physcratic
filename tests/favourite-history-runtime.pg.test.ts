@@ -3,8 +3,8 @@ import test from "node:test";
 import { randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { Pool } from "pg";
-import arena from "./arena/index.json";
-import { favouritePageSchema } from "./favourite-history-contracts";
+import arena from "../lib/arena/index.json";
+import { favouritePageSchema } from "../lib/favourite-history-contracts";
 
 function disposableTarget(raw: string) {
   const url = new URL(raw);
@@ -33,7 +33,7 @@ test("favourite route uses real sessions and the existing restricted LOGIN contr
   const onError = (error: Error) => { if (!closing) idleErrors.push(error); };
   admin.on("error", onError);
   try {
-    assert.equal((await admin.query("SHOW server_version_num")).rows[0].server_version_num, "180006");
+    assert.equal((await admin.query("SHOW server_version_num")).rows[0].server_version_num, "180007");
     await admin.query(`CREATE ROLE ${owner} NOLOGIN`); ownerCreated = true;
     await admin.query(`CREATE DATABASE ${name} OWNER ${owner}`); databaseCreated = true;
     const database = new URL(root); database.pathname = "/" + name;
@@ -59,7 +59,7 @@ test("favourite route uses real sessions and the existing restricted LOGIN contr
     for (const key of Object.keys(process.env)) if (/^(VERCEL|RESEND_|COMMUNITY_|ACCOUNT_DELETION_|AUTHORING_STAGING_|FAVOURITE_|PG|POSTGRES)/.test(key)) delete process.env[key];
     Object.assign(process.env, { NODE_ENV: "test", DATABASE_URL: login.href, BETTER_AUTH_URL: "http://localhost:3000",
       BETTER_AUTH_SECRET: "synthetic-favourite-runtime-secret-at-least-32-characters", AUTH_EMAIL_TRANSPORT: "memory" });
-    ({ pool: app } = await import("./db")); app!.on("error", onError);
+    ({ pool: app } = await import("../lib/db")); app!.on("error", onError);
     assert.deepEqual((await app.query("SELECT current_user,session_user")).rows[0], { current_user: role, session_user: role });
     const capability = (await app.query("SELECT rolsuper,rolcreatedb,rolcreaterole,rolbypassrls FROM pg_roles WHERE rolname=current_user")).rows[0];
     assert.deepEqual(Object.values(capability), [false, false, false, false]);
@@ -73,7 +73,7 @@ test("favourite route uses real sessions and the existing restricted LOGIN contr
     process.env.FAVOURITE_HISTORY_ENABLED = "true";
     await check(await route.GET(request()), 503);
     process.env.COMMUNITY_PROBLEM_STATS_ENABLED = "true";
-    const { auth } = await import("./auth");
+    const { auth } = await import("../lib/auth");
     const signIn = async (index: number) => {
       const response = await auth.handler(request("/api/auth/sign-in/email", "", undefined, { email: `synthetic-${index}@example.invalid`, password: "synthetic-password-123" }));
       await check(response);
@@ -97,7 +97,7 @@ test("favourite route uses real sessions and the existing restricted LOGIN contr
     const favourite = async (cookie: string, account: string, key: string) => check(await stats.PUT(request("/api/community/problem-stats", cookie, account, { key, favourite: true }, "PUT")));
     for (const problem of arena.problems.slice(0, 25)) await favourite(a, aid, "arena:" + problem.id);
     await favourite(b, bid, "arena:" + arena.problems[0].id);
-    const { validDraft } = await import("../tests/publish-rule-fixtures");
+    const { validDraft } = await import("./publish-rule-fixtures");
     const draft = validDraft();
     const drafts = await import("../app/api/authored-problems/drafts/route");
     const made = await check(await drafts.POST(request("/api/authored-problems/drafts", a, undefined, { content: draft.content, privateParts: draft.privateParts })), 201);
