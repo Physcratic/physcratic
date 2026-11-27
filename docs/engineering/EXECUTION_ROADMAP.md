@@ -1,3 +1,7 @@
+## Progress and checker label clarity (27 November 2026)
+
+F1 merged in PR #265 as 4e6c20d after all five exact-head workflows, including full-library coverage, passed. F2 distinguishes personal marks, saved attempts and automatic answer matches, with separate unreadable, inconclusive and self-review summaries. [Behavior, validation and limits](PROGRESS_LABEL_CLARITY.md). Focused local logic/component/browser, TypeScript and lint checks pass. Published-head CI remains required before merge. No production operations. F3 recommendations and F4 continuation/history are next. F5 saving qualification remains deferred.
+
 ## Written solution recovery (26 November 2026)
 
 Branch `codex/written-solution-recovery` adds tab-scoped written-text recovery, exact pending retries, download and account-boundary guards without enabling practice saving. [Behavior and acceptance](WRITTEN_SOLUTION_RECOVERY.md). Focused recovery/security tests and rendered-browser recovery pass. All five workflows, including the full public library browser run, passed on head 7aa879d. On 27 November, current main f83d84e was merged, preserving the site-title and colour-theme work and resolving only documentation conflicts. The updated head requires fresh exact-head CI in [PR #265](https://github.com/Physcratic/physcratic/pull/265) before merge. Next batch is progress-label clarification after this change is reviewed. No production operations.

@@ -100,18 +100,18 @@ try{
   const context=await browser.newContext();const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await context.addCookies([{name:'test_user',value:who,url:origin}]);await page.goto(origin);await page.getByRole('tab',{name:'Worked solution',exact:true}).click();await page.getByText('The public derivation follows conservation of momentum.').waitFor();
   if(who==='student'){
     await page.setViewportSize({width:375,height:950});
-    await checkArena(page,'Not attempted');
+    await checkArena(page,'No saved attempt');
     await page.getByRole('link',{name:/Open problem/}).click();
     await page.getByRole('tab',{name:'Problem statement',exact:true}).click();
     await page.getByRole('textbox',{name:'Numerical answer',exact:true}).fill('1');await page.getByRole('textbox',{name:'Units',exact:true}).fill('1');await page.getByRole('button',{name:'Submit answer',exact:true}).click();
     await page.getByRole('heading',{name:'Incorrect, saved attempt 1',exact:true}).waitFor();
     assert.equal(await page.getByText(/assistance cannot be verified|unassisted/i).count(),0);
-    await checkArena(page,'Attempted');
-    await page.reload();await cardStatus(page,'Attempted').waitFor();
+    await checkArena(page,'Saved attempt');
+    await page.reload();await cardStatus(page,'Saved attempt').waitFor();
     await context.addCookies([{name:'test_user',value:'other',url:origin}]);
     await page.setViewportSize({width:1440,height:950});
-    await checkArena(page,'Not attempted');
-    assert.equal(await cardStatus(page,'Attempted').count(),0);
+    await checkArena(page,'No saved attempt');
+    assert.equal(await cardStatus(page,'Saved attempt').count(),0);
   }
   await context.close();
  }

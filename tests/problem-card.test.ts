@@ -675,9 +675,9 @@ const unified = (entry: CollectionEntry) => renderToStaticMarkup(createElement(U
 
 test("Arena card shows personal attempt status only when known", () => {
   const problem = community();
-  assert.doesNotMatch(unified(problem), /(?:Not attempted|Attempted)</);
-  assert.match(renderToStaticMarkup(createElement(UnifiedProblemCard, { problem, attempted: false })), />Not attempted</);
-  assert.match(renderToStaticMarkup(createElement(UnifiedProblemCard, { problem, attempted: true })), />Attempted</);
+  assert.doesNotMatch(unified(problem), /(?:No saved attempt|Saved attempt)</);
+  assert.match(renderToStaticMarkup(createElement(UnifiedProblemCard, { problem, attempted: false })), />No saved attempt</);
+  assert.match(renderToStaticMarkup(createElement(UnifiedProblemCard, { problem, attempted: true })), />Saved attempt</);
 });
 
 test("a community entry with an image shows it with the given address, alt text and size", () => {

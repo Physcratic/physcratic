@@ -55,9 +55,9 @@ async function open(cookie, width = 1440, theme = "dark") {
   page.setDefaultTimeout(12000);
   return { context, page };
 }
-const control = (page, completed) => page.getByRole("button", { name: completed ? "Completed" : "Mark completed", exact: true });
-const history = page => page.getByRole("region", { name: "Completed problems" });
-const count = (page, n) => history(page).getByText(`${n} completed`, { exact: true });
+const control = (page, completed) => page.getByRole("button", { name: completed ? "Marked complete" : "Mark complete", exact: true });
+const history = page => page.getByRole("region", { name: "Problems you marked complete" });
+const count = (page, n) => history(page).getByText(`${n} marked complete`, { exact: true });
 const checkpoint = (promise, label) => Promise.race([promise, delay(12000, null, { ref: false }).then(() => {
   throw new Error(`Timed out waiting for ${label}`);
 })]);
@@ -147,7 +147,7 @@ try {
     const legacy = await publicPage;
     assert.equal(legacy.request().headers()["x-community-account"], undefined);
     assert.equal((await legacy.json()).personalization, undefined);
-    assert.equal(await page.getByText("Completed", {exact:true}).count(),0);
+    assert.equal(await page.getByText("Marked complete", {exact:true}).count(),0);
     console.log("PASS feature off on old schema, signed-in readers, Settings and legacy Arena collection");
   } else {
     if (screenshots) await mkdir(screenshots, { recursive: true });
@@ -387,7 +387,7 @@ try {
     assert.deepEqual(await guestPublic.json(), await memberPublic.json());
     const publicPage = await fetch(origin + "/u/robin_student");
     assert.equal(publicPage.status, 200);
-    assert.doesNotMatch(await publicPage.text(), /Completed problems|personal-completions|completedAt/);
+    assert.doesNotMatch(await publicPage.text(), /Problems you marked complete|personal-completions|completedAt/);
     const publicProblem = await fetch(origin + "/api/authored-problems/" + problem.id);
     assert.equal(publicProblem.status, 200);
     assert.doesNotMatch(await publicProblem.text(), /completedAt|student-a|student-b/);

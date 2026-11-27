@@ -71,7 +71,7 @@ try{
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.goto(origin);
   await grade(page,'4.9');await waitText(page,'Checked without saving.');assert.ok(guestPosts>0);assert.equal(await page.getByText(/Nothing is saved\./).count(),1);
   {// Clear answers forgets what was correct. The same answer typed again is correct only after the next check.
-   const correct=page.locator('strong').filter({hasText:/^Correct\.$/}),solved=page.getByRole('status').filter({hasText:/^Solved$/});
+   const correct=page.locator('strong').filter({hasText:/^Correct\.$/}),solved=page.getByRole('status').filter({hasText:/^All checkable answers correct$/});
    await correct.waitFor();await solved.waitFor();
    await page.getByRole('button',{name:'Clear answers',exact:true}).click();
    assert.equal(await correct.count(),0,'cleared: no part is shown correct');assert.equal(await solved.count(),0,'cleared: no Solved note');
@@ -83,7 +83,7 @@ try{
   const id=`T${mobile?1:0}${theme}`;await session(page,id);await page.locator('input[inputmode="decimal"]').waitFor();assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'');
   await grade(page,'1');await waitText(page,'Saved to your account. Your dashboard will update.');assert.equal(await page.getByText(/Nothing is saved\./).count(),0,'durable receipt feedback must not claim unsaved');
   await page.locator('[data-testid="dashboard"]').filter({hasText:'0 solved, 1 saved'}).waitFor();
-  await page.getByRole('heading',{name:'Not yet solved 1',exact:true}).waitFor();
+  await page.getByRole('heading',{name:'Checks unfinished 1',exact:true}).waitFor();
   dropNext=true;await grade(page,'4.9');await waitText(page,'The save is unconfirmed.');assert.equal(await count(id),2);
   const original=bodies.at(-1);await page.locator('input[inputmode="decimal"]').fill('2');
   await page.reload();await session(page,id);await page.getByText('Your answer is saved on this device and will sync when you are back online.',{exact:true}).waitFor();assert.equal(await page.getByRole('button',{name:'Retry pending save',exact:true}).count(),0,'the manual retry button is gone');
@@ -91,10 +91,10 @@ try{
   await page.getByRole('button',{name:'Check answer',exact:true}).click();await waitText(page,'The original pending check is saved. Your current answers have not been checked.');
   assert.equal(await page.getByText(/Correct within this part/).count(),0,'old receipt must not grade the edited visible input');
   assert.deepEqual(bodies.at(-1),original);assert.equal(await count(id),2);
-  await page.locator('[data-testid="dashboard"]').filter({hasText:'1 solved, 2 saved'}).waitFor();await page.getByRole('heading',{name:'Solved correctly 1',exact:true}).waitFor();
+  await page.locator('[data-testid="dashboard"]').filter({hasText:'1 solved, 2 saved'}).waitFor();await page.getByRole('heading',{name:'All checkable answers correct 1',exact:true}).waitFor();
   await page.getByRole('link',{name:/A block on an incline.*Practice/}).waitFor();assert.equal(await page.getByRole('link',{name:/A block on an incline.*Practice/}).getAttribute('href'),'/dashboard/problems/incline');
-  await grade(page,'1');await waitText(page,'Saved to your account. Your dashboard will update.');await page.getByRole('heading',{name:'Solved correctly 1',exact:true}).waitFor();
-  await session(page,id+'B');assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'');await page.getByRole('heading',{name:'Solved correctly 0',exact:true}).waitFor();
+  await grade(page,'1');await waitText(page,'Saved to your account. Your dashboard will update.');await page.getByRole('heading',{name:'All checkable answers correct 1',exact:true}).waitFor();
+  await session(page,id+'B');assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'');await page.getByRole('heading',{name:'All checkable answers correct 0',exact:true}).waitFor();
   await session(page,null);await waitText(page,'Sign in to save progress');await session(page,id);assert.equal(await page.locator('input[inputmode="decimal"]').inputValue(),'1');
   await page.screenshot({path:`work/progress-${mobile?'375':'1440'}-${theme}.png`,fullPage:true});
   const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations.filter(v=>['serious','critical'].includes(v.impact)),[]);

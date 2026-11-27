@@ -9,12 +9,12 @@ export type ProgressStatus = "solved" | "in-progress" | "not-graded";
  * card, so the three lists do not stack three tinted bands.
  */
 export const progressStatus: Record<ProgressStatus, { title: string; description: string; Icon: typeof CircleCheck; ink: string; badge: string }> = {
-  solved: { title: "Solved correctly", description: "All required checkable parts have been correct on this version.", Icon: CircleCheck, ink: "text-success-ink", badge: "bg-success text-success-foreground" },
-  "in-progress": { title: "Not yet solved", description: "Some required parts still need a correct check.", Icon: CircleDot, ink: "text-progress-ink", badge: "bg-progress text-progress-foreground" },
-  "not-graded": { title: "Not graded", description: "Saved checks are invalid, inconclusive or for self-review.", Icon: CircleDashed, ink: "text-idle-ink", badge: "bg-idle text-idle-foreground" },
+  solved: { title: "All checkable answers correct", description: "Every required checkable part has a saved correct answer on this version. Reasoning and self-review parts are not verified.", Icon: CircleCheck, ink: "text-success-ink", badge: "bg-success text-success-foreground" },
+  "in-progress": { title: "Checks unfinished", description: "Some required checkable parts do not have a saved correct answer.", Icon: CircleDot, ink: "text-progress-ink", badge: "bg-progress text-progress-foreground" },
+  "not-graded": { title: "Not graded", description: "Saved attempts have no correct or incorrect result. Review invalid, inconclusive or self-review answers.", Icon: CircleDashed, ink: "text-idle-ink", badge: "bg-idle text-idle-foreground" },
 };
 
-/** A card header with a small icon in its ink colour, the title in words and the count in a coloured badge. The heading reads "Solved correctly 3". */
+/** A card header with a small icon in its ink colour, the title in words and the count in a coloured badge. The heading reads "All checkable answers correct 3". */
 export function ProgressCardHeader({ status, count }: { status: ProgressStatus; count: number }) {
   const { title, description, Icon, ink, badge } = progressStatus[status];
   return (
@@ -46,7 +46,7 @@ export function SolvedSummary({ solved, recent }: { solved: number; recent: numb
       <div className="flex min-w-0 flex-col gap-1">
         <p className="text-foreground">
           <span className={`text-4xl font-semibold leading-none ${solved > 0 ? ink : "text-foreground"}`}>{solved}</span>{" "}
-          <span className="text-lg font-medium">solved</span>
+          <span className="text-lg font-medium">with all checkable answers correct</span>
         </p>
         {recent > 0 && <p className="text-sm text-foreground">{recent} checked in the last 7 days</p>}
       </div>

@@ -107,7 +107,7 @@ test("the header tint is made of the theme's own tokens, and the glow is a shado
   const banner = readFileSync("components/physics/part-progress.tsx", "utf8")
   assert.match(banner, /shadow-\[var\(--glow-success\)\]/)
   assert.match(banner, /CircleCheck/)
-  assert.match(banner, /Solved\n/)
+  assert.match(banner, /All checkable answers correct\r?\n/)
   // The glow shows only with the banner, and the banner only appears on the change, never on load.
   assert.match(readFileSync("components/physics/archive-answer-panel.tsx", "utf8"), /\{justSolved && <SolvedBanner \/>\}/)
   assert.match(banner, /motion-safe:animate-in/)
