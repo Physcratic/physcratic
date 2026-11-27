@@ -1,0 +1,149 @@
+/**
+ * What blocks Publish, as stable codes, for the step flow and the "what is left" bar.
+ * The rules are the server's own: the draft is parsed with publishableDraftSchema and each issue is read
+ * through codeOfIssue. Nothing here restates a rule. Where a rule does not say which part or image it is
+ * about, the same schema is asked again about one part or one image at a time.
+ * Only what the server refuses is listed. Simple's own asks, such as the worked solution, stay nudges.
+ */
+import { codeOfIssue, type IssueCode } from "@/lib/problem-authoring-codes";
+import { publishableDraftSchema } from "@/lib/problem-authoring";
+import { draftPayload, type EditorBlock, type EditorDraft } from "@/lib/problem-authoring-editor";
+
+export const PUBLISH_STEPS = ["question", "answer", "worked-solution", "details", "review"] as const;
+export type PublishStep = (typeof PUBLISH_STEPS)[number];
+export type PublishBlocker = {
+  code: IssueCode;
+  partId?: string;
+  blockId?: string;
+  /** For a tag issue, which list it is in. */
+  list?: "topicTags" | "methodTags";
+  step: PublishStep;
+};
+
+/** The step each code is fixed in. An image in a hint or worked solution is fixed in the worked solution step instead. */
+export const STEP_OF_CODE: Record<IssueCode, PublishStep> = {
+  "missing-statement": "question",
+  "image-needs-alt": "question",
+  "part-needs-key": "answer",
+  "reserved-variable": "answer",
+  "reversed-variable-bounds": "answer",
+  "empty-variable-domain": "answer",
+  "duplicate-variable": "answer",
+  "mismatched-private-part": "answer",
+  "missing-title-or-rights": "details",
+  "missing-difficulty": "details",
+  "duplicate-tag": "details",
+  "image-needs-media": "review",
+  "duplicate-id": "review",
+  "duplicate-media": "review",
+  "duplicate-private-id": "review",
+  "document-too-large": "review",
+  "draft-too-large": "review",
+  unknown: "review",
+};
+
+type Payload = ReturnType<typeof draftPayload> & { problemId: string; version: number };
+type Issue = { message: string; path: readonly PropertyKey[] };
+const payloadOf = (d: EditorDraft): Payload => ({ problemId: d.problemId, version: d.version, ...draftPayload(d) });
+const issuesOf = (p: Payload): Issue[] => publishableDraftSchema.safeParse(p).error?.issues ?? [];
+const has = (p: Payload, code: IssueCode) => issuesOf(p).some((i) => codeOfIssue(i) === code);
+const copy = (p: Payload): Payload => structuredClone(p);
+
+/** The part an issue's path points into, from the draft's own structure. */
+function partOfPath(p: Payload, path: readonly PropertyKey[]): string | undefined {
+  if (path[0] === "privateParts" && typeof path[1] === "number") return p.privateParts[path[1]]?.partId;
+  if (path[0] === "content" && path[1] === "sections" && typeof path[2] === "number" && path[3] === "parts" && typeof path[4] === "number")
+    return p.content.sections[path[2]]?.parts[path[4]]?.id;
+  return undefined;
+}
+
+type Image = { block: Extract<EditorBlock, { kind: "image" }>; partId?: string; inSolution: boolean };
+function imagesOf(p: Payload): Image[] {
+  const pick = (blocks: readonly EditorBlock[], partId: string | undefined, inSolution: boolean) =>
+    blocks.flatMap((block) => (block.kind === "image" ? [{ block, partId, inSolution }] : []));
+  return [
+    ...pick(p.content.context, undefined, false),
+    ...p.content.sections.flatMap((s) => [...pick(s.blocks, undefined, false), ...s.parts.flatMap((part) => pick(part.blocks, part.id, false))]),
+    ...p.privateParts.flatMap((e) => [...pick(e.hints, e.partId, true), ...pick(e.solution, e.partId, true)]),
+  ];
+}
+
+/** Each part the key rule is about: the schema is asked about a draft that holds only that part. */
+function partsNeedingKey(p: Payload): string[] {
+  const ids = p.content.sections.flatMap((s) => s.parts.map((part) => part.id));
+  return ids.filter((id) => {
+    const probe = copy(p);
+    probe.content.sections = probe.content.sections.map((s) => ({ ...s, parts: s.parts.filter((part) => part.id === id) }));
+    probe.privateParts = probe.privateParts.filter((e) => e.partId === id);
+    return has(probe, "part-needs-key");
+  });
+}
+
+/** Each image the description rule is about: the schema is asked again with every other image described. */
+function imagesNeedingAlt(p: Payload): Image[] {
+  const images = imagesOf(p);
+  return images.filter((_, index) => {
+    const probe = copy(p);
+    imagesOf(probe).forEach((image, i) => {
+      if (i !== index) image.block.alt = "described";
+    });
+    return has(probe, "image-needs-alt");
+  });
+}
+
+/** Everything that blocks Publish, ordered by step and then by the schema's own order. Empty exactly when the server accepts the draft. */
+export function publishBlockers(d: EditorDraft): PublishBlocker[] {
+  const p = payloadOf(d);
+  const blockers: PublishBlocker[] = [];
+  const seen = new Set<IssueCode>();
+  for (const issue of issuesOf(p)) {
+    const code = codeOfIssue(issue);
+    if (code === "part-needs-key" || code === "image-needs-alt") {
+      // These rules repeat or summarise. Each part or image they are about is listed once.
+      if (seen.has(code)) continue;
+      seen.add(code);
+      const located: PublishBlocker[] =
+        code === "part-needs-key"
+          ? partsNeedingKey(p).map((partId) => ({ code, partId, step: STEP_OF_CODE[code] }))
+          : imagesNeedingAlt(p).map((image) => ({
+              code,
+              blockId: image.block.id,
+              ...(image.partId ? { partId: image.partId } : {}),
+              step: image.inSolution ? "worked-solution" : STEP_OF_CODE[code],
+            }));
+      blockers.push(...(located.length ? located : [{ code, step: STEP_OF_CODE[code] }]));
+      continue;
+    }
+    const partId = partOfPath(p, issue.path);
+    const list = issue.path[0] === "content" && (issue.path[1] === "topicTags" || issue.path[1] === "methodTags") ? issue.path[1] : undefined;
+    blockers.push({ code, ...(partId ? { partId } : {}), ...(list ? { list } : {}), step: STEP_OF_CODE[code] });
+  }
+  const rank = (b: PublishBlocker) => PUBLISH_STEPS.indexOf(b.step);
+  return blockers.map((b, i) => ({ b, i })).sort((x, y) => rank(x.b) - rank(y.b) || x.i - y.i).map(({ b }) => b);
+}
+
+/** The Simple field a blocker is shown at, in the same form simpleIssues uses. issueTarget turns it into a data-simple-field. */
+export function blockerField(b: PublishBlocker, d: EditorDraft): string {
+  switch (b.code) {
+    case "missing-statement": {
+      const first = d.content.sections.flatMap((s) => s.parts)[0];
+      return first ? `question:${first.id}` : "parts";
+    }
+    case "image-needs-alt": {
+      if (!b.partId) return d.content.context.some((x) => x.id === b.blockId) ? "picture:main" : "options:problem";
+      const part = d.content.sections.flatMap((s) => s.parts).find((x) => x.id === b.partId);
+      // Simple shows a part's first picture in its picture box. Every other one is in the part's More options.
+      return part?.blocks.find((x) => x.kind === "image")?.id === b.blockId ? `picture:${b.partId}` : `options:${b.partId}`;
+    }
+    case "missing-title-or-rights":
+      return "title";
+    case "missing-difficulty":
+      return "difficulty";
+    case "duplicate-tag":
+      return b.list === "topicTags" ? "topics" : "options:problem";
+    default:
+      if (b.list === "topicTags") return "topics";
+      if (b.partId && b.step === "answer") return `answer:${b.partId}`;
+      return b.partId ? `options:${b.partId}` : "options:problem";
+  }
+}

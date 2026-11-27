@@ -17,6 +17,8 @@ import { answerFromBuffer } from "@/lib/authored-student";
 import { normalizeNumericUnits } from "@/lib/authored-grading-contracts";
 import { authoredKeySchema, hasAuthoredStatement, publishableDraftSchema } from "@/lib/problem-authoring";
 import { draftPayload, moveItem, setPartAnswerMode, type EditorBlock, type EditorDraft } from "@/lib/problem-authoring-editor";
+import { codeOfIssue, type IssueCode } from "@/lib/problem-authoring-codes";
+import { blockerField, type PublishBlocker } from "./publish-blockers";
 
 export type Key = EditorDraft["privateParts"][number]["key"];
 export type PrivatePart = EditorDraft["privateParts"][number];
@@ -625,6 +627,7 @@ export function setDifficulty(d: EditorDraft, text: string): boolean {
 const ALT_RULE = "Every image requires descriptive alternative text before publication";
 const PROVENANCE_RULE = "Title and rights provenance required";
 const DUPLICATE_TAGS_RULE = "Duplicate tags";
+const DUPLICATE_TAG: ReadonlySet<IssueCode> = new Set(["duplicate-tag"]);
 /** The plain messages for the whole problem. Each one is shown by Simple itself, so the server's wording is not shown beside it. */
 export const PROBLEM_MESSAGES = {
   images: "Describe each image in the shared setup and sections, in More options.",
@@ -634,15 +637,26 @@ export const PROBLEM_MESSAGES = {
   topicRepeated: "A topic is listed twice. Switch the repeated topic off and on again.",
   topicOther: "Check the topics. A problem can have up to 30, and each one can be up to 80 characters.",
 } as const;
-/** The server's publish rules that Simple words and shows next to its own fields. Anything else is listed by the Publish button. */
+/** The server's publish rules that Simple words and shows next to its own fields, by code. Anything else is listed by the Publish button. */
+const SIMPLE_OWNED_CODES: ReadonlySet<IssueCode> = new Set(["missing-title-or-rights", "missing-statement", "part-needs-key", "missing-difficulty", "image-needs-alt"]);
+/** The same rules by message, only for an issue that has no code. */
 const SIMPLE_OWNED_RULES = /^(Title and rights provenance required|Add a statement and at least one part\. Use text, statement images or a statement PDF\.|Every published part requires a key or explicit manual mode|Add a difficulty rating from 0 to 4,000\.|Every image requires descriptive alternative text before publication)$/;
 const isTagPath = (path: readonly PropertyKey[]) => path[0] === "content" && (path[1] === "methodTags" || path[1] === "topicTags");
 /** The server messages Simple does not already say in its own words, so each problem is shown once. Tags are Simple's whole, whatever the rule. */
 export function otherIssueMessages(issues: readonly { message: string; path: readonly PropertyKey[] }[]): string[] {
-  return issues.filter((i) => !isTagPath(i.path) && !SIMPLE_OWNED_RULES.test(i.message)).map((i) => i.message);
+  return issues.filter((i) => !isTagPath(i.path) && !isCode(i, SIMPLE_OWNED_CODES, SIMPLE_OWNED_RULES)).map((i) => i.message);
 }
-/** The `data-simple-field` an issue's field is shown at, and where Publish moves focus. */
-export function issueTarget(field: string): string {
+/** Whether an issue has one of these codes. The message is matched only when the issue has no code. */
+function isCode(issue: { message: string }, codes: ReadonlySet<IssueCode>, fallback: RegExp | string): boolean {
+  const code = codeOfIssue(issue);
+  if (code !== "unknown") return codes.has(code);
+  return typeof fallback === "string" ? issue.message === fallback : fallback.test(issue.message);
+}
+/** The `data-simple-field` an issue's field is shown at, and where Publish moves focus. A publish blocker is placed by its code. */
+export function issueTarget(field: string): string;
+export function issueTarget(blocker: PublishBlocker, draft: EditorDraft): string;
+export function issueTarget(field: string | PublishBlocker, draft?: EditorDraft): string {
+  if (typeof field !== "string") return issueTarget(draft ? blockerField(field, draft) : "options:problem");
   const [kind, id] = field.split(":");
   return kind === "question" ? `q:${id}` : kind === "answer" ? `a:${id}` : kind === "units" ? `u:${id}` : kind === "picture" ? `p:${id}` : kind === "solution" ? `s:${id}` : kind === "options" ? `o:${id}` : kind;
 }
@@ -696,17 +710,17 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
   if (contextPicture && !contextPicture.alt.trim()) issues.push({ field: "picture:main", message: "Describe the image so everyone can follow it." });
   // What More options holds is judged by the server schema itself, never by a copy of its rules.
   const server = publishableDraftSchema.safeParse({ problemId: d.problemId, version: d.version, ...draftPayload(d) }).error?.issues ?? [];
-  const serverSays = (message: string) => server.some((i) => i.message === message);
+  const serverSays = (code: IssueCode, message: string) => server.some((i) => isCode(i, new Set([code]), message));
   const covered = (pattern: RegExp) => issues.some((i) => pattern.test(i.field));
   const inOptions = (message: string) => issues.push({ field: "options:problem", message });
-  if (serverSays(ALT_RULE) && !covered(/^(picture|options):/)) inOptions(PROBLEM_MESSAGES.images);
-  if (serverSays(PROVENANCE_RULE) && !covered(/^(title|source|rights)$/)) inOptions(PROBLEM_MESSAGES.source);
+  if (serverSays("image-needs-alt", ALT_RULE) && !covered(/^(picture|options):/)) inOptions(PROBLEM_MESSAGES.images);
+  if (serverSays("missing-title-or-rights", PROVENANCE_RULE) && !covered(/^(title|source|rights)$/)) inOptions(PROBLEM_MESSAGES.source);
   // Any tag problem is Simple's to word, so the server's own line is not shown beside it. Only a repeat has a message of its own.
   const tagIssues = (list: "methodTags" | "topicTags") => server.filter((i) => i.path[0] === "content" && i.path[1] === list);
   const method = tagIssues("methodTags");
-  if (method.length) inOptions(method.some((i) => i.message === DUPLICATE_TAGS_RULE) ? PROBLEM_MESSAGES.methodRepeated : PROBLEM_MESSAGES.methodOther);
+  if (method.length) inOptions(method.some((i) => isCode(i, DUPLICATE_TAG, DUPLICATE_TAGS_RULE)) ? PROBLEM_MESSAGES.methodRepeated : PROBLEM_MESSAGES.methodOther);
   const topics = tagIssues("topicTags");
-  if (topics.length) issues.push({ field: "topics", message: topics.some((i) => i.message === DUPLICATE_TAGS_RULE) ? PROBLEM_MESSAGES.topicRepeated : PROBLEM_MESSAGES.topicOther });
+  if (topics.length) issues.push({ field: "topics", message: topics.some((i) => isCode(i, DUPLICATE_TAG, DUPLICATE_TAGS_RULE)) ? PROBLEM_MESSAGES.topicRepeated : PROBLEM_MESSAGES.topicOther });
   return issues;
 }
 
