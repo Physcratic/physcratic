@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Random Arena discovery, F3 (27 November 2026)
+
+F2 merged in PR #267 as 6c622c2 after all seven exact-head workflows passed. F3 labels the dashboard suggestion as random discovery and removes account/browser-progress filtering. [Behavior and verification](RANDOM_DISCOVERY.md). Focused rendering/picker and real-component browser checks pass. Full published-head CI remains required before merge. No production operations. F4 continuation/history is next. F5 saving qualification remains deferred.
+
 ## Progress and checker label clarity (27 November 2026)
 
 F1 merged in PR #265 as 4e6c20d after all five exact-head workflows, including full-library coverage, passed. F2 distinguishes personal marks, saved attempts and automatic answer matches, with separate unreadable, inconclusive and self-review summaries. [Behavior, validation and limits](PROGRESS_LABEL_CLARITY.md). Focused local logic/component/browser, TypeScript and lint checks pass. Published-head CI remains required before merge. No production operations. F3 recommendations and F4 continuation/history are next. F5 saving qualification remains deferred.

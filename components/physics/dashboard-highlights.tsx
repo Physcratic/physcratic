@@ -24,7 +24,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import arena from "@/lib/arena/index.json";
-import { pickProblem, readSolved } from "./solved-problems";
+import { pickProblem } from "./solved-problems";
 import { PublishedContestCard } from "./published-contest-card";
 import { LoadingLines } from "@/components/loading-lines";
 
@@ -91,12 +91,12 @@ function FeaturedContest() {
   );
 }
 
-function ProblemToCheckOut() {
+export function ProblemToCheckOut() {
   // A stable Arena choice makes the primary link usable in HTML and matches the first client render.
-  // Browser-local unsolved selection still runs after hydration.
+  // Random discovery uses no account progress or shared-browser solving history.
   const [id, setId] = useState<string | null>(arenaIds[0] ?? null);
   useEffect(() => {
-    setId(pickProblem(arenaIds, readSolved()) ?? null);
+    setId(pickProblem(arenaIds, new Set()) ?? null);
   }, []);
   const problem = arenaProblems.find((item) => item.id === id);
   const rating = problem ? getEstimatedProblemElo(problem.id) : null;
@@ -114,9 +114,10 @@ function ProblemToCheckOut() {
             className="flex items-center gap-2 text-sm font-medium text-accent-foreground"
           >
             <Sun aria-hidden="true" className="size-4" strokeWidth={1.6} />
-            Recommended problem
+            Random Arena problem
           </h2>
         </CardTitle>
+        <CardDescription>Chosen at random, without using your saved attempts or personal marks.</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-1 flex-col gap-4">
         {problem ? (
@@ -169,7 +170,7 @@ function ProblemToCheckOut() {
           variant="outline"
           className="min-h-11"
           disabled={!problem}
-          onClick={() => setId((current) => pickProblem(arenaIds, readSolved(), current ?? undefined) ?? current)}
+          onClick={() => setId((current) => pickProblem(arenaIds, new Set(), current ?? undefined) ?? current)}
         >
           <Shuffle data-icon="inline-start" />
           Another problem

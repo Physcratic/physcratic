@@ -13,7 +13,7 @@ import { Rankings } from "@/components/physics/rankings";
 import { RANKINGS_SEARCH_MAX_LENGTH } from "@/lib/rankings";
 
 const subtitles: Record<View, string> = {
-  overview: "Today's problem, your rating and recommended practice.",
+  overview: "Browse Arena problems and upcoming contests.",
   problems: "Browse practice problems and filter by topic.",
   contests: "Upcoming and past contests.",
   rankings: "Contestants ranked by rating.",

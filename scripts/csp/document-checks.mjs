@@ -55,7 +55,7 @@ export async function documentHeaders(local, artifact, inventory, enforced) {
 export async function documentBrowsers({browser,name,local,root,artifact,inventory,enforced,fixtures=false}) {
   const results=[];
   const cases=fixtures?[
-    ['/', 'member', 'Recommended problem'], ['/', 'error', null],
+    ['/', 'member', 'Random Arena problem'], ['/', 'error', null],
     ['/settings','member','Account Settings'], ['/settings','unverified','Account Settings'],
     ['/admin/moderation','anonymous','Sign in with an authorized staff account.'],
     ['/admin/moderation','unverified','Current moderator or admin permission is required.'],
@@ -94,7 +94,7 @@ export async function documentBrowsers({browser,name,local,root,artifact,invento
       if(route.startsWith('/admin/')||route.includes('missing')||route==='/_not-found'){
         await page.locator('a[href="/dashboard"]').first().click();
         await page.waitForURL('**/dashboard');
-        await page.getByRole('heading',{name:'Recommended problem',exact:true}).waitFor();
+        await page.getByRole('heading',{name:'Random Arena problem',exact:true}).waitFor();
       }
       const before=await page.evaluate(()=>window.__documentViolations);
       for(const raw of before){
