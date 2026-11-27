@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Written solution recovery (26 November 2026)
+
+Branch `codex/written-solution-recovery` adds tab-scoped written-text recovery, exact pending retries, download and account-boundary guards without enabling practice saving. [Behavior and acceptance](WRITTEN_SOLUTION_RECOVERY.md). Focused recovery/security tests and rendered-browser recovery pass. All five workflows, including the full public library browser run, passed on head 7aa879d. On 27 November, current main f83d84e was merged, preserving the site-title and colour-theme work and resolving only documentation conflicts. The updated head requires fresh exact-head CI in [PR #265](https://github.com/Physcratic/physcratic/pull/265) before merge. Next batch is progress-label clarification after this change is reviewed. No production operations.
+
 ## Site title uses a spaced hyphen (26 November 2026)
 
 The default site title is now "Physcratic - Physics Olympiad practice for IPhO, APhO, EuPhO", a plain hyphen with a space on each side, still 60 characters. The home page title, its Open Graph title and the dashboard route read `SITE.defaultTitle`, so they follow. The social image in `app/opengraph-image.tsx` strips the new "Physcratic - " prefix, so its tagline is unchanged. The page title template in `app/layout.tsx` (`%s | Physcratic`) was not part of this change. `lib/site-title.test.ts` pins the title, the length and the prefix the image strips.

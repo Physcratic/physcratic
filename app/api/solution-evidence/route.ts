@@ -9,6 +9,7 @@ import { submissionLimits } from "@/lib/solution-grading";
 import { detectSubmissionMedia, validUploadSize } from "@/lib/submission-security";
 import { readSubmissionForm, RequestBodyTimeoutError } from "@/lib/submission-request";
 import { isSubmissionOrigin, submissionError, submissionUser } from "@/lib/submission-server";
+import { dashboardAccountMatches } from "@/lib/dashboard-practice";
 
 export const runtime = "nodejs";
 export async function POST(request: Request) {
@@ -17,6 +18,7 @@ export async function POST(request: Request) {
     if (!isSubmissionOrigin(request)) return submissionError("Request origin rejected.", 403);
     const user = await submissionUser(request);
     if (!user) return submissionError("Sign in before uploading work.", 401);
+    if (!dashboardAccountMatches(request, user.id)) return submissionError("The account changed. Reload before uploading work.", 409);
     if (!/^multipart\/form-data(?:;|$)/i.test(request.headers.get("content-type") ?? "")) return submissionError("Send a multipart file upload.", 415);
     let form: FormData;
     try {
