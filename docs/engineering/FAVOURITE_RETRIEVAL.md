@@ -1,5 +1,13 @@
 # Private favourite retrieval
 
+## Repository qualification (27 November 2026)
+
+[PR #272](https://github.com/Physcratic/physcratic/pull/272) merged as `27ead7d1e5c1612c461cebce1d4b70cfe7d5c735` after all eight workflows and both preview checks passed on exact head `1ddde8ba0df2ff5208f8e8684984cc6b7085c27c`. [Core CI](https://github.com/Physcratic/physcratic/actions/runs/46007678748) passed 1,179 server tests and all 389 component tests, typecheck, zero-warning lint, production build and both disposable PostgreSQL jobs. The non-database server run retains 42 skips and one TODO. The new favourite SQL scenarios ran successfully on real PostgreSQL. [Favourite browser](https://github.com/Physcratic/physcratic/actions/runs/46007678259), [full library and guest/verified native archive](https://github.com/Physcratic/physcratic/actions/runs/46007678553), [CSP](https://github.com/Physcratic/physcratic/actions/runs/46007678385), community, continuation, progress-label and recovery workflows passed. The initial missing JSON-route inventory entry was corrected without weakening its guard. Direct code review found no blocking issue.
+
+The isolated local production build and affected-library sweep passed at 375/390/768/1440 in both themes with zero failures (minimum text 4.63:1, border 3.14:1). The built disabled endpoint returned private/no-store 503. The full signed-in site sweep was not run locally because no disposable local PostgreSQL service was available. Synthetic owner-list tests cover guest/pending, A/B account switches, stale cookies, delayed responses, pagination and error recovery. These checks qualify repository implementation, not actual production runtime permissions or activation.
+
+Activation remains NO-GO. The operator prerequisites below still apply. This qualification supersedes the pending-CI status at the implementation checkpoint.
+
 27 November 2026. Implementation checkpoint [`770f1b9`](https://github.com/Physcratic/physcratic/commit/770f1b9892c758dbd03de667c715d0755225521b), based on main `7a1c0fb`. This addresses the remaining F4 retrieval gap without introducing another work queue or changing saved-practice activation.
 
 ## Behavior and privacy
