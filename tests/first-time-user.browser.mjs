@@ -82,7 +82,7 @@ try {
     // MathLive is loaded only where there is an answer box. The library and the lobby have none.
     ok(await page.evaluate(() => !customElements.get("math-field")), `MathLive is not loaded on the library (${tag})`);
     await page.goto(`${origin}/dashboard`);
-    await page.getByRole("heading", { name: "Recommended problem" }).waitFor();
+    await page.getByRole("heading", { name: "Random Arena problem" }).waitFor();
     await page.waitForTimeout(1500);
     ok(await page.evaluate(() => !customElements.get("math-field")), `MathLive is not loaded on the lobby (${tag})`);
     await page.goto(origin + fixtures.library.path);
