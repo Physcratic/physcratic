@@ -17,3 +17,7 @@ Local header/target/boundary tests pass. The actual three-reader browser test pa
 This does not qualify a favourite retrieval experience. The current heart reads and writes favourites for supplied problem keys. The collection has no saved-only retrieval control or private favourite-list query. No new favourite index, auto-mistake queue or scheduler is introduced here. Before extending it, confirm the student need and qualify bounded private pagination, withdrawn problems, account changes and unavailable sources through a separate focused batch. Personal completion history is a different signal and is not described as a favourite list.
 
 No schema, migration, dependency, protected release manifest, production setting, feature flag or deployment change. F5 account-saving qualification remains deferred and separately authorized.
+
+## Final navigation qualification
+
+PR #269 merged as b950bc1817300a9f289506484d729915a82dfc08. All eight workflows and both preview checks passed on exact head ed8b4b9bef96e3981282e7ec6a475b7c58ccfcb8, including core CI, full public library, community, authored student, CSP, continuation/history, discovery/feedback and written recovery. Retargeting to main preserved tested tree 575e2caf85cfd19561a6ddede1e5f533b3fe3d2a. The PR records linked run evidence. Favourite retrieval remains unqualified and F5 remains deferred. No production deployment occurred.
