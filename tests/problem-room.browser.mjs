@@ -45,6 +45,21 @@ try {
     assert.equal(await page.locator('main#solver-main').count(),1);
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);checks++;
     const rail = page.locator('[data-answer-workspace]');
+    const previous = page.getByRole('link', { name:'Your previous work', exact:true });
+    assert.equal(await previous.getAttribute('href'), '/dashboard#problem-history');
+    await previous.focus();assert.equal(await previous.evaluate(el=>document.activeElement===el),true);checks++;
+    if(kind==='arena') {
+      const next = page.getByRole('link',{name:'Next in Arena',exact:true});
+      await next.waitFor();assert.match(await next.getAttribute('href'), /^\/dashboard\/problems\/arena-/);
+      await page.getByRole('link',{name:'View worked solution',exact:true}).click();
+      assert.equal(await next.isVisible(),true,'manual solution review does not require a correct check to continue');
+      assert.equal(await page.getByRole('status').filter({hasText:/^All checkable answers correct$/}).count(),0);
+      assert.equal(await page.getByRole('button',{name:'Marked complete',exact:true}).count(),0);
+      const field = page.locator('input[inputmode="decimal"]').first();await field.fill('123');
+      await next.focus();await page.keyboard.press('Enter');await page.waitForURL(/\/dashboard\/problems\/arena-/);
+      await page.goBack();await field.waitFor();assert.equal(await field.inputValue(),'123','tab-session draft survives continuation and browser return');
+      checks+=3;
+    }
     assert.equal(await rail.evaluate(el=>getComputedStyle(el).position),width===375?'static':'sticky');checks++;
     if(kind==='imported') {
       await page.getByRole('tab',{name:'Worked solution',exact:false}).click();

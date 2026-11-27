@@ -7,7 +7,7 @@ export const howToUsePhyscratic: ArticleDraft = {
   slug: "how-to-use-physcratic",
   title: "How to use Physcratic",
   description: "Find a physics problem, type your answer in the maths field, read what the checker says, open worked solutions, and replay the tour.",
-  updated: "2026-11-12",
+  updated: "2026-11-27",
   reviewedBy: null,
   sources: [],
   published: true,
@@ -36,7 +36,7 @@ export const howToUsePhyscratic: ArticleDraft = {
       "“Add brackets: a/(bc) or (a/b)c.” The checker will not guess how you meant a divide followed by several letters, so it shows both readings.",
       "Could not be decided means the checker could not tell. It does not mean you are wrong. Compare with the worked solution.",
     ] },
-    { type: "paragraph", text: "After a wrong answer, Try again keeps what you typed. Next problem opens the next Arena problem in the list." },
+    { type: "paragraph", text: "After a wrong answer, Try again keeps what you typed. Next in Arena follows catalogue order and is available after manual review or an inconclusive check too." },
     { type: "problemLink", problemId: "arena-mind-the-gap", label: "Try Mind the Gap in Arena" },
     { type: "image", src: `${dir}/practice-steps-feedback.webp`, alt: "An Arena answer workspace with a wrong lens-radius answer and feedback after checking.", width: 1280, height: 1000, caption: "A wrong answer and its result." },
 
@@ -45,6 +45,7 @@ export const howToUsePhyscratic: ArticleDraft = {
     { type: "image", src: `${dir}/arena-parts.webp`, alt: "An Arena problem with part (a) in a blue bordered box and part (b) in a violet one, above answer boxes for parts a and b in the same colours.", width: 1280, height: 1000, caption: "An Arena problem. Each part has its own colour." },
 
     { type: "heading", level: 2, text: "Other problems and your account" },
+    { type: "paragraph", text: "Your previous work in the problem-page header opens your existing history. It lists available saved checks against current problem versions. Loading failures are shown as unavailable progress. Unsaved checks do not become account history." },
     { type: "paragraph", text: "The Olympiad archive has imported IPhO, APhO and EuPhO papers. Most have no automatic check, so compare your work with the worked solution. Guided exercises split papers into parts with a Reading notes box. Community problems save every answer as a numbered attempt, and opening a permitted worked solution makes later attempts on that revision count as assisted. They have no library tab of their own. They sit in Physcratic Arena." },
     { type: "paragraph", text: "You can browse and run checks without an account. Sign up to save notes and attempts, and verify your email to answer community problems. Settings is at the bottom of the sidebar. Coaching in the top bar is about medallist coaches." },
     { type: "siteLink", href: "/settings", label: "Open Settings" },
