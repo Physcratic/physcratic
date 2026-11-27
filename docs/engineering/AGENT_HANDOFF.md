@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Continuation and previous work, F4 navigation (27 November 2026)
+
+Following F3 PR #268, Arena continuation is available independently of checker success and states catalogue order. Shared readers link to the existing previous-work history. [Behavior, verification and outstanding favourite retrieval](CONTINUATION_HISTORY.md). Eleven local header/target tests and 88 three-reader browser checks pass, including draft return, manual review, keyboard, light/dark and phone/desktop accessibility. TypeScript and lint pass. Published-head CI remains required before merge. No production operations. Favourite retrieval is unqualified. F5 saving qualification remains deferred.
+
 ## Random Arena discovery, F3 (27 November 2026)
 
 F2 merged in PR #267 as 6c622c2 after all seven exact-head workflows passed. F3 labels the dashboard suggestion as random discovery and removes account/browser-progress filtering. [Behavior and verification](RANDOM_DISCOVERY.md). Focused rendering/picker and real-component browser checks pass. Full published-head CI remains required before merge. No production operations. F4 continuation/history is next. F5 saving qualification remains deferred.

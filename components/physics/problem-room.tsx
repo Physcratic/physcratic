@@ -14,7 +14,10 @@ export function ProblemRoom({ children, status, footer, backHref }: { children: 
     <SkipLink targetId="solver-main">Skip to problem content</SkipLink>
     <header className="border-b bg-background">
       <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-8">
-        <ProblemBackLink archiveHref={backHref} />
+        <nav aria-label="Problem navigation" className="flex flex-wrap items-center gap-4">
+          <ProblemBackLink archiveHref={backHref} />
+          <Link href="/dashboard#problem-history" className="inline-flex min-h-11 items-center rounded-md text-sm font-semibold underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">Your previous work</Link>
+        </nav>
         <div className="flex flex-wrap items-center gap-4">
           <Link href="/" aria-label="Physcratic home" className="inline-flex min-h-11 items-center gap-2 rounded-md px-2 text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
             <BrandMark size={20} className="size-5" />

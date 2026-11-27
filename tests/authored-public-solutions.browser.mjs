@@ -78,6 +78,7 @@ try{
  for(const width of [375,1440])for(const theme of ['light','dark']){
   const context=await browser.newContext({viewport:{width,height:950},reducedMotion:'reduce'}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
   await page.goto(`${origin}/?theme=${theme}`);await page.getByRole('tab',{name:'Worked solution',exact:true}).waitFor();
+  assert.equal(await page.getByRole('link',{name:'Your previous work',exact:true}).getAttribute('href'),'/dashboard#problem-history');
   assert.equal(await page.getByText('The public derivation follows conservation of momentum.').count(),0,'solution tab starts closed');
   await page.getByRole('tab',{name:'Problem statement',exact:true}).focus();await page.keyboard.press('ArrowRight');await page.keyboard.press('Enter');
   await page.getByText('The public derivation follows conservation of momentum.').waitFor();
