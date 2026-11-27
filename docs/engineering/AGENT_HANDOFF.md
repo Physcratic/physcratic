@@ -1,5 +1,9 @@
 # Agent handoff
 
+## F3 and F4 navigation qualified (27 November 2026)
+
+[F3 PR #268](https://github.com/Physcratic/physcratic/pull/268) merged as d88deee9e4554749cf713cf9c5349b836fb2e975 after all six workflows and both preview checks passed on head 3390cdd89b4d96aa4de9aa7963d64897a90c9a32. [F4 navigation PR #269](https://github.com/Physcratic/physcratic/pull/269) merged as b950bc1817300a9f289506484d729915a82dfc08 after all eight workflows and both preview checks passed on head ed8b4b9bef96e3981282e7ec6a475b7c58ccfcb8. Retargeting F4 to main preserved the exact tested tree. Random discovery and manual-review continuation are qualified repository changes. Existing private history is directly reachable. Favourite retrieval remains unqualified and is the next F4 gap to assess. F5 saving activation remains deferred and separate. No production deployment, settings, flags, credentials or database changes occurred. The owner deploys manually.
+
 ## Continuation and previous work, F4 navigation (27 November 2026)
 
 Following F3 PR #268, Arena continuation is available independently of checker success and states catalogue order. Shared readers link to the existing previous-work history. [Behavior, verification and outstanding favourite retrieval](CONTINUATION_HISTORY.md). Eleven local header/target tests and 88 three-reader browser checks pass, including draft return, manual review, keyboard, light/dark and phone/desktop accessibility. TypeScript and lint pass. Published-head CI remains required before merge. No production operations. Favourite retrieval is unqualified. F5 saving qualification remains deferred.
