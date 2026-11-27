@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import Link from "next/link";
 import useSWRImmutable from "swr/immutable";
 import { RotateCcw } from "lucide-react";
 import { arenaProblemSchema, type ArenaCatalogEntry } from "@/lib/arena-schema";
@@ -57,7 +58,8 @@ function ArenaReader({ problem,statement,statsEnabled=false,commentsEnabled=fals
       document={<ProblemDocumentTabs id="arena-document" key={problem.id} value={view} onValueChange={setView}
         statementLabel={<><StepNumber>1</StepNumber>Problem statement</>} solutionLabel={<><StepNumber>4</StepNumber>Worked solution</>} solutionTour="solution-tab"
         statement={documentCard("statement")} solution={documentCard("solution")} />}
-      answer={<AnswerWorkspace><Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={problem.id} problemId={problem.id} onSeeHint={data?.hints ? () => document.getElementById("arena-hints")?.focus() : undefined} nextHref={nextProblem ? `/dashboard/problems/${nextProblem.id}` : undefined} /></CardContent></Card>{data?.hints && <ArenaHints hints={data.hints} />}<nav aria-label="Problem documents" className="flex flex-wrap gap-3"><Button asChild variant="outline" className="min-h-11"><a href="#arena-document" onClick={() => setView("statement")}>Back to statement</a></Button><Button asChild variant="outline" className="min-h-11"><a href="#arena-document" onClick={() => setView("solution")}>View worked solution</a></Button></nav></AnswerWorkspace>} />}
+      answer={<AnswerWorkspace><Card className="min-w-0 shadow-none"><CardContent className="pt-6"><ArchiveAnswerPanel key={problem.id} problemId={problem.id} onSeeHint={data?.hints ? () => document.getElementById("arena-hints")?.focus() : undefined} /></CardContent></Card>{data?.hints && <ArenaHints hints={data.hints} />}<nav aria-label="Problem documents" className="flex flex-wrap gap-3"><Button asChild variant="outline" className="min-h-11"><a href="#arena-document" onClick={() => setView("statement")}>Back to statement</a></Button><Button asChild variant="outline" className="min-h-11"><a href="#arena-document" onClick={() => setView("solution")}>View worked solution</a></Button></nav></AnswerWorkspace>} />}
+    {nextProblem && <nav aria-label="Arena continuation" className="flex flex-col items-start gap-2 border-t pt-4"><Button asChild variant="outline" className="min-h-11"><Link href={`/dashboard/problems/${nextProblem.id}`}>Next in Arena</Link></Button><p className="text-sm text-muted-foreground">Follows Arena catalogue order.</p></nav>}
     {commentsEnabled&&<Discussions moderationEnabled={moderationEnabled} problemKey={`arena:${problem.id}`}/>}
   </section>;
 }

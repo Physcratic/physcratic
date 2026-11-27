@@ -6,6 +6,7 @@ import React, { createElement, type ComponentProps } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { ProblemRoom } from "../components/physics/problem-room";
 import { GuestOnly } from "../components/physics/problem-nav";
+import { ProblemHistory } from "../components/physics/problem-history";
 import { ArenaProblemReader } from "../components/physics/arena-problem-reader";
 import { ImportedProblemReader } from "../components/physics/imported-problem-reader";
 import { CrumbTrail } from "../components/problems/problem-links";
@@ -74,6 +75,7 @@ test("the header has one back link, the home wordmark and no Problem room label"
   assert.match(wordmark, /href="\/"/);
   assert.doesNotMatch(wordmark, /lucide-arrow-left|All problems|back/i, "the wordmark does not read as a back link");
   assert.match(wordmark, /min-h-11/);
+  assert.match(html, /href="\/dashboard#problem-history"[^>]*>Your previous work<\/a>/);
 });
 
 test("the skip link comes first, then the back link, then the wordmark, then the main region", () => {
@@ -100,6 +102,20 @@ test("an Arena problem page has one All problems link and no second back link", 
   assert.equal((html.match(/All problems/g) ?? []).length, 1);
   assert.doesNotMatch(html, /Back to Physcratic Arena|Back to all problems|Back to collection|Problem room/);
   assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
+  assert.match(html, new RegExp(`href="/dashboard/problems/${arena.problems[1].id}"[^>]*>Next in Arena`));
+  assert.match(html, /Follows Arena catalogue order/);
+});
+
+test("the last Arena entry has no invented continuation or wraparound", () => {
+  const problem = arena.problems.at(-1)! as ArenaCatalogEntry;
+  const html = renderToStaticMarkup(createElement(ProblemRoom, null, createElement(ArenaProblemReader, { problem })));
+  assert.doesNotMatch(html, /Next in Arena/);
+  assert.match(html, /Your previous work/);
+});
+
+test("the previous-work destination exists while private progress is still unavailable", () => {
+  const html = renderToStaticMarkup(createElement(ProblemHistory, { onOpen() {} }));
+  assert.match(html, /<section id="problem-history" tabindex="-1" aria-label="Your problem history"/);
 });
 
 test("an archive problem page has one back link, and the embedded reader keeps its own", () => {

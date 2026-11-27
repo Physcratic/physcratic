@@ -14,7 +14,7 @@ import { PartsMeter, ProgressCardHeader, SolvedSummary, checkedInLastWeek } from
 export function ProblemHistory({}: { onOpen: (problem: Problem) => void }) {
   const dashboard = useDashboard();
   const { progress, error, isLoading, signedIn, mutate } = useProblemHistory();
-  return <section aria-label="Your problem history" className="flex min-w-0 flex-col gap-4">
+  return <section id="problem-history" tabIndex={-1} aria-label="Your problem history" className="flex min-w-0 scroll-mt-6 flex-col gap-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring">
     {isLoading ? <LoadingLines label="Loading your saved progress…" /> : error ? <div className="flex flex-col items-start gap-3">
       <p role="alert" className="flex items-start gap-2 text-sm text-danger-ink"><CircleAlert aria-hidden="true" className="mt-0.5 size-4 shrink-0" />Your progress could not be loaded. No completion count is available.</p>
       <Button variant="outline" className="min-h-11" onClick={() => mutate()}>Retry progress</Button>

@@ -1,0 +1,36 @@
+name: Continuation and history
+on:
+  pull_request:
+    paths:
+      - 'app/**'
+      - 'components/**'
+      - 'lib/**'
+      - 'tests/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig*.json'
+      - 'tailwind.config.*'
+      - 'postcss.config.*'
+      - '.github/workflows/continuation-history.yml'
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Browser tooling
+        run: |
+          npm install --prefix "$RUNNER_TEMP/solution-recovery-tools" --no-audit --no-fund playwright@1.64.1 @axe-core/playwright@4.14.0
+          "$RUNNER_TEMP/solution-recovery-tools/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Reader navigation, draft return and accessibility
+        env:
+          AUTHORING_BROWSER_TOOLS: ${{ runner.temp }}/solution-recovery-tools
+        run: node tests/problem-room.browser.mjs

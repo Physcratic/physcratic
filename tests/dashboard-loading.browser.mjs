@@ -38,8 +38,8 @@ try {
     const p = await c.newPage(), errors = [];
     p.on('pageerror', e => errors.push(e.message));
     const response = await p.goto(origin + '/dashboard', { waitUntil: 'networkidle' });
-    assert.ok((await response.text()).includes('Recommended problem'), 'Overview remains server rendered');
-    await p.getByRole('heading', { name: 'Recommended problem', exact: true }).waitFor();
+    assert.ok((await response.text()).includes('Random Arena problem'), 'Overview remains server rendered');
+    await p.getByRole('heading', { name: 'Random Arena problem', exact: true }).waitFor();
     assert.equal(await p.locator('html').evaluate(e => e.classList.contains('dark')), theme === 'dark');
     await p.keyboard.press('Tab');
     assert.match(await p.evaluate(() => document.activeElement.textContent), /Skip to content/);
