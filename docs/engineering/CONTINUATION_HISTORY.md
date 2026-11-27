@@ -21,3 +21,7 @@ No schema, migration, dependency, protected release manifest, production setting
 ## Final navigation qualification
 
 PR #269 merged as b950bc1817300a9f289506484d729915a82dfc08. All eight workflows and both preview checks passed on exact head ed8b4b9bef96e3981282e7ec6a475b7c58ccfcb8, including core CI, full public library, community, authored student, CSP, continuation/history, discovery/feedback and written recovery. Retargeting to main preserved tested tree 575e2caf85cfd19561a6ddede1e5f533b3fe3d2a. The PR records linked run evidence. Favourite retrieval remains unqualified and F5 remains deferred. No production deployment occurred.
+
+## Favourite retrieval follow-up
+
+The separate default-off implementation on codex/favourite-retrieval reuses existing records and adds private pagination, visibility and account-boundary checks. See [implementation and activation gates](FAVOURITE_RETRIEVAL.md). This supersedes the implementation gap above. Production activation and actual serving-role qualification remain unapproved. F5 saving remains separate.

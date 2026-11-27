@@ -26,12 +26,14 @@ export default function Content({
   query,
   discovery,
   completionsEnabled = false,
+  favouritesEnabled = false,
 }: {
   view: View;
   topic?: string;
   query?: string;
   discovery?: ReactNode;
   completionsEnabled?: boolean;
+  favouritesEnabled?: boolean;
 }) {
   const router = useRouter();
   const [rankingSearch, setRankingSearch] = useState("");
@@ -71,10 +73,10 @@ export default function Content({
         )}
       </div>
       {view === "overview" && (
-        <Overview onOpen={openProblem} />
+        <Overview onOpen={openProblem} favouritesEnabled={favouritesEnabled} />
       )}
       {view === "problems" && (
-        <ProblemLibrary topic={topic} query={query} onOpen={openProblem} onReadingChange={setReading} completionsEnabled={completionsEnabled} />
+        <ProblemLibrary topic={topic} query={query} onOpen={openProblem} onReadingChange={setReading} completionsEnabled={completionsEnabled} favouritesEnabled={favouritesEnabled} />
       )}
       {view === "contests" && <Contests />}
       {view === "rankings" && (

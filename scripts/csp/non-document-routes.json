@@ -53,6 +53,7 @@
   "/api/corpus",
   "/api/csp-report",
   "/api/dashboard",
+  "/api/favourites",
   "/api/health",
   "/api/individual-rating",
   "/api/personal-completions",
