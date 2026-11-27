@@ -192,11 +192,11 @@ export function ProblemCard({
             <Heart
               aria-hidden="true"
               data-liked={isLiked ? "true" : "false"}
-              // The fill is the primary token, never red. The outline stays the strong foreground colour, because the
-              // primary fill on its own is under 3:1 on a light card. The fill fades in, and not at all under reduced motion.
+              // The favourite is rose, never the red that means wrong. The heart keeps its outline and its words, so colour is not the
+              // only cue, and the rose outline is 3:1 on the card. The fill fades in, and not at all under reduced motion.
               className={cn(
-                "stroke-foreground transition-[fill] duration-200 ease-out motion-reduce:transition-none",
-                isLiked ? "fill-primary" : "fill-transparent",
+                "transition-[fill] duration-200 ease-out motion-reduce:transition-none",
+                isLiked ? "fill-rose stroke-rose" : "fill-transparent stroke-foreground",
               )}
             />
             {isLiked ? "Favourited" : "Favourite"}
@@ -242,7 +242,10 @@ export function ProblemCard({
               ))}
             </span>
           )}
-          <span className="font-medium">{source}</span>
+          {source === "Community"
+            // A soft violet tag. The padding is cancelled by the margin, so the row lays out exactly as before.
+            ? <span className="-mx-1 rounded bg-violet-tint px-1 font-medium text-violet-ink">{source}</span>
+            : <span className="font-medium">{source}</span>}
           {attempted !== undefined && (
             <span className={attempted ? "font-semibold text-foreground" : undefined}>
               {attempted ? "Attempted" : "Not attempted"}

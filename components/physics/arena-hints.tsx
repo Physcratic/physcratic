@@ -34,7 +34,7 @@ export function ArenaHints({ hints }: { hints: Record<string, string[]> }) {
               </ol>
               {count < total && (
                 <Button type="button" variant="outline" className="min-h-11 w-fit bg-background" onClick={() => setShown((current) => ({ ...current, [part]: count + 1 }))}>
-                  <Lightbulb data-icon="inline-start" />
+                  <Lightbulb data-icon="inline-start" className="text-amber" />
                   Show hint {count + 1} of {total} for part ({part})
                 </Button>
               )}

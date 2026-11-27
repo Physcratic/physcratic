@@ -44,6 +44,9 @@ export function TopicChips({ topics, value, onChange }: { topics: readonly strin
                 className={cn(
                   "inline-flex min-h-11 shrink-0 items-center rounded-full border px-4 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card",
                   pressed ? "border-foreground bg-foreground text-background" : "bg-background text-foreground hover:bg-muted",
+                  // A teal dot for a topic, drawn inside the chip's own padding so the chip keeps its size. "All topics" is not a topic.
+                  topic !== "all" && "relative before:absolute before:left-1.5 before:top-1/2 before:size-1.5 before:-translate-y-1/2 before:rounded-full before:content-['']",
+                  topic !== "all" && (pressed ? "before:bg-teal-tint" : "before:bg-teal"),
                 )}
               >
                 {topic === "all" ? "All topics" : topic}

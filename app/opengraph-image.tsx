@@ -6,5 +6,5 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function Image() {
-  return brandPreview({ name: "Physcratic", tagline: SITE.defaultTitle.replace("Physcratic | ", "") });
+  return brandPreview({ name: "Physcratic", tagline: SITE.defaultTitle.replace("Physcratic - ", "") });
 }

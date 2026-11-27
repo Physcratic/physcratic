@@ -26,3 +26,7 @@ Storage access, parsing and quota failures keep in-memory text available with a 
 ## Release boundaries
 
 No schema, migration, dependency, provider setting, production database, feature flag or deployment change. Saved-practice activation and account deletion remain subject to their independent qualification gates. This change protects the existing written-submission workflow and does not activate practice saving.
+
+## Resumed verification (27 November 2026)
+
+The GitHub connector verified all five workflows successful on 7aa879d, including core CI with all three jobs, full public-library browser coverage, written recovery, community browser and CSP coverage. Both preview statuses were successful, with no submitted reviews or unresolved review threads. Current main advanced to f83d84e. Integrating it conflicts only in the three append-only handoff documents, whose entries are retained together. Fresh exact-head CI is required for the integrated head before merge. This is repository qualification only. The owner still handles deployment and saved-practice activation remains deferred.

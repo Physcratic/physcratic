@@ -32,7 +32,7 @@ const luminance = ([r, g, b]: Rgb) => 0.2126 * channel(r) + 0.7152 * channel(g) 
 const contrast = (a: Rgb, b: Rgb) => { const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x); return (hi + 0.05) / (lo + 0.05) }
 const tint = (colour: Rgb, alpha: number, base: Rgb): Rgb => [0, 1, 2].map((i) => colour[i] * alpha + base[i] * (1 - alpha)) as unknown as Rgb
 
-const themes = { light: ":root {", dark: ".dark {" } as const
+const themes = { light: ':root, [data-colour="ink"] {', dark: '.dark, .dark [data-colour="ink"] {' } as const
 const names = ["beginner", "intermediate", "advanced", "mastery"] as const
 // Hue ranges in degrees: teal, blue, violet and amber. Red is below 15 or above 345 and green is 80 to 150.
 const family = { beginner: [165, 195], intermediate: [200, 225], advanced: [255, 285], mastery: [35, 50] } as const
@@ -101,7 +101,7 @@ test("the card maps each band id to its token, the card border is neutral and no
 
 // The focus ring is a UI component boundary, so it needs 3:1 against what it sits on (WCAG 1.4.11). The light --ring was
 // 2.64:1 on the page. These are the same tokens the sweep measures in the browser.
-test("the focus ring keeps 3:1 against the page and the card in both themes, and the dark ring is unchanged", () => {
+test("the focus ring keeps 3:1 against the page and the card in both themes, and the Ink ring stays orange", () => {
   for (const theme of ["light", "dark"] as const) {
     const scope = themes[theme]
     const ring = toRgb(token(scope, "ring"))
@@ -113,8 +113,7 @@ test("the focus ring keeps 3:1 against the page and the card in both themes, and
   for (const theme of ["light", "dark"] as const) {
     assert.ok(contrast(toRgb(token(themes[theme], "sidebar-ring")), toRgb(token(themes[theme], "sidebar-background"))) >= 3, `${theme} sidebar ring`)
   }
-  assert.deepEqual(token(".dark {", "ring"), [21, 82, 75])
-  // The light ring keeps the primary hue family (orange) and only gets darker.
-  const [hue] = token(":root {", "ring")
-  assert.ok(Math.abs(hue - token(":root {", "primary")[0]) <= 2)
+  // The Ink ring is orange in both themes, and the dark ring is the lighter step of it.
+  assert.deepEqual(token(themes.dark, "ring"), [21, 82, 62])
+  assert.ok(Math.abs(token(themes.light, "ring")[0] - 21) <= 3)
 })
