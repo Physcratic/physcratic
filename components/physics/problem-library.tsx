@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { libraryFilterHref, parseLibraryFilters } from "@/lib/problem-library-route";
 import { corpusProblems } from "@/lib/corpus-pilot";
@@ -44,6 +45,7 @@ export function ProblemLibrary({
   readerTitleAs,
   navigateToReader = false,
   completionsEnabled = false,
+  favouritesEnabled = false,
 }: {
   topic?: string;
   query?: string;
@@ -53,6 +55,7 @@ export function ProblemLibrary({
   /** Keep public archive entries as ordinary reader navigation. Dashboard inline reading is unchanged. */
   navigateToReader?: boolean;
   completionsEnabled?: boolean;
+  favouritesEnabled?: boolean;
   /** Tells the page when a guided problem is open, so its title can be the page heading. */
   onReadingChange?: (reading: boolean) => void;
 }) {
@@ -196,6 +199,7 @@ export function ProblemLibrary({
           </CardContent>
         </Card>
         </>}
+        {favouritesEnabled && (collection === "arena" || collection === "authored") && <Button asChild variant="outline" className="min-h-11 w-fit"><Link href="/dashboard#problem-favourites">View your favourites</Link></Button>}
         <TabsContent value="authored" className="min-w-0">
           <UnifiedArenaCollection query={search} topic={selectedTopic} difficulty={difficultyForCollection} source="authored" onReset={reset} completionsEnabled={completionsEnabled} />
         </TabsContent>

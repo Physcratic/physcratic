@@ -3,6 +3,7 @@ import type { View } from "@/lib/physics";
 import Content from "./content";
 import Layout from "./layout";
 import { personalCompletionsEnabled } from "@/lib/personal-completions-route";
+import { favouriteHistoryEnabled } from "@/lib/favourite-history-route";
 
 export default function Dashboard({
   view,
@@ -26,6 +27,7 @@ export default function Dashboard({
         query={query}
         discovery={discovery}
         completionsEnabled={personalCompletionsEnabled()}
+        favouritesEnabled={favouriteHistoryEnabled()}
       />
       {children}
     </Layout>
