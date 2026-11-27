@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Private favourite retrieval implementation (27 November 2026)
+
+Branch codex/favourite-retrieval, implementation checkpoint [770f1b9](https://github.com/Physcratic/physcratic/commit/770f1b9892c758dbd03de667c715d0755225521b), adds an owner-only paginated list over existing favourite records and links it from Arena libraries. [Behavior, verification and activation gates](FAVOURITE_RETRIEVAL.md). Local guard/projection/SQL-semantic/browser, TypeScript, lint and scoped UI checks pass. Real PostgreSQL and full exact-head CI are required before merge. Retrieval remains OFF by default and NO-GO for activation until owner runtime qualification and approval. No production operations. F5 saving qualification remains deferred.
+
 ## F3 and F4 navigation qualified (27 November 2026)
 
 [F3 PR #268](https://github.com/Physcratic/physcratic/pull/268) merged as d88deee9e4554749cf713cf9c5349b836fb2e975 after all six workflows and both preview checks passed on head 3390cdd89b4d96aa4de9aa7963d64897a90c9a32. [F4 navigation PR #269](https://github.com/Physcratic/physcratic/pull/269) merged as b950bc1817300a9f289506484d729915a82dfc08 after all eight workflows and both preview checks passed on head ed8b4b9bef96e3981282e7ec6a475b7c58ccfcb8. Retargeting F4 to main preserved the exact tested tree. Random discovery and manual-review continuation are qualified repository changes. Existing private history is directly reachable. Favourite retrieval remains unqualified and is the next F4 gap to assess. F5 saving activation remains deferred and separate. No production deployment, settings, flags, credentials or database changes occurred. The owner deploys manually.
