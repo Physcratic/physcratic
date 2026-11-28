@@ -1,4 +1,5 @@
 // Real random-discovery card. Storage and account cookies are synthetic. All API requests are forbidden.
+import axeSettle from "./axe-settle.cjs";
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { createServer } from 'node:http';
@@ -9,6 +10,7 @@ import { tmpdir } from 'node:os';
 const require = createRequire(import.meta.url);
 const external = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS || '/tmp/physcratic-editor-test', 'package.json'));
 const { chromium } = external('playwright'), { default: AxeBuilder } = external('@axe-core/playwright');
+axeSettle.settleAxeBuilder(AxeBuilder);
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
 const arena = JSON.parse(await readFile('lib/arena/index.json', 'utf8')).problems;
 const temp = await mkdtemp(join(tmpdir(), 'physcratic-discovery-'));

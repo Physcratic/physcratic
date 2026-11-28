@@ -1,4 +1,5 @@
 // Real owner-list UI, synthetic sessions and transport. PostgreSQL/API behavior is tested separately in core CI.
+import axeSettle from "./axe-settle.cjs";
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { createServer } from 'node:http';
@@ -8,6 +9,7 @@ import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 const require = createRequire(import.meta.url), external = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS || '/tmp/physcratic-editor-test', 'package.json'));
 const { chromium } = external('playwright'), { default: AxeBuilder } = external('@axe-core/playwright');
+axeSettle.settleAxeBuilder(AxeBuilder);
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
 const arena = JSON.parse(await readFile('lib/arena/index.json', 'utf8')).problems;
 const item = (i, title) => ({ key: `arena:${arena[i].id}`, title, href: `/dashboard/problems/${arena[i].id}` });

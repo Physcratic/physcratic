@@ -1,6 +1,7 @@
 // The Colour group of Appearance in real Chromium. Checks the theme is on the page before first paint, an unknown stored value shows Ink,
 // the choice is kept on this device only and survives a reload, it works with Light and Dark, each preview shows its own theme, and axe is clean.
 // Run: node --import tsx tests/colour-themes.browser.mjs   (AUTHORING_BROWSER_TOOLS and CHROMIUM_PATH optional)
+import axeSettle from "./axe-settle.cjs";
 import assert from "node:assert/strict";
 import { createServer } from "node:http";
 import { createRequire } from "node:module";
@@ -13,6 +14,7 @@ const require = createRequire(import.meta.url);
 const browserTools = process.env.AUTHORING_BROWSER_TOOLS ? createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, "package.json")) : require;
 const { chromium } = browserTools("playwright");
 const { default: AxeBuilder } = browserTools("@axe-core/playwright");
+axeSettle.settleAxeBuilder(AxeBuilder);
 const { build } = createRequire(require.resolve("tsx"))("esbuild");
 const temp = await mkdtemp(join(tmpdir(), "physcratic-colour-themes-"));
 let browser, server;

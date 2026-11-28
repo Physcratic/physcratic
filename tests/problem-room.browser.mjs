@@ -1,4 +1,5 @@
 // Actual reader components, synthetic guest session and bounded local fixtures only.
+import axeSettle from "./axe-settle.cjs";
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { createServer } from 'node:http';
@@ -10,6 +11,7 @@ const require = createRequire(import.meta.url);
 const tools = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS || '/tmp/physcratic-editor-test','package.json'));
 const { chromium } = tools('playwright');
 const { default: AxeBuilder } = tools('@axe-core/playwright');
+axeSettle.settleAxeBuilder(AxeBuilder);
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
 const temp = await mkdtemp(join(tmpdir(),'physcratic-room-'));
 let browser, server, origin, checks = 0;

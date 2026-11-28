@@ -1,3 +1,4 @@
+const axeSettle = require("./axe-settle.cjs");
 // Isolated transport mocks exercise the real component. SQL/API authorization is
 // covered independently in lib/staff-actions.test.ts on disposable PostgreSQL.
 const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict');
@@ -7,6 +8,7 @@ if(!qa)throw Error('Set AUTHORING_BROWSER_TOOLS to the external Playwright tooli
 const fromBase=createRequire(path.join(root,'package.json')),fromQa=createRequire(path.join(qa,'package.json'));
 const esbuild=createRequire(fromBase.resolve('tsx'))('esbuild');
 const {chromium}=fromQa('playwright'),{AxeBuilder}=fromQa('@axe-core/playwright');
+axeSettle.settleAxeBuilder(AxeBuilder);
 (async()=>{
  const bundle=await esbuild.build({stdin:{contents:`import React,{useState} from 'react';import{createRoot}from'react-dom/client';import{StaffActions}from'./components/community/staff-actions';function App(){const[n,set]=useState(0);return <main className="mx-auto max-w-4xl p-5"><h1>Moderation</h1><button onClick={()=>set(n+1)}>Switch account</button><StaffActions key={n}/></main>}createRoot(document.getElementById('app')).render(<App/>);`,resolveDir:root,loader:'tsx'},bundle:true,write:false,platform:'browser',format:'iife',jsx:'automatic',nodePaths:[path.join(base,'node_modules')],alias:{'@':root},define:{'process.env.NODE_ENV':'"production"'},logLevel:'warning'});
  const config=fromBase('tailwindcss/loadConfig')(path.join(root,'tailwind.config.js'));config.content=[path.join(root,'components/community/staff-actions.tsx'),path.join(root,'components/ui/{button,input,textarea}.tsx')];
