@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Phase 5B qualification resumed (29 November 2026)
+
+The owner accepted the retrospective baseline under `OWNER-2026-11-29-RETROSPECTIVE-BASELINE-ACCEPTANCE` after adopting the recovered Step 2 ledger. Restricted final record SHA-256 is `5f54d8664b949a42752669916fa3315d351f55b6e98703e0bc73016cf8d2167f`. The baseline freeze ended. The pathname reference correction is `aff46a3418f663ef9e636f8828c5df59bead28f6` with manifest SHA-256 `7defd293eba60c6a557fffeb9159da56384bf948b476ae21dd9dcf9bc2b65e7f`. The corrected package passed the disposable PG18.7 verifier rehearsal, including all eight pathname drift cases.
+
+The [personal completions runbook](../../scripts/personal-completions/RELEASE.md#2-qualify-erasure-and-recovery-before-activation) remains gated on a qualified erasure service and enforceable restore reconciliation. Retain the archived synthetic replay evidence and the [separate account deletion candidate](https://github.com/Physcratic/physcratic/tree/artifacts/phase5b-blob-token-patches-2026-11-29). Next, qualify the staffed 0026 workflow and select recovery coverage that survives database restore. Keep both features off pending their separate approvals.
+
 ## Favourite retrieval restricted-LOGIN rehearsal (27 November 2026)
 
 [PR #274](https://github.com/Physcratic/physcratic/pull/274) adds `tests/favourite-history-runtime.pg.test.ts` in a focused disposable PostgreSQL 18.7 workflow. It exercises singleton route exports with real Better Auth cookies and a separate non-owner LOGIN, reusing the unchanged reviewed baseline and Batch A favourites grants with the existing id-column correction. Assertions cover disabled gates, missing permissions, effective-grant audit, real heart writes and publication, mixed owner pages, archived content, private cache headers, guest/stale/expired/signed-out sessions and unchanged other-account quota. Forbidden profile, practice, totals, user-delete and identity-update rights remain denied. No application, grant package or release-manifest changes.
