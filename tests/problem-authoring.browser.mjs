@@ -270,6 +270,9 @@ try {
   {
     const {runStudioLandingBrowser} = await import("./studio-landing.browser.mjs");
     await runStudioLandingBrowser({browser, origin, pool});
+    // The five Studio steps, in both modes too.
+    const {runStudioStepsBrowser} = await import("./studio-steps.browser.mjs");
+    await runStudioStepsBrowser({browser, origin, pool, AxeBuilder});
   }
   if (process.env.PDF_STUDIO_ONLY === "1") {
     const {runPdfStudioBrowser} = await import("./pdf-studio.browser.mjs");

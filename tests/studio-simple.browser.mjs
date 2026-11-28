@@ -3,6 +3,7 @@
 // (1 screen, at most 4 clicks, 0 selects, at most 4 typed fields). Then checks switching modes, the preview,
 // Test an answer, the 375px layout, the carry-over of fast typing and the student side.
 // Run: AUTHORING_TEST_DATABASE_URL=postgresql://postgres@127.0.0.1:PORT/physcratic_authoring_test CHROMIUM_PATH=/path/to/chrome node --require ./tests/server-only-register.cjs --import tsx tests/studio-easy.browser.mjs
+import { STEP_ORDER, barStatus, currentStep, goStep, studioBar } from "./studio-steps.helpers.mjs";
 import assert from "node:assert/strict";
 import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
 import { numericUnitsHelp } from "../lib/authored-grading-contracts.ts";
@@ -250,7 +251,8 @@ try {
     headless: true,
     args: ["--no-sandbox"],
   });
-  const TARGET = { screens: 1, clicks: 3, selects: 0 };
+  // Five steps. Moving between them is counted on its own, so the field clicks keep their target.
+  const TARGET = { screens: 5, clicks: 3, selects: 0, steps: 5 };
   const log = (...a) => console.log(...a);
   const errors = [];
   const newPage = async (width, height = 1000, profile) => {
@@ -262,6 +264,7 @@ try {
   };
   const saved = (page) => until(async () => (await page.getByRole("status").allTextContents()).some((t) => t.includes("All changes saved")), "autosave");
   const draftId = (page) => new URL(page.url()).searchParams.get("draft");
+  const nextStep = async (page, counts) => { await studioBar(page).getByRole("button", { name: "Next", exact: true }).click(); if (counts) counts.steps++; };
   const noSideways = async (page, label) => assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1), `${label}: no sideways scroll`);
   const mathField = async (scope) => { const f = scope.locator("math-field").first(); await f.waitFor({ timeout: 20000 }); return f; };
   const savedContent = async (id) => (await pool.query("SELECT content FROM authored_draft WHERE problem_id=$1", [id])).rows[0]?.content;
@@ -317,7 +320,7 @@ try {
   // Studio opens on My drafts. New problem opens the blank editor.
   await page.getByRole("button", { name: "New problem", exact: true }).click();
   await page.getByRole("heading", { level: 1, name: "Problem Studio" }).waitFor();
-  const counts = { screens: 1, clicks: 0, focusClicks: 0, selects: 0, typedFields: 0, keys: 0 };
+  const counts = { screens: 5, clicks: 0, focusClicks: 0, selects: 0, typedFields: 0, keys: 0, steps: 0 };
   const click = async (l) => { await l.click(); counts.clicks++; };
   const focusClick = async (l) => { await l.click(); counts.focusClicks++; };
   const typed = async (l, text, opts) => { await l.pressSequentially(text, opts); counts.typedFields++; counts.keys += text.length; };
@@ -326,28 +329,29 @@ try {
   assert.equal(await page.getByRole("button", { name: "Simple", exact: true }).count() + (await page.getByRole("button", { name: "Advanced", exact: true }).count()), 0, "no Simple or Advanced button");
   assert.equal(await page.getByRole("button", { name: "Classic editor", exact: true }).count() + (await page.getByRole("button", { name: "Back to the new editor", exact: true }).count()), 0, "no link to another editor");
   assert.equal(await page.evaluate(() => localStorage.getItem("physcratic.studio.mode")), null, "nothing is stored for a mode");
-  assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).count(), 1, "one Publish button");
+  // Five steps, one on screen at a time. A new draft opens on Question, and Publish waits on Review.
+  assert.deepEqual((await page.getByRole("navigation", { name: "Steps" }).getByRole("listitem").allTextContents()).map((t) => STEP_ORDER.find((n) => t.startsWith(n))), STEP_ORDER, "the steps are in order");
+  assert.equal(await currentStep(page), "Question", "a new draft opens on Question");
+  assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).count(), 0, "Publish waits on the Review step");
   assert.equal(await page.locator("select:visible").count(), 0, "no select on the page");
-  for (const text of ["Main question (optional)", "What's the question?", "Add an image (optional)", "Worked solution (required)", "Final Answer (Solution)", "Answer preview", "Only you see this", "Where's it from?", "Difficulty rating", "Pick a topic so people can find it (optional)"])
-    await page.getByText(text, { exact: true }).first().waitFor();
-  // The page runs in this order, top to bottom: main question, part a (question, worked solution, final answer, answer preview), Add part b, source, difficulty, topic, the rights tick, Publish.
+  // Each step holds its own fields, in the owner's order, top to bottom.
   const topOf = async (locator) => (await locator.first().boundingBox()).y;
-  const order = [
-    page.getByText("Main question (optional)", { exact: true }),
-    page.getByText("What's the question?", { exact: true }),
-    page.getByText("Worked solution (required)", { exact: true }),
-    page.getByText("Final Answer (Solution)", { exact: true }),
-    page.getByText("Answer preview", { exact: true }),
-    page.getByRole("button", { name: "Add part b" }),
-    page.getByText("Where's it from?", { exact: true }),
-    page.getByText("Difficulty rating", { exact: true }),
-    page.getByText("Pick a topic so people can find it (optional)", { exact: true }),
-    page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/),
-    page.getByRole("button", { name: "Publish", exact: true }),
-  ];
-  const tops = [];
-  for (const item of order) tops.push(await topOf(item));
-  assert.deepEqual(tops, [...tops].sort((a, b) => a - b), `the page is in the owner's order: ${tops.join(", ")}`);
+  const inOrder = async (label, items) => {
+    const tops = [];
+    for (const item of items) tops.push(await topOf(item));
+    assert.deepEqual(tops, [...tops].sort((a, b) => a - b), `${label} is in the owner's order: ${tops.join(", ")}`);
+  };
+  await inOrder("Question", [page.getByText("Main question (optional)", { exact: true }), page.getByText("What's the question?", { exact: true }), page.getByText("Add an image (optional)", { exact: true }).last(), page.getByRole("button", { name: "Add part b" })]);
+  await goStep(page, "Answer");
+  await inOrder("Answer", [page.getByText("Final Answer (Solution)", { exact: true }), page.getByText("Answer preview", { exact: true })]);
+  await page.getByText("Only you see this", { exact: true }).waitFor();
+  await goStep(page, "Worked solution");
+  await page.getByText("Worked solution (required)", { exact: true }).waitFor();
+  await goStep(page, "Details");
+  await inOrder("Details", [page.getByLabel("Title", { exact: true }), page.getByText("Where's it from?", { exact: true }), page.getByText("Difficulty rating", { exact: true }), page.getByText("Pick a topic so people can find it (optional)", { exact: true }), page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/)]);
+  await goStep(page, "Review");
+  await page.getByRole("button", { name: "Publish", exact: true }).waitFor();
+  await goStep(page, "Question");
   assert.equal(await page.getByRole("button", { name: "Add part b" }).count(), 1, "the button names the next letter");
   assert.equal(await page.getByText("Try an answer").count() + await page.getByText("Add a picture").count() + await page.getByText("Final answer. We check").count(), 0, "the old labels are gone");
   assert.equal(await page.getByText(/context|provide/i).count(), 0, "no jargon labels");
@@ -373,7 +377,9 @@ try {
   await page.waitForURL((url) => url.searchParams.has("draft"));
   const id = draftId(page);
   await saved(page);
+  await goStep(page, "Details");
   assert.equal(await page.getByLabel("Title", { exact: true }).inputValue(), "A Ball is Thrown Up", "the title comes from the question");
+  await goStep(page, "Question");
 
   // Clicking the equation edits it.
   await question.locator("[data-math-id]").click();
@@ -394,11 +400,15 @@ try {
   await part.getByLabel("Describe the image").waitFor({ timeout: 20000 });
   await typed(part.getByLabel("Describe the image"), "A ball thrown upwards from the ground");
 
-  // The worked solution comes before the final answer, and Simple needs one.
+  // The worked solution has its own step, and Simple asks for one.
+  await nextStep(page, counts);
+  await nextStep(page, counts);
   const solutionBox = part.getByRole("textbox", { name: "Worked solution (required)" });
   await solutionBox.click();
   await solutionBox.pressSequentially("At the top the speed is zero, so all the kinetic energy is potential energy.");
   // The answer key and Answer preview.
+  await goStep(page, "Answer");
+  counts.steps++;
   const answerBox = await mathField(part.getByText("Final Answer (Solution)", { exact: true }).locator("xpath=ancestor::div[contains(@data-tour,'studio-answer')]"));
   await focusClick(answerBox);
   await page.waitForTimeout(300);
@@ -416,13 +426,16 @@ try {
   log("Answer preview:", JSON.stringify(await result.innerText()));
 
   // Where it's from (I wrote it is the default), an estimated difficulty band, then the rights tick and Publish.
+  await goStep(page, "Details");
+  counts.steps++;
   assert.equal(await page.getByRole("radio", { name: "I wrote it" }).isChecked(), true, "I wrote it is the default");
-  // The difficulty rating is required. Publish stays enabled: pressing it lists everything missing at once and moves focus to the first.
-  assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isDisabled(), false, "Publish stays enabled");
-  await page.getByRole("button", { name: "Publish", exact: true }).click();
+  // The difficulty rating and the tick are required. The bar says how much is left, and Publish waits until nothing is.
+  assert.equal(await barStatus(page), "2 things left", "the bar counts what blocks Publish");
+  await studioBar(page).getByRole("button", { name: "2 things left" }).click();
+  await studioBar(page).getByRole("button", { name: "Details: Tick the box to say you wrote this problem." }).waitFor();
+  await studioBar(page).getByRole("button", { name: "Details: Add a difficulty rating from 0 to 4,000." }).click();
+  assert.equal(await page.evaluate(() => document.activeElement?.getAttribute("data-simple-field")), "difficulty", "the bar moves focus to the rating");
   await page.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor({ timeout: 3000 });
-  await page.getByText("Tick the box to say you wrote this problem.", { exact: true }).waitFor({ timeout: 3000 });
-  assert.equal(await page.evaluate(() => document.activeElement?.getAttribute("data-simple-field")), "difficulty", "focus moves to the first missing item, the rating");
   assert.equal((await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state !== "published", true, "nothing was published");
   assert.equal(await page.getByRole("radiogroup", { name: "Quick pick a band" }).count(), 0);
   await page.getByLabel("Difficulty rating", { exact: true }).fill("2100");
@@ -433,11 +446,14 @@ try {
   for (const bad of ["abc", "4001", ""]) {
     await page.getByLabel("Difficulty rating", { exact: true }).fill(bad);
     await page.getByText("Add a difficulty rating from 0 to 4,000.", { exact: true }).waitFor();
-    assert.equal(await page.getByRole("button", { name: "Publish", exact: true }).isDisabled(), false, `Publish stays enabled for "${bad}"`);
+    assert.equal(await barStatus(page), "2 things left", `the rating still counts for "${bad}"`);
   }
   await page.getByLabel("Difficulty rating", { exact: true }).fill("2310");
   await click(page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/));
   await saved(page);
+  assert.equal(await barStatus(page), "Ready to publish");
+  await nextStep(page, counts);
+  assert.equal(await currentStep(page), "Review");
   // Cancelling the confirm publishes nothing and leaves Publish ready.
   {
     await setConfirmMode(page, "manual");
@@ -455,7 +471,7 @@ try {
   await click(page.getByRole("button", { name: "Publish", exact: true }));
   await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [id])).rows[0].state === "published", "publish");
   log(`SIMPLE PUBLISH: ${JSON.stringify(counts)}  target ${JSON.stringify(TARGET)}`);
-  assert.ok(counts.screens <= TARGET.screens && counts.clicks <= TARGET.clicks && counts.selects <= TARGET.selects, "within the click target");
+  assert.ok(counts.screens <= TARGET.screens && counts.clicks <= TARGET.clicks && counts.selects <= TARGET.selects && counts.steps <= TARGET.steps, "within the click target");
 
   const content = await savedContent(id);
   assert.equal(content.title, "A Ball is Thrown Up");
@@ -483,7 +499,7 @@ try {
     await oldPage.goto(origin);
     // Studio opens on My drafts. New problem opens the blank editor.
     await oldPage.getByRole("button", { name: "New problem", exact: true }).click();
-    await oldPage.getByLabel("Title", { exact: true }).waitFor();
+    await oldPage.getByRole("heading", { level: 2, name: "Question", exact: true }).waitFor();
     assert.equal(await oldPage.getByRole("textbox", { name: "What's the question?" }).count(), 1, `a stale "${stale}" opens the one editor`);
     assert.equal(await oldPage.getByRole("button", { name: "Classic editor", exact: true }).count(), 0, `a stale "${stale}" shows no Classic link`);
     assert.equal(await oldPage.evaluate(() => localStorage.getItem("physcratic.studio.mode")), stale, `a stale "${stale}" is not rewritten`);
@@ -491,6 +507,7 @@ try {
   }
 
   // Another part, and taking it away again.
+  await goStep(page, "Question");
   await page.getByRole("button", { name: "Add part b" }).click();
   assert.equal(await page.getByRole("button", { name: "Add part c" }).count(), 1, "the button now names the next letter");
   await page.getByRole("region", { name: "Part b", exact: true }).waitFor();
@@ -505,11 +522,22 @@ try {
   await f.getByRole("button", { name: "New problem", exact: true }).click();
   await f.getByRole("button", { name: /Continue your last draft/ }).waitFor();
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1 + spacingDrafts, "no draft is created before the first edit");
-  await f.getByRole("button", { name: "Publish", exact: true }).click();
-  for (const text of ["Write the question first.", "Add the worked solution.", "Add the final answer.", "Give it a title, or write the question and we'll make one.", "Add a difficulty rating from 0 to 4,000.", "Tick the box to say you wrote this problem."])
-    await f.getByText(text, { exact: true }).waitFor({ timeout: 3000 });
-  assert.equal(await f.evaluate(() => document.activeElement?.closest("[data-simple-field]")?.getAttribute("data-simple-field") ?? ""), "title", "focus goes to the title, now the first missing item in document order");
+  // Nothing is filled in. The bar lists what blocks Publish, each item opens its step, and Publish waits on Review.
+  assert.equal(await barStatus(f), "3 things left");
+  await goStep(f, "Review");
+  assert.equal(await f.getByRole("button", { name: "Publish", exact: true }).isDisabled(), true, "Publish waits while anything is left");
+  await studioBar(f).getByRole("button", { name: "3 things left" }).click();
+  assert.deepEqual((await studioBar(f).getByRole("listitem").allInnerTexts()).map((t) => t.trim()), [
+    "Question: Write the question first.",
+    "Details: Give it a title, or write the question and we'll make one.",
+    "Details: Add a difficulty rating from 0 to 4,000.",
+  ], "the bar names what is left, in step order");
+  await studioBar(f).getByRole("button", { name: "Details: Give it a title, or write the question and we'll make one." }).click();
+  assert.equal(await currentStep(f), "Details", "the item opens its step");
+  assert.equal(await f.evaluate(() => document.activeElement?.closest("[data-simple-field]")?.getAttribute("data-simple-field") ?? ""), "title", "and focuses its field");
+  await f.getByText("Give it a title, or write the question and we'll make one.", { exact: true }).waitFor({ timeout: 3000 });
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 1 + spacingDrafts, "still no draft");
+  await goStep(f, "Question");
   // Fast typing across the first save keeps every character.
   const fq = f.getByRole("region", { name: /^(Part a|Question and answer)$/, exact: true }).getByRole("textbox", { name: "What's the question?" });
   await fq.click();
@@ -528,11 +556,17 @@ try {
   await until(async () => { const c = await savedContent(second); const sp = c?.sections?.[0]?.parts?.[0]?.blocks?.[0]?.spans; return JSON.stringify(sp) === JSON.stringify([{ kind: "text", text: "A cart of mass " }, { kind: "math", latex: "m" }, { kind: "text", text: " rolls down a slope." }]); }, "fast typing saved");
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem")).rows[0].n, 2 + spacingDrafts, "exactly one draft per problem");
   log("Fast typing across the first save kept every character.");
-  // With a rating in, Publish is available and names what else is missing, each next to its field.
+  // With a rating in, the bar names what else blocks Publish on the server. Simple's own asks, the final answer and the
+  // worked solution, are nudges on their steps: not counted, and their steps are not marked done.
+  await goStep(f, "Details");
   await f.getByLabel("Difficulty rating", { exact: true }).fill("2100");
-  await f.getByRole("button", { name: "Publish", exact: true }).click();
-  for (const text of ["Add the worked solution.", "Add the final answer.", "Tick the box to say you wrote this problem."])
-    await f.getByText(text, { exact: true }).waitFor({ timeout: 3000 });
+  await until(async () => (await barStatus(f)) === "1 thing left", "the bar counts one");
+  await studioBar(f).getByRole("button", { name: "1 thing left" }).click();
+  assert.deepEqual((await studioBar(f).getByRole("listitem").allInnerTexts()).map((t) => t.trim()), ["Details: Tick the box to say you wrote this problem."]);
+  await studioBar(f).getByRole("button", { name: "1 thing left" }).click();
+  const railItem = (name) => f.getByRole("navigation", { name: "Steps" }).getByRole("listitem").filter({ hasText: new RegExp(`^${name}`) });
+  for (const name of ["Answer", "Worked solution"]) assert.equal((await railItem(name).innerText()).trim(), name, `${name} is not marked done while Simple asks for something there`);
+  assert.equal((await railItem("Question").innerText()).replace(/\s+/g, " ").trim(), "Question Done", "the question step is done");
   assert.equal((await pool.query("SELECT count(*)::int AS n FROM authored_problem WHERE state='published'")).rows[0].n >= 1, true);
   await fresh.context.close();
 
@@ -628,7 +662,12 @@ try {
     }
     return bad;
   });
-  assert.deepEqual(await placeholdersOutside(), [], "no placeholder overflows its box at 375");
+  for (const name of STEP_ORDER) {
+    await goStep(m, name);
+    assert.deepEqual(await placeholdersOutside(), [], `no placeholder overflows its box at 375 on ${name}`);
+    await noSideways(m, `375 ${name}`);
+  }
+  await goStep(m, "Question");
   await m.setViewportSize({ width: 320, height: 700 });
   await m.waitForTimeout(200);
   assert.deepEqual(await placeholdersOutside(), [], "no placeholder overflows its box at 320");
@@ -647,6 +686,7 @@ try {
   const panelBox = await m.getByRole("group", { name: "Type your equation" }).boundingBox();
   assert.ok(panelBox.x >= 0 && panelBox.x + panelBox.width <= 376, "the equation panel fits the screen");
   await m.keyboard.press("Escape");
+  await goStep(m, "Answer");
   const nb = await mathField(mpart.getByText("Final Answer (Solution)", { exact: true }).locator("xpath=ancestor::div[contains(@data-tour,'studio-answer')]"));
   await nb.click();
   await m.waitForTimeout(300);
@@ -679,28 +719,29 @@ try {
     const mainQ = tp.getByRole("textbox", { name: "Main question (optional)" });
     await mainQ.click();
     await mainQ.pressSequentially("A cart rolls down a ramp.");
-    const fill = async (partName, question, solution, answer) => {
-      const region = tp.getByRole("region", { name: partName === "Part a" ? /^(Part a|Question and answer)$/ : partName, exact: true });
-      const q = region.getByRole("textbox", { name: "What's the question?" });
-      await q.click();
-      await q.pressSequentially(question);
-      const sol = region.getByRole("textbox", { name: "Worked solution (required)" });
-      await sol.click();
-      await sol.pressSequentially(solution);
-      const ans = await mathField(region.locator("[data-simple-field^='a:']"));
+    const region = (partName) => tp.getByRole("region", { name: partName === "Part a" ? /^(Part a|Question and answer)$/ : partName, exact: true });
+    const typeIn = async (partName, name, text) => { const box = region(partName).getByRole("textbox", { name }); await box.click(); await box.pressSequentially(text); };
+    await typeIn("Part a", "What's the question?", "How fast is it at the bottom?");
+    await tp.getByRole("button", { name: "Add part b" }).click();
+    await typeIn("Part b", "What's the question?", "How long does it take?");
+    await goStep(tp, "Answer");
+    for (const [partName, answer] of [["Part a", "9.8"], ["Part b", "2.5"]]) {
+      const ans = await mathField(region(partName).locator("[data-simple-field^='a:']"));
       await ans.click();
       await tp.keyboard.type(answer, { delay: 20 });
-    };
-    await fill("Part a", "How fast is it at the bottom?", "Use energy.", "9.8");
-    await tp.getByRole("button", { name: "Add part b" }).click();
-    await fill("Part b", "How long does it take?", "Use the speed and the length.", "2.5");
+    }
+    await goStep(tp, "Worked solution");
+    await typeIn("Part a", "Worked solution (required)", "Use energy.");
+    await typeIn("Part b", "Worked solution (required)", "Use the speed and the length.");
     // Adapted from needs a source, and its own rights tick.
+    await goStep(tp, "Details");
     await tp.getByRole("radio", { name: "Adapted from" }).click();
     await tp.getByLabel("Source", { exact: true }).waitFor();
     await tp.getByLabel("Difficulty rating", { exact: true }).fill("1200");
     await tp.getByText("1,200 Intermediate", { exact: true }).waitFor();
-    await tp.getByRole("button", { name: "Publish", exact: true }).click();
-    await tp.getByText("Say where it's from.", { exact: true }).waitFor({ timeout: 3000 });
+    await until(async () => (await barStatus(tp)) === "1 thing left", "one rule left");
+    await studioBar(tp).getByRole("button", { name: "1 thing left" }).click();
+    await studioBar(tp).getByRole("button", { name: "Details: Tick the box to say you have permission to share it." }).click();
     await tp.getByText("Tick the box to say you have permission to share it.", { exact: true }).waitFor({ timeout: 3000 });
     await tp.getByLabel("Source", { exact: true }).fill("IPhO 2019, Problem 2");
     await tp.getByLabel(/I have permission to share this adapted problem on Physcratic/).check();
@@ -716,6 +757,8 @@ try {
       }
       await tp.setViewportSize({ width: 1440, height: 1000 });
     }
+    assert.equal(await barStatus(tp), "Ready to publish");
+    await goStep(tp, "Review");
     await tp.getByRole("button", { name: "Publish", exact: true }).click();
     await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [tid])).rows[0].state === "published", "the two-part adapted problem publishes");
     const two = await savedContent(tid);
@@ -724,8 +767,11 @@ try {
     assert.equal(two.estimatedDifficulty, "1200", "the band saved its middle rating");
     assert.deepEqual(two.context.find((b) => b.kind === "text")?.spans, [{ kind: "text", text: "A cart rolls down a ramp." }]);
     // Every step of the Studio tour points at something on the page, in order.
-    const { tours } = await import("../components/tour/tours.ts");
+    const { tours, REVEAL_EVENT } = await import("../components/tour/tours.ts");
     for (const step of tours.studio.steps) {
+      // The tour opens the Studio step its target is on.
+      await tp.evaluate(([event, name]) => window.dispatchEvent(new CustomEvent(event, { detail: name })), [REVEAL_EVENT, step.reveal]);
+      await tp.waitForTimeout(100);
       const found = await tp.evaluate((names) => names.some((name) => [...document.querySelectorAll(`[data-tour="${name}"]`)].some((el) => el.getBoundingClientRect().height > 0)), step.targets);
       assert.ok(found, `the Studio tour step ${step.id} has something to point at`);
     }
@@ -773,28 +819,31 @@ try {
     await pick.setFiles({ name: "ramp.png", mimeType: "image/png", buffer: png });
     await a.getByLabel("Describe the image").waitFor({ timeout: 20000 });
     await a.getByLabel("Describe the image").fill("A cart on a ramp, 30 degrees above the floor");
-    await a.getByRole("textbox", { name: "Worked solution (required)" }).click();
-    await a.getByRole("textbox", { name: "Worked solution (required)" }).pressSequentially("Energy is conserved on the way down.");
-    await (await mathField(a.locator("[data-simple-field^='a:']"))).click();
-    await ep.waitForTimeout(300);
-    await ep.keyboard.type("9.8");
-    await a.getByLabel("Unit (optional)").fill("m/s");
     await ep.getByRole("button", { name: "Add part b" }).click();
     const b = partRegion("Part b");
     await b.getByRole("textbox", { name: "What's the question?" }).click();
     await b.getByRole("textbox", { name: "What's the question?" }).pressSequentially("How long does the trip take?");
-    await b.getByRole("textbox", { name: "Worked solution (required)" }).click();
-    await b.getByRole("textbox", { name: "Worked solution (required)" }).pressSequentially("Divide the length by the average speed.");
-    await (await mathField(b.locator("[data-simple-field^='a:']"))).click();
-    await ep.waitForTimeout(300);
-    await ep.keyboard.type("2.5");
-    await b.getByLabel("Unit (optional)").fill("s");
+    await goStep(ep, "Answer");
+    for (const [region, answer, unit] of [[a, "9.8", "m/s"], [b, "2.5", "s"]]) {
+      await (await mathField(region.locator("[data-simple-field^='a:']"))).click();
+      await ep.waitForTimeout(300);
+      await ep.keyboard.type(answer);
+      await region.getByLabel("Unit (optional)").fill(unit);
+    }
+    await goStep(ep, "Worked solution");
+    for (const [region, text] of [[a, "Energy is conserved on the way down."], [b, "Divide the length by the average speed."]]) {
+      await region.getByRole("textbox", { name: "Worked solution (required)" }).click();
+      await region.getByRole("textbox", { name: "Worked solution (required)" }).pressSequentially(text);
+    }
+    await goStep(ep, "Details");
     await ep.getByLabel("Title", { exact: true }).fill("Cart on a Ramp");
     await ep.getByLabel("Difficulty rating", { exact: true }).fill("1200");
     await ep.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/).check();
     await saved(ep);
+    // The Review step opens the student preview.
+    await goStep(ep, "Review");
+    await ep.locator("[data-studio-step=review]").getByRole("button", { name: "Student preview", exact: true }).click();
     // The preview shows the statement and the picture, and nothing of the answers.
-    await ep.getByRole("button", { name: "Student preview", exact: true }).click();
     const preview = ep.getByRole("article", { name: "Student-facing preview" });
     await preview.waitFor();
     const previewText = await preview.innerText();
@@ -802,14 +851,18 @@ try {
     assert.ok(!/9\.8|2\.5/.test(previewText), "the preview shows no answer");
     assert.ok(await preview.getByRole("img", { name: "A cart on a ramp, 30 degrees above the floor" }).isVisible(), "the preview shows the described image");
     await ep.getByRole("button", { name: "Write", exact: true }).click();
+    assert.equal(await currentStep(ep), "Review", "the step is kept while the author previews");
     // Publish, with the one label a new problem has.
     await ep.getByRole("button", { name: "Publish", exact: true }).click();
     await until(async () => (await pool.query("SELECT state FROM authored_problem WHERE id=$1", [eid])).rows[0].state === "published", "the end to end problem publishes");
     await ep.getByRole("button", { name: "Publish new version", exact: true }).waitFor();
     // Reload: everything is still there, and the label for a published problem stays.
     await ep.reload();
-    await ep.getByLabel("Title", { exact: true }).waitFor({ timeout: 20000 });
+    await ep.getByRole("heading", { level: 2, name: "Question", exact: true }).waitFor({ timeout: 20000 });
+    assert.equal(await currentStep(ep), "Question", "an existing draft opens on Question too");
+    await goStep(ep, "Details");
     assert.equal(await ep.getByLabel("Title", { exact: true }).inputValue(), "Cart on a Ramp");
+    await goStep(ep, "Review");
     await ep.getByRole("button", { name: "Publish new version", exact: true }).waitFor();
     assert.equal(await ep.getByRole("button", { name: "Publish", exact: true }).count(), 0, "a published problem has only the new version label");
     const stored = await savedContent(eid);

@@ -17,7 +17,12 @@ export type TourStep = {
   path?: RegExp;
   /** A button that replaces Next and takes the author somewhere. */
   go?: { label: string; href: string };
+  /** The Studio step that shows the target. The tour asks for it before it looks, with REVEAL_EVENT. */
+  reveal?: string;
 };
+
+/** Sent with a step name in `detail`. The Simple editor opens that step. */
+export const REVEAL_EVENT = "physcratic:tour-reveal";
 
 export type Tour = {
   id: TourId;
@@ -79,18 +84,18 @@ export const tours: Record<TourId, Tour> = {
     name: "Write your first problem",
     autoStart: /^\/dashboard\/author\/?$/,
     steps: [
-      { id: "main", targets: ["studio-main"], title: "The main question", text: "Put the setup every part shares here, if you have one. You can add equations and an image too." },
-      { id: "question", targets: ["studio-question"], title: "Part a", text: "Then type the first question, just like you would write it." },
-      { id: "equation", targets: ["studio-equation"], title: "Equations", text: "Press Equation, or type [[$]], to drop a formula into your text. Click a formula to change it." },
-      { id: "typing", targets: ["studio-equation"], title: "Type it like you say it", text: "Inside an equation, type sin and it turns into the function. Type [[\\theta]] and press Space to get [[θ]]." },
-      { id: "picture", targets: ["studio-image"], title: "An image", text: "Got a diagram? Add an image here, or paste or drop one in." },
-      { id: "solution", targets: ["studio-solution"], title: "The worked solution", text: "Write the steps that lead to the answer. Every problem needs one." },
-      { id: "answer", targets: ["studio-answer"], title: "Final Answer (Solution)", text: "This is the answer we check students against. We find the symbols for you." },
-      { id: "try", targets: ["studio-try"], title: "Answer preview", text: "Type an answer here to see what a student would get. Only you see this." },
-      { id: "source", targets: ["studio-source"], title: "Where it's from", text: "Say if you wrote it or adapted it. If you adapted it, add the source." },
-      { id: "difficulty", targets: ["studio-difficulty"], title: "Difficulty rating", text: "Type a whole number from 0 to 4,000, or pick a band to fill one in. Publish needs it." },
-      { id: "more", targets: ["studio-more"], title: "More options", text: "Extra sections, PDFs, method tags and your own rights wording are in here. Most problems do not need it." },
-      { id: "publish", targets: ["studio-publish"], title: "Publish", text: "Happy with it? Tick the box above and press Publish." },
+      { id: "main", targets: ["studio-main"], title: "The main question", text: "Put the setup every part shares here, if you have one. You can add equations and an image too.", reveal: "question" },
+      { id: "question", targets: ["studio-question"], title: "Part a", text: "Then type the first question, just like you would write it.", reveal: "question" },
+      { id: "equation", targets: ["studio-equation"], title: "Equations", text: "Press Equation, or type [[$]], to drop a formula into your text. Click a formula to change it.", reveal: "question" },
+      { id: "typing", targets: ["studio-equation"], title: "Type it like you say it", text: "Inside an equation, type sin and it turns into the function. Type [[\\theta]] and press Space to get [[θ]].", reveal: "question" },
+      { id: "picture", targets: ["studio-image"], title: "An image", text: "Got a diagram? Add an image here, or paste or drop one in.", reveal: "question" },
+      { id: "answer", targets: ["studio-answer"], title: "Final Answer (Solution)", text: "This is the answer we check students against. We find the symbols for you.", reveal: "answer" },
+      { id: "try", targets: ["studio-try"], title: "Answer preview", text: "Type an answer here to see what a student would get. Only you see this.", reveal: "answer" },
+      { id: "solution", targets: ["studio-solution"], title: "The worked solution", text: "Write the steps that lead to the answer. Every problem needs one.", reveal: "worked-solution" },
+      { id: "source", targets: ["studio-source"], title: "Where it's from", text: "Say if you wrote it or adapted it. If you adapted it, add the source.", reveal: "details" },
+      { id: "difficulty", targets: ["studio-difficulty"], title: "Difficulty rating", text: "Type a whole number from 0 to 4,000, or pick a band to fill one in. Publish needs it.", reveal: "details" },
+      { id: "more", targets: ["studio-more"], title: "More options", text: "Extra sections, PDFs, method tags and your own rights wording are in here. Most problems do not need it.", reveal: "details" },
+      { id: "publish", targets: ["studio-publish"], title: "Publish", text: "Happy with it? Tick the box above and press Publish.", reveal: "review" },
     ],
   },
 };

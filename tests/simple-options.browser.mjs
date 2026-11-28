@@ -4,6 +4,7 @@
 // Run: node --import tsx tests/simple-options.browser.mjs   (CHROMIUM_PATH optional)
 import assert from "node:assert/strict";
 import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
+import { barStatus, goStep, studioBar } from "./studio-steps.helpers.mjs";
 import { createServer } from "node:http";
 import { createRequire } from "node:module";
 import { mkdtemp, readFile, rm } from "node:fs/promises";
@@ -37,7 +38,8 @@ try {
   browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined, headless: true, args: ["--no-sandbox"] });
   let checks = 0;
   const errors = [];
-  async function open(state = "draft", { fixture = "", width = 1000, extra = "", session = null } = {}) {
+  // The editor opens on Question. Most checks here are about the answer box and the part's More options, on Answer.
+  async function open(state = "draft", { fixture = "", width = 1000, extra = "", session = null, step = "Answer" } = {}) {
     const context = await browser.newContext({ viewport: { width, height: 1200 } });
     // A problem with a picture opens in the files view. This keeps the text view.
     if (session) await context.addInitScript(([k, v]) => sessionStorage.setItem(k, v), session);
@@ -45,13 +47,31 @@ try {
     page.on("pageerror", (e) => { errors.push(e.message); if (process.env.DEBUG_ERRORS) console.error(e.message.slice(0, 300)); });
     await autoConfirm(page);
     await page.goto(`${origin}/?state=${state}${fixture ? `&fixture=${fixture}` : ""}${extra}`);
-    await (extra ? page.locator("#simple-title") : page.locator('math-field[id$="-a"]').first()).waitFor();
+    await (extra ? page.locator("#simple-title") : page.locator('math-field[id$="-a"]').first()).waitFor({ state: "attached" });
+    // A problem with a picture opens in the files view, which has no steps.
+    if (await page.getByRole("navigation", { name: "Steps" }).count()) await goStep(page, step);
     return { context, page };
   }
   const key = (page) => page.evaluate(() => window.__draft.privateParts[0].key);
   const boxFocused = (page) => page.evaluate(() => document.activeElement?.tagName === "MATH-FIELD");
   const moreOptions = async (page) => { const s = page.locator('summary[aria-label="More options"]'); if (!(await s.evaluate((el) => el.parentElement.open))) await s.click(); };
   const answerType = (page) => page.getByLabel("Answer type", { exact: true });
+  // Trying to publish: with nothing left on the server, Publish on Review. Otherwise the bar's item for what is left,
+  // which opens its step and focuses its field the way Publish used to.
+  const publish = async (page, item) => {
+    // The files view keeps its own Publish button.
+    if (!(await studioBar(page).count())) return page.getByRole("button", { name: /^Publish/ }).last().click();
+    const status = await barStatus(page);
+    if (status === "Ready to publish") {
+      await goStep(page, "Review");
+      await page.getByRole("button", { name: /^Publish/ }).last().click();
+      return;
+    }
+    const toggle = studioBar(page).getByRole("button", { name: status, exact: true });
+    if ((await toggle.getAttribute("aria-expanded")) !== "true") await toggle.click();
+    const items = studioBar(page).getByRole("listitem").getByRole("button");
+    await (item ? items.filter({ hasText: item }) : items).first().click();
+  };
 
   // 1. Clearing the box keeps the box, on a draft and on a published problem, and Publish asks for the answer.
   for (const state of ["draft", "published"]) {
@@ -67,7 +87,7 @@ try {
     assert.equal(await boxFocused(page), true, `${state}: focus stays in the box`);
     await page.getByText("Publish needs a final answer here.").waitFor();
     assert.equal(await page.getByText("Students explain this part and nothing is checked automatically.").count(), 0);
-    await page.getByRole("button", { name: /^Publish/ }).last().click();
+    // The box was typed in, so Simple asks for the answer next to it.
     await page.getByRole("alert").filter({ hasText: "Add the final answer." }).waitFor();
     // Marking it hand-graded clears the message, and the inverse brings the box back with focus.
     await page.getByRole("button", { name: "Students explain, no automatic check" }).click();
@@ -103,7 +123,7 @@ try {
     assert.equal(await symbol.getAttribute("readonly"), "");
     assert.equal(await page.getByRole("button", { name: /Add variable|Remove variable/ }).count(), 0);
     // Exactly one worked solution editor.
-    assert.equal(await page.getByText(/^Worked solution/).count(), 1);
+    assert.equal(await page.locator("p").filter({ hasText: /^Worked solution/ }).count(), 1);
     // Every piece of text inside More options is at least 16px.
     const small = await page.locator('summary[aria-label="More options"] + div').evaluate((root) => {
       const out = [];
@@ -139,7 +159,7 @@ try {
   const whole = (page) => page.locator('summary[aria-label="More options for the whole problem"]');
   const isOpen = (page) => whole(page).evaluate((el) => el.parentElement.open);
   {
-    const { context, page } = await open("draft");
+    const { context, page } = await open("draft", { step: "Details" });
     assert.equal(await isOpen(page), false, "closed on a new problem");
     assert.equal(await page.getByRole("navigation", { name: "Sections outline" }).count(), 0, "no outline with one section");
     await whole(page).click();
@@ -151,7 +171,7 @@ try {
     await context.close();
   }
   {
-    const { context, page } = await open("published", { fixture: "saved" });
+    const { context, page } = await open("published", { fixture: "saved", step: "Details" });
     assert.equal(await isOpen(page), true, "opens by itself with saved sections, a tag and custom rights");
     assert.equal(await page.getByRole("navigation", { name: "Sections outline" }).count(), 1);
     await page.getByRole("button", { name: "Unpublish problem" }).click();
@@ -163,7 +183,6 @@ try {
   // 5. At 390px nothing inside the problem-level More options is a target under 44px or text under 16px, in every state it can be in.
   const optionsAlert = (page) => page.locator("#simple-options-problem-error");
   const focused = (page) => page.evaluate(() => ({ id: document.activeElement?.id, role: document.activeElement?.getAttribute("role"), text: document.activeElement?.textContent }));
-  const publish = (page) => page.getByRole("button", { name: /^Publish/ }).last().click();
   for (const [label, state, extra, attempt] of [
     ["draft", "draft", "", false],
     ["published", "published", "", false],
@@ -172,7 +191,7 @@ try {
     ["draft, rights with no source", "draft", "&provenance=nosource&ready=1", true],
     ["published, shared setup blocks", "published", "&context=1&ready=1", false],
   ]) {
-    const { context, page } = await open(state, { fixture: "saved", width: 390, extra });
+    const { context, page } = await open(state, { fixture: "saved", width: 390, extra, step: "Details" });
     if (attempt) { await publish(page); await optionsAlert(page).waitFor(); }
     const found = await page.locator('summary[aria-label="More options for the whole problem"]').evaluate((summary) => {
       const root = summary.parentElement;
@@ -201,7 +220,7 @@ try {
 
   // 6. A publish error that belongs inside More options opens it again, even after the author closed it, and focus lands on the error.
   {
-    const { context, page } = await open("draft", { fixture: "saved", extra: "&image=undescribed&ready=1" });
+    const { context, page } = await open("draft", { fixture: "saved", extra: "&image=undescribed&ready=1", step: "Details" });
     assert.equal(await isOpen(page), true, "saved content opens it");
     await whole(page).click();
     assert.equal(await isOpen(page), false, "the author can close it, even with saved content");
@@ -225,7 +244,7 @@ try {
 
   // 7. Auto-open happens once per Publish attempt. Closing it and typing elsewhere never opens it again.
   {
-    const { context, page } = await open("draft", { fixture: "saved", extra: "&provenance=nosource&ready=1" });
+    const { context, page } = await open("draft", { fixture: "saved", extra: "&provenance=nosource&ready=1", step: "Details" });
     assert.equal(await isOpen(page), true, "custom rights open it when the problem loads");
     await whole(page).click();
     await publish(page);
@@ -249,7 +268,7 @@ try {
 
   // 8. One section holding an image with no description: the error names it and the field is there.
   {
-    const { context, page } = await open("draft", { extra: "&image=single&ready=1" });
+    const { context, page } = await open("draft", { extra: "&image=single&ready=1", step: "Details" });
     assert.equal(await isOpen(page), true, "a section with shared text opens it");
     assert.equal(await page.getByRole("navigation", { name: "Sections outline" }).count(), 0, "one section has no outline");
     await publish(page);
@@ -274,7 +293,7 @@ try {
     ["a repeated topic", "&topics=repeat", "A topic is listed twice.", "Duplicate tags"],
     ["an image with no description", "&image=single", "Describe each image in the shared setup and sections, in More options.", "Every image requires descriptive alternative text"],
   ]) {
-    const { context, page } = await open("draft", { extra: `${extra}&ready=1` });
+    const { context, page } = await open("draft", { extra: `${extra}&ready=1`, step: "Details" });
     await publish(page);
     await page.getByText(simple, { exact: false }).first().waitFor();
     assert.equal(await page.getByText(server, { exact: false }).count(), 0, `${name}: the server's wording is not shown beside Simple's`);
@@ -284,7 +303,7 @@ try {
 
   // 10. The shared setup holds only what the main question does not. Editing it and closing leave the main question's block as it was.
   {
-    const { context, page } = await open("draft", { fixture: "saved", extra: "&context=1&ready=1" });
+    const { context, page } = await open("draft", { fixture: "saved", extra: "&context=1&ready=1", step: "Details" });
     assert.equal(await isOpen(page), true, "extra shared setup opens it");
     const shared = page.locator('section[aria-labelledby="simple-setup-h"]');
     assert.equal(await shared.locator("textarea").count(), 2, "the equation and the second text block, not the main question");
@@ -303,8 +322,8 @@ try {
 
   // 11. The text this fix adds reaches 4.5:1 in the dark and the light theme, measured on the painted colours.
   {
-    const { context, page } = await open("draft", { fixture: "saved", extra: "&topics=repeat&image=single&ready=1" });
-    await publish(page);
+    const { context, page } = await open("draft", { fixture: "saved", extra: "&topics=repeat&image=single&ready=1", step: "Details" });
+    await publish(page, /Describe each image/);
     await optionsAlert(page).waitFor();
     for (const theme of ["dark", "light"]) {
       await page.evaluate((t) => document.documentElement.classList.toggle("dark", t === "dark"), theme);
@@ -383,7 +402,8 @@ try {
     sol = await page.evaluate(() => window.__draft.privateParts[0].solution);
     assert.equal(sol.length, 3);
     assert.deepEqual(sol[0], solutionBefore[0]);
-    // The caption of the main picture and of the part's first picture, closed when empty and open when there is one.
+    // The caption of the main picture and of the part's first picture, closed when empty and open when there is one. They are on Question.
+    await goStep(page, "Question");
     const main = page.locator('section[data-tour="studio-main"]');
     assert.equal(await main.locator("details", { has: page.locator("summary", { hasText: "Caption" }) }).evaluate((el) => el.open), true, "a caption that exists is shown");
     await main.getByLabel("Caption for the main question", { exact: true }).fill("Figure 2");
@@ -391,6 +411,7 @@ try {
     const ctx = await page.evaluate(() => window.__draft.content.context);
     assert.deepEqual(kinds(ctx), ["text", "image", "math"], "the main picture's other fields are kept");
     // 44px targets and 16px text in the groups, no sideways scroll.
+    await goStep(page, "Answer");
     const found = await page.locator('summary[aria-label^="More options for part a"]').evaluate((summary) => {
       const out = [];
       for (const el of summary.parentElement.querySelectorAll("*")) {
@@ -502,6 +523,8 @@ try {
     await saved.page.evaluate(() => document.querySelectorAll("details").forEach((d) => { d.open = true; }));
     const enabled = saved.page.locator('details:has(> summary:text-matches("More (question|worked solution) blocks")) input[type="file"]');
     assert.equal(await enabled.first().isDisabled(), false, "and enabled once it is");
+    // The captions of the main picture and the part's picture are on Question, with the groups' captions checked on Answer above.
+    await goStep(saved.page, "Question");
     const names = await saved.page.evaluate(() => [...document.querySelectorAll("input")].filter((el) => el.getClientRects().length).map((el) => el.getAttribute("aria-label") || (el.labels?.[0]?.textContent ?? "")).filter((t) => /^Caption/.test(t)));
     assert.equal(new Set(names).size, names.length, `each caption input has its own name: ${names.join(" | ")}`);
     assert.ok(names.includes("Caption for the main question") && names.includes("Caption for part a"));
@@ -511,7 +534,7 @@ try {
 
   // 13. The only section can be given a title and shared text without adding a second section first.
   {
-    const { context, page } = await open("draft", { width: 390 });
+    const { context, page } = await open("draft", { width: 390, step: "Details" });
     await page.locator('summary[aria-label="More options for the whole problem"]').click();
     assert.equal(await page.getByLabel("Section 1 title", { exact: true }).count(), 0, "the empty only section shows no fields");
     await page.getByRole("button", { name: "Give the section a title or shared text", exact: true }).click();

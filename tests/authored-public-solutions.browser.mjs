@@ -130,7 +130,7 @@ try{
  }
  delete process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED;
  const context=await browser.newContext();await autoConfirm(context,'manual');const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await context.addCookies([{name:'test_user',value:'author',url:origin}]);await page.goto(origin+'/author');
- const publishButton=page.getByRole('button',{name:'Publish new version',exact:true});
+ await page.getByRole('navigation',{name:'Steps'}).getByRole('button',{name:/^Review/}).click();const publishButton=page.getByRole('button',{name:'Publish new version',exact:true});
  await publishButton.waitFor();
  process.env.AUTHORED_PUBLIC_SOLUTIONS_ENABLED='true';
  await publishButton.click();
@@ -140,7 +140,7 @@ try{
  assert.equal((await parsed(await f.author('public',req(),problem.id))).id,problem.revision.id);
  assert.equal((await parsed(await f.author('read',req('author'),problem.id))).version,version);
  await page.reload();
- await publishButton.waitFor();
+ await page.getByRole('navigation',{name:'Steps'}).getByRole('button',{name:/^Review/}).click();await publishButton.waitFor();
  await page.getByRole('button',{name:'Publish new version',exact:true}).click();await sheet.waitFor();await sheet.getByRole('button',{name:'Cancel',exact:true}).click();await sheet.waitFor({state:'detached'});
  await page.waitForTimeout(200);const before=requests.filter(r=>r.path.endsWith('/publish')).length;
  await page.getByRole('button',{name:'Publish new version',exact:true}).click();await sheet.waitFor();assert.match(await sheet.innerText(),/worked solution, including attached files, will be public/);await sheet.getByRole('button',{name:'Publish',exact:true}).click();await page.getByRole('status',{name:'Problem status',exact:true}).filter({hasText:'Published successfully'}).waitFor();

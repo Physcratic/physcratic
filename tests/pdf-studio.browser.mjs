@@ -1,12 +1,13 @@
 // Extends the existing real-editor/API/disposable-PG harness, with synthetic sessions and storage.
 import assert from 'node:assert/strict';
 import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
+import { goStep } from "./studio-steps.helpers.mjs";
 import {createRequire} from 'node:module';
 import {join} from 'node:path';
 import {mkdir} from 'node:fs/promises';
 import {statementPdfFixture,png} from './author-media-fixtures.ts';
 // Upload PDFs instead lives in the problem-level More options, which is closed until the problem has saved content.
-const openMore=async page=>{const summary=page.locator('summary[aria-label="More options for the whole problem"]');if(!(await summary.evaluate(el=>el.parentElement.open)))await summary.click();};
+const openMore=async page=>{if(await page.getByRole('navigation',{name:'Steps'}).count())await goStep(page,'Details');const summary=page.locator('summary[aria-label="More options for the whole problem"]');if(!(await summary.evaluate(el=>el.parentElement.open)))await summary.click();};
 const tools=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS,'package.json'));
 const {default:AxeBuilder}=tools('@axe-core/playwright');
 const file=(name,buffer,mimeType)=>({name,buffer,mimeType});
@@ -99,12 +100,12 @@ export async function runPdfStudioBrowser({browser,origin,pool,storage,setFail})
   assert.equal((await pool.query('SELECT state FROM author_media WHERE id=$1',[statement])).rows[0].state,'ready','historical/recoverable uploads are not physically deleted');
   const imageDraft=await draft();await page.reload();await page.waitForFunction(()=>document.querySelector('#simple-title')?.value==='Moving Cart');await page.getByLabel('Upload PDFs instead',{exact:true}).waitFor();assert.equal(await page.getByLabel('Upload PDFs instead',{exact:true}).isChecked(),true);assert.deepEqual((await draft()).privateParts,imageDraft.privateParts);
   // Preview must not discard an incomplete native answer held by Simple's input buffer.
-  await page.getByLabel('Upload PDFs instead',{exact:true}).uncheck();const nativePart=page.getByRole('region',{name:'Part a',exact:true});const field=nativePart.getByLabel('Final Answer (Solution)',{exact:true}).and(nativePart.locator('input'));await field.waitFor();
+  await page.getByLabel('Upload PDFs instead',{exact:true}).uncheck();await goStep(page,'Answer');const nativePart=page.getByRole('region',{name:'Part a',exact:true});const field=nativePart.getByLabel('Final Answer (Solution)',{exact:true}).and(nativePart.locator('input'));await field.waitFor();
   const enter=value=>field.fill(value);
   await enter('x+');await page.getByText('The answer stops too soon. Something is missing after the last operator.',{exact:true}).waitFor();await page.getByRole('button',{name:'Student preview',exact:true}).click();await page.getByRole('button',{name:'Write',exact:true}).click();
-  assert.equal(await field.inputValue(),'x+');await page.getByLabel('Upload PDFs instead',{exact:true}).click();await page.getByText('Correct the current final answer before changing workflows. Your input is retained.',{exact:true}).waitFor();assert.equal(await page.getByLabel('Upload PDFs instead',{exact:true}).isChecked(),false);
+  assert.equal(await field.inputValue(),'x+');await goStep(page,'Details');await page.getByLabel('Upload PDFs instead',{exact:true}).click();await page.getByText('Correct the current final answer before changing workflows. Your input is retained.',{exact:true}).waitFor();assert.equal(await page.getByLabel('Upload PDFs instead',{exact:true}).isChecked(),false);
   await page.getByText('Correct the current final answer before changing workflows. Your input is retained.',{exact:true}).waitFor();
-  await enter('7');await saved();await page.reload();await page.waitForFunction(()=>document.querySelector('#simple-title')?.value==='Moving Cart');assert.equal(await page.getByLabel('Upload PDFs instead',{exact:true}).isChecked(),false);await openMore(page);await page.getByLabel('Upload PDFs instead',{exact:true}).check();await saved();assert.deepEqual((await draft()).privateParts,imageDraft.privateParts);
+  await goStep(page,'Answer');await enter('7');await saved();await page.reload();await page.waitForFunction(()=>document.querySelector('#simple-title')?.value==='Moving Cart');assert.equal(await page.getByLabel('Upload PDFs instead',{exact:true}).isChecked(),false);await openMore(page);await page.getByLabel('Upload PDFs instead',{exact:true}).check();await saved();assert.deepEqual((await draft()).privateParts,imageDraft.privateParts);
   for(const target of [page,reader,student]){assert.equal(await target.evaluate(()=>document.documentElement.classList.contains('dark')),theme==='dark');assert.equal(await target.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);const result=await new AxeBuilder({page:target}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(result.violations.filter(v=>['serious','critical'].includes(v.impact)),[]);}
   if(process.env.PDF_STUDIO_SCREENSHOTS){await mkdir(process.env.PDF_STUDIO_SCREENSHOTS,{recursive:true});await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:join(process.env.PDF_STUDIO_SCREENSHOTS,`studio-${width}-${theme}.png`),fullPage:true});await reader.evaluate(()=>window.scrollTo(0,0));await reader.screenshot({path:join(process.env.PDF_STUDIO_SCREENSHOTS,`reader-${width}-${theme}.png`),fullPage:true});}
   assert.equal((await pool.query('SELECT attempts FROM author_media_usage WHERE user_id=$1',[owner])).rows[0].attempts,8,'isolated tutor stays within the unchanged daily upload limit');
