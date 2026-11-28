@@ -24,10 +24,12 @@ Status is NO-GO for Production. This procedure requires named owner authorizatio
 ## 2. Qualify erasure and recovery before activation
 
 1. Apply the exact scripts to a disposable schema with the approved ordinary and erasure roles. Rehearse with synthetic A and B, including a mark waiting behind a deletion and another committed mark before deletion. Verify both of A's tables are empty, A's old session cannot read or recreate data, B's rows and original timestamps remain, and ordinary roles cannot execute the eraser or delete accounts. Confirm the existing eraser routine owner, SECURITY DEFINER setting, fixed trusted search path, ACLs and definition remain unchanged before and after 0025. The migration creates no routines.
-2. Require evidence of the actual approved 0018 erasure service or an owner-approved operational erasure path. Record policy authority, staffing, cleanup and retry handling, publication rights and media obligations from [the account deletion runbook](../../docs/engineering/ACCOUNT_DELETION_READINESS.md). Resolve the erasure path before accepting real marks.
+2. Require evidence of the actual approved 0018 erasure service or an owner-approved operational erasure path. Record policy authority, staffing, cleanup and retry handling, publication rights and media obligations from [the account deletion runbook](../../docs/engineering/ACCOUNT_DELETION_READINESS.md). Resolve the erasure path before accepting real marks. The current erasure route requires 0026. Support intake, staff-only review/cleanup and isolated replay do not supply an operational deletion alternative. A separately qualified path can satisfy this gate if it preserves verified authorization, erasure, publication, file, Tally and recovery obligations. Keep both tracks under separate owner approval. [Phase 5B owner decision](../../docs/engineering/ACCOUNT_DELETION_READINESS.md#phase-5b-owner-decision)
 3. Obtain actual provider backup and PITR retention and expiry terms. Approve an independently recoverable and access-restricted record of erasure obligations since any restore point. A ledger restored with the database cannot suffice by itself. Rehearse an isolated restore with access and writes closed, reapplied erasures, independent reconciliation of both completion tables and existing media outbox obligations, and a check of unaffected accounts. Keep any restored copy isolated until the operator approves reopening. Never reactivate erased credentials. An unqualified restore path remains blocked.
 
 ## 3. Install migration 0025 with exposure off
+
+Schema-only 0025 has no dependency on 0026. Under separate approval it can install with `PERSONAL_COMPLETIONS_ENABLED` unset at build and runtime and with the runtime grant delta deferred. Both tables must remain empty and inaccessible to the serving LOGIN. That adds no new completion data to recovery. The existing risk of resurrecting other data remains, including through the install recovery checkpoint. Use only an approved checkpoint and retain the ledger and both empty tables through ordinary app rollback. A restore from before 0025, if separately approved and safe to reopen, needs its schema and ledger reconciled before any future completion exposure.
 
 1. Take the approved recovery checkpoint. Reconfirm the exact database, current owner and installed ledger at the start of the change window. Apply the reviewed **up** file once as the approved owner, in a single bounded transaction with psql `-X -v ON_ERROR_STOP=1`. The commands below are for the authorized operator's reviewed connection and source checkout.
 
@@ -35,6 +37,8 @@ Status is NO-GO for Production. This procedure requires named owner authorizatio
    BEGIN;
    SET LOCAL lock_timeout = '2s';
    SET LOCAL statement_timeout = '30s';
+   SELECT pg_advisory_xact_lock(hashtextextended('physcratic:authoring:migrations:v1', 0));
+   -- Reconfirm the approved ledger and 0025 absence while holding the lock.
    \i migrations/0025_personal_completions.up.sql
    ```
 

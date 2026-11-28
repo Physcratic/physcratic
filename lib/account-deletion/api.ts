@@ -36,6 +36,8 @@ export function createAccountDeletionApi(deps:DeletionDependencies){
    return deletionReply(deletionReceiptSchema.parse(rows[0].receipt));
   }catch(error){
    const code=(error as {code?:string}).code;
+   if(code==='P0027')return deletionReply({error:'Your request is awaiting operator authorization. Contact support with this reference, then retry from this tab.',code:'authorization-required',requestId},409);
+   if(code==='P0028')return deletionReply({error:'The request needs a new operator review. Contact support with this reference.',code:'authorization-changed',requestId},409);
    if(code==='P0002')return deletionReply({error:'Evidence needs operator adjudication before deletion. No account data has been erased.',code:'review-required',requestId},409);
    if(code==='42501')return deletionReply({error:'Sign in again and use your current password.'},403);
    if(code==='P0003')return deletionReply({error:'Too many deletion checks. Try again later.'},429);

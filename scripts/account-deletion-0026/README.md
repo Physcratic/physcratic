@@ -1,6 +1,6 @@
 # Account deletion operational qualification and migration 0026
 
-**Account deletion is blocked on provider confirmation and owner operational approval. Keep `ACCOUNT_DELETION_ENABLED` unset.** The reviewer reported serving commit `ee23638`, no 0026 installation, six ready author media records, three registered legacy solution evidence records, zero profile media and internal medal claims, and both `ACCOUNT_DELETION_ENABLED` and `VERCEL_BLOB_RETRIES` unset. These are reviewer observations. Refresh them on the approved target under the writer hold. A reported count of six ready records leaves the count of other author media, existing outbox jobs and prior receipts to be checked. If the reported inventory is complete and all paths are distinct, the backfill holds nine paths.
+**Account deletion is blocked on operational qualification and owner approval. Keep `ACCOUNT_DELETION_ENABLED` unset.** The default gate is full provider closeout. The proposed [staged alternative](#staged-erasure-owner-checklist) requires a separate approval and still requires terminal evidence to release a hold or confirm cleanup. The reviewer reported serving commit `ee23638`, no 0026 installation, six ready author media records, three registered legacy solution evidence records, zero profile media and internal medal claims, and both `ACCOUNT_DELETION_ENABLED` and `VERCEL_BLOB_RETRIES` unset. These are reviewer observations. Refresh them on the approved target under the writer hold. A reported count of six ready records leaves the count of other author media, existing outbox jobs and prior receipts to be checked. If the reported inventory is complete and all paths are distinct, the backfill holds nine paths.
 
 Installing schema 0026 with uploads safely configured and deletion off is a separate owner decision from releasing account deletion. This package is for an explicitly approved window. The checkout, package manifest, plan, endpoint binding, writer hold and recovery evidence each require review before use.
 
@@ -25,7 +25,7 @@ The reviewed code, current private bindings, existing outbox/operator endpoint a
 
 Repeat DELETE belongs in the private-store rehearsal. For a synthetic path with a confirmed terminal write, simulate a lost first acknowledgement, call `del()` by pathname again and verify origin absence. If the binding returns an unexpected error, keep the job pending and investigate the discrepancy against the documented contract.
 
-If Vercel cannot give usable confirmation through existing entitlement, keep the provider gate **blocked**. A successful rehearsal can demonstrate the exercised cases. It cannot prove a universal upper bound on interrupted writes. Do not switch plans or buy anything to qualify this package.
+Without provider confirmation, full closeout stays blocked. A separate staged approval can permit database erasure with open per-path obligations once the checklist below passes. A successful rehearsal demonstrates the exercised cases. A universal PUT deadline and physical backup expiry require separate evidence. Keep unknowns open and use existing entitlement only.
 
 ## Owner cutover with deletion off
 
@@ -114,16 +114,7 @@ The application-only runtime access added here is ordinary `EXECUTE` on `public.
 
 ## Remaining owner decisions before activation
 
-| Gate | Owner evidence |
-| --- | --- |
-| Tally | Inventory the verification form, unawarded and awarded submissions, certificate links, trash, exports, notifications and actual downstream copies. Rehearse verified matching and fallback for ambiguous matches. Record a restricted disposition independently before the app loses the reference, including cases that start in self-service. Assign primary and backup coverage for outstanding cases. |
-| Roles and service binding | Attest the distinct ordinary, eraser and staff logins and their narrow effective permissions, trusted owner, actual database bindings, provider store mapping, and operational readiness while the deletion flag remains off. Keep internal medal verification disabled. |
-| Privacy and retention | Approve and publish accurate notice and in-flow support copy for profile, attempts, account, registered objects, Tally, backups and people who cannot sign in. Approve retention basis, finite timers, access, review, disposal, holds and rights review. Choose archive-only or revision-specific continuing display. |
-| Independent review and support | Name two qualified independent reviewers for mixed cases and backup coverage, prove the request handoff and support channel, and approve queue cadence, alert threshold, outage handling and secure evidence access. |
-| Backup reconciliation | Approve actual Neon and provider retention and expiry, access restrictions, an independently recoverable erasure-obligation record, and an isolated restore rehearsal. Verify all erased accounts, blobs and external obligations, as well as unaffected accounts, before traffic. Keep restore paths isolated or prohibited when reconciliation cannot be proved. |
-| Activation | Require provider confirmation and synthetic rehearsal, an accepted held-path reconciliation, all of the preceding evidence and separate written owner approval for the flag and manual deployment. If any item remains open, leave deletion off. |
-
-Further operational detail is in the [account deletion readiness runbook](../../docs/engineering/ACCOUNT_DELETION_READINESS.md).
+Use the [single Phase 5B closing checklist](../../docs/engineering/ACCOUNT_DELETION_READINESS.md#minimum-owner-evidence-to-close-phase-5b). Keep the manual Tally check and custody result with the existing restricted release evidence. The migration cutover, exact service LOGIN attestation and activation still require their own owner decisions.
 
 ## Reproduce the local evidence
 
@@ -136,4 +127,129 @@ bash scripts/account-deletion-0026/rehearse-local.sh
 sha256sum -c scripts/account-deletion-0026/PACKAGE_SHA256SUMS
 ```
 
-The SDK probe verifies request and attempt counts, an interrupted request whose outcome the synthetic provider controls, and propagation of a deliberately injected API error. The injection tests client error handling. Vercel separately documents success for deletion of an absent blob. The PostgreSQL 18.7 installer rehearsal checks direct TLS and proxy TLS with a plaintext compute, and refuses a wrong hostname, an untrusted CA and a plaintext endpoint. It verifies nine held paths and the actual runtime LOGIN, checks refusal on checksum, inventory, ACL and replay drift, and injects a ledger failure after the migration and grant to prove atomic rollback. These are synthetic tests. Actual Windows host, Production role bindings, the private-store rehearsal, and physical retention remain separate qualification items.
+The SDK probe verifies request and attempt counts, an interrupted request whose outcome the synthetic provider controls, and propagation of a deliberately injected API error. The injection tests client error handling. Vercel separately documents success for deletion of an absent blob. The PostgreSQL 18.7 installer rehearsal checks direct TLS and proxy TLS with a plaintext compute, and refuses a wrong hostname, an untrusted CA and a plaintext endpoint. It verifies nine held paths and the actual runtime LOGIN, checks refusal on checksum, inventory, ACL and replay drift, and injects a ledger failure after the migration and grant to prove atomic rollback. These are synthetic tests. The installer binaries were exercised on Linux. The owner separately completed native Windows erasure and restore reconciliation. The actual Windows installer host, serving role bindings, applicable provider evidence and physical retention remain separate.
+
+## Staged erasure owner checklist
+
+Use the [Phase 5B closing checklist](../../docs/engineering/ACCOUNT_DELETION_READINESS.md#minimum-owner-evidence-to-close-phase-5b) for staffing, retention, manual Tally, custody and recovery. Keep 0025 and the 0026/0027 deletion track separately authorized. The default is full provider closeout. An explicitly approved staged release may confirm database erasure with registered cleanup pending. Preserve the exact marker and pending job until terminal evidence covers every relevant write.
+
+For an uncovered in-use private binding or authentication mode, use the isolated probe below. Verify a terminal repeat deletion, a late or held object that stays inaccessible through the app, an unrelated control and surviving publication access where applicable. Reuse the accepted authoring staging token evidence within its recorded scope.
+
+For ordinary cleanup, send one same-origin `POST /api/admin/account-deletion` per eligible job using the existing private admin client, a recent verified admin session and `{"password":"<current admin password>","action":"cleanup","payload":{}}`. Keep credentials and sessions out of history and traces. `processed: 1, completed: true` confirms that job's acknowledgement. `completed: false` means retry, and `processed: 0` means no job was eligible.
+
+For a confirmed-present held object, first verify the exact store and path, subject, permission and absence of surviving publication, evidence or other-account dependencies. Use the individually authorized single-object operation. Verify origin absence and app denial. Preserve the held marker, pending job and pending receipt. Recheck open paths and leave failures or reappearance open. A current origin check establishes neither terminal state nor physical expiry.
+
+Under the separately authorized 0026/0027 cutover, keep exposure off while doing the writer hold, installer and postflight, and verify the actual dedicated service LOGINs and the trusted authorization operator. Pause on an unsafe binding, privacy exposure, unowned or overdue obligations, or an unreconciled recovery point. Preserve obligations through any pause or rollback.
+
+### Synthetic private-store probe
+
+Use a clean, reviewed LF checkout with the pinned SDK and node already installed. The tool only accepts an exact app namespace pathname with known synthetic bytes (up to 1 MiB). A legacy token encodes its store ID, and the OIDC mode requires an explicit preview or development token and store. Before using either, independently confirm the store and execution context are isolated. The tool cannot infer isolation from a store name or a token. Never use this procedure with live credentials, live paths or a store shared with Production. Do not paste credentials into a command or evidence record.
+
+In Windows PowerShell, replace each angle-bracket value with the independently verified synthetic input. Use `PHASE5B_BLOB_OIDC_TOKEN` in place of `PHASE5B_BLOB_TOKEN` if the existing binding uses OIDC. Use one credential and three distinct paths per binding. The control is a known-present synthetic object outside either deletion job. Use the exact bytes stored after any transformation. The existing Windows restore fixture's held object was database-only. Use a separate synthetic provider fixture for this pass and leave that checkpoint and recovery evidence intact.
+
+```powershell
+& {
+    $ErrorActionPreference = 'Stop'
+    $probe = 'scripts/account-deletion-0026/provider-probe.mjs'
+    $expected = '40a4e3e8ef361f65f70aff18c313001012ba6d719dfec6ec94f95cd35511c66f'
+    if ((Get-FileHash -LiteralPath $probe -Algorithm SHA256).Hash.ToLowerInvariant() -cne $expected) {
+        throw 'Probe checksum mismatch. Use the reviewed LF checkout.'
+    }
+    $store = '<approved isolated store ID>'
+    $fixtures = @(
+        @{ Mode = 'inspect'; Path = '<control pathname>'; File = '<control bytes>'; Result = 'ORIGIN_PRESENT_MATCHED' },
+        @{ Mode = 'repeat'; Path = '<terminal pathname>'; File = '<terminal bytes>'; Result = 'REPEAT_DELETE_ORIGIN_ABSENT' },
+        @{ Mode = 'held'; Path = '<held pathname>'; File = '<held bytes>'; Result = 'HELD_ORIGIN_ABSENT_KEEP_PENDING' }
+    )
+    if ($store -cnotmatch '^store_[A-Za-z0-9]+$' -or
+        @($fixtures.Path | Sort-Object -Unique).Count -ne 3 -or
+        @($fixtures.Path | Where-Object { $_ -match '[<>]' }).Count -ne 0) {
+        throw 'Enter the approved isolated store and three distinct exact synthetic paths.'
+    }
+    foreach ($fixture in $fixtures) {
+        $fixture.Hash = (Get-FileHash -LiteralPath $fixture.File -Algorithm SHA256).Hash.ToLowerInvariant()
+    }
+    $credentialVariable = 'PHASE5B_BLOB_TOKEN'
+    if ($env:PHASE5B_BLOB_TOKEN -or $env:PHASE5B_BLOB_OIDC_TOKEN) {
+        throw 'Use a fresh shell with no probe credentials loaded.'
+    }
+    $oldRetries = $env:VERCEL_BLOB_RETRIES
+    $secret = Read-Host 'Existing approved nonproduction credential' -AsSecureString
+    try {
+        $plain = [System.Net.NetworkCredential]::new('', $secret).Password
+        [Environment]::SetEnvironmentVariable($credentialVariable, $plain, 'Process')
+        Remove-Variable plain
+        $env:VERCEL_BLOB_RETRIES = '0'
+        foreach ($fixture in ($fixtures + @($fixtures[0]))) {
+            $result = & node $probe $fixture.Mode $store $fixture.Path $fixture.Hash
+            if ($LASTEXITCODE -ne 0 -or $result -cne $fixture.Result) {
+                throw 'Probe failed. Preserve pending obligations.'
+            }
+            Write-Output $result
+        }
+    } finally {
+        Remove-Item -LiteralPath "Env:$credentialVariable" -ErrorAction SilentlyContinue
+        if ($null -eq $oldRetries) {
+            Remove-Item -LiteralPath 'Env:VERCEL_BLOB_RETRIES' -ErrorAction SilentlyContinue
+        } else {
+            $env:VERCEL_BLOB_RETRIES = $oldRetries
+        }
+        $secret.Dispose()
+    }
+}
+```
+
+Expect `ORIGIN_PRESENT_MATCHED`, `REPEAT_DELETE_ORIGIN_ABSENT`, `HELD_ORIGIN_ABSENT_KEEP_PENDING` and `ORIGIN_PRESENT_MATCHED` in that order. The terminal fixture's writers must be fenced before the unconditioned repeat by pathname. The held fixture uses the observed ETag for a single DELETE. Both modes check private origin and fixture content before writing. The final control verifies that the same binding can still read an unrelated expected object.
+
+Run the following in an approved read-only psql session on the synthetic target immediately before and after the PowerShell block, with the leased worker paused in between. Enter the exact synthetic pending receipt UUID, provider and pathname. Expect one identical row with `state=pending`, the same job ID, attempts, held timestamp and total receipt pending count. Compare with the original app receipt. After this comparison, test the isolated worker separately. Expect acknowledgement of the absent terminal fixture, with the held job and marker intact. Verify the erased account's file routes deny access while its held object is still present and again after the probe. The unrelated account and any approved surviving publication should still work.
+
+```sql
+\prompt 'Synthetic receipt UUID ' receipt_id
+\prompt 'Synthetic provider ' provider
+\prompt 'Exact synthetic pathname ' pathname
+BEGIN READ ONLY;
+SET LOCAL statement_timeout = '10s';
+SET LOCAL search_path = pg_catalog, public, pg_temp;
+SELECT o.id, o.state, o.attempts, u.recorded_at AS held_since,
+       (SELECT count(*) FROM public.account_deletion_outbox pending
+        WHERE pending.deletion_id = r.id AND pending.state <> 'complete') AS pending_objects
+FROM public.account_deletion_outbox o
+JOIN public.account_deletion_pending_upload u USING (provider, pathname)
+JOIN public.account_deletion_receipt_store r ON r.id = o.deletion_id
+WHERE o.deletion_id = :'receipt_id'::uuid AND o.provider = :'provider'
+  AND o.pathname = :'pathname' AND r.expires_at > transaction_timestamp();
+ROLLBACK;
+```
+
+Each review, compare the private case list against this read-only queue tally. Count, classify, and track deadlines for held, due, leased and deferred jobs. Check separately for old markers without a deletion job. A live or retained object can have a marker with no job. Only erase a held object whose disposition is verified.
+
+```sql
+BEGIN READ ONLY;
+SET LOCAL statement_timeout = '10s';
+SET LOCAL search_path = pg_catalog, public, pg_temp;
+WITH queue AS (
+  SELECT CASE WHEN u.provider IS NOT NULL THEN 'held'
+              WHEN o.state = 'leased' AND o.lease_until > transaction_timestamp() THEN 'leased'
+              WHEN o.available_at <= transaction_timestamp() THEN 'due'
+              ELSE 'deferred' END AS class,
+         r.created_at
+  FROM public.account_deletion_outbox o
+  JOIN public.account_deletion_receipt_store r ON r.id = o.deletion_id
+  LEFT JOIN public.account_deletion_pending_upload u USING (provider, pathname)
+  WHERE o.state <> 'complete'
+)
+SELECT class, count(*) AS jobs, min(created_at) AS oldest_request
+FROM queue GROUP BY class ORDER BY class;
+
+SELECT count(*) AS markers_without_open_jobs, min(u.recorded_at) AS oldest_marker
+FROM public.account_deletion_pending_upload u
+WHERE NOT EXISTS (
+  SELECT 1 FROM public.account_deletion_outbox o
+  WHERE o.provider = u.provider AND o.pathname = u.pathname AND o.state <> 'complete'
+);
+ROLLBACK;
+```
+
+### Synthetic Tally pass
+
+Use the [manual test and acceptance check](../../docs/engineering/ACCOUNT_DELETION_READINESS.md#one-manual-acceptance-check). The owner reviews submissions and records approved medals manually. The earlier PowerShell qualification helper is superseded.

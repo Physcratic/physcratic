@@ -1,6 +1,8 @@
 # Release migration checksums require canonical LF bytes on Windows too.
 migrations/*.sql text eol=lf
 scripts/account-deletion-0026/* text eol=lf
+scripts/account-deletion-authorization/* text eol=lf
+scripts/account-deletion-restore/* text eol=lf
 scripts/retrospective-baseline/* text eol=lf
 scripts/public-solutions-release/SOURCE_COMMIT text eol=lf
 docs/engineering/RETROSPECTIVE_BASELINE_ACCEPTANCE.md text eol=lf

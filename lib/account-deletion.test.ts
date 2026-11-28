@@ -664,5 +664,88 @@ test('complete account erasure on actual auth and installed graph, disposable PG
     cleanup:async(fail:boolean)=>{await setup.query("UPDATE account_deletion_outbox SET available_at=now() WHERE state='pending'");const service=createDeletionOperatorApi(dependencies(staff),{del:async()=>{if(fail)throw Error('Synthetic provider failure');}});const response=await service(new Request(origin+'/api/admin/account-deletion',{method:'POST',headers:{origin,cookie:worker.cookie,'content-type':'application/json'},body:JSON.stringify({password:worker.password,action:'cleanup',payload:{}})}));assert.equal(response.status,200);const result=await response.json();assert.equal(result.completed,!fail);},
    });
   });
+  await t.test('0027 verifies owner authorization, scope, no bypass and atomic consumption',async()=>{
+   const a=await user('authorization-a'),b=await user('authorization-b');
+   const path='solution-evidence/synthetic-authorization/'+randomUUID()+'.png';
+   const authMigration=await readFile('migrations/0027_account_deletion_authorization.up.sql','utf8');
+   const aclBefore=(await setup.query(eraserAcl)).rows;
+   const predecessorDrift=await setup.connect();
+   try{
+    await assert.rejects(predecessorDrift.query(authMigration.replace('BEGIN;',`BEGIN;
+      ALTER TABLE community_external_medal RENAME COLUMN tally_reference TO missing_tally_reference;`)),
+    /Install the reviewed 0024 medal reference/);
+    await predecessorDrift.query('ROLLBACK');
+   }finally{predecessorDrift.release();}
+   await setup.query(authMigration);
+   assert.deepEqual((await setup.query(eraserAcl)).rows,aclBefore);
+   const pendingToken=token(),input={confirmation:'DELETE MY ACCOUNT',password:a.password,requestToken:pendingToken};
+   const result=await api(request(a.cookie,input));
+   assert.equal(result.status,409);
+   const {code,requestId}=await result.json();
+   assert.equal(code,'authorization-required');
+   assert.match(requestId,/^[a-f0-9-]{36}$/);
+   const session=(await auth.api.getSession({headers:new Headers({cookie:a.cookie})}))!;
+   const proof=await dependencies(erase).password(a.id,a.password);
+   const subjectParams=[a.id,session.session.token,proof.hash,nonce(pendingToken)];
+   const executeSql='SELECT account_deletion_execute($1,$2,$3,$4) AS receipt';
+   const armSql='SELECT account_deletion_arm($1,$2,$3,$4,$5) AS id';
+   const scopeSql='SELECT account_deletion_arm_scope($1) AS snapshot';
+   await assert.rejects(erase.query(executeSql,subjectParams),{code:'P0027'});
+   await assert.rejects(erase.query(executeSql,[a.id,session.session.token,null,nonce(pendingToken)]),{code:'42501'});
+   const scope=async()=>(await setup.query(scopeSql,[requestId])).rows[0].snapshot;
+   const expires=new Date(Date.now()+300000);
+   const first=await scope(),intent=nonce(token());
+   assert.equal(first.subject,a.id);
+   for(const pool of [normal,erase,staff]){
+    await assert.rejects(pool.query(armSql,[requestId,a.id,first.scopeSha256,intent,expires]),{code:'42501'});
+    await assert.rejects(pool.query(scopeSql,[requestId]),{code:'42501'});
+    await assert.rejects(pool.query('SELECT account_deletion_disarm($1,$2)',[requestId,intent]),{code:'42501'});
+   }
+   await assert.rejects(setup.query(armSql,[requestId,b.id,first.scopeSha256,intent,expires]),{code:'P0028'});
+   await assert.rejects(setup.query(armSql,[requestId,a.id,first.scopeSha256,intent,new Date(0)]));
+   assert.equal((await setup.query(armSql,[requestId,a.id,first.scopeSha256,intent,expires])).rows[0].id,requestId);
+   assert.equal((await setup.query(armSql,[requestId,a.id,first.scopeSha256,intent,expires])).rows[0].id,requestId);
+   await assert.rejects(setup.query(armSql,[requestId,a.id,first.scopeSha256,nonce(token()),expires]));
+   await setup.query("INSERT INTO solution_evidence(id,\"userId\",pathname,filename,\"mediaType\",bytes,sha256) VALUES($1,$2,$3,'new.png','image/png',1,repeat('a',64))",[randomUUID(),a.id,path]);
+   await assert.rejects(erase.query(executeSql,subjectParams),{code:'P0028'});
+   assert.equal((await counts(a.id)).users,1);
+   assert.equal((await setup.query('SELECT account_deletion_disarm($1,$2) AS ok',[requestId,nonce(token())])).rows[0].ok,false);
+   assert.equal((await setup.query('SELECT account_deletion_disarm($1,$2) AS ok',[requestId,intent])).rows[0].ok,true);
+   const firstReviewer=await adminUser('authorization-reviewer-a'),secondReviewer=await adminUser('authorization-reviewer-b');
+   await setup.query("INSERT INTO community_comment(id,problem_key,user_id,request_id,body) VALUES($1,'arena:arena-mind-the-gap',$2,$3,'Synthetic mixed case')",[randomUUID(),a.id,randomUUID()]);
+   const current=await scope(),second=nonce(token());
+   await assert.rejects(setup.query(armSql,[requestId,a.id,current.scopeSha256,intent,expires]),/Arm intent was revoked/);
+   assert.equal(current.scope.paths[0].pathname,path);
+   await setup.query(armSql,[requestId,a.id,current.scopeSha256,second,expires]);
+   await assert.rejects(erase.query(executeSql,subjectParams),{code:'P0002'});
+   await adjudicate(a,firstReviewer,secondReviewer);
+   const locked=await setup.connect();
+   try{
+    await locked.query('BEGIN');
+    await locked.query('LOCK solution_evidence IN ROW EXCLUSIVE MODE');
+    await assert.rejects(erase.query(executeSql,subjectParams),{code:'55P03'});
+    await locked.query('ROLLBACK');
+   }finally{locked.release();}
+   const transaction=await erase.connect();
+   try{
+    await transaction.query('BEGIN ISOLATION LEVEL REPEATABLE READ');
+    await assert.rejects(transaction.query(executeSql,subjectParams),{code:'25000'});
+    await transaction.query('ROLLBACK');
+    await transaction.query('BEGIN');
+    assert.equal((await transaction.query(executeSql,subjectParams)).rows[0].receipt.deletionId,requestId);
+    await transaction.query('ROLLBACK');
+   }finally{transaction.release();}
+   assert.equal((await counts(a.id)).users,1);
+   assert.equal((await setup.query('SELECT arm_intent_sha256 FROM account_deletion_request WHERE id=$1',[requestId])).rows[0].arm_intent_sha256,second);
+   const completed=await api(request(a.cookie,input));
+   assert.equal(completed.status,200,await completed.clone().text());
+   const receipt=await completed.json();
+   assert.equal(receipt.deletionId,requestId);
+   assert.equal((await setup.query('SELECT arm_intent_sha256 FROM account_deletion_receipt_store WHERE id=$1',[requestId])).rows[0].arm_intent_sha256,second);
+   assert.deepEqual(await (await api(request('',{requestToken:pendingToken}))).json(),receipt);
+   assert.equal((await setup.query('SELECT 1 FROM account_deletion_request WHERE id=$1',[requestId])).rowCount,0);
+   assert.equal((await counts(a.id)).users,0);
+   assert.equal((await counts(b.id)).users,1);
+  });
  }finally{if(previousBlobRetries===undefined)delete process.env.VERCEL_BLOB_RETRIES;else process.env.VERCEL_BLOB_RETRIES=previousBlobRetries;await Promise.all(connections.map(p=>p.end()));await admin.query(`DROP SCHEMA ${name} CASCADE;DROP ROLE ${owner};DROP ROLE ${ordinary};DROP ROLE ${executor};DROP ROLE ${staffRole}`);await admin.end();}
 });

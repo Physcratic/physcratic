@@ -75,9 +75,19 @@ export default function PrivacyPage() {
         <section aria-labelledby="privacy-retention" className="flex flex-col gap-3">
           <h2 id="privacy-retention" className="text-xl font-semibold text-foreground">Retention and deletion</h2>
           <p>
-            Self-service account deletion is currently unavailable. You can use the feedback form to ask about
-            deletion. Information already included in a backup or recovery copy can remain there after a change to
-            the live service, until that copy expires or is removed.
+            If Delete account is available in Settings, you can use it to remove your sign-in and ordinary private
+            account data from the live service. Files can still be awaiting cleanup after the account is gone. The
+            receipt shows the status of files queued for deletion. Approved evidence or published work with
+            permission to remain on the site can be retained.
+          </p>
+          <p>
+            We handle Tally submissions and related copies separately. Information in restricted backup or recovery copies
+            can remain after deletion from the live service. We may keep a restricted record of a request so we can
+            follow up on pending cleanup and reconcile deletions during recovery.
+          </p>
+          <p>
+            Use the feedback form below if you want to request deletion, can’t sign in or check your receipt, or
+            need help with pending cleanup.
           </p>
         </section>
         <section aria-labelledby="privacy-requests" className="flex flex-col gap-3">
@@ -86,7 +96,7 @@ export default function PrivacyPage() {
             You can change your email in account settings and edit your profile in Settings when profiles are available.
             Use the feedback form to ask about access, correction or deletion, report profile abuse, or request removal
             of public content. In “What happened?”, describe the request and say if the exposure is urgent. Include the
-            public profile link or handle when relevant. Keep passwords and verification codes out of the form.
+            public profile link or handle when relevant. Keep passwords, verification codes and deletion request tokens out of the form.
           </p>
           <p>
             The email field is optional. Enter an email address you can access if you need a reply or account
