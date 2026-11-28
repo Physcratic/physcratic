@@ -12,12 +12,13 @@ SET LOCAL idle_in_transaction_session_timeout = '30s';
 
 SELECT current_database() = :'expected_database' AND session_user = :'expected_login'
  AND current_user = session_user AND pg_is_in_recovery() = false
- AND current_setting('server_version_num') = :'expected_version'
- AND EXISTS (SELECT 1 FROM pg_stat_ssl WHERE pid=pg_backend_pid() AND ssl) AS expected_target \gset
+ AND current_setting('server_version_num') = :'expected_version' AS expected_target \gset
 \if :expected_target
 \else
-DO $$ BEGIN RAISE EXCEPTION 'Unexpected database, login, server version, recovery or TLS state'; END $$;
+DO $$ BEGIN RAISE EXCEPTION 'Unexpected database, login, server version or recovery state'; END $$;
 \endif
+-- This observes the compute leg. libpq independently requires verified client TLS.
+SELECT ssl AS backend_ssl, version AS backend_tls_protocol FROM pg_stat_ssl WHERE pid=pg_backend_pid();
 SET LOCAL ROLE :"migration_owner";
 SELECT current_user = :'migration_owner' AND current_schema() = 'public'
  AND NOT (SELECT rolsuper FROM pg_roles WHERE rolname=current_user) AS expected_owner \gset

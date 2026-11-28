@@ -2,12 +2,13 @@
 # Disposable loopback database only. Use the actual PowerShell and psql package.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
-command -v pwsh psql openssl >/dev/null
+command -v pwsh psql openssl node >/dev/null
 docker_local=(env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock)
 scratch=$(mktemp -d)
 container="physcratic-0026-rehearsal-$$"
 started=false
 cleanup() {
+  if [[ -n ${proxy_pid:-} ]]; then kill "$proxy_pid" 2>/dev/null || true; fi
   if [[ "$started" == true ]]; then "${docker_local[@]}" rm -f "$container" >/dev/null; fi
   rm -rf -- "$scratch"
 }
@@ -64,7 +65,7 @@ SQL
 } | db -d physcratic_0026_test >/dev/null
 
 port=$("${docker_local[@]}" inspect --format '{{(index (index .NetworkSettings.Ports "5432/tcp") 0).HostPort}}' "$container")
-unset PGSERVICE PGSERVICEFILE PGHOSTADDR PGOPTIONS PGPASSWORD
+unset PGSERVICE PGSERVICEFILE PGHOSTADDR PGOPTIONS PGPASSWORD PGSSLNEGOTIATION
 export PGSSLMODE=verify-full PGSSLROOTCERT="$scratch/server.crt" PGPASSFILE="$scratch/pass file"
 printf '127.0.0.1:%s:physcratic_0026_test:synthetic_0026_operator:operator-local-only\n' "$port" > "$PGPASSFILE"
 printf '127.0.0.1:%s:physcratic_0026_test:synthetic_0026_runtime:runtime-local-only\n' "$port" >> "$PGPASSFILE"
@@ -91,7 +92,86 @@ operate() {
   pwsh -NoProfile -File "$package/install.ps1" -Action "$action" -PackageCommit "$commit" -ManifestSha256 "$manifest" -Plan "$plan" -PlanSha256 "$digest"
 }
 operate Inspect > "$scratch/inspect.log"
-python3 - "$plan" "$scratch/inspect.log" <<'PY'
+grep -Eq 'SSL [Cc]onnection.*(true|protocol: TLSv1\.[23])' "$scratch/inspect.log"
+grep -Eq '^ +t +\| +TLSv1\.[23]' "$scratch/inspect.log"
+# A separate plaintext compute verifies that the installer relies on
+# client certificate and hostname verification on a TLS-terminating endpoint.
+db -c "ALTER SYSTEM SET ssl='off'" -c 'SELECT pg_reload_conf()' >/dev/null
+for attempt in {1..20}; do
+  if [[ $(db -Atc 'SHOW ssl') == off ]]; then break; fi
+  sleep 0.1
+done
+[[ $(db -Atc 'SHOW ssl') == off ]]
+node --input-type=module - "$port" "$scratch" <<'JS' > "$scratch/tls-proxy.port" &
+import { readFileSync } from 'node:fs';
+import { createConnection, createServer } from 'node:net';
+import { createSecureContext, TLSSocket } from 'node:tls';
+const [port, dir] = process.argv.slice(2);
+const secureContext = createSecureContext({ cert:readFileSync(dir+'/server.crt'), key:readFileSync(dir+'/server.key') });
+const server = createServer(raw => {
+  raw.once('data', request => {
+    if (request.length !== 8 || request.readInt32BE(0) !== 8 || request.readInt32BE(4) !== 80877103) return raw.destroy();
+    raw.write('S');
+    const client = new TLSSocket(raw, { isServer:true, secureContext });
+    const backend = createConnection({ host:'127.0.0.1', port:Number(port) });
+    client.on('error', () => backend.destroy());
+    backend.on('error', () => client.destroy());
+    client.on('close', () => backend.destroy());
+    backend.on('close', () => client.destroy());
+    client.pipe(backend).pipe(client);
+  });
+});
+server.listen(0,'127.0.0.1',()=>console.log(server.address().port));
+JS
+proxy_pid=$!
+for attempt in {1..20}; do
+  [[ ! -s "$scratch/tls-proxy.port" ]] || break
+  sleep 0.1
+done
+proxy_port=$(cat "$scratch/tls-proxy.port")
+[[ "$proxy_port" =~ ^[0-9]+$ ]]
+printf '127.0.0.1:%s:physcratic_0026_test:synthetic_0026_operator:operator-local-only
+' "$proxy_port" >> "$PGPASSFILE"
+direct_plan=$plan
+proxy_plan="$scratch/proxy plan.json"
+hostname_plan="$scratch/hostname mismatch plan.json"
+python3 - "$direct_plan" "$proxy_plan" "$proxy_port" "$hostname_plan" <<'PYTHON'
+import json, sys
+with open(sys.argv[1]) as f:
+    target = json.load(f)
+target["port"] = int(sys.argv[3])
+with open(sys.argv[2], "w") as f:
+    json.dump(target, f)
+target["endpoint"] = "localhost"
+with open(sys.argv[4], "w") as f:
+    json.dump(target, f)
+PYTHON
+plan=$proxy_plan
+operate Inspect > "$scratch/proxy.log"
+grep -Eq 'SSL [Cc]onnection.*(true|protocol: TLSv1\.[23])' "$scratch/proxy.log"
+grep -Eq '^ +f +\|[[:space:]]*$' "$scratch/proxy.log"
+openssl req -x509 -newkey rsa:2048 -nodes -days 1 -subj '/CN=untrusted-rehearsal-ca' \
+  -keyout "$scratch/untrusted.key" -out "$scratch/untrusted.crt" >/dev/null 2>&1
+if PGSSLROOTCERT="$scratch/untrusted.crt" operate Inspect > "$scratch/untrusted.log" 2>&1; then
+  echo 'Expected untrusted CA refusal' >&2; exit 1
+fi
+grep -q 'certificate verify failed' "$scratch/untrusted.log"
+plan=$hostname_plan
+if operate Inspect > "$scratch/hostname.log" 2>&1; then echo 'Expected hostname refusal' >&2; exit 1; fi
+grep -q 'does not match host name' "$scratch/hostname.log"
+plan=$direct_plan
+if operate Inspect > "$scratch/plaintext.log" 2>&1; then echo 'Expected plaintext refusal' >&2; exit 1; fi
+grep -q 'server does not support SSL' "$scratch/plaintext.log"
+db -c "ALTER SYSTEM SET ssl='on'" -c 'SELECT pg_reload_conf()' >/dev/null
+for attempt in {1..20}; do
+  if [[ $(db -Atc 'SHOW ssl') == on ]]; then break; fi
+  sleep 0.1
+done
+[[ $(db -Atc 'SHOW ssl') == on ]]
+echo 'PASS direct and proxy client TLS, backend observations, and plaintext, untrusted CA and hostname refusal'
+# Exercise the existing Install and Verify checks through the authenticated proxy.
+plan=$proxy_plan
+python3 - "$plan" "$scratch/proxy.log" <<'PY'
 import json,re,sys
 with open(sys.argv[1]) as file:
     plan=json.load(file)
@@ -127,4 +207,4 @@ operate Verify
  AND NOT has_table_privilege(current_user,'public.account_deletion_pending_upload','SELECT')") == t ]]
 if operate Install > "$scratch/replay.log" 2>&1; then echo 'Expected replay refusal' >&2; exit 1; fi
 grep -q '0026 exists or approved schema' "$scratch/replay.log"
-echo 'PASS direct TLS, nine-path backfill, runtime LOGIN scope, atomic late failure, and checksum, drift, ACL and replay refusal'
+echo 'PASS proxy Install and Verify, nine-path backfill, runtime LOGIN scope, atomic late failure, and checksum, drift, ACL and replay refusal'
