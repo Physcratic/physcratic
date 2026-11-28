@@ -36,14 +36,24 @@ const bomb = () => { // 8000 by 8000 grey, valid, about 64 KB: over the 40 megap
 const gif = Buffer.from("R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", "base64");
 
 // A pool that answers the three queries of the route in order of their text.
-function scripted(o: { revision?: object | null; media?: { pathname: string; media_type: string; bytes: number } | null; allowed?: boolean | "fail" }) {
+type Gate = boolean | "missing" | "wrapped" | "otherTable" | "denied" | "fail";
+// The errors the restriction check can see. Only undefined_table for community_restriction means "no restrictions".
+const gateError = (g: Exclude<Gate, boolean>): Error => {
+  const pg = (code: string, message: string) => Object.assign(new Error(message), { code });
+  if (g === "missing") return pg("42P01", 'relation "community_restriction" does not exist');
+  if (g === "wrapped") return new Error("query failed", { cause: pg("42P01", 'relation "community_restriction" does not exist') });
+  if (g === "otherTable") return pg("42P01", 'relation "authored_problem" does not exist');
+  if (g === "denied") return pg("42501", "permission denied for table community_restriction");
+  return new Error("relation community_restriction does not exist");
+};
+function scripted(o: { revision?: object | null; media?: { pathname: string; media_type: string; bytes: number } | null; allowed?: Gate }) {
   const problem = randomUUID(), mediaId = randomUUID();
   const content = o.revision === undefined ? { context: [img(mediaId)] } : o.revision;
   const query = async (q: { text?: string } | string) => {
     const t = typeof q === "string" ? q : q.text ?? "";
     if (t.includes("FROM authored_revision") || t.includes("JOIN authored_revision")) return { rows: content === null ? [] : [{ content }] };
     if (t.includes("author_revision_media")) return { rows: o.media === null ? [] : [o.media ?? { pathname: "author-media/x", media_type: "image/jpeg", bytes: 1000 }] };
-    if (o.allowed === "fail") throw new Error("relation community_restriction does not exist");
+    if (typeof o.allowed === "string") throw gateError(o.allowed);
     return { rows: o.allowed === false ? [] : [{ problemId: problem }] };
   };
   return { pool: { query } as unknown as Pool, problem };
@@ -103,7 +113,9 @@ test("anything that is not a ready raster statement image of an allowed, publish
     ["first image has no alt", run(jpeg, { revision: { context: [img(randomUUID(), "  "), img(randomUUID())] } })],
     ["media id is not a uuid", run(jpeg, { revision: { context: [img("../etc/passwd")] } })],
     ["restricted", run(jpeg, { allowed: false })],
-    ["restriction cannot be read", run(jpeg, { allowed: "fail" })],
+    ["restriction table not readable by the runtime role", run(jpeg, { allowed: "denied" })],
+    ["another table missing", run(jpeg, { allowed: "otherTable" })],
+    ["restriction check fails without a SQLSTATE", run(jpeg, { allowed: "fail" })],
   ];
   for (const [name, pending] of cases) {
     const res = await pending;
@@ -113,6 +125,15 @@ test("anything that is not a ready raster statement image of an allowed, publish
   }
   const { pool } = scripted({});
   for (const [p, r] of [["nope", randomUUID()], [randomUUID(), "nope"]]) assert.equal((await createCardImageApi({ pool, storage: { get: async () => null, put: async () => undefined, del: async () => undefined } })(p, r)).status, 404);
+});
+
+test("a deployment without the restriction table restricts nobody, so the image is served, wrapped or not", async () => {
+  const jpeg = await photo();
+  for (const allowed of ["missing", "wrapped"] as const) {
+    const res = await run(jpeg, { allowed });
+    assert.equal(res.status, 200, allowed);
+    assert.equal(res.headers.get("Content-Type"), "image/webp", allowed);
+  }
 });
 
 const url = process.env.AUTHORING_TEST_DATABASE_URL;
@@ -189,9 +210,33 @@ test("on PostgreSQL the route and the library query pick the same image, and dra
     await pool.query("INSERT INTO community_restriction VALUES('problem',$1::text,$1::uuid,NULL,true,1)", [removed.problem]);
     assert.deepEqual(await asked(banned.problem, banned.revision), [404, 0], "a restricted author");
     assert.deepEqual(await asked(removed.problem, removed.revision), [404, 0], "a restricted problem");
-    // The draft's stale revision id on a published problem is not the current revision either.
+    // A runtime role that cannot read the restriction table fails closed, in the route and in the library.
+    const role = `card_gate_${randomUUID().replaceAll("-", "")}`;
+    await admin.query(`CREATE ROLE ${role} NOLOGIN`);
+    try {
+      await admin.query(`GRANT USAGE ON SCHEMA ${schema} TO ${role}`);
+      await admin.query(`GRANT SELECT ON ALL TABLES IN SCHEMA ${schema} TO ${role}`);
+      await admin.query(`REVOKE SELECT ON ${schema}.community_restriction FROM ${role}`);
+      const c = await pool.connect();
+      try {
+        await c.query(`SET ROLE ${role}`);
+        const limited = { query: c.query.bind(c) } as unknown as Pool;
+        await assert.rejects(c.query("SELECT 1 FROM community_restriction"), { code: "42501" });
+        const limitedRoute = createCardImageApi({ pool: limited, storage: { get: async () => new Blob([png as BlobPart]), put: async () => undefined, del: async () => undefined } });
+        assert.equal((await limitedRoute(ok.problem, ok.revision)).status, 404, "no SELECT on the restriction table, fail closed");
+        const limitedLib = ((await (await createAuthoredLibraryApi(limited)(new Request("https://test/?"))).json()) as { problems: { problemId: string; image?: unknown }[] }).problems;
+        assert.ok(limitedLib.some((p) => p.problemId === ok.problem), "the list still works");
+        assert.ok(limitedLib.every((p) => p.image === undefined), "but shows no image");
+        await c.query("RESET ROLE");
+      } finally { c.release(true); }
+    } finally {
+      await admin.query(`DROP OWNED BY ${role}`).catch(() => undefined);
+      await admin.query(`DROP ROLE ${role}`).catch(() => undefined);
+    }
+    // Without the restriction table (0019 not installed) nobody can be restricted, so images show again.
     await pool.query("DROP TABLE community_restriction");
-    assert.deepEqual(await asked(ok.problem, ok.revision), [404, 0], "no restriction table, fail closed");
+    assert.deepEqual(await asked(ok.problem, ok.revision), [200, 1], "no restriction table, no restrictions");
+    assert.equal((await lib()).get(ok.problem)?.image?.alt, "A", "the library agrees");
   } finally {
     await pool.end();
     await admin.query(`DROP SCHEMA ${schema} CASCADE`).catch(() => undefined);
