@@ -90,8 +90,8 @@ if ($Action -eq 'Install') {
     $windowEndSql = $windowEnd.UtcDateTime.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'", [Globalization.CultureInfo]::InvariantCulture)
 }
 
-foreach ($variable in @('PGSERVICE','PGSERVICEFILE','PGHOSTADDR','PGOPTIONS','PGPASSWORD')) {
-    if ([Environment]::GetEnvironmentVariable($variable)) { throw "Clear $variable before running this package." }
+foreach ($variable in @('PGSERVICE','PGSERVICEFILE','PGHOSTADDR','PGOPTIONS','PGPASSWORD','PGSSLNEGOTIATION')) {
+    if (Test-Path -LiteralPath ('Env:' + $variable)) { throw "Clear $variable before running this package." }
 }
 if ($env:PGSSLMODE -cne 'verify-full' -or -not $env:PGSSLROOTCERT -or
     -not (Test-Path -LiteralPath $env:PGSSLROOTCERT -PathType Leaf)) {
@@ -111,12 +111,13 @@ if (-not $wrapper.Success -or [regex]::Matches($sql, [regex]::Escape($marker)).C
 $body = if ($Action -eq 'Install') { $wrapper.Groups['body'].Value } else { '' }
 $assembled = $sql.Replace($marker, $body)
 $temp = [IO.Path]::GetTempFileName()
-$previousConnectTimeout = $env:PGCONNECT_TIMEOUT
 try {
-    $env:PGCONNECT_TIMEOUT = '5'
     [IO.File]::WriteAllText($temp, $assembled, $utf8)
-    $arguments = @('-X','--no-password','--set=ON_ERROR_STOP=1',"--file=$temp",
-        "--host=$($target.endpoint)","--port=$($target.port)","--dbname=$($target.database)","--username=$($target.loginRole)",
+    # libpq verifies the approved hostname and CA before running any commands.
+    # The two actions run on one connection. The pinned SQL has no reconnect.
+    $connection = "host=$($target.endpoint) port=$($target.port) dbname=$($target.database) user=$($target.loginRole) sslmode=verify-full gssencmode=disable connect_timeout=5"
+    $arguments = @('-X','--no-password','--set=ON_ERROR_STOP=1','--command=\conninfo',"--file=$temp",
+        "--dbname=$connection",
         "--set=install=$($Action -eq 'Install')","--set=verify=$($Action -eq 'Verify')",
         "--set=expected_database=$($target.database)","--set=expected_login=$($target.loginRole)",
         "--set=migration_owner=$($target.migrationOwner)","--set=runtime_role=$($target.runtimeRole)",
@@ -126,6 +127,5 @@ try {
     & $psql @arguments
     if ($LASTEXITCODE -ne 0) { throw "psql exited with status $LASTEXITCODE. Inspect the target independently before any retry." }
 } finally {
-    $env:PGCONNECT_TIMEOUT = $previousConnectTimeout
     Remove-Item -LiteralPath $temp -Force
 }
