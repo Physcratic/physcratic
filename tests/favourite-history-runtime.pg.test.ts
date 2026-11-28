@@ -58,6 +58,7 @@ test("favourite route uses real sessions and the existing restricted LOGIN contr
     const login = new URL(database); login.username = role; login.password = "synthetic-favourite-runtime-only";
     for (const key of Object.keys(process.env)) if (/^(VERCEL|RESEND_|COMMUNITY_|ACCOUNT_DELETION_|AUTHORING_STAGING_|FAVOURITE_|PG|POSTGRES)/.test(key)) delete process.env[key];
     Object.assign(process.env, { NODE_ENV: "test", DATABASE_URL: login.href, BETTER_AUTH_URL: "http://localhost:3000",
+      FAVOURITE_HISTORY_CURSOR_SECRET: "synthetic-favourite-only-cursor-secret-at-least-32-characters",
       BETTER_AUTH_SECRET: "synthetic-favourite-runtime-secret-at-least-32-characters", AUTH_EMAIL_TRANSPORT: "memory" });
     ({ pool: app } = await import("../lib/db")); app!.on("error", onError);
     assert.deepEqual((await app.query("SELECT current_user,session_user")).rows[0], { current_user: role, session_user: role });
@@ -111,6 +112,9 @@ test("favourite route uses real sessions and the existing restricted LOGIN contr
       return favouritePageSchema.parse(await check(response));
     };
     const first = await get(a, aid); assert.equal(first.items.length, 24); assert.ok(first.nextCursor);
+    const { openCompletionCursor } = await import("../lib/opaque-completion-cursor");
+    assert.deepEqual(openCompletionCursor(process.env.FAVOURITE_HISTORY_CURSOR_SECRET!, "ph1", ["favourites-v1", aid], first.nextCursor), [first.items.at(-1)!.key]);
+    assert.equal(openCompletionCursor(process.env.BETTER_AUTH_SECRET!, "ph1", ["favourites-v1", aid], first.nextCursor), null, "the real route uses the dedicated key rather than the authentication key");
     await t.test("owner paging and publication filtering through actual route exports", async () => {
       const second = await get(a, aid, "?after=" + first.nextCursor);
       assert.equal(second.items.length, 2); assert.equal(second.nextCursor, null);

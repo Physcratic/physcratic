@@ -8,6 +8,20 @@ import { createFavouriteHistoryRoute, favouriteHistoryEnabled } from "./favourit
 import { favouritePageSchema } from "./favourite-history-contracts";
 import { sealCompletionCursor } from "./opaque-completion-cursor";
 import { createProblemStatsApi } from "./community/problem-stats-api";
+import { favouriteHistoryCursorSecret } from "./favourite-history-config";
+
+test("favourite cursors can use a separate key without an authentication secret", () => {
+  const dedicated = "synthetic-favourite-only-secret-at-least-32-characters";
+  const legacy = "synthetic-existing-authentication-secret";
+  assert.equal(favouriteHistoryCursorSecret({}), undefined);
+  assert.equal(favouriteHistoryCursorSecret({ FAVOURITE_HISTORY_CURSOR_SECRET: dedicated }), dedicated);
+  const configured = { FAVOURITE_HISTORY_CURSOR_SECRET: dedicated, BETTER_AUTH_SECRET: legacy };
+  assert.equal(favouriteHistoryCursorSecret(configured), dedicated);
+  assert.equal(configured.BETTER_AUTH_SECRET, legacy);
+  assert.equal(favouriteHistoryCursorSecret({ BETTER_AUTH_SECRET: legacy }), legacy);
+  for (const invalid of ["", "x".repeat(31), "x".repeat(1025), " " + dedicated, dedicated + "\n"])
+    assert.equal(favouriteHistoryCursorSecret({ FAVOURITE_HISTORY_CURSOR_SECRET: invalid, BETTER_AUTH_SECRET: legacy }), undefined);
+});
 
 const origin = "https://physcratic.test", secret = "synthetic-favourite-cursor-secret";
 const request = (actor: string | null, query = "", expected = actor) => new Request(origin + "/api/favourites" + query, { headers: {
