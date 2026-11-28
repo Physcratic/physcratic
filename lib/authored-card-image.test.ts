@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { Pool } from "pg";
 import { authoredCardImage, authoredCardImageSchema, authoredCardImageSrc, clampCardAlt } from "./authored-card-image";
-import { createAuthoredLibraryApi } from "./authored-library-api";
+import { createAuthoredLibraryApi, restrictionTableMissing } from "./authored-library-api";
 import { authoredLibraryPageSchema } from "./authored-library-contracts";
 import { collectionEntrySchema } from "./unified-arena";
 
@@ -58,18 +58,64 @@ test("the image adds about 200 bytes to a card, 300 at the longest alt text", ()
 });
 
 // A pool that answers the library query with one published problem that has a linked first image.
-function fakePool(second: "allow" | "none" | "fail", problems: string[]) {
+type Second = "allow" | "none" | "missing" | "wrapped" | "denied" | "fail";
+const pgError = (code: string, message: string) => Object.assign(new Error(message), { code });
+function fakePool(second: Second, problems: string[]) {
   const meta = { title: "T", topicTags: [], methodTags: [], estimatedDifficulty: null, provenance: { kind: "original", source: "", rightsDeclaration: "ok" } };
   let calls = 0;
   const pool = { query: async () => {
     calls++;
     if (calls === 1) return { rows: problems.map((p) => ({ problemId: p, revisionId: randomUUID(), metadata: meta, imageAlt: "  A figure  ", imageLinked: true })) };
+    if (second === "missing") throw pgError("42P01", 'relation "community_restriction" does not exist');
+    if (second === "wrapped") throw new Error("query failed", { cause: pgError("42P01", 'relation "community_restriction" does not exist') });
+    if (second === "denied") throw pgError("42501", "permission denied for table community_restriction");
     if (second === "fail") throw new Error("relation community_restriction does not exist");
     return { rows: second === "allow" ? problems.map((problemId) => ({ problemId })) : [] };
   } };
   return pool as unknown as Pool;
 }
 const list = async (pool: Pool) => (await createAuthoredLibraryApi(pool)(new Request("https://test/?"))).json() as Promise<{ problems: { problemId: string; image?: { alt: string; src: string } }[] }>;
+
+test("only undefined_table naming community_restriction, on the error or its cause, counts as no restriction table", () => {
+  const missing = pgError("42P01", 'relation "community_restriction" does not exist');
+  assert.equal(restrictionTableMissing(missing), true);
+  assert.equal(restrictionTableMissing(new Error("query failed", { cause: missing })), true);
+  assert.equal(restrictionTableMissing(Object.assign(new Error("wrapped"), { code: "XX000", cause: missing })), true);
+  for (const other of [
+    pgError("42501", "permission denied for table community_restriction"),
+    pgError("42P01", 'relation "authored_problem" does not exist'),
+    new Error('relation "community_restriction" does not exist'),
+    { code: 42, message: "community_restriction" }, null, undefined, "42P01 community_restriction",
+  ]) assert.equal(restrictionTableMissing(other), false, String((other as { code?: unknown } | null)?.code ?? other));
+});
+
+// Collects console.warn calls while `run` is awaited.
+async function warnings<T>(run: () => Promise<T>): Promise<[T, unknown[][]]> {
+  const seen: unknown[][] = [];
+  const original = console.warn;
+  console.warn = (...args: unknown[]) => { seen.push(args); };
+  try { return [await run(), seen]; } finally { console.warn = original; }
+}
+
+test("without the restriction table nobody is restricted, so every image shows and nothing is logged", async () => {
+  const [a, b] = ids();
+  for (const second of ["missing", "wrapped"] as const) {
+    const [page, warned] = await warnings(() => list(fakePool(second, [a, b])));
+    assert.equal(page.problems.length, 2, second);
+    assert.ok(page.problems.every((p) => p.image?.alt === "A figure"), second);
+    assert.equal(warned.length, 0, second);
+  }
+});
+
+test("any other failed restriction check shows no image, keeps the list and logs one warning with no personal data", async () => {
+  const [a, b] = ids();
+  for (const [second, code] of [["denied", "42501"], ["fail", "unknown"]] as const) {
+    const [page, warned] = await warnings(() => list(fakePool(second, [a, b])));
+    assert.equal(page.problems.length, 2, `${second}: the list does not fail`);
+    assert.ok(page.problems.every((p) => p.image === undefined), second);
+    assert.deepEqual(warned, [["Community card images hidden, restriction check failed", code]], `${second}: once per list, never per card`);
+  }
+});
 
 test("an image is returned only for problems the restriction check allows, and a failed check shows none but keeps the list", async () => {
   const [a, b] = ids();
@@ -79,7 +125,7 @@ test("an image is returned only for problems the restriction check allows, and a
   const restricted = await list(fakePool("none", [a, b]));
   assert.equal(restricted.problems.length, 2);
   assert.ok(restricted.problems.every((p) => p.image === undefined));
-  const unreadable = await list(fakePool("fail", [a, b]));
+  const [unreadable] = await warnings(() => list(fakePool("fail", [a, b])));
   assert.equal(unreadable.problems.length, 2, "the list does not fail");
   assert.ok(unreadable.problems.every((p) => p.image === undefined && !JSON.stringify(p).includes("ownerId")));
 });
@@ -162,11 +208,12 @@ test("on PostgreSQL only a ready, linked, statement first image of a published, 
     for (const p of found.values()) assert.deepEqual(Object.keys(p.image ?? { src: 1, alt: 1, width: 1, height: 1 }).sort(), ["alt", "height", "src", "width"]);
     assert.ok(!JSON.stringify([...found.values()]).match(/mediaId|ownerId|pathname|sha256|author-media/));
 
-    // An older deployment without the restriction table still lists problems, with no images.
+    // A deployment without the restriction table (0019 not installed) has no restricted author, so images show.
     await pool.query("DROP TABLE community_restriction");
     const without = await bySeed();
-    assert.ok(without.has(good.problem));
-    assert.ok([...without.values()].every((p) => p.image === undefined));
+    assert.equal(without.get(good.problem)?.image?.alt, "A beam on two supports");
+    assert.equal(without.get(bannedAuthor.problem)?.image?.alt, "A beam on two supports", "no table, no restriction");
+    for (const none of [empty, noImage, solutionOnly]) assert.equal(without.get(none.problem)?.image, undefined, "the other checks still apply");
   } finally {
     await pool.end();
     await admin.query(`DROP SCHEMA ${schema} CASCADE`).catch(() => undefined);

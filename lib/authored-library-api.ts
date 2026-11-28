@@ -38,10 +38,25 @@ export async function authoredRating(pool: Queryable, problemId: string): Promis
   return rows.length ? { found: true, rating: rows[0].rating } : { found: false, rating: null };
 }
 
+type SqlError = { code: string; message: string };
+/** The error and the error it wraps, each that carries a SQLSTATE. */
+function sqlErrors(error: unknown): SqlError[] {
+  return [error, (error as { cause?: unknown } | null)?.cause].flatMap((e) =>
+    typeof e === "object" && e !== null && typeof (e as { code?: unknown }).code === "string"
+      ? [{ code: (e as { code: string }).code, message: String((e as { message?: unknown }).message ?? "") }] : []);
+}
+/** True only for undefined_table (42P01) naming community_restriction, on the error or its cause. Nothing else is this case. */
+export function restrictionTableMissing(error: unknown): boolean {
+  return sqlErrors(error).some((e) => e.code === "42P01" && e.message.includes("community_restriction"));
+}
+
 /**
  * Which of these published problems may show an image. A problem removed by staff, or by an author who is restricted
- * (a banned author keeps their published problems), shows none. The restriction table may be missing or unreadable on an
- * older deployment, and then nothing can be checked, so no image is shown and the list itself still works.
+ * (a banned author keeps their published problems), shows none. Restrictions exist only in migration 0019, and staff
+ * removal also archives the problem, so a deployment without the community_restriction table has no restricted author
+ * and every problem may show its image. Any other failure, a missing SELECT grant included, shows no image and the list
+ * itself still works. This must stay the last statement a caller sends on a shared client: the personalized collection
+ * runs it last in a read-only transaction that is always rolled back, and the other callers use the pool.
  */
 export async function imageAllowed(pool: Queryable, ids: string[]): Promise<Set<string>> {
   if (!ids.length) return new Set();
@@ -54,7 +69,10 @@ export async function imageAllowed(pool: Queryable, ids: string[]): Promise<Set<
     };
     const { rows } = await pool.query<{ problemId: string }>(query);
     return new Set(rows.map((row) => row.problemId));
-  } catch {
+  } catch (error) {
+    if (restrictionTableMissing(error)) return new Set(ids);
+    // One warning per check, never per card. Only the SQLSTATE, no ids, names or query text.
+    console.warn("Community card images hidden, restriction check failed", sqlErrors(error)[0]?.code ?? "unknown");
     return new Set();
   }
 }
