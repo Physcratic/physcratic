@@ -1,6 +1,7 @@
 import { createHash, createPublicKey, verify } from 'node:crypto';
 import { readFileSync, statSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
+import { readCaseRecord } from '../account-deletion-authorization/case-record.mjs';
 
 const database = 'physcratic_restore_test';
 const hex = /^[a-f0-9]{64}$/;
@@ -18,6 +19,7 @@ const errors = [
   'Authorized restored account does not match',
   'Existing reconciliation receipt conflicts with restored account',
   'Restored authorization differs from independent approval',
+  'Restored permit fence is missing or differs from approval',
   'Continuing publication rights differ from independent approval',
   'Expected cleanup obligation or upload hold is absent',
   'Operator-approved deletion policy is missing',
@@ -62,9 +64,9 @@ function localDocker(args, input) {
 }
 
 function main() {
-  const [containerId, approvalPath, signaturePath, publicKeyPath, trustedKeyDigest, intentPath] = process.argv.slice(2);
-  requireCondition([7, 8].includes(process.argv.length) && matches(hex, containerId) && matches(hex, trustedKeyDigest),
-    'Usage: node reconcile-local.mjs CONTAINER_ID APPROVAL.json APPROVAL.sig REVIEWER.pub TRUSTED_KEY_SHA256 [ARM_INTENT.json]');
+  const [containerId, approvalPath, signaturePath, publicKeyPath, trustedKeyDigest, intentPath, caseKeyPath] = process.argv.slice(2);
+  requireCondition([7, 9].includes(process.argv.length) && matches(hex, containerId) && matches(hex, trustedKeyDigest),
+    'Usage: node reconcile-local.mjs CONTAINER_ID APPROVAL.json APPROVAL.sig REVIEWER.pub TRUSTED_KEY_SHA256 [ENCRYPTED_INTENT RECOVERED_CASE_KEY]');
   const publicKey = readBounded(publicKeyPath, 4096);
   requireCondition(sha256(publicKey) === trustedKeyDigest, 'Reviewer public key fingerprint mismatch');
   const key = createPublicKey(publicKey);
@@ -76,8 +78,8 @@ function main() {
   const baseKeys = ['version', 'caseId', 'deletionRecord', 'approvedAt', 'expiresAt', 'containerId',
     'database', 'subjectId', 'subjectFingerprint', 'publications', 'cleanup'];
   const legacy = a?.version === 1;
-  const targetKeys = [...baseKeys, 'databaseOid', 'targetRevision', 'sourceAuthorization', 'tallyReferences'];
-  requireCondition((legacy ? !intentPath && shape(a, baseKeys) : a?.version === 2 && !!intentPath && shape(a, targetKeys))
+  const targetKeys = [...baseKeys, 'databaseOid', 'targetRevision', 'recoveryPermitEpoch', 'sourceAuthorization', 'tallyReferences'];
+  requireCondition((legacy ? !intentPath && shape(a, baseKeys) : a?.version === 2 && !!intentPath && !!caseKeyPath && shape(a, targetKeys))
     && matches(uuid, a.caseId)
     && matches(/^[A-Za-z0-9][A-Za-z0-9._/-]{0,127}$/, a.deletionRecord)
     && matches(/^synthetic-[A-Za-z0-9-]{1,100}$/, a.subjectId) && matches(hex, a.subjectFingerprint)
@@ -105,24 +107,24 @@ function main() {
     const provenance = a.sourceAuthorization;
     requireCondition(Number.isInteger(a.databaseOid) && a.databaseOid > 0 && a.databaseOid <= 4294967295
       && ['0026', '0027'].includes(a.targetRevision)
+      && (a.targetRevision === '0027' ? matches(uuid, a.recoveryPermitEpoch) : a.recoveryPermitEpoch === null)
       && Array.isArray(a.tallyReferences) && a.tallyReferences.length <= 1000
       && a.tallyReferences.every(id => matches(/^[A-Za-z0-9_-]{1,100}$/, id))
       && new Set(a.tallyReferences).size === a.tallyReferences.length
-      && shape(provenance, ['caseId', 'intentSha256', 'outcome']) && matches(uuid, provenance.caseId)
+      && shape(provenance, ['caseId', 'intentSha256', 'outcome', 'evidenceRef', 'decision']) && matches(uuid, provenance.caseId)
       && provenance.caseId !== a.caseId && matches(hex, provenance.intentSha256)
-      && ['receipt-confirmed', 'arming-unknown', 'execution-unknown'].includes(provenance.outcome),
+      && ['receipt-confirmed', 'arming-unknown', 'execution-unknown'].includes(provenance.outcome)
+      && matches(/^[A-Za-z0-9][A-Za-z0-9._/-]{0,127}$/, provenance.evidenceRef)
+      && provenance.decision === (provenance.outcome === 'receipt-confirmed' ? 'reconcile-confirmed' : 'adjudicated-reapply'),
     'Invalid source authorization or target binding');
-    const intentBytes = readBounded(intentPath, 128 * 1024);
-    requireCondition(sha256(intentBytes) === provenance.intentSha256, 'External arm intent checksum mismatch');
-    const intent = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(intentBytes));
-    requireCondition(intent?.kind === 'account-deletion-arm-intent-v1' && intent.caseId === provenance.caseId
+    const intent = readCaseRecord(intentPath, caseKeyPath, provenance.intentSha256);
+    requireCondition(intent.caseId === provenance.caseId
       && intent.subject === a.subjectId && matches(hex, intent.scopeSha256)
-      && shape(intent.scope, ['publications', 'paths', 'tallyReferences'])
-      && Array.isArray(intent.scope.publications) && intent.scope.publications.length <= 1000
+      && intent.scope.subjectFingerprint === a.subjectFingerprint
+      && matches(uuid, intent.scope.permitEpoch) && intent.scope.permitEpoch !== a.recoveryPermitEpoch
+      && intent.scope.publications.length <= 1000
       && intent.scope.publications.every(p => matches(uuid, p?.id))
-      && Array.isArray(intent.scope.paths)
-      && Array.isArray(intent.scope.tallyReferences)
-      && intent.scope.tallyReferences.every(id => a.tallyReferences.includes(id))
+      && intent.tallyReview.submissions.every(s => a.tallyReferences.includes(s.id))
       && [intent.authorizationRef, intent.dispositionRef, intent.custodyRef].every(v => typeof v === 'string' && v.trim().length > 0 && v.length <= 256)
       && Number.isFinite(Date.parse(intent.recordedUtc)) && Date.parse(intent.recordedUtc) <= start
       && Date.parse(intent.expiresUtc) > Date.parse(intent.recordedUtc)
@@ -130,6 +132,11 @@ function main() {
     'External arm intent and signed approval differ');
     a.verifiedIntentScopeSha256 = intent.scopeSha256;
     a.verifiedIntentProblemIds = intent.scope.publications.map(p => p.id);
+    a.verifiedIntentHolds = intent.scope.paths.filter(p => p.held)
+      .map(({ provider, pathname }) => ({ provider, pathname }));
+    requireCondition(a.verifiedIntentHolds.every(p => !a.cleanup.some(o =>
+      o.provider === p.provider && o.pathname === p.pathname && !o.held)),
+    'Restored authorization differs from independent approval');
   }
 
   const read = localDocker(['inspect', '--type=container', containerId]);

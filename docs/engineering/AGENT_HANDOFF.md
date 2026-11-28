@@ -1,5 +1,9 @@
 # Agent handoff
 
+## Account erasure permit qualification (29 November 2026)
+
+The owner approved independent encrypted custody and a one-use database permit for implementation and disposable testing. Migration 0027 extends the existing eraser after 0026. The [operator procedure](../../scripts/account-deletion-authorization/README.md) covers the live-side boundary. The [isolated rehearsal](../../scripts/account-deletion-restore/README.md) covers recovered keys, fenced permits and independently authorized restoration. Preserve the accepted retrospective baseline and keep both release flags off. The personal completions workstream owns its existing 0025 installation and activation procedure.
+
 ## Phase 5B release review (29 November 2026)
 
 Review branch `codex/phase5b-release-review` incorporates main `0458308` after [#280](https://github.com/Physcratic/physcratic/pull/280). The 0027 installer now refuses a missing 0024 Tally-reference column and the isolated restore package pins the new migration bytes. The [closing checklist](ACCOUNT_DELETION_READINESS.md#minimum-owner-evidence-to-close-phase-5b) covers two-founder support and independent custody, manual Tally and any uncovered provider or recovery conditions. Accepted evidence carries forward within its scope. The review branch disables its own Vercel Git deployments. Keep both feature flags off. The separate schema-only 0025 package is prepared on `codex/personal-completions-0025-install` at `d2b14f1`. Its checksum-pinned Windows commands require a separately approved target, ledger and recovery point. Exact-head review checks, owner decisions and live qualification still apply.

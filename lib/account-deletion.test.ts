@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {randomUUID,createHash} from 'node:crypto';
-import {readFile} from 'node:fs/promises';
+import {randomBytes,randomUUID,createHash} from 'node:crypto';
+import {mkdtemp,readFile,rm,writeFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
 import {Pool,type PoolClient} from 'pg';
 import {createAccountDeletionRoute,accountDeletionEnabled} from './account-deletion/route';
 import {createAccountDeletionApi} from './account-deletion/api';
@@ -9,6 +11,7 @@ import {createDeletionOperatorApi} from './account-deletion/operator';
 import {createAuthorCreditApi} from './author-credit-api';
 import {AUTHOR_CREDIT_POLICY_VERSION,authorCreditStatusSchema} from './author-credit-contracts';
 import {acknowledgePrivateUpload,preparePrivateUploadReservation} from './private-upload';
+import {readCaseRecord,writeCaseRecord} from '../scripts/account-deletion-authorization/case-record.mjs';
 const url=process.env.AUTHORING_TEST_DATABASE_URL;
 const token=()=>randomUUID().replaceAll('-','')+randomUUID().replaceAll('-','');
 const nonce=(value:string)=>createHash('sha256').update(value).digest('hex');
@@ -655,15 +658,6 @@ test('complete account erasure on actual auth and installed graph, disposable PG
     await upstream;
    }
   });
-  await t.test('account proof and recovery browser against the actual deletion graph',{skip:process.env.ACCOUNT_DELETION_BROWSER!=='1'},async()=>{
-   const {runAccountDeletionBrowser}=await import('../tests/account-deletion.browser.mjs');
-   const worker=await adminUser('browser-cleanup-worker');
-   await runAccountDeletionBrowser({api,origin,counts,
-    privateCounts:async(id:string)=>(await setup.query('SELECT (SELECT count(*)::int FROM practice_check_attempt WHERE user_id=$1) AS practice,(SELECT count(*)::int FROM authored_attempt WHERE user_id=$1) AS authored',[id])).rows[0],
-    actors:async(label:string)=>{const a=await user(label+'-a'),b=await user(label+'-b');await practiceCheck(a);await practiceCheck(b);const foreign=await publication(b);await authoredCheck(a,foreign);const factory=createProblemAuthoringApi({pool:setup,user:async()=>({id:a.id,emailVerified:true}),origin:()=>true});const response=await factory('create',rawRequest(document()));assert.equal(response.status,201);const draft=await response.json(),id=randomUUID();await setup.query("INSERT INTO author_media(id,problem_id,purpose,pathname,filename,media_type,bytes,sha256,state) VALUES($1,$2,'statement-image',$3,'private.png','image/png',1,$4,'ready')",[id,draft.problemId,'author-media/'+a.id+'/'+id+'.png','a'.repeat(64)]);return{a,b};},
-    cleanup:async(fail:boolean)=>{await setup.query("UPDATE account_deletion_outbox SET available_at=now() WHERE state='pending'");const service=createDeletionOperatorApi(dependencies(staff),{del:async()=>{if(fail)throw Error('Synthetic provider failure');}});const response=await service(new Request(origin+'/api/admin/account-deletion',{method:'POST',headers:{origin,cookie:worker.cookie,'content-type':'application/json'},body:JSON.stringify({password:worker.password,action:'cleanup',payload:{}})}));assert.equal(response.status,200);const result=await response.json();assert.equal(result.completed,!fail);},
-   });
-  });
   await t.test('0027 verifies owner authorization, scope, no bypass and atomic consumption',async()=>{
    const a=await user('authorization-a'),b=await user('authorization-b');
    const path='solution-evidence/synthetic-authorization/'+randomUUID()+'.png';
@@ -700,6 +694,7 @@ test('complete account erasure on actual auth and installed graph, disposable PG
     await assert.rejects(pool.query(armSql,[requestId,a.id,first.scopeSha256,intent,expires]),{code:'42501'});
     await assert.rejects(pool.query(scopeSql,[requestId]),{code:'42501'});
     await assert.rejects(pool.query('SELECT account_deletion_disarm($1,$2)',[requestId,intent]),{code:'42501'});
+    await assert.rejects(pool.query('SELECT account_deletion_fence_restored_permits()'),{code:'42501'});
    }
    await assert.rejects(setup.query(armSql,[requestId,b.id,first.scopeSha256,intent,expires]),{code:'P0028'});
    await assert.rejects(setup.query(armSql,[requestId,a.id,first.scopeSha256,intent,new Date(0)]));
@@ -716,9 +711,16 @@ test('complete account erasure on actual auth and installed graph, disposable PG
    const current=await scope(),second=nonce(token());
    await assert.rejects(setup.query(armSql,[requestId,a.id,current.scopeSha256,intent,expires]),/Arm intent was revoked/);
    assert.equal(current.scope.paths[0].pathname,path);
+   assert.equal(current.scope.paths[0].held,true);
+   assert.match(current.scope.paths[0].hold_sha256,/^[a-f0-9]{64}$/);
    await setup.query(armSql,[requestId,a.id,current.scopeSha256,second,expires]);
    await assert.rejects(erase.query(executeSql,subjectParams),{code:'P0002'});
+   await setup.query("UPDATE account_deletion_pending_upload SET recorded_at=recorded_at+interval '1 second' WHERE pathname=$1",[path]);
+   await assert.rejects(erase.query(executeSql,subjectParams),{code:'P0028'});
    await adjudicate(a,firstReviewer,secondReviewer);
+   assert.equal((await setup.query('SELECT account_deletion_disarm($1,$2) AS ok',[requestId,second])).rows[0].ok,true);
+   const finalScope=await scope(), finalIntent=nonce(token());
+   await setup.query(armSql,[requestId,a.id,finalScope.scopeSha256,finalIntent,expires]);
    const locked=await setup.connect();
    try{
     await locked.query('BEGIN');
@@ -736,16 +738,68 @@ test('complete account erasure on actual auth and installed graph, disposable PG
     await transaction.query('ROLLBACK');
    }finally{transaction.release();}
    assert.equal((await counts(a.id)).users,1);
-   assert.equal((await setup.query('SELECT arm_intent_sha256 FROM account_deletion_request WHERE id=$1',[requestId])).rows[0].arm_intent_sha256,second);
-   const completed=await api(request(a.cookie,input));
-   assert.equal(completed.status,200,await completed.clone().text());
-   const receipt=await completed.json();
+   assert.equal((await setup.query('SELECT arm_intent_sha256 FROM account_deletion_request WHERE id=$1',[requestId])).rows[0].arm_intent_sha256,finalIntent);
+   const otherNonce=nonce(token());
+   await erase.query('SELECT account_deletion_open_request($1,$2,$3,$4)',[a.id,session.session.token,proof.hash,otherNonce]);
+   const [committed,duplicate,competing]=await Promise.all([
+    erase.query(executeSql,subjectParams),
+    erase.query(executeSql,subjectParams),
+    erase.query(executeSql,[a.id,session.session.token,proof.hash,otherNonce]).then(()=>null,e=>e.code),
+   ]);
+   assert.ok(['P0027','42501'].includes(competing));
+   const receipt=committed.rows[0].receipt;
    assert.equal(receipt.deletionId,requestId);
-   assert.equal((await setup.query('SELECT arm_intent_sha256 FROM account_deletion_receipt_store WHERE id=$1',[requestId])).rows[0].arm_intent_sha256,second);
+   assert.deepEqual(duplicate.rows[0].receipt,receipt);
+   assert.equal((await setup.query('SELECT arm_intent_sha256 FROM account_deletion_receipt_store WHERE id=$1',[requestId])).rows[0].arm_intent_sha256,finalIntent);
    assert.deepEqual(await (await api(request('',{requestToken:pendingToken}))).json(),receipt);
    assert.equal((await setup.query('SELECT 1 FROM account_deletion_request WHERE id=$1',[requestId])).rowCount,0);
    assert.equal((await counts(a.id)).users,0);
    assert.equal((await counts(b.id)).users,1);
+   const bSession=(await auth.api.getSession({headers:new Headers({cookie:b.cookie})}))!;
+   const bProof=await dependencies(erase).password(b.id,b.password);
+   const newRequest=(await erase.query('SELECT account_deletion_open_request($1,$2,$3,$4) AS id',[
+    b.id,bSession.session.token,bProof.hash,nonce(token()),
+   ])).rows[0].id;
+   const bScope=(await setup.query(scopeSql,[newRequest])).rows[0].snapshot;
+   await assert.rejects(setup.query(armSql,[newRequest,b.id,bScope.scopeSha256,finalIntent,expires]),/Arm intent was consumed/);
+  });
+  await t.test('account proof and recovery browser against the actual deletion graph',{skip:process.env.ACCOUNT_DELETION_BROWSER!=='1'},async()=>{
+   const {runAccountDeletionBrowser}=await import('../tests/account-deletion.browser.mjs');
+   const worker=await adminUser('browser-cleanup-worker');
+   await runAccountDeletionBrowser({api,origin,counts,
+    arm:async(caseId:string,actor:Actor)=>{
+     const snapshot=(await setup.query('SELECT account_deletion_arm_scope($1) AS snapshot',[caseId])).rows[0].snapshot;
+     assert.equal(snapshot.subject,actor.id);
+     const directory=await mkdtemp(join(tmpdir(),'synthetic-browser-case-'));
+     const keyPath=join(directory,'recovered.key'), recordPath=join(directory,'case.enc');
+     try {
+      await writeFile(keyPath,randomBytes(32),{mode:0o600});
+      const record={kind:'account-deletion-arm-intent-v2',...snapshot,tallyReview:{
+       subjectFingerprint:snapshot.scope.subjectFingerprint,emailSha256:snapshot.scope.emailSha256,
+       reference:'synthetic-browser-review',submissions:[],
+      }};
+      const digest=writeCaseRecord(recordPath,keyPath,Buffer.from(JSON.stringify(record)));
+      assert.deepEqual(readCaseRecord(recordPath,keyPath,digest),record);
+      await setup.query('SELECT account_deletion_arm($1,$2,$3,$4,$5)',[
+       caseId,actor.id,snapshot.scopeSha256,digest,new Date(Date.now()+300000),
+      ]);
+     }finally{await rm(directory,{recursive:true,force:true});}
+    },
+    privateCounts:async(id:string)=>(await setup.query('SELECT (SELECT count(*)::int FROM practice_check_attempt WHERE user_id=$1) AS practice,(SELECT count(*)::int FROM authored_attempt WHERE user_id=$1) AS authored',[id])).rows[0],
+    actors:async(label:string)=>{const a=await user(label+'-a'),b=await user(label+'-b');await practiceCheck(a);await practiceCheck(b);const foreign=await publication(b);await authoredCheck(a,foreign);const factory=createProblemAuthoringApi({pool:setup,user:async()=>({id:a.id,emailVerified:true}),origin:()=>true});const response=await factory('create',rawRequest(document()));assert.equal(response.status,201);const draft=await response.json(),id=randomUUID(),path='author-media/'+a.id+'/'+id+'.png';
+     const client=await setup.connect();
+     let capability:string;
+     try {
+      await client.query('BEGIN');
+      capability=await preparePrivateUploadReservation(client);
+      await client.query("INSERT INTO author_media(id,problem_id,purpose,pathname,filename,media_type,bytes,sha256,state) VALUES($1,$2,'statement-image',$3,'private.png','image/png',1,$4,'pending')",[id,draft.problemId,path,'a'.repeat(64)]);
+      await client.query('COMMIT');
+     }catch(error){await client.query('ROLLBACK');throw error;}finally{client.release();}
+     await acknowledgePrivateUpload(normal,'author',path,capability);
+     await setup.query("UPDATE author_media SET state='ready' WHERE id=$1",[id]);
+     return{a,b};},
+    cleanup:async(fail:boolean)=>{await setup.query("UPDATE account_deletion_outbox SET available_at=now() WHERE state='pending'");const service=createDeletionOperatorApi(dependencies(staff),{del:async()=>{if(fail)throw Error('Synthetic provider failure');}});const response=await service(new Request(origin+'/api/admin/account-deletion',{method:'POST',headers:{origin,cookie:worker.cookie,'content-type':'application/json'},body:JSON.stringify({password:worker.password,action:'cleanup',payload:{}})}));assert.equal(response.status,200);const result=await response.json();assert.equal(result.completed,!fail);},
+   });
   });
  }finally{if(previousBlobRetries===undefined)delete process.env.VERCEL_BLOB_RETRIES;else process.env.VERCEL_BLOB_RETRIES=previousBlobRetries;await Promise.all(connections.map(p=>p.end()));await admin.query(`DROP SCHEMA ${name} CASCADE;DROP ROLE ${owner};DROP ROLE ${ordinary};DROP ROLE ${executor};DROP ROLE ${staffRole}`);await admin.end();}
 });

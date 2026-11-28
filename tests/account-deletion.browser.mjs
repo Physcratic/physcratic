@@ -9,7 +9,7 @@ import {join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 const require=createRequire(import.meta.url);
 const journal='physcratic.account-deletion.pending.v1';
-export async function runAccountDeletionBrowser({api,origin:fixtureOrigin,actors,counts,privateCounts,cleanup}) {
+export async function runAccountDeletionBrowser({api,origin:fixtureOrigin,actors,counts,privateCounts,cleanup,arm}) {
  const external=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS,'package.json'));
  const {chromium}=external('playwright'),{default:AxeBuilder}=external('@axe-core/playwright');
  const {build}=createRequire(require.resolve('tsx'))('esbuild');
@@ -55,7 +55,13 @@ export async function runAccountDeletionBrowser({api,origin:fixtureOrigin,actors
    await select(a.id);await proof(a);await submit.click();await status.filter({hasText:'account changed'}).waitFor();assert.equal((await counts(b.id)).users,1);
    const pending=await page.evaluate(key=>JSON.parse(sessionStorage.getItem(key)),journal);assert.equal(pending.accountId,a.id);assert.equal(Object.keys(pending).some(key=>['password','confirmation'].includes(key)),false);
    await page.evaluate(({a,b})=>{for(const storage of [sessionStorage,localStorage]){storage.setItem('physcratic.practice.v1:'+encodeURIComponent(a)+':test','A private draft');storage.setItem('physcratic.practice.v1:'+encodeURIComponent(b)+':test','B private draft');}},{a:a.id,b:b.id});
-   await cookie(a.id);await proof(a);holdNext=true;unconfirmedNext=true;const responseBefore=await responses();await submit.focus();await page.keyboard.press('Enter');
+   await cookie(a.id);await proof(a);await submit.click();
+   await status.filter({hasText:'awaiting operator authorization'}).waitFor();
+   const caseId=(await status.textContent()).match(/Operator review reference: ([a-f0-9-]{36})/)?.[1];
+   assert.ok(caseId);
+   assert.equal((await counts(a.id)).users,1,'A pending case must leave the account intact');
+   await arm(caseId,a);
+   await proof(a);holdNext=true;unconfirmedNext=true;const responseBefore=await responses();await submit.focus();await page.keyboard.press('Enter');
    for(let n=0;held.size===0&&n<200;n++)await new Promise(resolve=>setTimeout(resolve,25));assert.equal(held.size,1);
    assert.deepEqual(await counts(a.id),{users:0,credentials:0,sessions:0});assert.deepEqual(await privateCounts(a.id),{practice:0,authored:0});
    await cookie(b.id);await select(b.id);assert.equal(await password.inputValue()==='',true);await proof(b);
@@ -77,7 +83,7 @@ export async function runAccountDeletionBrowser({api,origin:fixtureOrigin,actors
    await proof(b);const beforeStorage=requests.length;await page.evaluate(()=>{Storage.prototype.setItem=function(){throw Error('Synthetic storage unavailable');};});await submit.click();await status.filter({hasText:'No completion is confirmed'}).waitFor();assert.equal(requests.length,beforeStorage,'A recovery journal must exist before deletion POST');assert.equal((await counts(b.id)).users,1);
    assert.deepEqual(errors,[]);assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
    const axe=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations.filter(v=>['serious','critical'].includes(v.impact)),[]);
-   await context.close();console.log(`PASS deletion browser ${width}px ${theme}: proof reset, stale cookie, actual erasure, late response, nonce recovery, cleanup failure/retry, other-account preservation, storage gate and axe`);
+   await context.close();console.log(`PASS deletion browser ${width}px ${theme}: account proof, pending authorization, erasure, lost response, receipt recovery, cleanup retry, isolation and axe`);
   }
  }finally{for(const release of held)release();await browser?.close();server?.closeAllConnections();await new Promise(resolve=>server?server.close(resolve):resolve());await rm(temp,{recursive:true,force:true});}
 }

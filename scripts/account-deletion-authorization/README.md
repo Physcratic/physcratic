@@ -1,38 +1,51 @@
-# Account deletion authorization handoff
+# Account erasure permits and independent custody
 
-**Local qualification only.** Keep deletion off. Migration 0027 requires the 0024 external medal reference, 0026 and the trusted routine owner. Install and ledger approval, operator staffing, scope and recovery policy approval, and service activation are separate decisions. The existing 0025 schema-only release remains independent.
+**Code and disposable qualification only.** Keep `ACCOUNT_DELETION_ENABLED` unset. Owner-approved policy, custody, operators, provider rehearsals, installation and activation are separate gates.
 
-## Operator sequence
+## Prerequisites
 
-1. Receive verified, explicit account-erasure authorization and ask the subject to open the pending request using Settings and fresh proof. Verify the opaque case reference belongs to the exact stable subject. Review publication, file and external dispositions before arming. Reuse the two independent mixed-case decisions where required. Capture verified Tally and other external obligations before any automatic cascade can erase the links. Fence changes to those external matches until the request is resolved, or record every change through the approved independent process before it can become invisible.
-2. Use a restricted encrypted location outside the database and independently recoverable by the backup custodian. Put the approval, scope and disposition there with their named owners. The operator script takes the approved direct endpoint, LOGIN, owner, server version, case UUID and a new private intent path. Configure the existing trusted CA via `PGSSLROOTCERT` and use the approved password file. Invoke `RecordIntent` and enter the verified stable subject, references and short UTC expiry. It captures the database scope and saves the exact arm-intent file before any arming. Verify its human-readable scope and independent recovery with the backup custodian. Preserve the original bytes and reported checksum. A filesystem flush and local read-back cannot prove backup or encryption.
-3. Invoke `Arm` with the same target and exact intent file and independently checked `IntentSha256`. Enter the typed confirmation only after custody is confirmed. The database rechecks subject, current scope and expiry. The app and other service LOGINs have no arm, disarm or scope access. The user reauthenticates and retries from the original tab. Scope changes require a new review, an exact `Disarm`, and a fresh external intent. A revoked digest cannot be reused. Access and review terms for the identifying external files follow the owner policy.
-4. Use `Status` with the pinned intent and preserve the evidence outside the rollback point. A committed receipt has the same opaque ID and pins the consumed intent digest. Use it with the source checks before reporting a confirmed erasure. A pending request may have an active, expired, revoked or different intent. A connection loss around arming or execution, absent or expired receipt, and source loss are all possible unknown outcomes. Preserve every arm-intent, including one whose arming acknowledgement was lost. Never attribute a receipt to another intent for the same case without reconciling their authorization and disposition references. If the source is lost, both uncertain arming and uncertain execution may represent a committed erasure. Keep restore targets isolated and send all such records for independent reconciliation and explicit replay and reopen approval. A local record or working consent flow does not authorize Production recovery.
-5. Install only under the usual common migration lock and reviewed ledger procedure while every old erasure entry point is fenced. The service remains off across the upgrade. 0027 alters the existing eraser in place and retains its OID and ACLs. It requires live scope under read committed isolation and takes a short fail-fast lock on file, publication and Tally registries to rule out in-transaction scope changes. Recheck effective roles, including no inherited owner access, no protected-table DML and no routine default-grant drift. At current volume a lock conflict means retry the same request. The original mixed-case, proof, receipt, outbox and hold guards still apply.
+- Approve the exact checkout and `sha256sum -c scripts/account-deletion-authorization/PACKAGE_SHA256SUMS`. Require the reviewed 0024 Tally reference. Install 0026 separately through its [reviewed operator package](../account-deletion-0026/README.md). Verify the eraser, staff and ordinary LOGIN boundaries. The operator acting as the trusted erasure owner may issue permits. The erasure LOGIN can execute the existing gated routine. The staff LOGIN can review evidence and run leased cleanup. The scripts add no service grants.
+- With deletion off and older erasure entry points fenced, review the forward-only 0027 up file, ownership, installation transaction and exact ledger pin. Use the common migration advisory lock and commit the reviewed migration body, assertions and ledger together in the approved window. The up file owns a transaction by itself. A wrapper must verify the original bytes before extracting its single outer transaction. Obtain separate owner approval before execution. Keep the old self-service build and native auth deletion out of service.
+- Approve a restricted encrypted case location recoverable independently of PostgreSQL, named primary and backup custodians, access controls and retention. Generate a fresh random 32-byte binary key per case using the existing approved key store. Preserve an independently recoverable key copy in separate restricted custody. The encrypted case carries minimal identifiers and obligations. Keep key bytes, password, session and request tokens outside the case file, command line, transcripts and repository.
 
-Use the same PowerShell options across all case commands. Set the approved CA and password file in the shell before running these commands. The backup custodian supplies the independently verified digest after retrieving the recorded file.
+## Prepare and use a permit
+
+1. Have the verified subject open a request in Settings using fresh proof. Use the opaque review reference from the response. Verify authority and exact stable subject before reviewing publication and mixed evidence, and complete the required independent approvals before recording scope. Keep subject verification and provider bindings in the restricted case workflow.
+2. Use PowerShell 7, Node 22 and psql with the approved direct endpoint, trusted CA and existing `PGPASSFILE`. Share no credentials. The operator command forces client `verify-full`. On the approved target, call `ReviewScope` to obtain the stable subject fingerprint, verified address digest and recorded award IDs. Independently verify Tally on the approved form and downstream copies, including submissions without awards. Produce a restricted JSON review with those exact fingerprints, a named evidence `reference`, and `submissions` entries with `id`, `kind` (`awarded` or `unawarded`) and `dispositionRef`. Use an empty array only after verifying an empty match. Unresolved identity matching or incomplete evidence requires review before issuing a permit. Pending, verified dispositions stay pending in custody. Fence changes to external matches during the handoff or re-review and record them before proceeding.
+3. Record the intent. The scope includes exact revision and evidence decisions, registered paths, held state and each reservation's digest. The helper creates a fresh authenticated encrypted file, flushes it and reads it back. Failure produces no permit. Back up the encrypted bytes independently of the database. Before arming, the backup custodian must retrieve and decrypt that copy using the independently recovered key, verify the case against the scope and communicate the exact verified digest. The issuer relies on this custody decision. The database can enforce the pinned digest and current scope.
+4. Arm only the verified case. Confirm the same digest from the recovered copy. The SQL rechecks subject, scope and expiry, and the trusted role is the only issuer. Have the subject sign in again if needed and retry in the original tab. The guarded eraser requires fresh proof and a current permit. It writes the matching receipt and consumes the request in the same transaction as erasure and outbox creation. If scope changes, keep the record, disarm the exact digest and review a fresh intent.
 
 ```powershell
+# Fill these from separately reviewed private evidence, then keep the case files outside the repository.
 $case = @{
-    Endpoint = Read-Host 'Approved direct database hostname'
-    Port = [int](Read-Host 'Approved database port')
-    Database = Read-Host 'Approved database name'
-    Login = Read-Host 'Approved named operator LOGIN'
-    Owner = Read-Host 'Approved trusted erasure owner'
-    ServerVersion = [int](Read-Host 'Approved server_version_num')
-    CaseId = [guid](Read-Host 'Opaque deletion request reference')
-    IntentFile = Read-Host 'New case file path in approved encrypted storage'
+    Endpoint = $ApprovedDirectHost
+    Port = $ApprovedPort
+    Database = $ApprovedDatabase
+    Login = $ApprovedOperatorLogin
+    Owner = $ApprovedEraserOwner
+    ServerVersion = $ApprovedServerVersion
+    CaseId = $VerifiedCaseId
 }
-& .\scripts\account-deletion-authorization\operate.ps1 -Action RecordIntent @case
+$operator = '.\scripts\account-deletion-authorization\operate.ps1'
+& $operator -Action ReviewScope @case
+& $operator -Action RecordIntent @case -IntentFile $NewEncryptedFile -KeyFile $PrimaryKeyFile -TallyReviewFile $ReviewedTallyFile
 
-# Run separately after independent custody and scope review.
-$pin = Read-Host 'Independently verified ARM_INTENT_RECORDED digest'
-& .\scripts\account-deletion-authorization\operate.ps1 -Action Arm @case -IntentSha256 $pin
-# Inspect the outcome without retrying an uncertain arm or erasure.
-& .\scripts\account-deletion-authorization\operate.ps1 -Action Status @case -IntentSha256 $pin
+# The backup custodian runs this against the independently retrieved bytes and key.
+node scripts/account-deletion-authorization/case-record.mjs verify $RecoveredCaseFile $RecoveredKeyFile $RecordedDigest
+
+# Run only after independent read-back and approval. Use the digest from that custodian.
+$recovered = @{IntentFile=$RecoveredCaseFile; KeyFile=$RecoveredKeyFile; IntentSha256=$IndependentlyVerifiedDigest}
+& $operator -Action Arm @case @recovered
+& $operator -Action Status @case @recovered
 ```
 
-The [disposable recovery adapter](../account-deletion-restore/README.md) verifies a separate signed recovery approval and the retained arm intent across the 0027 boundary. Any actual recovery retains its separate approval and qualification requirements. A rollback to historical app code on an upgraded database cannot bypass the database guard. A database rollback to a point before 0027 requires the same external reconciliation and restored traffic remains closed.
+Preserve ciphertext and status history through lost arming or erasure acknowledgements. The exact active arm can be retried after reconciling its state. A matching receipt from the verified source together with account, credential and session absence supports database confirmation. Missing or expired receipts, unavailable source, changed hashes and unknown responses remain uncertain until independently adjudicated. An exact `Disarm` records revocation in the database. Confirm its outcome before replacing the permit. Track Tally and pending or held object obligations separately even when live database erasure is confirmed. Never clear a hold based on object presence, absence or age.
+
+## Restore and release boundary
+
+Restore only to an isolated copy with service and worker access closed, including old aliases and credentials. Before reconnecting any erasure LOGIN, use the trusted owner to run `SELECT public.account_deletion_fence_restored_permits();` on the reviewed 0027 restore target and record its returned epoch in the independent recovery approval. Any restored or previously recorded permit from the old epoch is stale. A checkpoint before 0027 stays isolated while reconciled and until its approved 0027 fence is installed. Preserve all potentially committed requests and independently authorize reconciliation of each exact subject. The [synthetic restore rehearsal](../account-deletion-restore/README.md) exercises the boundary and is limited to disposable Docker targets.
+
+The owner must approve actual independent storage and key recovery, named operators and reviewers, privacy and retention terms, real provider/Tally rehearsals, and a restore procedure with the actual provider access closed until independent verification. None of the synthetic outcomes attests physical backup expiry, unknown upload completion or live custody. Reopen only after the approved reconciliation confirms erased subjects and revived credentials are absent, B and other unaffected accounts are preserved, held and external obligations survive, and any later evidence restrictions or disposal decisions carry forward. Keep any unresolved recovery target isolated.
 
 ## Rehearse against the existing private staging store
 

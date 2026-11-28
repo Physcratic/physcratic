@@ -1,3 +1,7 @@
+## Account erasure recovery qualification (29 November 2026)
+
+Use the [0027 permit and encrypted custody procedure](../../scripts/account-deletion-authorization/README.md) with the approved 0026 transport package. Qualify actual custody, provider cleanup, Tally matching and restore isolation before release. Production installation, grants and activation require separate approval. Once the operational erasure and recovery gates pass, hand their evidence to personal completions for its separate 0025 release.
+
 ## Personal completions Phase 5B qualification (29 November 2026)
 
 The owner separately accepted the recovered Step 2 ledger and the retrospective baseline. Reuse the accepted 22-row ledger and scoped ownership, grants and binding evidence. Keep the release off while qualifying the existing 0026 erasure workflow and retained copies. Reuse the completed synthetic backup and replay rehearsal to review the operating model. An independent erasure record needs an enforced handoff before every deletion commit. A post-erasure checkpoint model needs an enforceable restore fence and an approved outage and data-loss tradeoff. Qualify the selected model on an isolated target using the existing provider setup.
