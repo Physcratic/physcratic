@@ -53,9 +53,14 @@ export function PdfDropZone({ disabled = false, hasStatement = false, onPdfs }: 
   /** Two files ask which is the statement. One file with a statement already there asks for its role. */
   const [choice, setChoice] = useState<{ files: File[]; role: boolean } | null>(null);
   const locked = disabled || busy;
-  // A file dropped just outside the zone would open in the tab and leave Studio. Text drags are left alone.
+  // A file dropped just outside the zone would open in the tab and leave Studio. Text drags are left alone, and so is
+  // a drop on a file input, which the browser hands to that input as it always has.
   useEffect(() => {
-    const keep = (e: DragEvent) => { if (e.dataTransfer?.types.includes("Files")) e.preventDefault(); };
+    const keep = (e: DragEvent) => {
+      if (!e.dataTransfer?.types.includes("Files")) return;
+      if (e.target instanceof Element && e.target.closest('input[type="file"]')) return;
+      e.preventDefault();
+    };
     window.addEventListener("dragover", keep);
     window.addEventListener("drop", keep);
     return () => {
@@ -82,7 +87,8 @@ export function PdfDropZone({ disabled = false, hasStatement = false, onPdfs }: 
       setBusy(false);
     }
   }
-  const pick = (files: PdfAssignment[]) => { setChoice(null); void send(files); };
+  // The editor can lock while the sheet is open, for a recovery copy or a publish. Then the choice uploads nothing.
+  const pick = (files: PdfAssignment[]) => { setChoice(null); if (!locked) void send(files); };
   const status = busy ? progress : state && "error" in state ? state.error : state?.done ?? "";
   return (
     <div

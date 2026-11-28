@@ -68,14 +68,17 @@ export async function runPdfDropBrowser({ browser, origin, pool, AxeBuilder, sto
       await zone.getByRole("alert").filter({ hasText: message }).waitFor();
     }
     // A file dropped just outside the zone does not open in the tab. A text drag is left alone.
-    const outside = (types) => page.evaluate((files) => {
+    // Drops a file, or text, on the page body or on a file input outside the zone, and says whether the browser's own drop was cancelled.
+    const outside = (types, onInput = false) => page.evaluate(([files, input]) => {
       const data = new DataTransfer();
       if (files) data.items.add(new File(["%PDF-"], "missed.pdf", { type: "application/pdf" }));
       else data.setData("text/plain", "words");
+      const target = input ? [...document.querySelectorAll('input[type="file"]')].find((el) => !el.closest("[data-pdf-drop]")) : document.body;
+      if (!target) throw new Error("no file input outside the zone");
       const event = new DragEvent("drop", { dataTransfer: data, bubbles: true, cancelable: true });
-      document.body.dispatchEvent(event);
+      target.dispatchEvent(event);
       return event.defaultPrevented;
-    }, types);
+    }, [types, onInput]);
     assert.equal(await outside(true), true, `${tag}: a missed file drop is kept in Studio`);
     assert.equal(await outside(false), false, `${tag}: a text drop is not touched`);
     assert.equal(await problems(), 0, `${tag}: a refused drop makes no draft`);
@@ -143,6 +146,9 @@ export async function runPdfDropBrowser({ browser, origin, pool, AxeBuilder, sto
     // whether it replaces the statement or is the solution, so a solution never becomes public by mistake.
     const editorZone = page.locator('section[aria-label="Problem PDFs"] [data-pdf-drop]');
     await editorZone.waitFor({ timeout: 20000 });
+    // A file dropped straight on one of the editor's own file inputs is that input's, as before. Beside the zone it is kept.
+    assert.equal(await outside(true, true), false, `${tag}: a drop on a file input is the input's`);
+    assert.equal(await outside(true), true, `${tag}: a drop beside the zone is still kept in Studio`);
     const statement = (await attachments(oneId))[0].id;
     const role = page.getByRole("alertdialog", { name: "better.pdf" });
     const filesBefore = await files();
@@ -187,6 +193,29 @@ export async function runPdfDropBrowser({ browser, origin, pool, AxeBuilder, sto
     await page.getByRole("status").filter({ hasText: "Deleted 1 of 1." }).waitFor({ timeout: 20000 });
     const left = (await pool.query("SELECT id FROM author_media WHERE problem_id=$1", [oneId])).rows.map((r) => r.id).sort();
     assert.deepEqual(left, now.map((a) => a.id).sort(), `${tag}: only the files in use are left`);
+
+    // The editor locks while the role sheet is open, here by another upload in progress. The choice then uploads nothing.
+    let release;
+    const gate = new Promise((resolve) => { release = resolve; });
+    const hold = async (route) => { if (route.request().method() === "POST") await gate; await route.continue().catch(() => {}); };
+    await page.route("**/media", hold);
+    await drop(page, editorZone, [file("late.pdf")]);
+    const late = page.getByRole("alertdialog", { name: "late.pdf" });
+    await late.waitFor();
+    const lockedBefore = { files: await files(), statement: (await attachments(oneId)).find((a) => a.purpose === "statement-pdf").id };
+    // The part's own image upload, found by its label: the sheet makes the rest of the page hidden to roles.
+    const imageInput = await page.evaluate(() => [...document.querySelectorAll("label")].find((l) => l.textContent.trim().startsWith("Upload image to"))?.htmlFor);
+    assert.ok(imageInput, "the part has its own image upload");
+    await page.locator(`[id="${imageInput}"]`).setInputFiles({ name: "lock.png", mimeType: "image/png", buffer: png });
+    await page.waitForFunction(() => document.querySelector("[data-pdf-drop] button")?.disabled === true);
+    await late.getByRole("button", { name: "Replace the statement", exact: true }).click();
+    await late.waitFor({ state: "detached" });
+    await page.waitForTimeout(800);
+    assert.equal(await files(), lockedBefore.files, `${tag}: a choice made after the editor locked uploads nothing`);
+    release();
+    await page.unroute("**/media", hold);
+    await page.getByText("All changes saved").first().waitFor({ timeout: 20000 });
+    assert.equal((await attachments(oneId)).find((a) => a.purpose === "statement-pdf").id, lockedBefore.statement, `${tag}: and the statement is unchanged`);
 
     // With no drop zone on the page, a missed drop is the browser's again.
     await page.getByRole("button", { name: "Back to drafts", exact: true }).click();
