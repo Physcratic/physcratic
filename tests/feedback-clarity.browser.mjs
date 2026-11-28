@@ -1,4 +1,5 @@
 // Actual feedback and completion components with synthetic mark transport. No database or provider access.
+import axeSettle from "./axe-settle.cjs";
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { createServer } from 'node:http';
@@ -10,6 +11,7 @@ const require = createRequire(import.meta.url);
 const external = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS || '/tmp/physcratic-editor-test', 'package.json'));
 const { chromium } = external('playwright');
 const { default: AxeBuilder } = external('@axe-core/playwright');
+axeSettle.settleAxeBuilder(AxeBuilder);
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
 const temp = await mkdtemp(join(tmpdir(), 'physcratic-feedback-'));
 let browser, server, completed = false;

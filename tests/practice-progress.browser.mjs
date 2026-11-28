@@ -1,5 +1,6 @@
 // Actual solving/history components, production API/grader factories and disposable PG.
 // Session and surrounding dashboard-contest data are synthetic, not live provider qualification.
+import axeSettle from "./axe-settle.cjs";
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { createServer } from 'node:http';
@@ -18,6 +19,7 @@ import { handleArchiveGrade } from '../lib/archive-grading-request.ts';
 import { isAllowedSubmissionOrigin } from '../lib/submission-security.ts';
 const require=createRequire(import.meta.url), external=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS||'/tmp/physcratic-editor-test','package.json'));
 const {chromium}=external('playwright'),{default:AxeBuilder}=external('@axe-core/playwright');
+axeSettle.settleAxeBuilder(AxeBuilder);
 const {build}=createRequire(require.resolve('tsx'))('esbuild');
 const target=new URL(process.env.AUTHORING_TEST_DATABASE_URL||'http://invalid');assert.equal(target.hostname,'127.0.0.1');assert.equal(target.pathname,'/physcratic_authoring_test');
 const schema='progress_ui_'+randomUUID().replaceAll('-',''),admin=new Pool({connectionString:target.href});await admin.query(`CREATE SCHEMA ${schema}`);

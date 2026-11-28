@@ -1,4 +1,5 @@
 // Actual written-solution component, synthetic sessions and submission transport. No database or provider access.
+import axeSettle from "./axe-settle.cjs";
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { createServer } from 'node:http';
@@ -118,6 +119,7 @@ try {
     await page.evaluate(dark => document.documentElement.classList.toggle('dark', dark), dark);
     // Theme colors transition for 150 ms. Check the settled theme, not an intermediate blend.
     await page.waitForTimeout(300);
+    await axeSettle.settleAnimations(page);
     await page.addScriptTag({ path: axe });
     const result = await page.evaluate(async () => window.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa'] } }));
     assert.deepEqual(result.violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => ({ target: n.target, html: n.html, failure: n.failureSummary })) })), [], `axe ${width} dark=${dark}`);

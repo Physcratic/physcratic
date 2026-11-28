@@ -2,6 +2,7 @@
 // Node 22: AUTHORING_BROWSER_TOOLS=/external/tools CHROMIUM_PATH=/usr/bin/chromium
 // node --conditions=react-server --import tsx tests/authored-expression.browser.mjs
 // Existing authored-student.browser.mjs separately covers production APIs on disposable PostgreSQL.
+import axeSettle from "./axe-settle.cjs";
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { createServer } from 'node:http';
@@ -17,6 +18,7 @@ const require = createRequire(import.meta.url);
 const browserTools = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS || '/tmp/physcratic-editor-test', 'package.json'));
 const { chromium } = browserTools('playwright');
 const { default: AxeBuilder } = browserTools('@axe-core/playwright');
+axeSettle.settleAxeBuilder(AxeBuilder);
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
 const temp = await mkdtemp(join(tmpdir(), 'physcratic-b1-'));
 const problemId = randomUUID(), revisionId = randomUUID();

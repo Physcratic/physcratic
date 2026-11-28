@@ -1,3 +1,4 @@
+import axeSettle from "./axe-settle.cjs";
 import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
 import {createRequire} from 'node:module';
@@ -14,6 +15,7 @@ import {createModerationApi} from '../lib/community/moderation-api.ts';
 import {achievementFixtures,achievementMigrations} from './community-achievement-fixtures.ts';
 import {installProfilePublicationFixture} from './profile-publication-fixtures.ts';
 const require=createRequire(import.meta.url),tools=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS,'package.json')),{chromium}=tools('playwright'),{default:AxeBuilder}=tools('@axe-core/playwright'),{build}=createRequire(require.resolve('tsx'))('esbuild');
+axeSettle.settleAxeBuilder(AxeBuilder);
 const target=new URL(process.env.AUTHORING_TEST_DATABASE_URL);assert.equal(target.hostname,'127.0.0.1');assert.equal(target.pathname,'/physcratic_authoring_test');
 const schema='moderation_ui_'+randomUUID().replaceAll('-',''),admin=new Pool({connectionString:target.href}),pool=new Pool({connectionString:target.href,options:`-c search_path=${schema},public`}),key='arena:arena-mind-the-gap';const temp=await mkdtemp(join(tmpdir(),'physcratic-moderation-browser-'));let browser,server,origin;const errors=[];
 try{

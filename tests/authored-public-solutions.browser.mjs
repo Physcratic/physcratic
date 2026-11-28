@@ -1,4 +1,5 @@
 // Actual components/API/grader + owned disposable PostgreSQL and memory storage only.
+import axeSettle from "./axe-settle.cjs";
 import assert from 'node:assert/strict';
 import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
 import {createServer} from 'node:http';
@@ -17,6 +18,7 @@ import {publicSolutionPolicy, publicSolutionsEnabled} from '../lib/authored-solu
 import {memoryAuthorStorage,statementPdfFixture,png} from './author-media-fixtures.ts';
 const require=createRequire(import.meta.url),tools=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS||'/workspace/work/p2-browser','package.json'));
 const {chromium}=tools('playwright'),{default:AxeBuilder}=tools('@axe-core/playwright'),{build}=createRequire(require.resolve('tsx'))('esbuild');
+axeSettle.settleAxeBuilder(AxeBuilder);
 const u=new URL(process.env.AUTHORING_TEST_DATABASE_URL||'http://invalid');assert.equal(u.hostname,'127.0.0.1');assert.equal(u.pathname,'/physcratic_authoring_test');
 const admin=new Pool({connectionString:u.href}),schema='public_browser_'+randomUUID().replaceAll('-','');
 await admin.query(`CREATE SCHEMA ${schema}`);

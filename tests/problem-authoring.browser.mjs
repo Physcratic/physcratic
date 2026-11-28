@@ -1,6 +1,7 @@
 // Run with scripts/test-problem-authoring.sh node_modules/.bin/tsx tests/problem-authoring.browser.mjs
 // Browser harness uses real production editor + API factory on disposable PostgreSQL.
 // Better Auth sessions are injected, not simulated browser login. Test tooling is external.
+import axeSettle from "./axe-settle.cjs";
 import assert from "node:assert/strict";
 import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
 import { numericUnitsHelp } from "../lib/authored-grading-contracts.ts";
@@ -26,6 +27,7 @@ const browserTools = process.env.AUTHORING_BROWSER_TOOLS
   : require;
 const { chromium } = browserTools("playwright");
 const { default: AxeBuilder } = browserTools("@axe-core/playwright");
+axeSettle.settleAxeBuilder(AxeBuilder);
 const { build } = createRequire(require.resolve("tsx"))("esbuild");
 const target = new URL(
   process.env.AUTHORING_TEST_DATABASE_URL || "http://invalid",

@@ -1,6 +1,7 @@
 // The shared Studio confirm sheet in real Chromium: it opens, Escape and the backdrop and Cancel run nothing, focus goes back to the
 // control that opened it, confirm runs the action once, and axe is clean with the sheet open on a wide screen and at 375px.
 // Run: node --import tsx tests/confirm-sheet.browser.mjs   (AUTHORING_BROWSER_TOOLS and CHROMIUM_PATH optional)
+import axeSettle from "./axe-settle.cjs";
 import assert from "node:assert/strict";
 import { createServer } from "node:http";
 import { createRequire } from "node:module";
@@ -12,6 +13,7 @@ const require = createRequire(import.meta.url);
 const browserTools = process.env.AUTHORING_BROWSER_TOOLS ? createRequire(join(process.env.AUTHORING_BROWSER_TOOLS, "package.json")) : require;
 const { chromium } = browserTools("playwright");
 const { default: AxeBuilder } = browserTools("@axe-core/playwright");
+axeSettle.settleAxeBuilder(AxeBuilder);
 const { build } = createRequire(require.resolve("tsx"))("esbuild");
 const temp = await mkdtemp(join(tmpdir(), "physcratic-confirm-sheet-"));
 let browser, server;

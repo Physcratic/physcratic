@@ -1,6 +1,7 @@
 // Disposable PostgreSQL + actual rendered StudentWorkspace + production API factories/grader.
 // Run: AUTHORING_BROWSER_TOOLS=/tmp/physcratic-editor-test scripts/test-problem-authoring.sh node_modules/.bin/tsx --conditions=react-server tests/authored-student.browser.mjs
 // Better Auth's hook is a thin production shell; this harness injects verified/guest accounts.
+import axeSettle from "./axe-settle.cjs";
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
 import { createServer } from "node:http";
@@ -27,6 +28,7 @@ const require = createRequire(import.meta.url),
 const { chromium } = browserTools("playwright"),
   { default: AxeBuilder } = browserTools("@axe-core/playwright"),
   { build } = createRequire(require.resolve("tsx"))("esbuild");
+axeSettle.settleAxeBuilder(AxeBuilder);
 const target = new URL(
   process.env.AUTHORING_TEST_DATABASE_URL || "http://invalid",
 );

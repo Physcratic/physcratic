@@ -1,3 +1,4 @@
+import axeSettle from "./axe-settle.cjs";
 import assert from 'node:assert/strict';
 import {createServer} from 'node:http';
 import {createRequire} from 'node:module';
@@ -11,6 +12,7 @@ import {createProblemStatsApi} from '../lib/community/problem-stats-api.ts';
 import {achievementFixtures,installAchievementFixtures} from './community-achievement-fixtures.ts';
 const req=createRequire(import.meta.url),tools=createRequire(join(process.env.AUTHORING_BROWSER_TOOLS,'package.json'));
 const {chromium}=tools('playwright'),{default:AxeBuilder}=tools('@axe-core/playwright'),{build}=createRequire(req.resolve('tsx'))('esbuild');
+axeSettle.settleAxeBuilder(AxeBuilder);
 const url=new URL(process.env.AUTHORING_TEST_DATABASE_URL);assert.equal(url.hostname,'127.0.0.1');assert.equal(url.pathname,'/physcratic_authoring_test');
 const schema='stats_ui_'+randomUUID().replaceAll('-',''),admin=new Pool({connectionString:url.href}),pool=new Pool({connectionString:url.href,options:`-c search_path=${schema},public`});const temp=await mkdtemp(join(tmpdir(),'stats-ui-'));let browser,server,origin;const errors=[];let reads=0,delay=0,fail=false;
 try{

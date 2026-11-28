@@ -1,4 +1,5 @@
 // Real native reader, MathLive and stateless checker. Auth is a browser-only synthetic adapter.
+import axeSettle from "./axe-settle.cjs";
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 import { createServer } from 'node:http';
@@ -13,6 +14,7 @@ const require = createRequire(import.meta.url);
 const tools = createRequire(join(process.env.AUTHORING_BROWSER_TOOLS || '/tmp/physcratic-editor-test','package.json'));
 const { chromium } = tools('playwright');
 const { default: AxeBuilder } = tools('@axe-core/playwright');
+axeSettle.settleAxeBuilder(AxeBuilder);
 const { build } = createRequire(require.resolve('tsx'))('esbuild');
 const index = JSON.parse(await readFile('lib/corpus/import-index.json','utf8'));
 const records = new Map(await Promise.all(olympiadDefinitions.map(async d => [d.problemId,importedProblemSchema.parse(JSON.parse(await readFile('public'+index.problems.find(p=>p.id===d.problemId).path,'utf8')))])));
