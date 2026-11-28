@@ -16,7 +16,7 @@ Read `docs/engineering/PRODUCT_DECISIONS.md` before implementation and update it
 Next.js 15.5 App Router, TypeScript, Tailwind, shadcn/ui (components/ui), Better Auth, Drizzle + Postgres, deployed on Vercel. Package manager: pnpm. Node 22.
 
 Read CONTRIBUTING.md before starting.
-- Vercel automatic deployments are disabled. The owner handles deployment manually after merge.
+- Operator inspection on 28 November 2026 found that main automatically creates Production deployments and assigns custom domains. This supersedes the earlier manual-deployment assumption. A merge can release immediately, so require explicit owner Production release approval as well as exact-head CI before merging. No provider setting change is authorized by this documentation.
 
 ## Commands
 - Unit tests: `pnpm test` (node:test via tsx over lib/*.test.ts). One file: `pnpm exec tsx --conditions=react-server --test lib/<name>.test.ts`

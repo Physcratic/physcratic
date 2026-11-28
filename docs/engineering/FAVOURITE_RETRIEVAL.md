@@ -52,7 +52,7 @@ Before activation, the owner must:
 
 1. Review the exact final commit and its CI results. Verify the deployed schema and actual serving LOGIN can use the existing owner-range favourite reads, public revision metadata, user row lock and shared limiter permissions. No grant or schema change is authorized by this document.
 2. Qualify the exact build/serving configuration with synthetic A/B/guest sessions, a second browser, stale cookies, delayed replies, removed/withdrawn publications, pagination, unavailable storage and rate limits. Confirm private/no-store responses and no private titles or identities in shared HTML/RSC or logs. Local fixtures do not establish production runtime evidence.
-3. Separately approve only the retrieval flag on the intended target. The owner handles deployment manually. Keep existing statistics, practice-saving and deletion gates independent.
+3. Separately approve only the retrieval flag on the intended target. Operator inspection on 28 November 2026 found that main automatically creates Production deployments and assigns custom domains, so merging can release this change. Keep PR #277 draft and unmerged until the owner explicitly approves that Production release. Retrieval activation remains a separate explicit decision. Keep existing statistics, practice-saving and deletion gates independent. No provider deployment setting change is authorized here.
 
 Rollback disables the retrieval flag consistently in build and serving scope. Preserve favourite rows, heart writes and existing erasure processing. Do not delete data or replay migrations as a UI rollback.
 

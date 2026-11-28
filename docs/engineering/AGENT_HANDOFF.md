@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Deployment instructions corrected after Goldfish review (29 November 2026)
+
+The owner approved correcting the deployment documentation and running a fresh implementation review. AGENTS.md, CLAUDE.md, CONTRIBUTING.md and the favourite activation checklist now reflect the 28 November operator observation: main automatically creates Production deployments and assigns custom domains. A merge can release immediately and requires explicit owner Production release approval in addition to exact-head CI. Earlier dated manual-deployment statements are historical assumptions, superseded by this entry. No provider setting change is authorized or performed.
+
+All nine workflows passed on PR #277 head aa8a325b9ecabb505cc2f3cb5bbfda6c84395f6e before this documentation correction, including the PostgreSQL LOGIN rehearsal. Those results do not cover a new published head. The correction is documentation only. Keep #277 draft and unmerged. Retrieval stays OFF, actual serving identity and designated-account live acceptance remain pending, and F5 saving remains deferred. Fresh review of the corrected working tree is the next verification step.
+
 ## Dedicated favourite cursor configuration (28 November 2026)
 
 [Implementation checkpoint 6ae0f90](https://github.com/Physcratic/physcratic/commit/6ae0f900ffa58d2b3accef53906d7c724512dc72) adds an optional FAVOURITE_HISTORY_CURSOR_SECRET, allowing retrieval to be configured independently of authentication. A valid dedicated key takes precedence. An explicitly invalid dedicated key fails closed, and an absent dedicated setting retains the existing BETTER_AUTH_SECRET fallback. Authentication, personal completions, gates, grants and data are unchanged. The real-LOGIN test now proves the route's cursor opens with the dedicated key and rejects the different authentication key. [Configuration and release boundaries](FAVOURITE_RETRIEVAL.md#cursor-key-configuration).

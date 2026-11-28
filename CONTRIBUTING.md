@@ -8,7 +8,7 @@ This guide is for people and for AI tools (Claude Code, Codex, v0). Claude Code 
 2. Never build on an old branch. A `v0/*` branch more than a day behind `main` counts as old. v0 users start a new v0 chat from `main` instead.
 3. One feature per PR. Small PRs get reviewed faster.
 4. Don't edit another area's paths without asking its owner. If your task seems to need them, stop and ask.
-5. Push reviewed changes through a pull request and merge after exact-head CI passes. The owner handles Vercel deployments manually.
+5. Push reviewed changes through a pull request. Merge after exact-head CI passes and the owner explicitly approves the potential Production release. Main was observed to deploy automatically on 28 November 2026.
 6. Use direct code review, focused local tests and standard GitHub Actions for verification. Never invoke Daybreak, external review agents or paid review services.
 
 ## Ownership
@@ -98,4 +98,4 @@ Before and after:
 
 ## Production
 
-Vercel automatic deployments are disabled. The owner decides when to deploy a reviewed commit from main. Production database mutations, deployments and purchases require explicit owner approval.
+Operator inspection on 28 November 2026 found that main automatically creates Production deployments and assigns custom domains. This supersedes the earlier manual-deployment assumption. Treat merging to main as a potential Production release requiring explicit owner approval. Production database mutations, deployments and purchases still require explicit owner approval. This documentation does not authorize changes to provider settings or feature activation.
