@@ -30,6 +30,8 @@ export function PartOptions({
   answer?: {
     boxOwns?: boolean;
     solutionElsewhere?: boolean;
+    /** Simple shows the hints on the Worked solution step. */
+    hintsElsewhere?: boolean;
     manualLabel?: string;
     placeholder?: string;
     hideManualButton?: boolean;
@@ -53,6 +55,7 @@ export function PartOptions({
         <AnswerPanel
           boxOwns={answer?.boxOwns}
           solutionElsewhere={answer?.solutionElsewhere}
+          hintsElsewhere={answer?.hintsElsewhere}
           manualLabel={answer?.manualLabel}
           placeholder={answer?.placeholder}
           entry={entry}

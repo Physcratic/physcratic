@@ -18,6 +18,8 @@ export type PublishBlocker = {
   /** For a tag issue, which list it is in. */
   list?: "topicTags" | "methodTags";
   step: PublishStep;
+  /** The server's own words, for a rule Simple has no message of its own for. */
+  message?: string;
 };
 
 /** The step each code is fixed in. An image in a hint or worked solution is fixed in the worked solution step instead. */
@@ -57,16 +59,22 @@ function partOfPath(p: Payload, path: readonly PropertyKey[]): string | undefine
   return undefined;
 }
 
-type Image = { block: Extract<EditorBlock, { kind: "image" }>; partId?: string; inSolution: boolean };
+/** Where an image is edited: the main question's picture box, a part's question, its hints or worked solution, or the problem's More options. */
+type Where = "main" | "part" | "solution" | "problem";
+type Image = { block: Extract<EditorBlock, { kind: "image" }>; partId?: string; where: Where };
 function imagesOf(p: Payload): Image[] {
-  const pick = (blocks: readonly EditorBlock[], partId: string | undefined, inSolution: boolean) =>
-    blocks.flatMap((block) => (block.kind === "image" ? [{ block, partId, inSolution }] : []));
+  const pick = (blocks: readonly EditorBlock[], partId: string | undefined, where: Where) =>
+    blocks.flatMap((block) => (block.kind === "image" ? [{ block, partId, where }] : []));
+  // Only the main question's first picture has its own box. Any other shared setup image is in the problem's More options.
+  const context = pick(p.content.context, undefined, "problem");
+  if (context[0]) context[0] = { ...context[0], where: "main" };
   return [
-    ...pick(p.content.context, undefined, false),
-    ...p.content.sections.flatMap((s) => [...pick(s.blocks, undefined, false), ...s.parts.flatMap((part) => pick(part.blocks, part.id, false))]),
-    ...p.privateParts.flatMap((e) => [...pick(e.hints, e.partId, true), ...pick(e.solution, e.partId, true)]),
+    ...context,
+    ...p.content.sections.flatMap((s) => [...pick(s.blocks, undefined, "problem"), ...s.parts.flatMap((part) => pick(part.blocks, part.id, "part"))]),
+    ...p.privateParts.flatMap((e) => [...pick(e.hints, e.partId, "solution"), ...pick(e.solution, e.partId, "solution")]),
   ];
 }
+const STEP_OF_WHERE: Record<Where, PublishStep> = { main: "question", part: "question", solution: "worked-solution", problem: "details" };
 
 /** Each part the key rule is about: the schema is asked about a draft that holds only that part. */
 function partsNeedingKey(p: Payload): string[] {
@@ -111,7 +119,7 @@ export function publishBlockers(d: EditorDraft): PublishBlocker[] {
       if (seen.has(code)) continue;
       seen.add(code);
       const ids = [...new Set(partsWithMismatchedKey(p))];
-      blockers.push(...(ids.length ? ids.map((partId) => ({ code, partId, step: STEP_OF_CODE[code] })) : [{ code, step: STEP_OF_CODE[code] }]));
+      blockers.push(...(ids.length ? ids.map((partId) => ({ code, partId, step: STEP_OF_CODE[code], message: issue.message })) : [{ code, step: STEP_OF_CODE[code], message: issue.message }]));
       continue;
     }
     if (code === "part-needs-key" || code === "image-needs-alt") {
@@ -120,20 +128,22 @@ export function publishBlockers(d: EditorDraft): PublishBlocker[] {
       seen.add(code);
       const located: PublishBlocker[] =
         code === "part-needs-key"
-          ? partsNeedingKey(p).map((partId) => ({ code, partId, step: STEP_OF_CODE[code] }))
+          ? partsNeedingKey(p).map((partId) => ({ code, partId, step: STEP_OF_CODE[code], message: issue.message }))
           : imagesNeedingAlt(p).map((image) => ({
               code,
               blockId: image.block.id,
               ...(image.partId ? { partId: image.partId } : {}),
-              step: image.inSolution ? "worked-solution" : STEP_OF_CODE[code],
+              // The image is fixed where it is edited.
+              step: STEP_OF_WHERE[image.where],
+              message: issue.message,
             }));
-      blockers.push(...(located.length ? located : [{ code, step: STEP_OF_CODE[code] }]));
+      blockers.push(...(located.length ? located : [{ code, step: STEP_OF_CODE[code], message: issue.message }]));
       continue;
     }
     const partId = partOfPath(p, issue.path);
     const list = issue.path[0] === "content" && (issue.path[1] === "topicTags" || issue.path[1] === "methodTags") ? issue.path[1] : undefined;
     // A tag issue is fixed with the tags, in Details, whatever its code.
-    blockers.push({ code, ...(partId ? { partId } : {}), ...(list ? { list } : {}), step: list ? "details" : STEP_OF_CODE[code] });
+    blockers.push({ code, ...(partId ? { partId } : {}), ...(list ? { list } : {}), step: list ? "details" : STEP_OF_CODE[code], message: issue.message });
   }
   const rank = (b: PublishBlocker) => PUBLISH_STEPS.indexOf(b.step);
   return blockers.map((b, i) => ({ b, i })).sort((x, y) => rank(x.b) - rank(y.b) || x.i - y.i).map(({ b }) => b);
@@ -147,9 +157,13 @@ export function blockerField(b: PublishBlocker, d: EditorDraft): string {
       return first ? `question:${first.id}` : "parts";
     }
     case "image-needs-alt": {
-      if (!b.partId) return d.content.context.some((x) => x.id === b.blockId) ? "picture:main" : "options:problem";
+      // The main question's first picture has its own box. Every other shared setup or section image is in the problem's More options.
+      if (!b.partId) return d.content.context.find((x) => x.kind === "image")?.id === b.blockId ? "picture:main" : "options:problem";
+      const entry = d.privateParts.find((x) => x.partId === b.partId);
+      // An image in the hints or the worked solution is in the More options on Worked solution.
+      if (entry && [...entry.hints, ...entry.solution].some((x) => x.id === b.blockId)) return `solution-options:${b.partId}`;
       const part = d.content.sections.flatMap((s) => s.parts).find((x) => x.id === b.partId);
-      // Simple shows a part's first picture in its picture box. Every other one is in the part's More options.
+      // Simple shows a part's first picture in its picture box. Every other one is in the part's More options on Question.
       return part?.blocks.find((x) => x.kind === "image")?.id === b.blockId ? `picture:${b.partId}` : `options:${b.partId}`;
     }
     case "missing-title-or-rights":

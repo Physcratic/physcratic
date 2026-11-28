@@ -10,6 +10,7 @@ export function AnswerPanel({
   compact = false,
   boxOwns = false,
   solutionElsewhere = false,
+  hintsElsewhere = false,
   manualLabel,
   placeholder,
 }: {
@@ -18,6 +19,8 @@ export function AnswerPanel({
   boxOwns?: boolean;
   /** Simple edits the worked solution in its own field, so it is not shown here. */
   solutionElsewhere?: boolean;
+  /** Simple edits the hints on another step, so they are not shown here. */
+  hintsElsewhere?: boolean;
   manualLabel?: string;
   /** Shown as the choice while no answer type has been picked. */
   placeholder?: string;
@@ -28,12 +31,12 @@ export function AnswerPanel({
 }) {
   const key = entry.key;
   const explanationFields = <>
-      <BlocksEditor
+      {!hintsElsewhere && <BlocksEditor
         scope="solution"
         label="Hints"
         blocks={entry.hints}
         onChange={(hints) => onChange({ ...entry, hints })}
-      />
+      />}
       {!solutionElsewhere && <BlocksEditor
         scope="solution"
         label="Worked solution"

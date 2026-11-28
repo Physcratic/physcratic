@@ -6,6 +6,26 @@ import assert from "node:assert/strict";
 import { autoConfirm } from "./confirm-sheet.mjs";
 import { STEP_ORDER, barStatus, currentStep, goStep, studioBar } from "./studio-steps.helpers.mjs";
 
+// The data-simple-field targets back to the Simple fields fieldStep() reads.
+const KIND = { q: "question", p: "picture", o: "options", a: "answer", u: "units", s: "solution", w: "solution-options" };
+const fieldOf = (target) => {
+  if (target === "p:main") return "picture:main";
+  if (target === "o:problem") return "options:problem";
+  const [kind, id] = target.split(":");
+  return id ? `${KIND[kind] ?? kind}:${id}` : target;
+};
+/** Every field on the page is inside the step section fieldStep() names, and every kind of field is checked. */
+async function fieldsOnTheirSteps(page, tag) {
+  const { fieldStep } = await import("../components/authoring/studio-steps.ts");
+  const found = await page.evaluate(() => [...document.querySelectorAll("[data-simple-field]")].map((el) => [el.getAttribute("data-simple-field"), el.closest("[data-studio-step]")?.getAttribute("data-studio-step") ?? null]));
+  for (const [target, on] of found) assert.equal(on, fieldStep(fieldOf(target)), `${tag}: ${target} is on the step that holds it`);
+  // A part's fields by their kind, the problem's fields by name.
+  const kinds = new Set(found.map(([target]) => (/^(p:main|o:problem)$/.test(target) || !target.includes(":") ? target : target.split(":")[0])));
+  // The source field is only there for an adapted problem. studio-simple checks the bar focuses it.
+  for (const want of ["q", "p", "o", "a", "u", "s", "w", "p:main", "o:problem", "title", "rights", "difficulty", "topics", "review"])
+    assert.ok(kinds.has(want), `${tag}: the check covers ${want} (${[...kinds].join(", ")})`);
+}
+
 export async function runStudioStepsBrowser({ browser, origin, pool, AxeBuilder }) {
   let n = 9300;
   for (const width of [375, 1440]) for (const theme of ["light", "dark"]) {
@@ -143,6 +163,7 @@ export async function runStudioStepsBrowser({ browser, origin, pool, AxeBuilder 
     await page.getByRole("heading", { level: 2, name: "Review", exact: true }).waitFor();
     await page.waitForFunction(() => document.activeElement?.tagName === "H2");
     assert.equal(await focusedHeading(), "Review");
+    await fieldsOnTheirSteps(page, tag);
     // Review: the summary of the steps and the student preview. No fields.
     const review = page.locator("[data-studio-step=review]");
     assert.equal(await review.locator("input, textarea, math-field, select").count(), 0, `${tag}: Review has no fields`);

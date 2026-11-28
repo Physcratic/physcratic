@@ -187,7 +187,9 @@ test("a rule for a block is the server's: Simple and the server agree on picture
       setQuestionBlocks(draft, part.id, [...part.blocks, first, second]);
     } else setSolutionBlocks(draft, part.id, [...privateFor(draft, part.id).solution, image("")]);
     assert.ok(serverIssues(draft).some((i) => i.message === ALT), `${where}: the server asks for a description`);
-    assert.ok(simpleIssues(draft).some((i) => i.field === `options:${part.id}`), `${where}: Simple points at the part's More options`);
+    // The question group is in the More options on Question, the solution group in the one on Worked solution.
+    const group = where === "question" ? `options:${part.id}` : `solution-options:${part.id}`;
+    assert.ok(simpleIssues(draft).some((i) => i.field === group), `${where}: Simple points at the part's More options on its step`);
     assert.ok(!simpleIssues(draft).some((i) => /Classic/.test(i.message)), `${where}: no message sends the author to Classic`);
     const described = (blocks: EditorBlock[]) => blocks.map((b) => (b.kind === "image" ? { ...b, alt: b.alt || "Described" } : b));
     if (where === "question") setQuestionBlocks(draft, part.id, described(allParts(draft)[0].part.blocks));

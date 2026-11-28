@@ -54,7 +54,7 @@ try {
   }
   const key = (page) => page.evaluate(() => window.__draft.privateParts[0].key);
   const boxFocused = (page) => page.evaluate(() => document.activeElement?.tagName === "MATH-FIELD");
-  const moreOptions = async (page) => { const s = page.locator('summary[aria-label="More options"]'); if (!(await s.evaluate((el) => el.parentElement.open))) await s.click(); };
+  const moreOptions = async (page) => { const s = page.locator('[data-studio-step]:not([hidden]) summary[aria-label="More options"]'); if (!(await s.evaluate((el) => el.parentElement.open))) await s.click(); };
   const answerType = (page) => page.getByLabel("Answer type", { exact: true });
   // Trying to publish: with nothing left on the server, Publish on Review. Otherwise the bar's item for what is left,
   // which opens its step and focuses its field the way Publish used to.
@@ -102,6 +102,27 @@ try {
     await context.close();
   }
 
+  // 1b. The final answer is Simple's own ask, not the server's, so the bar does not count it. Publish with nothing else
+  // left still asks for it: it opens Answer, shows the message and puts focus in the box.
+  for (const state of ["draft", "published"]) {
+    const { context, page } = await open(state, { extra: "&ready=1" });
+    // A saved answer opens as a plain box until it is edited.
+    const answerBox = page.locator('[data-simple-field^="a:"]').getByRole("textbox").first();
+    await answerBox.fill("");
+    await page.waitForFunction(() => window.__draft.privateParts[0].key?.kind === "manual");
+    await goStep(page, "Details");
+    await page.getByLabel(/I wrote this problem and I'm happy to share it on Physcratic/).check();
+    for (let i = 0; i < 50 && (await barStatus(page)) !== "Ready to publish"; i++) await page.waitForTimeout(100);
+    assert.equal(await barStatus(page), "Ready to publish", `${state}: the final answer is not counted`);
+    await goStep(page, "Review");
+    await page.getByRole("button", { name: /^Publish/ }).last().click();
+    await page.getByRole("heading", { level: 2, name: "Answer", exact: true }).waitFor();
+    await page.getByRole("alert").filter({ hasText: "Add the final answer." }).waitFor();
+    await page.waitForFunction(() => Boolean(document.activeElement?.closest('[data-simple-field^="a:"]')), null, { timeout: 5000 });
+    checks++;
+    await context.close();
+  }
+
   // 2. Expression picked in More options: the box keeps the answer while it is typed, with focus.
   {
     const { context, page } = await open();
@@ -125,7 +146,7 @@ try {
     // Exactly one worked solution editor.
     assert.equal(await page.locator("p").filter({ hasText: /^Worked solution/ }).count(), 1);
     // Every piece of text inside More options is at least 16px.
-    const small = await page.locator('summary[aria-label="More options"] + div').evaluate((root) => {
+    const small = await page.locator('[data-studio-step]:not([hidden]) summary[aria-label="More options"] + div').evaluate((root) => {
       const out = [];
       for (const el of root.querySelectorAll("*")) {
         const own = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()) || ["INPUT", "SELECT", "TEXTAREA"].includes(el.tagName);
@@ -348,16 +369,23 @@ try {
     const kinds = (blocks) => blocks.map((b) => b.kind);
     const group = (name) => page.locator("details", { has: page.locator("summary", { hasText: name }) }).last();
     const closed = async (name) => (await group(name).evaluate((el) => el.open)) === false;
-    // The part's More options hold the groups. They are closed until opened, and each one is named for its part.
-    await page.locator('summary[aria-label^="More options for part a"]').click();
+    // The part's More options is split across the steps: the question group on Question, the solution group on Worked solution.
+    // Both groups are closed until opened, and each one is named for its part. On any one step no two More options labels are the same.
+    const partOptions = () => page.locator('[data-studio-step]:not([hidden]) summary[aria-label^="More options for part a"]');
     assert.equal(await closed("More question blocks for part a"), true, "the question group starts closed");
     assert.equal(await closed("More worked solution blocks for part a"), true, "the solution group starts closed");
-    const labels = await page.locator("summary").evaluateAll((all) => all.map((el) => el.textContent.trim()).filter((t) => t.startsWith("More options")));
-    assert.equal(new Set(labels).size, labels.length, `no two More options labels are the same: ${labels.join(" | ")}`);
-    await page.getByText("More question blocks for part a (3)", { exact: true }).waitFor();
+    assert.equal(await page.locator('[data-studio-step="question"] summary', { hasText: "More question blocks for part a" }).count(), 1, "the question group is on Question");
+    assert.equal(await page.locator('[data-studio-step="worked-solution"] summary', { hasText: "More worked solution blocks for part a" }).count(), 1, "the solution group is on Worked solution");
+    const perStep = await page.evaluate(() => [...document.querySelectorAll("[data-studio-step]")].map((step) => [...step.querySelectorAll("summary")].map((el) => el.textContent.trim()).filter((t) => t.startsWith("More options"))));
+    for (const labels of perStep) assert.equal(new Set(labels).size, labels.length, `no two More options labels are the same on a step: ${labels.join(" | ")}`);
+    await goStep(page, "Worked solution");
+    await partOptions().click();
     await page.getByText("More worked solution blocks for part a (3)", { exact: true }).waitFor();
-    await group("More question blocks for part a").locator("summary").click();
     await group("More worked solution blocks for part a").locator("summary").click();
+    await goStep(page, "Question");
+    await partOptions().click();
+    await page.getByText("More question blocks for part a (3)", { exact: true }).waitFor();
+    await group("More question blocks for part a").locator("summary").click();
     await page.getByText("More question blocks for part a (3)", { exact: true }).click();
     await page.getByText("More question blocks for part a (3)", { exact: true }).click();
     assert.deepEqual(await draftNow(), untouched, "opening and closing the groups changes no block");
@@ -391,6 +419,7 @@ try {
     assert.deepEqual(kinds(now), ["text", "image", "math", "text", "text", "math"], "a text block and an equation were added at the end");
     await page.getByText("More question blocks for part a (4)", { exact: true }).waitFor();
     // The worked solution: edit a caption, move and remove, and the first text is left alone.
+    await goStep(page, "Worked solution");
     const solutionBefore = await page.evaluate(() => window.__draft.privateParts[0].solution);
     await solution.getByLabel("Part a more solution image 2 caption", { exact: true }).fill("New solution caption");
     await page.waitForFunction(() => window.__draft.privateParts[0].solution[2].caption === "New solution caption");
@@ -410,9 +439,12 @@ try {
     await page.waitForFunction(() => window.__draft.content.context[1].caption === "Figure 2");
     const ctx = await page.evaluate(() => window.__draft.content.context);
     assert.deepEqual(kinds(ctx), ["text", "image", "math"], "the main picture's other fields are kept");
-    // 44px targets and 16px text in the groups, no sideways scroll.
-    await goStep(page, "Answer");
-    const found = await page.locator('summary[aria-label^="More options for part a"]').evaluate((summary) => {
+    // 44px targets and 16px text in the part's More options on every step it is on, no sideways scroll.
+    const found = [];
+    for (const name of ["Question", "Answer", "Worked solution"]) {
+      await goStep(page, name);
+      if (!(await partOptions().evaluate((el) => el.parentElement.open))) await partOptions().click();
+      found.push(...(await partOptions().evaluate((summary) => {
       const out = [];
       for (const el of summary.parentElement.querySelectorAll("*")) {
         if (!el.getClientRects().length) continue;
@@ -426,7 +458,8 @@ try {
         }
       }
       return out;
-    });
+    })).map((line) => `${name}: ${line}`));
+    }
     assert.deepEqual(found, [], "small text or targets in the part's More options");
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, "no sideways scroll");
     checks++;
@@ -455,8 +488,8 @@ try {
 
   // 12c. A step that would put an extra text block above the question's text is disabled, and the question stays the question.
   {
-    const { context, page } = await open("draft", { width: 390, extra: "&blocks=1&order=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"] });
-    await page.locator('summary[aria-label^="More options for part a"]').click();
+    const { context, page } = await open("draft", { width: 390, extra: "&blocks=1&order=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"], step: "Question" });
+    await page.locator('[data-studio-step]:not([hidden]) summary[aria-label^="More options for part a"]').click();
     const group = page.locator("details", { has: page.locator("summary", { hasText: "More question blocks for part a" }) }).last();
     await group.locator("summary").click();
     assert.equal(await group.getByRole("button", { name: "Move Part a question block 2 up", exact: true }).isDisabled(), true, "the extra text cannot go above the question");
@@ -481,7 +514,7 @@ try {
     await same("opened and saved");
     await page.evaluate(() => window.__noopEdit());
     await same("after an edit that changes nothing");
-    if (session) await page.locator('summary[aria-label^="More options for part a"]').click();
+    if (session) await page.locator('[data-studio-step]:not([hidden]) summary[aria-label^="More options for part a"]').click();
     await page.evaluate(() => document.querySelectorAll("details").forEach((d) => { d.open = true; }));
     await page.waitForTimeout(300);
     await same("with every group open");
@@ -492,18 +525,23 @@ try {
     await context.close();
   }
 
-  // 12e. The More options summary counts the extra blocks, for several parts and for one, and says nothing when there are none.
+  // 12e. The More options summary on each step counts the extra blocks that step holds, for several parts and for one,
+  // and says nothing when there are none.
   {
-    const { context, page } = await open("draft", { width: 390, extra: "&blocks=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"] });
-    await page.locator('summary[aria-label="More options for part a (6 more blocks)"]').waitFor();
-    await page.locator('summary[aria-label="More options for part b"]').waitFor();
-    assert.equal(await page.locator('summary[aria-label="More options for part a (6 more blocks)"]').innerText(), "More options for part a (6 more blocks)", "the visible words are the name");
+    const { context, page } = await open("draft", { width: 390, extra: "&blocks=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"], step: "Question" });
+    const on = (step, name) => page.locator(`[data-studio-step="${step}"] summary[aria-label="${name}"]`);
+    await on("question", "More options for part a (3 more blocks)").waitFor();
+    await on("worked-solution", "More options for part a (3 more blocks)").waitFor({ state: "attached" });
+    await on("answer", "More options for part a").waitFor({ state: "attached" });
+    for (const step of ["question", "answer", "worked-solution"]) await on(step, "More options for part b").waitFor({ state: "attached" });
+    assert.equal(await on("question", "More options for part a (3 more blocks)").innerText(), "More options for part a (3 more blocks)", "the visible words are the name");
     await context.close();
     const one = await open("draft", { width: 390, extra: "&blocks=1&single=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"] });
-    await one.page.locator('summary[aria-label="More options (6 more blocks)"]').waitFor();
+    await one.page.locator('[data-studio-step="question"] summary[aria-label="More options (3 more blocks)"]').waitFor({ state: "attached" });
+    await one.page.locator('[data-studio-step="worked-solution"] summary[aria-label="More options (3 more blocks)"]').waitFor({ state: "attached" });
     await one.context.close();
     const none = await open("draft", { width: 390 });
-    await none.page.locator('summary[aria-label="More options"]').waitFor();
+    await none.page.locator('[data-studio-step]:not([hidden]) summary[aria-label="More options"]').waitFor();
     await none.context.close();
     checks++;
   }
@@ -511,7 +549,7 @@ try {
   // 12f. While the problem is not saved yet, the groups cannot upload a picture, and the caption fields have one name each.
   {
     const { context, page } = await open("draft", { width: 390, extra: "&blocks=1&provisional=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"] });
-    await page.locator('summary[aria-label^="More options for part a"]').click();
+    await page.locator('[data-studio-step]:not([hidden]) summary[aria-label^="More options for part a"]').click();
     await page.evaluate(() => document.querySelectorAll("details").forEach((d) => { d.open = true; }));
     const files = page.locator('details:has(> summary:text-matches("More (question|worked solution) blocks")) input[type="file"]');
     const n = await files.count();
@@ -519,13 +557,12 @@ try {
     for (let i = 0; i < n; i++) assert.equal(await files.nth(i).isDisabled(), true, `upload ${i} is disabled while the problem is not saved`);
     await context.close();
     const saved = await open("draft", { width: 390, extra: "&blocks=1", session: ["physcratic.studio.files.v1:browser-author:00000000-0000-4000-8000-000000000001", "text"] });
-    await saved.page.locator('summary[aria-label^="More options for part a"]').click();
+    await saved.page.locator('[data-studio-step]:not([hidden]) summary[aria-label^="More options for part a"]').click();
     await saved.page.evaluate(() => document.querySelectorAll("details").forEach((d) => { d.open = true; }));
     const enabled = saved.page.locator('details:has(> summary:text-matches("More (question|worked solution) blocks")) input[type="file"]');
     assert.equal(await enabled.first().isDisabled(), false, "and enabled once it is");
-    // The captions of the main picture and the part's picture are on Question, with the groups' captions checked on Answer above.
-    await goStep(saved.page, "Question");
-    const names = await saved.page.evaluate(() => [...document.querySelectorAll("input")].filter((el) => el.getClientRects().length).map((el) => el.getAttribute("aria-label") || (el.labels?.[0]?.textContent ?? "")).filter((t) => /^Caption/.test(t)));
+    // Every caption input in the whole problem, on every step and in every group, has its own name.
+    const names = await saved.page.evaluate(() => [...document.querySelectorAll("[data-studio-step] input")].map((el) => el.getAttribute("aria-label") || (el.labels?.[0]?.textContent ?? "")).filter((t) => /^Caption/.test(t)));
     assert.equal(new Set(names).size, names.length, `each caption input has its own name: ${names.join(" | ")}`);
     assert.ok(names.includes("Caption for the main question") && names.includes("Caption for part a"));
     await saved.context.close();
