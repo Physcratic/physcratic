@@ -1,5 +1,5 @@
 "use client";
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { Check, CircleAlert, FileUp } from "lucide-react";
 import { z } from "zod";
@@ -13,6 +13,8 @@ import { assignPdfs, checkPdfDrop } from "@/lib/pdf-drop";
 export type PdfAssignment = { file: File; purpose: "statement-pdf" | "solution-pdf" };
 /** What a drop handler reports back: words for the done state, or the error to show. */
 export type DropResult = { done: string } | { error: string };
+/** A drop handler calls this before each upload, with the file's place in the drop and its name. */
+export type DropProgress = (at: number, of: number, name: string) => void;
 
 const fileInfo = z.object({ id: z.uuid(), problemId: z.uuid(), purpose: authorMediaPurpose, filename: z.string(), mediaType: z.string(), bytes: z.number().positive().max(authorMediaMaxBytes) });
 
@@ -31,41 +33,57 @@ export async function uploadPdf(problemId: string, file: File, purpose: PdfAssig
 /** Deletes an upload nothing refers to. The server refuses one a saved draft or a published version still uses. */
 export async function deleteUpload(problemId: string, mediaId: string) {
   const response = await fetch(`/api/authored-problems/${encodeURIComponent(problemId)}/media/${encodeURIComponent(mediaId)}`, { method: "DELETE", credentials: "same-origin", cache: "no-store", headers: { "Content-Type": "application/json" }, body: "{}", signal: AbortSignal.timeout(15000) });
-  if (!response.ok) throw new Error((await response.json().catch(() => ({}))).error || "Could not delete the upload.");
+  if (!response.ok) throw Object.assign(new Error((await response.json().catch(() => ({}))).error || "Could not delete the upload."), { status: response.status });
 }
 
 const head = async (file: File) => new TextDecoder().decode(await file.slice(0, 5).arrayBuffer());
 
 /**
  * Drop one or two PDFs, or choose them with the button. One is the statement. Two ask which one is the statement,
- * and the other is the private solution PDF. Every state has words: dropping, uploading, done and failed.
+ * and the other is the private solution PDF. One PDF on a draft that already has a statement asks whether it replaces
+ * the statement or is the solution, so a solution is never made public by mistake. Every state has words.
  */
-export function PdfDropZone({ disabled = false, onPdfs }: { disabled?: boolean; onPdfs: (files: PdfAssignment[]) => Promise<DropResult> }) {
+export function PdfDropZone({ disabled = false, hasStatement = false, onPdfs }: { disabled?: boolean; hasStatement?: boolean; onPdfs: (files: PdfAssignment[], progress: DropProgress) => Promise<DropResult> }) {
   const id = useId();
   const input = useRef<HTMLInputElement>(null);
   const [over, setOver] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [progress, setProgress] = useState("");
   const [state, setState] = useState<{ done: string } | { error: string } | null>(null);
-  const [choice, setChoice] = useState<File[] | null>(null);
+  /** Two files ask which is the statement. One file with a statement already there asks for its role. */
+  const [choice, setChoice] = useState<{ files: File[]; role: boolean } | null>(null);
   const locked = disabled || busy;
+  // A file dropped just outside the zone would open in the tab and leave Studio. Text drags are left alone.
+  useEffect(() => {
+    const keep = (e: DragEvent) => { if (e.dataTransfer?.types.includes("Files")) e.preventDefault(); };
+    window.addEventListener("dragover", keep);
+    window.addEventListener("drop", keep);
+    return () => {
+      window.removeEventListener("dragover", keep);
+      window.removeEventListener("drop", keep);
+    };
+  }, []);
 
   async function take(list: File[]) {
     if (locked) return;
     setState(null);
     const check = checkPdfDrop(await Promise.all(list.map(async (f) => ({ name: f.name, type: f.type, size: f.size, head: await head(f) }))));
     if (!check.ok) return setState({ error: check.message });
-    if (check.count === 2) return setChoice(list);
+    if (check.count === 2) return setChoice({ files: list, role: false });
+    if (hasStatement) return setChoice({ files: list, role: true });
     await send(assignPdfs(list, 0));
   }
   async function send(files: PdfAssignment[]) {
     setBusy(true);
+    setProgress("");
     try {
-      setState(await onPdfs(files));
+      setState(await onPdfs(files, (at, of, name) => setProgress(`Uploading ${at} of ${of}, ${name}`)));
     } finally {
       setBusy(false);
     }
   }
-  const status = busy ? "Uploading…" : state && "error" in state ? state.error : state?.done ?? "";
+  const pick = (files: PdfAssignment[]) => { setChoice(null); void send(files); };
+  const status = busy ? progress : state && "error" in state ? state.error : state?.done ?? "";
   return (
     <div
       data-pdf-drop=""
@@ -97,15 +115,21 @@ export function PdfDropZone({ disabled = false, onPdfs }: { disabled?: boolean; 
               className="fixed inset-x-0 bottom-0 z-50 grid gap-4 rounded-t-2xl border-t bg-background p-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-lg sm:inset-auto sm:left-1/2 sm:top-1/2 sm:w-full sm:max-w-md sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-lg sm:border sm:p-6"
             >
               <div className="space-y-2">
-                <AlertDialogTitle className="text-lg font-semibold">Which PDF is the statement?</AlertDialogTitle>
-                <AlertDialogDescription className="text-base text-muted-foreground">The other one is the solution PDF. It is private until you approve access after publication.</AlertDialogDescription>
+                <AlertDialogTitle className="break-all text-lg font-semibold">{choice.role ? choice.files[0].name : "Which PDF is the statement?"}</AlertDialogTitle>
+                <AlertDialogDescription className="text-base text-muted-foreground">{choice.role ? "The solution PDF is private until you approve access after publication." : "The other one is the solution PDF. It is private until you approve access after publication."}</AlertDialogDescription>
               </div>
               <div className="grid gap-2">
-                {choice.map((file, i) => (
-                  <Button key={i} type="button" variant="outline" className="h-auto min-h-11 justify-start whitespace-normal break-all border-2 text-left text-base" onClick={() => { const files = choice; setChoice(null); void send(assignPdfs(files, i)); }}>
-                    {file.name}
-                  </Button>
-                ))}
+                {choice.role
+                  ? ([["statement-pdf", "Replace the statement"], ["solution-pdf", "Add as the solution"]] as const).map(([purpose, label]) => (
+                      <Button key={purpose} type="button" variant="outline" className="min-h-11 justify-start border-2 text-base" onClick={() => pick([{ file: choice.files[0], purpose }])}>
+                        {label}
+                      </Button>
+                    ))
+                  : choice.files.map((file, i) => (
+                      <Button key={i} type="button" variant="outline" className="h-auto min-h-11 justify-start whitespace-normal break-all border-2 text-left text-base" onClick={() => pick(assignPdfs(choice.files, i))}>
+                        {file.name}
+                      </Button>
+                    ))}
                 <AlertDialogPrimitive.Cancel asChild>
                   <Button type="button" variant="ghost" className="min-h-11 text-base">Cancel</Button>
                 </AlertDialogPrimitive.Cancel>

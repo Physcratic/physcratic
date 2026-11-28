@@ -10,7 +10,7 @@ export type DropCheck = { ok: true; count: 1 | 2 } | { ok: false; message: strin
 
 export const DROP_MESSAGES = {
   none: "Drop a PDF, or choose one.",
-  tooMany: "Drop one PDF for the statement, or two PDFs for the statement and the solution.",
+  tooMany: "Drop one or two PDFs.",
   wrongType: (name: string) => `${name} is not a PDF. Drop a PDF file.`,
   tooBig: (name: string) => `${name} is over 3 MiB. Drop a PDF up to 3 MiB.`,
   empty: (name: string) => `${name} is empty. Drop a PDF with pages in it.`,

@@ -16,6 +16,8 @@ export type AuthorMediaInfo = {
   bytes: number;
   inDraft?: boolean;
   inHistory?: boolean;
+  /** ISO time of the upload. Only the owner's list carries it. */
+  createdAt?: string;
 };
 export const authorMediaMaxBytes = 3 * 1024 * 1024;
 export function authorMediaPath(

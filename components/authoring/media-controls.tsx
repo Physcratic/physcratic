@@ -14,7 +14,7 @@ import { AuthoredPdf, StatementPdfs } from "@/components/authored/statement-pdfs
 import useSWR from "swr";
 import { Button } from "@/components/ui/button";
 import { ErrorText } from "./studio-ui";
-import { PdfDropZone, deleteUpload, uploadPdf, type PdfAssignment } from "./pdf-drop";
+import { PdfDropZone, deleteUpload, uploadPdf, type DropProgress, type PdfAssignment } from "./pdf-drop";
 import { useConfirm } from "./confirm-sheet";
 import {
   collectAuthorMedia,
@@ -230,11 +230,14 @@ export function MediaAttachments({
   );
   const { problemId, pending } = ctx;
   /** A drop here attaches to this draft. A dropped PDF takes the place of the one with the same purpose. */
-  async function attach(dropped: PdfAssignment[]) {
+  async function attach(dropped: PdfAssignment[], progress: DropProgress) {
     const done: (AuthorMediaInfo & { purpose: PdfAssignment["purpose"] })[] = [];
     pending(1);
     try {
-      for (const { file, purpose } of dropped) done.push({ ...(await uploadPdf(problemId, file, purpose)), purpose });
+      for (const [i, { file, purpose }] of dropped.entries()) {
+        progress(i + 1, dropped.length, file.name);
+        done.push({ ...(await uploadPdf(problemId, file, purpose)), purpose });
+      }
     } catch (e) {
       // Nothing is half attached: an upload that went through before the failure is deleted again.
       const kept = (await Promise.allSettled(done.map((f) => deleteUpload(problemId, f.id)))).filter((r) => r.status === "rejected").length;
@@ -247,10 +250,11 @@ export function MediaAttachments({
       for (const f of done) d.content.attachments = [...d.content.attachments.filter((a) => a.purpose !== f.purpose), { id: f.id, purpose: f.purpose }];
     });
     void mutate((previous = []) => [...previous, ...done], { revalidate: false });
-    return { done: `Attached ${done.map((f) => f.filename).join(" and ")}.` };
+    // The done words name each file's role, so a solution attached as the statement is seen at once.
+    return { done: done.map((f) => `Attached ${f.filename} as the ${f.purpose === "statement-pdf" ? "statement" : "solution"}.`).join(" ") };
   }
   const body = <>
-      <PdfDropZone disabled={ctx.disabled} onPdfs={attach} />
+      <PdfDropZone disabled={ctx.disabled} hasStatement={pdfs.some((a) => a.purpose === "statement-pdf")} onPdfs={attach} />
       <div className="grid gap-6 sm:grid-cols-2">
         {(["statement-pdf", "solution-pdf"] as const).filter(purpose => !pdfs.some(ref => ref.purpose === purpose)).map((purpose) => (
           <UploadControl
@@ -314,8 +318,10 @@ export function MediaAttachments({
   return <section aria-label="Problem PDFs" className="space-y-4">{body}</section>;
 }
 
+/** An upload counts as old after 24 hours, as in the server's cleanup sweep. */
+export const OLD_UPLOAD_MS = 24 * 60 * 60 * 1000;
 /**
- * Delete old uploads: this problem's files that no saved draft, no published version and no unsaved edit here uses.
+ * Delete old uploads: this problem's files older than 24 hours that no saved draft, no published version and no unsaved edit here uses.
  * The server checks the saved draft and the published versions again, and keeps any file one of them still uses.
  */
 export function OldUploads({ draft }: { draft: EditorDraft }) {
@@ -330,7 +336,8 @@ export function OldUploads({ draft }: { draft: EditorDraft }) {
   if (!ctx) return null;
   let used: Set<string>;
   try { used = new Set(collectAuthorMedia(draft.content, draft.privateParts).map((r) => r.id)); } catch { return null; }
-  const old = files.filter((f) => !f.inDraft && !f.inHistory && !used.has(f.id));
+  // The same 24-hour rule as the cleanup sweep, so a file another tab or a recovery copy has just uploaded is never offered.
+  const old = files.filter((f) => !f.inDraft && !f.inHistory && !used.has(f.id) && !!f.createdAt && Date.now() - Date.parse(f.createdAt) >= OLD_UPLOAD_MS);
   if (!old.length && !note) return null;
   const problemId = ctx.problemId;
   return (

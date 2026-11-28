@@ -248,6 +248,8 @@ export function createAuthorMediaApi(deps: Deps) {
             ...info(r),
             inDraft: r.in_draft,
             inHistory: r.in_history,
+            // When it was uploaded, so Studio can apply the same 24-hour rule as the cleanup sweep.
+            createdAt: new Date(r.created_at).toISOString(),
           })),
         });
       }
