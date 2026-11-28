@@ -18,25 +18,25 @@ try {
   await build({ entryPoints: ['tests/random-discovery-harness.tsx'], outfile: join(temp, 'bundle.js'), bundle: true, platform: 'browser', jsx: 'automatic', alias: { '@': process.cwd() }, define: { 'process.env.NODE_ENV': '"development"', 'process.env': '{}' }, logLevel: 'silent' });
   execFileSync(process.execPath, [require.resolve('tailwindcss/lib/cli.js'), '-i', 'app/globals.css', '-o', join(temp, 'style.css')], { stdio: 'pipe' });
   server = createServer(async (req, res) => {
-    const path = new URL(req.url, 'http://127.0.0.1').pathname;
+    const url = new URL(req.url, 'http://127.0.0.1'), path = url.pathname;
     if (path.startsWith('/api/')) { apiRequests.push(path); res.writeHead(503); res.end('Progress unavailable'); return; }
     if (path === '/bundle.js' || path === '/style.css') {
       res.setHeader('content-type', path.endsWith('.js') ? 'text/javascript' : 'text/css'); res.end(await readFile(join(temp, path.slice(1)))); return;
     }
-    res.setHeader('content-type', 'text/html'); res.end('<!doctype html><html lang="en"><head><title>Discovery test</title><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/style.css"></head><body class="bg-background text-foreground"><div id="root"></div><script src="/bundle.js"></script></body></html>');
+    // Set the requested theme before first paint, so axe measures settled colours rather than a theme transition.
+    res.setHeader('content-type', 'text/html'); res.end(`<!doctype html><html lang="en" class="${url.searchParams.get('theme') === 'dark' ? 'dark' : ''}"><head><title>Discovery test</title><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/style.css"></head><body class="bg-background text-foreground"><div id="root"></div><script src="/bundle.js"></script></body></html>`);
   });
   await new Promise(r => server.listen(0, '127.0.0.1', r)); const origin = `http://127.0.0.1:${server.address().port}`;
   browser = await chromium.launch({ headless: true, ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}) });
   for (const width of [375, 1440]) for (const theme of ['light', 'dark']) for (const stored of ['empty', 'some', 'all', 'blocked']) {
     const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
-    await context.addInitScript(({ ids, stored, theme }) => {
-      document.addEventListener('DOMContentLoaded', () => document.documentElement.classList.toggle('dark', theme === 'dark'));
+    await context.addInitScript(({ ids, stored }) => {
       Math.random = () => 0;
       localStorage.setItem('physcratic.solved.v1', JSON.stringify(stored === 'all' ? ids : stored === 'some' ? [ids[0]] : []));
       if (stored === 'blocked') Storage.prototype.getItem = () => { throw Error('Storage blocked'); };
-    }, { ids: arena.map(p => p.id), stored, theme });
+    }, { ids: arena.map(p => p.id), stored });
     const page = await context.newPage(); page.on('pageerror', e => errors.push(e.message));
-    await page.goto(origin); await page.getByRole('heading', { name: 'Random Arena problem', exact: true }).waitFor();
+    await page.goto(origin + '?theme=' + theme); await page.getByRole('heading', { name: 'Random Arena problem', exact: true }).waitFor();
     const link = page.getByRole('link', { name: 'Solve problem', exact: true });
     assert.equal(await link.getAttribute('href'), `/dashboard/problems/${arena[0].id}`);
     // Account changes in a shared tab and a second browser context have the same progress-independent behavior.
@@ -48,6 +48,7 @@ try {
       assert.notEqual(await link.getAttribute('href'), before);
     }
     await page.reload(); await page.getByRole('heading', { name: 'Random Arena problem', exact: true }).waitFor();
+    assert.equal(await page.evaluate(() => document.documentElement.classList.contains('dark')), theme === 'dark');
     assert.equal(await link.getAttribute('href'), `/dashboard/problems/${arena[0].id}`);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
     if (stored === 'all') { const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze(); assert.deepEqual(result.violations.filter(v => ['serious', 'critical'].includes(v.impact)), []); }

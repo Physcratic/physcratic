@@ -32,6 +32,16 @@ Reads share the existing persistent 60-per-minute favourite request bucket with 
 
 The client scopes requests and cached views to the account and a fresh mount identity. It discards old-account output after switching or signing out, including delayed replies and a later return to the same account. Stale cookies require an explicit account reload. Refresh resets pagination and revalidates current membership. No private list is persisted to browser storage.
 
+## Cursor key configuration
+
+FAVOURITE_HISTORY_CURSOR_SECRET is the preferred optional cursor key. Use a cryptographically random value of at least 32 random bytes, encoded for storage, with one stable value per environment across all serving instances. The configured string must be 32 through 1024 characters without leading or trailing whitespace. An explicitly empty, short, oversized or padded dedicated value fails closed with the existing unavailable response. It must not silently fall back to another key.
+
+When the dedicated setting is absent, BETTER_AUTH_SECRET remains the legacy fallback. The dedicated option makes no change to Better Auth, its credentials or sessions. Do not replace or rotate an authentication key merely to configure this feature. Never use an example/test key, send key values in chat, expose them through NEXT_PUBLIC variables or include them in reports. Existing personal-completion key behavior is outside this change.
+
+The key is resolved when the server module loads, so owner-approved configuration must be applied consistently through the intended deployment. Key rotation invalidates old favourite cursors, which recover by refreshing the first page. It does not delete favourite rows or sign users out. Both retrieval/statistics gates still apply, and setting a cursor key alone does not enable retrieval. Missing key configuration remains an unavailable response when enabled.
+
+The follow-up [implementation checkpoint 6ae0f90](https://github.com/Physcratic/physcratic/commit/6ae0f900ffa58d2b3accef53906d7c724512dc72) includes local resolver checks and extends the real PostgreSQL LOGIN test to decrypt a real route cursor with the dedicated key while rejecting the different authentication key. Exact-head CI is the authority for the runtime result. Keep the change draft/unmerged until the owner approves its release under the observed deployment policy. No environment value or provider setting is changed by the PR.
+
 ## Gates and release decision
 
 Production activation remains NO-GO pending separate owner qualification and approval. `FAVOURITE_HISTORY_ENABLED` defaults OFF. It also requires the already approved `COMMUNITY_PROBLEM_STATS_ENABLED` feature. Disabled retrieval loads no server database/session bindings and renders no entry link or owner list. Do not enable another feature merely to satisfy this dependency. Build and serving flags must match.
@@ -42,7 +52,7 @@ Before activation, the owner must:
 
 1. Review the exact final commit and its CI results. Verify the deployed schema and actual serving LOGIN can use the existing owner-range favourite reads, public revision metadata, user row lock and shared limiter permissions. No grant or schema change is authorized by this document.
 2. Qualify the exact build/serving configuration with synthetic A/B/guest sessions, a second browser, stale cookies, delayed replies, removed/withdrawn publications, pagination, unavailable storage and rate limits. Confirm private/no-store responses and no private titles or identities in shared HTML/RSC or logs. Local fixtures do not establish production runtime evidence.
-3. Separately approve only the retrieval flag on the intended target. The owner handles deployment manually. Keep existing statistics, practice-saving and deletion gates independent.
+3. Separately approve only the retrieval flag on the intended target. Operator inspection on 28 November 2026 found that main automatically creates Production deployments and assigns custom domains, so merging can release this change. Keep PR #277 draft and unmerged until the owner explicitly approves that Production release. Retrieval activation remains a separate explicit decision. Keep existing statistics, practice-saving and deletion gates independent. No provider deployment setting change is authorized here.
 
 Rollback disables the retrieval flag consistently in build and serving scope. Preserve favourite rows, heart writes and existing erasure processing. Do not delete data or replay migrations as a UI rollback.
 
