@@ -140,3 +140,8 @@ jobs:
         run: |
           sha256sum -c scripts/runtime-role/PACKAGE_SHA256SUMS
           node --require ./tests/server-only-register.cjs --import tsx --test scripts/runtime-role/runtime.pg.test.ts
+      - name: Isolated erasure recovery after an interrupted permit
+        run: |
+          sha256sum -c scripts/account-deletion-authorization/PACKAGE_SHA256SUMS
+          sha256sum -c scripts/account-deletion-restore/PACKAGE_SHA256SUMS
+          bash scripts/account-deletion-restore/rehearse-local.sh --post-0027 --lost-arm

@@ -14,7 +14,10 @@ BEGIN
 END $$;
 
 ALTER TABLE account_deletion_receipt_store
- ADD COLUMN arm_intent_sha256 text CHECK (arm_intent_sha256 ~ '^[a-f0-9]{64}$');
+ ADD COLUMN arm_intent_sha256 text UNIQUE CHECK (arm_intent_sha256 ~ '^[a-f0-9]{64}$');
+
+ALTER TABLE account_deletion_policy
+ ADD COLUMN permit_epoch uuid NOT NULL DEFAULT gen_random_uuid();
 
 ALTER TABLE account_deletion_request
  ADD COLUMN arm_intent_sha256 text UNIQUE CHECK (arm_intent_sha256 ~ '^[a-f0-9]{64}$'),
@@ -30,14 +33,16 @@ ALTER TABLE account_deletion_request
 -- retryable without holding up unrelated writes while waiting for this fence.
 CREATE FUNCTION account_deletion_scope(subject text) RETURNS jsonb
 LANGUAGE plpgsql SET search_path FROM CURRENT AS $$
-DECLARE snapshot jsonb;
+DECLARE snapshot jsonb; epoch uuid;
 BEGIN
  IF current_setting('transaction_isolation')<>'read committed' THEN
    RAISE EXCEPTION 'Erasure scope requires a current snapshot' USING ERRCODE='25000';
  END IF;
+ SELECT permit_epoch INTO STRICT epoch FROM account_deletion_policy FOR SHARE;
  LOCK TABLE authored_problem, author_media, author_revision_media, solution_evidence,
   community_profile_media, community_medal_claim, community_external_medal,
-  account_deletion_pending_upload, account_deletion_publication IN SHARE ROW EXCLUSIVE MODE NOWAIT;
+  account_deletion_pending_upload, account_deletion_publication, account_deletion_evidence,
+  account_deletion_case_link IN SHARE ROW EXCLUSIVE MODE NOWAIT;
  WITH owned AS (
    SELECT p.id, p.state, p.published_revision_id, d.continuing_display_authorized, d.reviewed_revision_id,
           d.review_reference, encode(sha256(convert_to(d.rights_basis,'UTF8')),'hex') AS rights_basis_sha256
@@ -50,13 +55,24 @@ BEGIN
    UNION ALL SELECT 'author', pathname, false FROM solution_evidence WHERE "userId"=subject
    UNION ALL SELECT 'profile', pathname, false FROM community_profile_media WHERE user_id=subject
    UNION ALL SELECT 'medal', pathname, false FROM community_medal_claim WHERE user_id=subject
+ ), scoped_paths AS (
+   SELECT m.*, h.provider IS NOT NULL AS held,
+     encode(sha256(convert_to(to_jsonb(h)::text,'UTF8')),'hex') AS hold_sha256
+   FROM paths m LEFT JOIN account_deletion_pending_upload h USING (provider, pathname)
  )
  SELECT jsonb_build_object(
+   'permitEpoch', epoch,
+   'subjectFingerprint', encode(sha256(convert_to(jsonb_build_array(u.id,u."createdAt")::text,'UTF8')),'hex'),
+   'emailSha256', encode(sha256(convert_to(u.email,'UTF8')),'hex'),
    'publications', coalesce((SELECT jsonb_agg(to_jsonb(p) ORDER BY p.id) FROM owned p), '[]'),
-   'paths', coalesce((SELECT jsonb_agg(to_jsonb(m) ORDER BY m.provider,m.pathname,m.revision_dependency) FROM paths m), '[]'),
+   'paths', coalesce((SELECT jsonb_agg(to_jsonb(m) ORDER BY m.provider,m.pathname,m.revision_dependency) FROM scoped_paths m), '[]'),
+   'evidenceSha256', encode(sha256(convert_to(jsonb_build_array(
+     (SELECT jsonb_agg(to_jsonb(e) ORDER BY e.id) FROM account_deletion_evidence e WHERE e.subject_id=subject),
+     (SELECT jsonb_agg(to_jsonb(l) ORDER BY l.source_relation,l.source_key) FROM account_deletion_case_link l WHERE l.subject_id=subject)
+   )::text,'UTF8')),'hex'),
    'tallyReferences', coalesce((SELECT jsonb_agg(tally_reference ORDER BY tally_reference)
      FROM community_external_medal WHERE user_id=subject), '[]')
- ) INTO snapshot;
+ ) INTO STRICT snapshot FROM "user" u WHERE u.id=subject;
  RETURN snapshot;
 END $$;
 
@@ -67,8 +83,13 @@ CREATE FUNCTION account_deletion_arm_scope(case_id uuid) RETURNS jsonb
 LANGUAGE plpgsql SET search_path FROM CURRENT AS $$
 DECLARE subject text; snapshot jsonb;
 BEGIN
+ PERFORM account_deletion_policy_ready();
  SELECT user_id INTO subject FROM account_deletion_request
- WHERE id=case_id AND expires_at>clock_timestamp() FOR UPDATE;
+ WHERE id=case_id AND expires_at>clock_timestamp();
+ IF NOT FOUND THEN RAISE EXCEPTION 'Pending request not found' USING ERRCODE='P0027'; END IF;
+ PERFORM 1 FROM "user" WHERE id=subject FOR UPDATE;
+ PERFORM 1 FROM account_deletion_request
+ WHERE id=case_id AND user_id=subject AND expires_at>clock_timestamp() FOR UPDATE;
  IF NOT FOUND THEN RAISE EXCEPTION 'Pending request not found' USING ERRCODE='P0027'; END IF;
  snapshot:=account_deletion_scope(subject);
  RETURN jsonb_build_object('subject', subject, 'scope', snapshot, 'scopeSha256',
@@ -91,6 +112,9 @@ BEGIN
  END IF;
  SELECT * INTO STRICT existing FROM account_deletion_request WHERE id=case_id;
  IF expires>existing.expires_at THEN RAISE EXCEPTION 'Approval exceeds the request lifetime'; END IF;
+ IF EXISTS (SELECT FROM account_deletion_receipt_store WHERE arm_intent_sha256=intent_sha256) THEN
+   RAISE EXCEPTION 'Arm intent was consumed';
+ END IF;
  IF intent_sha256=ANY(existing.revoked_arm_intents) THEN RAISE EXCEPTION 'Arm intent was revoked'; END IF;
  IF existing.arm_intent_sha256 IS NOT NULL THEN
    IF existing.arm_intent_sha256=intent_sha256 AND existing.armed_scope_sha256=expected_scope
@@ -112,8 +136,16 @@ LANGUAGE sql SET search_path FROM CURRENT AS $$
  SELECT EXISTS (SELECT FROM disarmed)
 $$;
 
+-- Apply on an isolated restored target before reconnecting any erasure LOGIN.
+-- Even an intent absent from the checkpoint pins the old epoch and cannot rearm.
+CREATE FUNCTION account_deletion_fence_restored_permits() RETURNS uuid
+LANGUAGE sql SET search_path FROM CURRENT AS $$
+ UPDATE account_deletion_policy SET permit_epoch=gen_random_uuid() RETURNING permit_epoch
+$$;
+
 REVOKE ALL ON FUNCTION account_deletion_scope(text), account_deletion_arm_scope(uuid),
- account_deletion_arm(uuid,text,text,text,timestamptz), account_deletion_disarm(uuid,text) FROM PUBLIC;
+ account_deletion_arm(uuid,text,text,text,timestamptz), account_deletion_disarm(uuid,text),
+ account_deletion_fence_restored_permits() FROM PUBLIC;
 
 -- Patch the installed routine in place to preserve its owner, existing ACLs,
 -- and 0026 controls. There is no alternate callable eraser.
@@ -121,7 +153,8 @@ DO $migration$
 DECLARE definition text; edit text[]; signature text; schema_name text:=current_schema();
 BEGIN
  FOREACH signature IN ARRAY ARRAY['account_deletion_scope(text)', 'account_deletion_arm_scope(uuid)',
-  'account_deletion_arm(uuid,text,text,text,timestamptz)', 'account_deletion_disarm(uuid,text)']
+  'account_deletion_arm(uuid,text,text,text,timestamptz)', 'account_deletion_disarm(uuid,text)',
+  'account_deletion_fence_restored_permits()']
  LOOP
   EXECUTE format('ALTER FUNCTION %I.%s SET search_path=pg_catalog,%I,pg_temp',schema_name,signature,schema_name);
   -- Refuse unexpected default EXECUTE ACLs for these owner-only routines.
@@ -129,6 +162,7 @@ BEGIN
    WHERE p.oid=format('%I.%s',schema_name,signature)::regprocedure AND a.grantee<>p.proowner)
   THEN RAISE EXCEPTION 'Unexpected owner-only erasure ACL'; END IF;
  END LOOP;
+ ALTER FUNCTION account_deletion_scope(text) SET timezone='UTC';
  definition:=pg_get_functiondef('account_deletion_execute(text,text,text,text)'::regprocedure);
  IF strpos(definition, 'a.reviewed_revision_id IS DISTINCT FROM p.published_revision_id') = 0 THEN
    RAISE EXCEPTION 'Unexpected 0026 erasure definition';

@@ -14,7 +14,7 @@ bash scripts/account-deletion-restore/rehearse-local.sh --post-0027 --pre-0027-c
 bash scripts/account-deletion-restore/rehearse-local.sh --post-0027 --post-erasure-checkpoint
 ```
 
-The rehearsal installs the reviewed repository migrations through 0026 on a synthetic source, dumps it, and restores the dump into a separate database. It commits erasure on the source through the original account eraser, then signs a synthetic approval with a disposable reviewer key. The restore tool works on the recovered database where the old session is expired. The 0027 cases cover an armed checkpoint after loss of the arm response, a checkpoint before a committed erasure whose response is lost, a checkpoint before 0027 and without completions, and a checkpoint that already contains the matching committed receipt.
+The rehearsal installs the reviewed migrations on a synthetic source, dumps it, and restores the dump into a separate database. It uses the original eraser and a synthetic approval signed with a disposable reviewer key. The 0027 cases exercise loss of the primary encryption key, recovery from its separate copy, an armed checkpoint after loss of the arm response, a checkpoint before a committed erasure whose response is lost, a checkpoint before 0027 and without completions, and a checkpoint with a matching committed receipt. The lost-arm case verifies that the source still has the account and that only the adjudicated replay erases it on the restore.
 
 Expected output:
 
@@ -36,11 +36,12 @@ The independent reviewer records the deletion authorization, its external refere
 - `publications` lists each problem and exact revision independently approved to remain public. Each entry has `problemId`, `revisionId` and the lowercase SHA-256 `digest` of the PostgreSQL UTF-8 text representation of `jsonb_build_array(rights_basis, review_reference)`. The restored decision must match. The normal eraser archives unlicensed and stale-revision publications and preserves immutable history. The tool never republishes an archived revision.
 - `cleanup` lists the independently recorded pending cleanup obligations for this case. Each entry has `provider` (`author`, `profile` or `medal`), `pathname` and a boolean `held`. `held: true` requires the existing upload hold to survive. `held: false` makes no claim about an existing hold. The inventory may be empty only if there are no applicable obligations in the independent record.
 
-For version 2, retain the exact external arm-intent file created before arming. The independent reviewer verifies its custody, exact subject, source binding, approval and disposition references. If either acknowledgement may have been lost, reconcile that intent as a potentially committed erasure. An absent or expired receipt and a missing acknowledgement establish no negative outcome. Include these fields in the signed approval:
+For version 2, recover the exact encrypted case file and its key through independent custody. The reviewer verifies the exact subject, original target and approval and disposition references. A lost acknowledgement or absent or expired receipt leaves the source outcome uncertain. Include these fields in the signed approval:
 
 - `databaseOid` is the integer OID of the reviewed target database in the isolated container. `targetRevision` is `"0026"` or `"0027"`. Verify the restored checkpoint and its provenance independently before signing. The tool checks the container, database, OID, installed version and subject fingerprint.
-- `sourceAuthorization` contains the original arm intent's `caseId`, its exact file `intentSha256` and `outcome` of `receipt-confirmed`, `arming-unknown` or `execution-unknown`. Use a different UUID for the outer recovery case. The signed file authorizes replay independently of that classification and the historic intent's expiry. Revoked or conflicting authorization present in the recovery point requires new independent reconciliation before replay.
-- `tallyReferences` lists the verified source and restored submission IDs covered by the disposition. Verify unawarded submissions and downstream copies separately. The tool refuses an unreviewed restored award reference, a cleanup obligation missing from the target, or an unexpected pending job created by replay. A missing post-checkpoint obligation needs a separately reviewed recovery plan.
+- `recoveryPermitEpoch` is the return value of `public.account_deletion_fence_restored_permits()` on the isolated 0027 target, or null for a target before 0027. The signed 0027 value must differ from the source epoch. Verify the fence before allowing service access. Keep pre-0027 targets isolated until their reviewed fence can be established.
+- `sourceAuthorization` includes the original `caseId`, encrypted file `intentSha256`, `outcome`, `evidenceRef` and `decision`. For `receipt-confirmed`, reference the original confirmation and sign `reconcile-confirmed`. For `arming-unknown` or `execution-unknown`, cite the independent adjudication and sign `adjudicated-reapply` only if the exact-subject erasure is independently authorized. This decision permits reconciliation of the recovered copy. It does not change what is known about the original outcome. Conflicting or revoked authorization in the checkpoint requires review before replay.
+- `tallyReferences` covers the verified source and restored submission IDs, including the encrypted record's unawarded submissions. Carry their independently recorded disposition forward. A missing Tally ID, a missing hold, a downgraded hold, or an unreviewed restored pending job stops reconciliation. Resolve later obligations absent from the checkpoint under separate review.
 
 The reviewer signs the exact JSON bytes. The signature is a detached binary Ed25519 signature. Retain the same bytes for transparent retries.
 
@@ -52,10 +53,10 @@ The operator runs the following with the independently obtained `TRUSTED_KEY_SHA
 
 ```bash
 node scripts/account-deletion-restore/reconcile-local.mjs \
-  "$CONTAINER_ID" approval.json approval.sig reviewer.pub "$TRUSTED_KEY_SHA256" arm-intent.json
+  "$CONTAINER_ID" approval.json approval.sig reviewer.pub "$TRUSTED_KEY_SHA256" case.enc recovered-case.key
 ```
 
-For version 1 omit the final intent argument. Expect `RECONCILED` after commit. A post-erasure 0027 checkpoint with the matching source receipt and disposition returns `ALREADY_RECONCILED` without inserting another receipt. A replay of the **same active signed file** yields `ALREADY_RECONCILED` while the matching existing receipt and signed obligations remain. A refusal exits with status 1. After a lost acknowledgement, check the isolated target and retry the same signed bytes before expiry. An expired or missing receipt cannot stand in for evidence of erasure.
+For version 1 omit the final two arguments. Expect `RECONCILED` after commit. A post-erasure 0027 checkpoint with the matching source receipt and disposition returns `ALREADY_RECONCILED` without inserting another receipt. A replay of the **same active signed file** yields `ALREADY_RECONCILED` while the matching existing receipt and signed obligations remain. A refusal exits with status 1. After a lost acknowledgement, check the isolated target and retry the same signed bytes before expiry. An expired or missing receipt cannot stand in for evidence of erasure.
 
 ## Transaction and limits
 

@@ -2,7 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
-      "codex/phase5b-release-review": false
+      "codex/phase5b-release-review": false,
+      "codex/erasure-recovery-custody-review": false
     }
   }
 }

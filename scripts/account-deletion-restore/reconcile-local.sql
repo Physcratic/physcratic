@@ -84,17 +84,21 @@ BEGIN
   INTO authorization_definitions FROM pg_proc p
   WHERE p.pronamespace='public'::regnamespace AND p.proowner=current_user::regrole AND p.proname IN (
    'account_deletion_open_request','account_deletion_scope','account_deletion_arm_scope',
-   'account_deletion_arm','account_deletion_disarm');
+   'account_deletion_arm','account_deletion_disarm','account_deletion_fence_restored_permits');
   IF (SELECT count(*) FROM public.physcratic_production_migrations WHERE id ~ '^0027($|_)')<>1
      OR NOT EXISTS (SELECT FROM public.physcratic_production_migrations WHERE id='0027_account_deletion_authorization'
-       AND sha256='de7fa4287c32f05c5c636be537ff1b09fa9d8f1df50e0d881d63906479c8f0e4' AND result='verified')
+       AND sha256='fb319ac17343f2069df2d4a88833d0fa45ce9041bae5496903bce83b2ad3d4eb' AND result='verified')
      OR encode(sha256(convert_to(definition,'UTF8')),'hex') <> 'c4aa4d374391e1667234e7fd9a1624b86f083e41b75ed59bbfbe95ce0cd8f0cf'
-     OR authorization_definitions IS DISTINCT FROM '7a439ef20dd8f374331bb98c6ede98a3bff1603faa99b2cebdb6cea726b33584'
+     OR authorization_definitions IS DISTINCT FROM '4c63a4c9302d664edbca504d75f22a4f1f280f19ad30c89c28f414a7aaadae01'
      OR NOT EXISTS (SELECT FROM pg_attribute WHERE attrelid='public.account_deletion_receipt_store'::regclass
                      AND attname='arm_intent_sha256' AND NOT attisdropped AND atttypid='text'::regtype)
      OR (SELECT count(*) FROM pg_attribute WHERE attrelid='public.account_deletion_request'::regclass AND NOT attisdropped
            AND attname IN ('arm_intent_sha256','armed_scope_sha256','armed_until','revoked_arm_intents'))<>4
   THEN RAISE EXCEPTION 'Installed erasure revision is not reviewed'; END IF;
+  IF (SELECT permit_epoch::text FROM public.account_deletion_policy)
+     IS DISTINCT FROM approved->>'recoveryPermitEpoch' THEN
+   RAISE EXCEPTION 'Restored permit fence is missing or differs from approval';
+  END IF;
 
   -- Only the disposable recovery transaction uses the pre-gate routine body.
   -- The independent approval and the recorded source intent replace live proof.
@@ -306,6 +310,12 @@ BEGIN
                               WHERE o.provider=expected.provider AND o.pathname=expected.pathname AND o.state<>'complete')
             OR (expected.held AND NOT EXISTS (SELECT FROM public.account_deletion_pending_upload h
                               WHERE h.provider=expected.provider AND h.pathname=expected.pathname)))
+ THEN
+  RAISE EXCEPTION 'Expected cleanup obligation or upload hold is absent';
+ END IF;
+ IF EXISTS (SELECT FROM jsonb_to_recordset(approved->'verifiedIntentHolds') AS expected(provider text,pathname text)
+            WHERE NOT EXISTS (SELECT FROM public.account_deletion_pending_upload h
+                               WHERE h.provider=expected.provider AND h.pathname=expected.pathname))
  THEN
   RAISE EXCEPTION 'Expected cleanup obligation or upload hold is absent';
  END IF;

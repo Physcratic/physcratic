@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory)][ValidateSet('RecordIntent','Arm','Status','Disarm')][string]$Action,
+    [Parameter(Mandatory)][ValidateSet('ReviewScope','RecordIntent','Arm','Status','Disarm')][string]$Action,
     [Parameter(Mandatory)][ValidatePattern('^[A-Za-z0-9][A-Za-z0-9.-]{0,252}$')][string]$Endpoint,
     [ValidateRange(1,65535)][int]$Port = 5432,
     [Parameter(Mandatory)][ValidatePattern('^[A-Za-z0-9_-]{1,63}$')][string]$Database,
@@ -8,7 +8,9 @@ param(
     [Parameter(Mandatory)][ValidatePattern('^[A-Za-z0-9_-]{1,63}$')][string]$Owner,
     [Parameter(Mandatory)][ValidateRange(150000,999999)][int]$ServerVersion,
     [Parameter(Mandatory)][guid]$CaseId,
-    [Parameter(Mandatory)][string]$IntentFile,
+    [string]$IntentFile,
+    [string]$KeyFile,
+    [string]$TallyReviewFile,
     [ValidatePattern('^[a-f0-9]{64}$')][string]$IntentSha256
 )
 $ErrorActionPreference = 'Stop'
@@ -21,10 +23,8 @@ if ($Endpoint -match '(?:^|[.-])pooler(?:[.-]|$)' -or !$env:PGSSLROOTCERT -or
     throw 'Use the approved direct endpoint and existing trusted CA.'
 }
 if ($CaseId -eq [guid]::Empty) { throw 'An exact case reference is required.' }
-$psql = (Get-Command psql -CommandType Application).Source
+$psql = (Get-Command psql -CommandType Application | Select-Object -First 1).Source
 $connection = "host=$Endpoint port=$Port dbname=$Database user=$Login sslmode=verify-full gssencmode=disable connect_timeout=5"
-$folder = (Resolve-Path -LiteralPath ([IO.Path]::GetDirectoryName([IO.Path]::GetFullPath($IntentFile)))).Path
-$path = Join-Path $folder ([IO.Path]::GetFileName($IntentFile))
 
 function Invoke-CaseSql([string]$Sql) {
     # All values are either validated identifiers or a hex/UUID/timestamp.
@@ -63,16 +63,28 @@ DO $$ BEGIN RAISE EXCEPTION 'Unexpected erasure owner'; END $$;
     $result
 }
 
-function Get-IntentHash([byte[]]$Bytes) {
-    $algorithm = [Security.Cryptography.SHA256]::Create()
-    try { [BitConverter]::ToString($algorithm.ComputeHash($Bytes)).Replace('-', '').ToLowerInvariant() }
-    finally { $algorithm.Dispose() }
-}
-
 $record = $null
+$scopeQuery = "SELECT public.account_deletion_arm_scope(:'case_id'::uuid);"
+if ($Action -eq 'ReviewScope') {
+    # Restricted output for the operator's current subject and external matching.
+    $scope = ConvertFrom-Json -InputObject (Invoke-CaseSql $scopeQuery)
+    [ordered]@{
+        subject=$scope.subject; subjectFingerprint=$scope.scope.subjectFingerprint
+        emailSha256=$scope.scope.emailSha256; awardedTallyIds=$scope.scope.tallyReferences
+    } | ConvertTo-Json -Depth 4
+    return
+}
+if (!$IntentFile -or !$KeyFile) { throw 'Supply the encrypted intent path and separately stored case key.' }
+$folder = (Resolve-Path -LiteralPath ([IO.Path]::GetDirectoryName([IO.Path]::GetFullPath($IntentFile)))).Path
+$path = Join-Path $folder ([IO.Path]::GetFileName($IntentFile))
+$keyPath = (Resolve-Path -LiteralPath $KeyFile).Path
+$node = (Get-Command node -CommandType Application | Select-Object -First 1).Source
+$caseTool = Join-Path $PSScriptRoot 'case-record.mjs'
 if ($Action -eq 'RecordIntent') {
     if (Test-Path -LiteralPath $path) { throw 'Use a fresh intent filename in the approved encrypted location.' }
-    $snapshot = Invoke-CaseSql "SELECT public.account_deletion_arm_scope(:'case_id'::uuid);"
+    if (!$TallyReviewFile) { throw 'Supply the verified Tally review, including an explicit result if no submissions match.' }
+    $tally = ConvertFrom-Json -InputObject ([IO.File]::ReadAllText((Resolve-Path -LiteralPath $TallyReviewFile).Path, $utf8))
+    $snapshot = Invoke-CaseSql $scopeQuery
     $scope = ConvertFrom-Json -InputObject $snapshot
     $verifiedSubject = Read-Host 'Stable subject ID from independently verified authorization'
     if ($verifiedSubject -cne $scope.subject -or $verifiedSubject -cnotmatch '^[A-Za-z0-9_-]{1,128}$') {
@@ -89,25 +101,24 @@ if ($Action -eq 'RecordIntent') {
         [Globalization.CultureInfo]::InvariantCulture,[Globalization.DateTimeStyles]::AssumeUniversal)
     if ($validUntil -le [DateTimeOffset]::UtcNow -or $validUntil -gt [DateTimeOffset]::UtcNow.AddHours(24)) { throw 'Choose an expiry within 24 hours.' }
     $record = [ordered]@{
-        kind='account-deletion-arm-intent-v1'; caseId=$CaseId.ToString(); subject=$scope.subject
+        kind='account-deletion-arm-intent-v2'; caseId=$CaseId.ToString(); subject=$scope.subject
         endpoint=$Endpoint; port=$Port; database=$Database; owner=$Owner; serverVersion=$ServerVersion
         recordedUtc=[DateTimeOffset]::UtcNow.ToString('o'); expiresUtc=$validUntil.UtcDateTime.ToString('o')
         authorizationRef=$approval; dispositionRef=$disposition; custodyRef=$custody
-        scopeSha256=$scope.scopeSha256; scope=$scope.scope
+        scopeSha256=$scope.scopeSha256; scope=$scope.scope; tallyReview=$tally
     }
-    $bytes = $utf8.GetBytes((ConvertTo-Json -InputObject $record -Depth 16 -Compress) + "`n")
-    $stream = [IO.FileStream]::new($path,[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::None)
-    try { $stream.Write($bytes,0,$bytes.Length); $stream.Flush($true) } finally { $stream.Dispose() }
-    if ((Get-IntentHash ([IO.File]::ReadAllBytes($path))) -cne (Get-IntentHash $bytes)) { throw 'Intent read-back failed.' }
-    Write-Output "ARM_INTENT_RECORDED $(Get-IntentHash $bytes)"
+    $digest = ConvertTo-Json -InputObject $record -Depth 16 -Compress | & $node $caseTool seal $path $keyPath
+    if ($LASTEXITCODE -ne 0 -or $digest -cnotmatch '^[a-f0-9]{64}$') { throw 'No arm attempted. Encrypted persistence was not confirmed.' }
+    Write-Output "ARM_INTENT_RECORDED $digest"
     return
 }
 
 if (!$IntentSha256) { throw 'Supply the independently verified intent SHA-256.' }
-$bytes = [IO.File]::ReadAllBytes($path)
-if ((Get-IntentHash $bytes) -cne $IntentSha256) { throw 'Arm intent digest mismatch.' }
-$record = ConvertFrom-Json -InputObject ($utf8.GetString($bytes))
-if ($record.kind -cne 'account-deletion-arm-intent-v1' -or $record.caseId -cne $CaseId.ToString() -or
+$plaintext = & $node $caseTool read $path $keyPath $IntentSha256
+if ($LASTEXITCODE -ne 0) { throw 'No database action attempted. Encrypted read-back was not confirmed.' }
+$record = ConvertFrom-Json -InputObject $plaintext
+$plaintext = $null
+if ($record.kind -cne 'account-deletion-arm-intent-v2' -or $record.caseId -cne $CaseId.ToString() -or
     $record.endpoint -cne $Endpoint -or $record.port -ne $Port -or $record.database -cne $Database -or
     $record.owner -cne $Owner -or $record.serverVersion -ne $ServerVersion -or
     $record.subject -cnotmatch '^[A-Za-z0-9_-]{1,128}$' -or $record.scopeSha256 -cnotmatch '^[a-f0-9]{64}$' -or
@@ -117,9 +128,9 @@ if ($record.kind -cne 'account-deletion-arm-intent-v1' -or $record.caseId -cne $
 
 switch ($Action) {
     'Arm' {
-        $confirmation = Read-Host 'Type VERIFIED ARM INTENT after the backup custodian confirms the exact bytes'
+        $confirmation = Read-Host 'Type VERIFIED ARM INTENT after the backup custodian verifies the recovered case and key'
         if ($confirmation -cne 'VERIFIED ARM INTENT') { throw 'No database arm attempted.' }
-        $snapshot = ConvertFrom-Json -InputObject (Invoke-CaseSql "SELECT public.account_deletion_arm_scope(:'case_id'::uuid);")
+        $snapshot = ConvertFrom-Json -InputObject (Invoke-CaseSql $scopeQuery)
         if ($snapshot.subject -cne $record.subject -or $snapshot.scopeSha256 -cne $record.scopeSha256 -or
             (ConvertTo-Json -InputObject $snapshot.scope -Compress -Depth 16) -cne
             (ConvertTo-Json -InputObject $record.scope -Compress -Depth 16)) {
@@ -137,10 +148,14 @@ switch ($Action) {
     'Status' {
         Invoke-CaseSql @'
 SELECT CASE
- WHEN EXISTS (SELECT FROM public.account_deletion_receipt_store WHERE id=:'case_id'::uuid AND arm_intent_sha256=:'intent_sha')
+ WHEN EXISTS (SELECT FROM public.account_deletion_receipt_store WHERE id=:'case_id'::uuid
+   AND arm_intent_sha256=:'intent_sha' AND expires_at>clock_timestamp())
+   AND NOT EXISTS (SELECT FROM public."user" WHERE id=:'subject')
+   AND NOT EXISTS (SELECT FROM public.session WHERE "userId"=:'subject')
+   AND NOT EXISTS (SELECT FROM public.account WHERE "userId"=:'subject')
    THEN 'ERASURE_RECEIPT_PRESENT'
  WHEN EXISTS (SELECT FROM public.account_deletion_receipt_store WHERE id=:'case_id'::uuid)
-   THEN 'DIFFERENT_RECEIPT_INTENT'
+   THEN 'RECEIPT_REQUIRES_RECONCILIATION'
  WHEN EXISTS (SELECT FROM public.account_deletion_request WHERE id=:'case_id'::uuid AND arm_intent_sha256=:'intent_sha')
    THEN CASE WHEN EXISTS (SELECT FROM public.account_deletion_request WHERE id=:'case_id'::uuid
        AND armed_until>transaction_timestamp() AND expires_at>transaction_timestamp()) THEN 'ARM_MATCH' ELSE 'ARM_EXPIRED' END

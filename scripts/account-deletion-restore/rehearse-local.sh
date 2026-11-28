@@ -94,7 +94,7 @@ SET search_path=pg_catalog,public,pg_temp;
 SELECT encode(sha256(convert_to(string_agg(pg_get_functiondef(p.oid), E'\n' ORDER BY p.proname),'UTF8')),'hex')
 FROM pg_proc p WHERE p.pronamespace='public'::regnamespace AND p.proname IN (
  'account_deletion_open_request', 'account_deletion_scope', 'account_deletion_arm_scope',
- 'account_deletion_arm', 'account_deletion_disarm');
+ 'account_deletion_arm', 'account_deletion_disarm', 'account_deletion_fence_restored_permits');
 SQL
   exit
 fi
@@ -114,14 +114,22 @@ if [[ "$with_authorization" == true ]]; then
   fi
   source_case=$(source_db -c "SELECT account_deletion_open_request('synthetic-restore-a','synthetic-source-only','NONFUNCTIONAL-HASH',repeat('d',64))")
   scope=$(source_db -c "SELECT account_deletion_arm_scope('$source_case')")
-  node --input-type=module - "$source_case" "$scope" > "$scratch/intent.json" <<'JS'
+  openssl rand -out "$scratch/source.key" 32
+  cp "$scratch/source.key" "$scratch/recovered.key"
+  node --input-type=module - "$source_case" "$scope" <<'JS' | \
+    node scripts/account-deletion-authorization/case-record.mjs seal "$scratch/intent.enc" "$scratch/source.key" > "$scratch/intent.sha256"
 const [caseId,snapshot] = process.argv.slice(2);
-console.log(JSON.stringify({kind:'account-deletion-arm-intent-v1',caseId,...JSON.parse(snapshot),
+const review=JSON.parse(snapshot);
+console.log(JSON.stringify({kind:'account-deletion-arm-intent-v2',caseId,...review,
  recordedUtc:new Date().toISOString(), expiresUtc:new Date(Date.now()+600_000).toISOString(),
- authorizationRef:'approved-synthetic-case', dispositionRef:'reviewed-synthetic-scope', custodyRef:'independent-test-file'}));
+ authorizationRef:'approved-synthetic-case', dispositionRef:'reviewed-synthetic-scope', custodyRef:'independent-test-file',
+ tallyReview:{subjectFingerprint:review.scope.subjectFingerprint,emailSha256:review.scope.emailSha256,
+  reference:'synthetic-external-search',submissions:[{id:'synthetic-unawarded',kind:'unawarded',dispositionRef:'synthetic-pending-disposition'}]}}));
 JS
-  intent_hash=$(sha256sum "$scratch/intent.json" | cut -d ' ' -f 1)
-  scope_hash=$(node -e 'process.stdout.write(require(process.argv[1]).scopeSha256)' "$scratch/intent.json")
+  intent_hash=$(cat "$scratch/intent.sha256")
+  rm "$scratch/source.key"
+  node scripts/account-deletion-authorization/case-record.mjs verify "$scratch/intent.enc" "$scratch/recovered.key" "$intent_hash"
+  scope_hash=$(node -e 'process.stdout.write(JSON.parse(process.argv[1]).scopeSha256)' "$scope")
   # Discard the arm acknowledgement to model an operator left without a confirmed return.
   source_db -c "SELECT account_deletion_arm('$source_case','synthetic-restore-a','$scope_hash','$intent_hash',now()+interval '10 minutes')" > /dev/null
 fi
@@ -141,14 +149,21 @@ openssl pkey -in "$scratch/reviewer.key" -pubout -out "$scratch/reviewer.pub"
 key_digest=$(sha256sum "$scratch/reviewer.pub" | cut -d ' ' -f 1)
 database_oid=$(target -c "SELECT oid FROM pg_database WHERE datname=current_database()")
 target_version=0026
-if [[ "$with_authorization" == true && "${pre_0027_checkpoint:-}" != true ]]; then target_version=0027; fi
-node --input-type=module - "$container" "$subject" "$rights" "$database_oid" "$target_version" "${source_case:-}" "${intent_hash:-}" "$scenario" > "$scratch/approval.json" <<'JS'
+fenced_epoch=
+if [[ "$with_authorization" == true && "${pre_0027_checkpoint:-}" != true ]]; then
+  target_version=0027
+  fenced_epoch=$(target -c 'SET ROLE restore_owner; SELECT account_deletion_fence_restored_permits()')
+fi
+node --input-type=module - "$container" "$subject" "$rights" "$database_oid" "$target_version" "${source_case:-}" "${intent_hash:-}" "$scenario" "$fenced_epoch" > "$scratch/approval.json" <<'JS'
 import { randomUUID } from 'node:crypto';
-const [containerId, subjectFingerprint, digest, databaseOid, targetRevision, sourceCase, intentSha256, scenario] = process.argv.slice(2);
+const [containerId, subjectFingerprint, digest, databaseOid, targetRevision, sourceCase, intentSha256, scenario, epoch] = process.argv.slice(2);
 console.log(JSON.stringify({
   version: sourceCase ? 2 : 1, caseId: randomUUID(), deletionRecord: 'SYNTHETIC-INDEPENDENT-RECEIPT',
-  ...(sourceCase && {databaseOid:Number(databaseOid), targetRevision, tallyReferences:[], sourceAuthorization:{
+  ...(sourceCase && {databaseOid:Number(databaseOid), targetRevision, recoveryPermitEpoch:epoch || null,
+    tallyReferences:['synthetic-unawarded'], sourceAuthorization:{
     caseId:sourceCase, intentSha256, outcome:scenario==='confirmed' ? 'receipt-confirmed' : scenario,
+    evidenceRef:scenario==='confirmed' ? 'synthetic-source-receipt' : 'synthetic-independent-adjudication',
+    decision:scenario==='confirmed' ? 'reconcile-confirmed' : 'adjudicated-reapply',
   }}),
   approvedAt: new Date().toISOString(), expiresAt: new Date(Date.now() + 600_000).toISOString(),
   containerId, database: 'physcratic_restore_test',
@@ -167,7 +182,7 @@ sign() { openssl pkeyutl -sign -rawin -inkey "$scratch/reviewer.key" -in "$1" -o
 sign "$scratch/approval.json" "$scratch/approval.sig"
 reconcile() {
   local extra=()
-  if [[ "$with_authorization" == true ]]; then extra+=("$scratch/intent.json"); fi
+  if [[ "$with_authorization" == true ]]; then extra+=("$scratch/intent.enc" "$scratch/recovered.key"); fi
   node "$tool/reconcile-local.mjs" "$container" "$scratch/${1:-approval}.json" \
     "$scratch/${2:-approval}.sig" "$scratch/reviewer.pub" "${3:-$key_digest}" "${extra[@]}"
 }
@@ -188,6 +203,10 @@ const a = JSON.parse(readFileSync(process.argv[2], 'utf8'));
 switch (process.argv[3]) {
   case 'wrong-revision': a.targetRevision = a.targetRevision === '0027' ? '0026' : '0027'; break;
   case 'wrong-intent': a.sourceAuthorization.intentSha256 = '0'.repeat(64); break;
+  case 'wrong-epoch': a.recoveryPermitEpoch = '00000000-0000-4000-8000-000000000001'; break;
+  case 'missing-tally': a.tallyReferences = []; break;
+  case 'hold-downgrade': a.cleanup.find(p => p.held).held = false; break;
+  case 'unadjudicated': a.sourceAuthorization.outcome = 'execution-unknown'; a.sourceAuthorization.decision = 'reconcile-confirmed'; break;
   case 'wrong-oid': a.databaseOid += 1; break;
   case 'wrong-subject': a.subjectId = 'synthetic-restore-b'; break;
   case 'wrong-container': a.containerId = '0'.repeat(64); break;
@@ -251,16 +270,28 @@ if [[ "$with_authorization" == true ]]; then
   variant wrong-oid wrong-oid
   reject 'Installed erasure revision is not reviewed' reconcile wrong-oid wrong-oid
   variant wrong-revision wrong-revision
-  reject 'Installed erasure revision is not reviewed' reconcile wrong-revision wrong-revision
+  reject 'Invalid source authorization or target binding' reconcile wrong-revision wrong-revision
+  variant missing-tally missing-tally
+  reject 'External arm intent and signed approval differ' reconcile missing-tally missing-tally
+  variant hold-downgrade hold-downgrade
+  reject 'Restored authorization differs from independent approval' reconcile hold-downgrade hold-downgrade
+  variant unadjudicated unadjudicated
+  reject 'Invalid source authorization or target binding' reconcile unadjudicated unadjudicated
+  if [[ "$target_version" == 0027 ]]; then
+    variant wrong-epoch wrong-epoch
+    reject 'Restored permit fence is missing or differs from approval' reconcile wrong-epoch wrong-epoch
+  fi
 fi
 if [[ "${armed_checkpoint:-}" == true ]]; then
+  reject 'Reviewed erasure scope changed' target -c "SELECT account_deletion_execute('synthetic-restore-a','synthetic-source-only','NONFUNCTIONAL-HASH',repeat('d',64))"
+  reject 'Reviewed erasure scope changed' target -c "SELECT account_deletion_arm('$source_case','synthetic-restore-a','$scope_hash','$intent_hash',now()+interval '10 minutes')"
   target -c "UPDATE account_deletion_request SET armed_scope_sha256=repeat('7',64) WHERE id='$source_case'"
   reject 'Restored authorization differs from independent approval' reconcile
   target -c "UPDATE account_deletion_request SET armed_scope_sha256='$scope_hash' WHERE id='$source_case'"
   target -c "SELECT account_deletion_disarm('$source_case','$intent_hash')"
   reject 'Restored authorization differs from independent approval' reconcile
-  target -c "UPDATE account_deletion_request SET revoked_arm_intents='{}' WHERE id='$source_case'"
-  target -c "SELECT account_deletion_arm('$source_case','synthetic-restore-a','$scope_hash','$intent_hash',now()+interval '10 minutes')"
+  # Restore the fixture's original row for the separately approved replay.
+  target -c "UPDATE account_deletion_request SET revoked_arm_intents='{}',arm_intent_sha256='$intent_hash',armed_scope_sha256='$scope_hash',armed_until=now()+interval '10 minutes' WHERE id='$source_case'"
 fi
 if [[ "${post_erasure_checkpoint:-}" == true ]]; then
   target -c "UPDATE account_deletion_receipt_store SET arm_intent_sha256=repeat('8',64) WHERE id='$source_case'"
