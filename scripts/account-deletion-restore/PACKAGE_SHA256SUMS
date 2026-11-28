@@ -1,0 +1,5 @@
+9378ce0f7cd8dc9bfe8b60fa6caa0033a6826197dbde8a165ef1334b211209f8  scripts/account-deletion-restore/reconcile-local.mjs
+09c1cfa5e7ad592dc4409bb5c2465e53d69a8599487218f2f12da709197c77c0  scripts/account-deletion-restore/reconcile-local.sql
+731d243f534457c317313632d8e70d4a21ce36a1b6df2362ad3bb555978d2fd9  scripts/account-deletion-restore/fixture.sql
+1b73737d1a53adc397aeac15dea8cc03bfdd918de70a4943a7500a6898d55925  scripts/account-deletion-restore/rehearse-local.sh
+1233c672cff1628be709dfa1e16297f686a3fdc40f87cd8753d65107cdb83064  scripts/account-deletion-restore/README.md

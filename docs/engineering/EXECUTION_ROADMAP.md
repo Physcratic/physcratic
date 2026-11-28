@@ -2,7 +2,7 @@
 
 The owner separately accepted the recovered Step 2 ledger and the retrospective baseline. Reuse the accepted 22-row ledger and scoped ownership, grants and binding evidence. Keep the release off while qualifying the existing 0026 erasure workflow and retained copies. Reuse the completed synthetic backup and replay rehearsal to review the operating model. An independent erasure record needs an enforced handoff before every deletion commit. A post-erasure checkpoint model needs an enforceable restore fence and an approved outage and data-loss tradeoff. Qualify the selected model on an isolated target using the existing provider setup.
 
-After those gates pass, use the [existing 0025 install and activation sequence](../../scripts/personal-completions/RELEASE.md). Reconfirm the approved target, ledger and absence guards inside the separately authorized change window. Keep build and serving flags off through installation and grant verification. Obtain a separate activation decision after the signed-in synthetic acceptance and rollback checks.
+Use the [two-founder closing checklist](ACCOUNT_DELETION_READINESS.md#minimum-owner-evidence-to-close-phase-5b) for manual Tally, encrypted custody and any uncovered serving or recovery conditions. The reviewed 0027 handoff enforces external intent before erasure. The [0025 schema-only install](../../scripts/personal-completions/RELEASE.md#3-install-migration-0025-with-exposure-off) can proceed independently under separate authorization with exposure off and grants deferred. Completion writes require an operational erasure and recovery path and their own activation decision.
 
 ## Favourite retrieval restricted-LOGIN rehearsal (27 November 2026)
 
@@ -58,7 +58,7 @@ Four meaning accents, rose, amber, violet and teal, each with a strong colour fo
 
 ## Retrospective baseline client TLS (26 November 2026)
 
-Use the [updated read-only runner](../../scripts/retrospective-baseline/README.md#windows-powershell-and-psql) with the existing verified client TLS configuration. It preserves the compute's backend SSL observation alongside client evidence from the same capture invocation with legacy or PostgreSQL 18 psql. Phase 5B remains on hold for the independently reviewed capture, existing Step 2 checks and explicit owner acceptance. The 0025 and 0026 tracks remain separate.
+Use the [updated read-only runner](../../scripts/retrospective-baseline/README.md#windows-powershell-and-psql) with the existing verified client TLS configuration. It preserves the compute's backend SSL observation alongside client evidence from the same capture invocation with legacy or PostgreSQL 18 psql. At that checkpoint Phase 5B was on hold for the independently reviewed capture and owner acceptance. The owner completed the retrospective acceptance on 29 November. The 0025 and deletion tracks remain separate.
 
 ## Problem Studio confirm sheet, U7e (25 November 2026)
 
@@ -70,7 +70,7 @@ Browser tests answer the sheet through `tests/confirm-sheet.mjs` instead of `pag
 
 ## Retrospective migration baseline acceptance (25 November 2026)
 
-Phase 5B stays on hold. Reconcile 0020, 0021, 0022 and 0024 using the [dated record and read-only verification package](RETROSPECTIVE_BASELINE_ACCEPTANCE.md). Require a fresh capture, independent review and explicit owner acceptance. Coordinate a quiet capture window with the 0026 operator. Keep 0025 for personal completions and preserve existing Step 2, erasure and recovery gates.
+The owner accepted the 0020, 0021, 0022 and 0024 reconciliation and the ordinary runtime audit. Preserve the ledger and provenance limits in the [dated baseline record](RETROSPECTIVE_BASELINE_ACCEPTANCE.md). The [Phase 5B owner decision](ACCOUNT_DELETION_READINESS.md#phase-5b-owner-decision) records the remaining service, provider and recovery gates. Keep 0025 for personal completions and 0026 for deletion.
 
 ## Problem Studio Simple polish (24 November 2026)
 
@@ -82,7 +82,7 @@ Keep practice persistence off while account deletion is parked. [Current-main qu
 
 ## Account deletion staged release assessment (25 November 2026)
 
-Keep account deletion off. [The readiness assessment](ACCOUNT_DELETION_READINESS.md#database-erasure-with-outstanding-file-cleanup-25-november-2026) proposes allowing database erasure to commit with a durable, explicitly pending file obligation. Qualify safely handling held objects, status and privacy wording, staffed follow-up, Tally and recovery before seeking owner approval. Terminal evidence remains required to close an individual ambiguous upload obligation. No implementation is scheduled by this assessment.
+Keep account deletion off. [The readiness assessment](ACCOUNT_DELETION_READINESS.md#database-erasure-with-outstanding-file-cleanup-25-november-2026) proposes allowing database erasure to commit with a durable, explicitly pending file obligation. The owner accepts the operational deadlines in principle pending staffing. Complete the synthetic provider and Tally checks, then qualify the locally implemented pre-erasure handoff and an enforceable [recovery route](ACCOUNT_DELETION_READINESS.md#minimum-recovery-coverage) before seeking activation approval. Terminal evidence remains required to close an individual ambiguous upload obligation.
 
 ## Dead part colour helpers removed (24 November 2026)
 

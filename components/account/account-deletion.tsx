@@ -31,22 +31,26 @@ function AccountDeletionWorkspace({accountId,verified}:AccountDeletionProps){
    const priorAccount=attempt.accountId;
    try{if(priorAccount){for(const storage of [sessionStorage,localStorage])for(const key of Object.keys(storage))if(key.startsWith(`physcratic.practice.v1:${encodeURIComponent(priorAccount)}:`)||key.startsWith(`physcratic:solve:v1:${priorAccount}:`))storage.removeItem(key);}}catch{/* Server receipt remains authoritative when local storage is unavailable. */}
    const receiptOnly={requestToken:attempt.requestToken};try{sessionStorage.setItem(journalKey,JSON.stringify(receiptOnly));}catch{/* Keep the receipt in memory. */}setPending(receiptOnly);
-   setMessage(receipt.state==='complete'?'The original deletion request is complete. Sign-in and ordinary private account data and registered private objects have been deleted. Approved case evidence can remain under reviewed limits.':'The original request erased sign-in and ordinary private account data. Approved case evidence can remain under reviewed limits. Private object deletion is pending. Check this receipt for completion.');
+   const fileStatus=receipt.state==='complete'
+    ?'Cleanup of files queued in this request is complete.'
+    :'Registered file cleanup is pending. You can check this receipt for updates.';
+   setMessage(`The original request removed the account’s sign-in and ordinary private data from the live service. ${fileStatus} Tally submissions and retained copies are handled separately.`);
    setConfirmation('');try{await authClient.getSession({query:{disableCookieCache:true}});}catch{/* Receipt is authoritative even if refreshing current sign-in fails. */}
   }catch{setMessage('No completion is confirmed. Keep this tab and check the original request status before trying again.');}
   finally{setPassword('');setBusy(false);}
  }
  return <section id="delete-account" aria-labelledby="delete-account-heading" className="space-y-4 rounded-2xl border bg-card p-5 sm:p-7">
   <h2 id="delete-account-heading" className="text-lg font-semibold">Delete account</h2>
-  <p className="text-sm text-muted-foreground">This permanently removes your sign-in, private work and progress. Published problems may remain as Deleted user. Uncertain publication rights restrict public display. Necessary case evidence may have reviewed, limited retention. Private object deletion can require retries.</p>
+  <p className="text-sm text-muted-foreground">Deletion removes your sign-in and ordinary private account data from the live service. File cleanup can take longer. Approved case evidence or published problems with permission to stay online may be retained.</p>
   {accountId&&<form className="space-y-4" onSubmit={event=>{event.preventDefault();void send();}}>
    <label className="block space-y-2"><span>Current password</span><Input type="password" autoComplete="current-password" value={password} onChange={event=>setPassword(event.target.value)} maxLength={128} required disabled={busy}/></label>
    <label className="block space-y-2"><span>Type DELETE MY ACCOUNT to confirm</span><Input value={confirmation} onChange={event=>setConfirmation(event.target.value)} autoComplete="off" required disabled={busy}/></label>
    <Button type="submit" variant="destructive" disabled={busy||!verified||confirmation!=='DELETE MY ACCOUNT'||!password}>Permanently delete my account</Button>
   </form>}
   <p className="text-sm"><Link className="inline-flex min-h-11 items-center underline" href="/sign-in?returnTo=%2Fsettings">Sign in again before deletion</Link></p>
+  <p className="text-sm"><Link className="inline-flex min-h-11 items-center underline" href="/privacy#privacy-requests">Help with account deletion</Link></p>
   {pending&&<Button type="button" variant="outline" disabled={busy} onClick={()=>{void send(true);}}>Check previous deletion status</Button>}
-  {pending&&complete&&<Button type="button" variant="outline" disabled={busy} onClick={()=>{try{sessionStorage.removeItem(journalKey);setPending(null);setComplete(false);setMessage('Completed receipt forgotten. You can start a new request.');}catch{setMessage('The completed receipt could not be forgotten in this browser.');}}}>Forget completed receipt</Button>}
+  {pending&&complete&&<Button type="button" variant="outline" disabled={busy} onClick={()=>{try{sessionStorage.removeItem(journalKey);setPending(null);setComplete(false);setMessage('Receipt removed from this browser.');}catch{setMessage('The receipt could not be removed from this browser.');}}}>Forget completed receipt</Button>}
   {message&&<p role="status" className="break-words text-sm">{message}</p>}
  </section>;
 }
