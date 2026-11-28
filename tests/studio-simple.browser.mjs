@@ -743,8 +743,14 @@ try {
     await studioBar(tp).getByRole("button", { name: "1 thing left" }).click();
     await studioBar(tp).getByRole("button", { name: "Details: Tick the box to say you have permission to share it." }).click();
     await tp.getByText("Tick the box to say you have permission to share it.", { exact: true }).waitFor({ timeout: 3000 });
-    await tp.getByLabel("Source", { exact: true }).fill("IPhO 2019, Problem 2");
+    // With the tick in, the same rule still needs the source. The bar says so and the item focuses the Source field.
     await tp.getByLabel(/I have permission to share this adapted problem on Physcratic/).check();
+    await until(async () => (await barStatus(tp)) === "1 thing left", "the source is still left");
+    await studioBar(tp).getByRole("button", { name: "1 thing left" }).click();
+    await studioBar(tp).getByRole("button", { name: "Details: Say where it's from." }).click();
+    await tp.getByText("Say where it's from.", { exact: true }).waitFor({ timeout: 3000 });
+    assert.equal(await tp.evaluate(() => document.activeElement?.closest("[data-simple-field]")?.getAttribute("data-simple-field")), "source", "focus is on the source");
+    await tp.getByLabel("Source", { exact: true }).fill("IPhO 2019, Problem 2");
     await tp.waitForURL((url) => url.searchParams.has("draft"));
     const tid = draftId(tp);
     await saved(tp);

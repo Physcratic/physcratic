@@ -22,7 +22,7 @@ const drafts = (): [string, EditorDraft][] => [
 ];
 
 // The fields Simple names, as simpleIssues and blockerField write them. A part's fields carry its id.
-const PART_FIELDS = ["question", "picture", "answer", "units", "solution", "options"];
+const PART_FIELDS = ["question", "picture", "answer", "units", "solution", "options", "solution-options"];
 const PROBLEM_FIELDS = ["parts", "statement", "picture:main", "title", "source", "rights", "difficulty", "topics", "options:problem", "review"];
 
 test("every Simple field belongs to exactly one step", () => {
@@ -43,15 +43,10 @@ test("every field Simple reports and every blocker field has a step", () => {
   }
 });
 
-// The part's More options is whole in Answer until 5b-2 splits it. An image in it, or in the problem's More options,
-// is fixed there, while STEP_OF_CODE puts the image rule in Question and a solution image in Worked solution.
-const SPLIT_LATER = (field: string, code: string) => code === "image-needs-alt" && field.startsWith("options:");
-
 test("every blocker code's step contains its field", () => {
   for (const [name, d] of drafts()) {
     for (const b of publishBlockers(d)) {
       const field = blockerField(b, d);
-      if (SPLIT_LATER(field, b.code)) continue;
       assert.equal(fieldStep(field), b.step, `${name}: ${b.code} is fixed in its own step, at ${field}`);
     }
   }
@@ -61,21 +56,38 @@ test("every blocker code's step contains its field", () => {
   for (const code of Object.keys(STEP_OF_CODE) as (keyof typeof STEP_OF_CODE)[]) {
     const b = { code, partId: ["part-needs-key", "reserved-variable", "reversed-variable-bounds", "empty-variable-domain", "duplicate-variable", "mismatched-private-part"].includes(code) ? partId : undefined, step: STEP_OF_CODE[code] };
     const field = blockerField(b, d);
-    if (SPLIT_LATER(field, code)) continue;
     assert.equal(fieldStep(field), STEP_OF_CODE[code], `${code}: its step holds ${field}`);
   }
 });
 
-test("only the image rule waits for 5b-2, and only in More options", () => {
+test("each undescribed image counts on the step where it is edited, with no exceptions", () => {
   const d = validDraft();
   const [a] = d.content.sections[0].parts;
   const img = (alt: string) => ({ id: randomUUID(), kind: "image" as const, mediaId: randomUUID(), alt, caption: "" });
-  const first = img("A ramp"), second = img(""), solution = img("");
+  const mainPicture = img(""), sharedSetup = img(""), first = img("A ramp"), second = img(""), hint = img(""), solution = img(""), section = img("");
+  d.content.context.push(mainPicture, sharedSetup);
+  d.content.sections[0].blocks.push(section);
   a.blocks.push(first, second);
+  d.privateParts[0].hints.push(hint);
   d.privateParts[0].solution.push(solution);
-  d.content.attachments = [first, second].map((x) => ({ id: x.mediaId, purpose: "statement-image" as const }));
-  const later = publishBlockers(d).filter((b) => fieldStep(blockerField(b, d)) !== b.step);
-  assert.deepEqual(later.map((b) => [b.code, b.blockId, blockerField(b, d)]), [["image-needs-alt", second.id, `options:${a.id}`], ["image-needs-alt", solution.id, `options:${a.id}`]]);
+  d.content.attachments = [mainPicture, sharedSetup, section, first, second].map((x) => ({ id: x.mediaId, purpose: "statement-image" as const }));
+  const where = publishBlockers(d).map((b) => [b.blockId, blockerField(b, d), b.step, stepSummary(d).counts[b.step] > 0]);
+  assert.deepEqual(where, [
+    [mainPicture.id, "picture:main", "question", true],
+    [second.id, `options:${a.id}`, "question", true],
+    [hint.id, `solution-options:${a.id}`, "worked-solution", true],
+    [solution.id, `solution-options:${a.id}`, "worked-solution", true],
+    [sharedSetup.id, "options:problem", "details", true],
+    [section.id, "options:problem", "details", true],
+  ], "in step order, each on the step that edits it");
+  for (const b of publishBlockers(d)) assert.equal(fieldStep(blockerField(b, d)), b.step, `${b.blockId} is fixed on its own step`);
+});
+
+test("the rail counts each blocker on the step that holds its field", () => {
+  for (const [name, d] of drafts()) {
+    const counts = stepSummary(d).counts;
+    for (const s of STUDIO_STEPS) assert.equal(counts[s], publishBlockers(d).filter((b) => blockerJump(b, d).step === s).length, `${name}: ${s}`);
+  }
 });
 
 test("the bar counts exactly what publishBlockers lists, and is empty exactly when the server accepts", () => {

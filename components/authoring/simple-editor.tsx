@@ -45,7 +45,7 @@ import {
   mathSymbols,
   movePart,
   partLetter,
-  partNeedsOptions,
+  partNeedsAnswerOptions,
   problemOptionsHaveContent,
   pictureOf,
   setSimpleAnswerMode,
@@ -212,6 +212,7 @@ export function SimpleEditor(props: SimpleProps) {
       // In the steps, the earliest step with something left opens, and focus goes to its first field.
       const rank = (field: string) => STUDIO_STEPS.indexOf(fieldStep(field) ?? "review");
       const first = [...issues].sort((a, b) => rank(a.field) - rank(b.field))[0];
+      if (!first) return;
       const to = fieldStep(first.field) ?? "review";
       goStep(to, issues.filter((i) => (fieldStep(i.field) ?? "review") === to).map((i) => issueTarget(i.field)));
       return;
@@ -233,7 +234,8 @@ export function SimpleEditor(props: SimpleProps) {
     const own = issues.find((issue) => issueTarget(issue.field) === issueTarget(jump.field)) ?? issues.find((issue) => fieldStep(issue.field) === jump.step);
     if (own) jump.field = own.field;
     const target = issueTarget(jump.field);
-    const said = own?.message;
+    // A rule Simple has no message for is said in the server's own words.
+    const said = own?.message ?? b.message;
     return {
       key: `${b.code}:${b.partId ?? ""}:${b.blockId ?? ""}:${i}`,
       label: said ? `${STEP_NAMES[jump.step]}: ${said}` : STEP_NAMES[jump.step],
@@ -301,6 +303,7 @@ export function SimpleEditor(props: SimpleProps) {
           unitIssue={shown(`units:${part.id}`)?.message}
           pictureIssue={shown(`picture:${part.id}`)?.message}
           optionsIssue={shown(`options:${part.id}`)?.message}
+          solutionOptionsIssue={shown(`solution-options:${part.id}`)?.message}
           touch={touch}
           edit={edit}
           onAnswer={(text) => answerChanged(part.id, text)}
@@ -439,7 +442,7 @@ export function SimpleEditor(props: SimpleProps) {
             </ul>
             {otherIssues.length > 0 && (
               <ul className="space-y-1 text-base text-destructive">
-                {otherIssues.slice(0, 4).map((m, i) => (
+                {otherIssues.map((m, i) => (
                   <li key={i}>{m} Check More options.</li>
                 ))}
               </ul>
@@ -717,7 +720,7 @@ function TopicRow({ values, change, issue }: { values: string[]; change: (values
 type PartStep = "question" | "answer" | "worked-solution";
 
 function PartEditor({
-  step, draft, partId, first, fileFirst, multipart, letter, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue, optionsIssue,
+  step, draft, partId, first, fileFirst, multipart, letter, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue, optionsIssue, solutionOptionsIssue,
   touch, edit, onAnswer, handGraded, onHandGraded, onForgetTyped, onRemove,
 }: {
   step?: PartStep;
@@ -737,6 +740,8 @@ function PartEditor({
   pictureIssue?: string;
   /** Something in More options stops Publish, such as an image in the hints without a description. */
   optionsIssue?: string;
+  /** Something in the More options on Worked solution stops Publish, such as an image in the hints without a description. */
+  solutionOptionsIssue?: string;
   touch: (field: string) => void;
   edit: SimpleProps["edit"];
   onAnswer: (text: string) => void;
@@ -764,7 +769,12 @@ function PartEditor({
   const [ownership, setOwnership] = useState({ kind: key?.kind, owns: ownsSaved });
   if (ownership.kind !== key?.kind) setOwnership({ kind: key?.kind, owns: ownsSaved });
   const owns = (ownership.kind === key?.kind ? ownership.owns : ownsSaved) && !handGraded;
-  const needsOptions = partNeedsOptions(draft, partId) || handGraded || (!owns && !!answerIssue) || !!optionsIssue;
+  // Each step has its own part of More options, and it opens for what is in it: the question extras on Question,
+  // the hints and solution extras on Worked solution, the answer settings on Answer.
+  const needsOptions =
+    step === "question" ? !!optionsIssue
+    : step === "worked-solution" ? entry.hints.length > 0 || !!solutionOptionsIssue
+    : partNeedsAnswerOptions(draft, partId) || handGraded || (!owns && !!answerIssue);
   const [optionsOpen, setOptionsOpen] = useState(needsOptions);
   useEffect(() => { if (needsOptions) setOptionsOpen(true); }, [needsOptions]);
   const section = draft.content.sections.find((s) => s.parts.some((p) => p.id === partId))!;
@@ -784,8 +794,22 @@ function PartEditor({
   );
 
   // The blocks Simple's own fields do not show. They are named in the More options summary, so an author who saved some earlier can find them.
-  const moreBlocks = extraBlocks(part.blocks, true).length + extraBlocks(entry.solution, false).length;
-  const optionsName = `${multipart ? `More options for part ${letter}` : "More options"}${moreBlocksText(moreBlocks)}`;
+  const optionsName = multipart ? `More options for part ${letter}` : "More options";
+  const questionOptionsName = `${optionsName}${moreBlocksText(extraBlocks(part.blocks, true).length)}`;
+  const solutionOptionsName = `${optionsName}${moreBlocksText(extraBlocks(entry.solution, false).length)}`;
+  /** One part of the part's More options, in the step it belongs to. */
+  const disclosure = (name: string, field: string, issue: string | undefined, body: React.ReactNode) => (
+    <div data-simple-field={field}>
+      <details className="rounded-lg border bg-card p-4" open={optionsOpen} onToggle={(e) => setOptionsOpen(e.currentTarget.open)}>
+        <summary aria-label={name} className="flex min-h-11 w-full cursor-pointer list-none items-center justify-between gap-2 text-base font-medium">
+          {name}
+          <ChevronDown aria-hidden="true" className={`size-5 shrink-0 transition-transform ${optionsOpen ? "rotate-180" : ""}`} />
+        </summary>
+        <div className={`mt-5 space-y-4 ${SIMPLE_TEXT_SCOPE}`}>{body}</div>
+      </details>
+      {issue && <ErrorLine id={`${base}-o-error`}>{issue}</ErrorLine>}
+    </div>
+  );
   const statementExtras = (
     <ExtraBlocksGroup
       summary={multipart ? `More question blocks for part ${letter}` : "More question blocks"}
@@ -854,6 +878,16 @@ function PartEditor({
         onRemove={() => edit((d) => removePicture(d, partId))}
         touch={() => touch(`picture:${partId}`)}
       />}
+      {!fileFirst && disclosure(questionOptionsName, `o:${partId}`, optionsIssue, <>
+        <Field label="Part label shown to students">
+          {(id) => <input id={id} className={fieldClass} maxLength={80} value={part.label} onChange={(e) => edit((d) => { const ref = allParts(d).find((r) => r.part.id === partId); if (ref) ref.part.label = e.target.value; })} />}
+        </Field>
+        {multipart && <div className="flex flex-wrap gap-2" role="group" aria-label={`Order of part ${letter}`}>
+          <Button type="button" variant="outline" className="min-h-11" disabled={position === 0} onClick={() => edit((d) => movePart(d, partId, -1))}><ArrowUp aria-hidden="true" className="mr-2 size-4" />Move part {letter} up</Button>
+          <Button type="button" variant="outline" className="min-h-11" disabled={position === section.parts.length - 1} onClick={() => edit((d) => movePart(d, partId, 1))}><ArrowDown aria-hidden="true" className="mr-2 size-4" />Move part {letter} down</Button>
+        </div>}
+        {statementExtras}
+      </>)}
       </>}
 
       {fileFirst ? <div className="space-y-3" data-simple-field={`a:${partId}`}>
@@ -953,8 +987,25 @@ function PartEditor({
       </div>}
 
       </>}
+      {!fileFirst && show("worked-solution") && disclosure(solutionOptionsName, `w:${partId}`, solutionOptionsIssue, <>
+        <BlocksEditor
+          scope="solution"
+          label="Hints"
+          blocks={entry.hints}
+          onChange={(hints) => edit((d) => { d.privateParts = [...d.privateParts.filter((p) => p.partId !== partId), { ...privateFor(d, partId), hints }]; })}
+        />
+        <ExtraBlocksGroup
+          summary={multipart ? `More worked solution blocks for part ${letter}` : "More worked solution blocks"}
+          label={multipart ? `Part ${letter} more solution` : "More solution"}
+          scope="solution"
+          picture={false}
+          uploadsDisabled={provisional}
+          blocks={entry.solution}
+          update={(change) => edit((d) => setSolutionBlocks(d, partId, change(privateFor(d, partId).solution)))}
+        />
+      </>)}
       {show("answer") && <TryAnswer draft={draft} partId={partId} label={letter} tour={first} />}
-      {!fileFirst && show("answer") && <div ref={optionsRef} data-simple-field={`o:${partId}`}><PartOptions
+      {!fileFirst && show("answer") && <div ref={optionsRef}><PartOptions
         part={part}
         si={draft.content.sections.indexOf(section)}
         pi={position}
@@ -967,37 +1018,19 @@ function PartEditor({
           {optionsName}
           <ChevronDown aria-hidden="true" className={`size-5 shrink-0 transition-transform ${optionsOpen ? "rotate-180" : ""}`} />
         </summary>}
-        lead={<div className="mb-6 space-y-4">
-          <Field label="Part label shown to students">
-            {(id) => <input id={id} className={fieldClass} maxLength={80} value={part.label} onChange={(e) => edit((d) => { const ref = allParts(d).find((r) => r.part.id === partId); if (ref) ref.part.label = e.target.value; })} />}
-          </Field>
-          {multipart && <div className="flex flex-wrap gap-2" role="group" aria-label={`Order of part ${letter}`}>
-            <Button type="button" variant="outline" className="min-h-11" disabled={position === 0} onClick={() => edit((d) => movePart(d, partId, -1))}><ArrowUp aria-hidden="true" className="mr-2 size-4" />Move part {letter} up</Button>
-            <Button type="button" variant="outline" className="min-h-11" disabled={position === section.parts.length - 1} onClick={() => edit((d) => movePart(d, partId, 1))}><ArrowDown aria-hidden="true" className="mr-2 size-4" />Move part {letter} down</Button>
-          </div>}
-          {statementExtras}
-          <ExtraBlocksGroup
-            summary={multipart ? `More worked solution blocks for part ${letter}` : "More worked solution blocks"}
-            label={multipart ? `Part ${letter} more solution` : "More solution"}
-            scope="solution"
-            picture={false}
-            uploadsDisabled={provisional}
-            blocks={entry.solution}
-            update={(change) => edit((d) => setSolutionBlocks(d, partId, change(privateFor(d, partId).solution)))}
-          />
-        </div>}
         answer={{
           boxOwns: owns,
           solutionElsewhere: true,
           manualLabel: "Students explain, no automatic check",
           placeholder: (!key || key.kind === "manual") && !handGraded ? "Set by the final answer above" : undefined,
           hideManualButton: true,
+          hintsElsewhere: true,
           onChosen: (mode) => onHandGraded(mode === "manual"),
           setMode: setSimpleAnswerMode,
           // Simple text is 16px.
           bodyClass: SIMPLE_TEXT_SCOPE,
         }}
-      />{optionsIssue && <ErrorLine id={`${base}-o-error`}>{optionsIssue}</ErrorLine>}</div>}
+      /></div>}
     </section>
   );
 }

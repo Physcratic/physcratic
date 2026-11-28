@@ -543,9 +543,13 @@ export function setSimpleAnswerMode(d: EditorDraft, partId: string, mode: "numer
 }
 /** True when More options holds something other than the defaults, so it should start open. */
 export function partNeedsOptions(d: EditorDraft, partId: string): boolean {
+  return privateFor(d, partId).hints.length > 0 || partNeedsAnswerOptions(d, partId);
+}
+/** The answer settings hold more than the defaults, or the box cannot show the answer. */
+export function partNeedsAnswerOptions(d: EditorDraft, partId: string): boolean {
   const entry = privateFor(d, partId);
   const key = entry.key;
-  if (entry.hints.length > 0 || !boxOwnsAnswer(entry)) return true;
+  if (!boxOwnsAnswer(entry)) return true;
   if (key?.kind === "numeric") return key.absTol !== DEFAULT_ABS_TOL || key.relTol !== DEFAULT_REL_TOL;
   if (key?.kind === "expression")
     return key.angleUnit !== "radians" || key.exclusions.length > 0 || key.variables.some((v) => v.min !== undefined || v.max !== undefined || v.assumptions.length > 0);
@@ -658,7 +662,7 @@ export function issueTarget(blocker: PublishBlocker, draft: EditorDraft): string
 export function issueTarget(field: string | PublishBlocker, draft?: EditorDraft): string {
   if (typeof field !== "string") return issueTarget(draft ? blockerField(field, draft) : "options:problem");
   const [kind, id] = field.split(":");
-  return kind === "question" ? `q:${id}` : kind === "answer" ? `a:${id}` : kind === "units" ? `u:${id}` : kind === "picture" ? `p:${id}` : kind === "solution" ? `s:${id}` : kind === "options" ? `o:${id}` : kind;
+  return kind === "question" ? `q:${id}` : kind === "answer" ? `a:${id}` : kind === "units" ? `u:${id}` : kind === "picture" ? `p:${id}` : kind === "solution" ? `s:${id}` : kind === "options" ? `o:${id}` : kind === "solution-options" ? `w:${id}` : kind;
 }
 export type SimpleIssue = { field: string; message: string };
 /** `reads` holds what the author has typed for each part's answer, when it differs from the saved key. */
@@ -681,8 +685,10 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
     const entry = privateFor(d, part.id);
     // The server also wants a description for every image in the hints and the worked solution.
     const undescribed = (blocks: readonly EditorBlock[]) => blocks.some((b) => b.kind === "image" && !b.alt.trim());
-    if (undescribed(entry.hints)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the hints." });
-    if (undescribed(entry.solution)) issues.push({ field: `options:${part.id}`, message: "Describe each image in the worked solution, in More options." });
+    // In the steps, the hints and extra solution blocks are in the More options on Worked solution.
+    const solutionOptions = fileFirst ? `options:${part.id}` : `solution-options:${part.id}`;
+    if (undescribed(entry.hints)) issues.push({ field: solutionOptions, message: "Describe each image in the hints." });
+    if (undescribed(entry.solution)) issues.push({ field: solutionOptions, message: "Describe each image in the worked solution, in More options." });
     // Simple asks for a worked solution. Older problems can still publish without one.
     if (!fileFirst && neverPublished && !blocksSpans(entry.solution).some((s) => (s.kind === "text" ? s.text.trim() : s.latex.trim())))
       issues.push({ field: `solution:${part.id}`, message: "Add the worked solution." });
@@ -713,7 +719,7 @@ export function simpleIssues(d: EditorDraft, reads: Readonly<Record<string, stri
   const serverSays = (code: IssueCode, message: string) => server.some((i) => isCode(i, new Set([code]), message));
   const covered = (pattern: RegExp) => issues.some((i) => pattern.test(i.field));
   const inOptions = (message: string) => issues.push({ field: "options:problem", message });
-  if (serverSays("image-needs-alt", ALT_RULE) && !covered(/^(picture|options):/)) inOptions(PROBLEM_MESSAGES.images);
+  if (serverSays("image-needs-alt", ALT_RULE) && !covered(/^(picture|options|solution-options):/)) inOptions(PROBLEM_MESSAGES.images);
   if (serverSays("missing-title-or-rights", PROVENANCE_RULE) && !covered(/^(title|source|rights)$/)) inOptions(PROBLEM_MESSAGES.source);
   // Any tag problem is Simple's to word, so the server's own line is not shown beside it. Only a repeat has a message of its own.
   const tagIssues = (list: "methodTags" | "topicTags") => server.filter((i) => i.path[0] === "content" && i.path[1] === list);

@@ -15,14 +15,15 @@ export const STEP_NAMES: Record<StudioStep, string> = {
   review: "Review",
 };
 
-/** The steps of the fields of a part. The part's More options is whole in Answer for now. */
+/** The steps of the fields of a part. Its More options is split: label, order and extra question blocks on Question, answer settings on Answer, hints and extra solution blocks on Worked solution. */
 const PART_FIELD_STEP: Record<string, StudioStep> = {
   question: "question",
   picture: "question",
+  options: "question",
   answer: "answer",
   units: "answer",
-  options: "answer",
   solution: "worked-solution",
+  "solution-options": "worked-solution",
 };
 /** The fields of the whole problem. */
 const PROBLEM_FIELD_STEP: Record<string, StudioStep> = {
@@ -54,10 +55,10 @@ export function blockerJump(b: PublishBlocker, d: EditorDraft): { step: StudioSt
 /** The bar's words for how much is left. */
 export const barText = (count: number) => (count === 0 ? "Ready to publish" : count === 1 ? "1 thing left" : `${count} things left`);
 
-/** Everything the rail and the bar show, from the server's own rules. */
+/** Everything the rail and the bar show, from the server's own rules. Each blocker counts on the step its field is on. */
 export function stepSummary(d: EditorDraft) {
   const blockers = publishBlockers(d);
   const counts = Object.fromEntries(STUDIO_STEPS.map((s) => [s, 0])) as Record<StudioStep, number>;
-  for (const b of blockers) counts[b.step]++;
+  for (const b of blockers) counts[blockerJump(b, d).step]++;
   return { blockers, counts, text: barText(blockers.length) };
 }
