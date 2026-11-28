@@ -14,7 +14,10 @@ import { AuthoredPdf, StatementPdfs } from "@/components/authored/statement-pdfs
 import useSWR from "swr";
 import { Button } from "@/components/ui/button";
 import { ErrorText } from "./studio-ui";
+import { PdfDropZone, deleteUpload, uploadPdf, type PdfAssignment } from "./pdf-drop";
+import { useConfirm } from "./confirm-sheet";
 import {
+  collectAuthorMedia,
   authorMediaMaxBytes,
   authorMediaPath,
   authorMediaPurpose,
@@ -225,7 +228,29 @@ export function MediaAttachments({
   const pdfs = draft.content.attachments.filter((a) =>
     a.purpose.endsWith("pdf"),
   );
+  const { problemId, pending } = ctx;
+  /** A drop here attaches to this draft. A dropped PDF takes the place of the one with the same purpose. */
+  async function attach(dropped: PdfAssignment[]) {
+    const done: (AuthorMediaInfo & { purpose: PdfAssignment["purpose"] })[] = [];
+    pending(1);
+    try {
+      for (const { file, purpose } of dropped) done.push({ ...(await uploadPdf(problemId, file, purpose)), purpose });
+    } catch (e) {
+      // Nothing is half attached: an upload that went through before the failure is deleted again.
+      const kept = (await Promise.allSettled(done.map((f) => deleteUpload(problemId, f.id)))).filter((r) => r.status === "rejected").length;
+      const why = e instanceof Error ? e.message : "Upload failed.";
+      return { error: `${why} ${kept ? `${kept} uploaded ${kept === 1 ? "file was" : "files were"} kept and not attached.` : "Nothing was attached."}` };
+    } finally {
+      pending(-1);
+    }
+    edit((d) => {
+      for (const f of done) d.content.attachments = [...d.content.attachments.filter((a) => a.purpose !== f.purpose), { id: f.id, purpose: f.purpose }];
+    });
+    void mutate((previous = []) => [...previous, ...done], { revalidate: false });
+    return { done: `Attached ${done.map((f) => f.filename).join(" and ")}.` };
+  }
   const body = <>
+      <PdfDropZone disabled={ctx.disabled} onPdfs={attach} />
       <div className="grid gap-6 sm:grid-cols-2">
         {(["statement-pdf", "solution-pdf"] as const).filter(purpose => !pdfs.some(ref => ref.purpose === purpose)).map((purpose) => (
           <UploadControl
@@ -287,4 +312,44 @@ export function MediaAttachments({
 
     </>;
   return <section aria-label="Problem PDFs" className="space-y-4">{body}</section>;
+}
+
+/**
+ * Delete old uploads: this problem's files that no saved draft, no published version and no unsaved edit here uses.
+ * The server checks the saved draft and the published versions again, and keeps any file one of them still uses.
+ */
+export function OldUploads({ draft }: { draft: EditorDraft }) {
+  const ctx = useContext(context);
+  const confirm = useConfirm();
+  const [busy, setBusy] = useState(false), [note, setNote] = useState("");
+  const { data: files = [], mutate } = useSWR<AuthorMediaInfo[]>(
+    ctx ? [`${editorBase}/${ctx.problemId}/media`, draft.version] : null,
+    async ([url]: [string, number]) => (await draftRequest(url)).files,
+    { revalidateOnFocus: false },
+  );
+  if (!ctx) return null;
+  let used: Set<string>;
+  try { used = new Set(collectAuthorMedia(draft.content, draft.privateParts).map((r) => r.id)); } catch { return null; }
+  const old = files.filter((f) => !f.inDraft && !f.inHistory && !used.has(f.id));
+  if (!old.length && !note) return null;
+  const problemId = ctx.problemId;
+  return (
+    <div className="space-y-2">
+      {old.length > 0 && (
+        <Button type="button" variant="outline" className="min-h-11 border-2 text-base" disabled={busy || ctx.disabled} onClick={async () => {
+          const count = `${old.length} ${old.length === 1 ? "upload" : "uploads"}`;
+          if (!(await confirm({ title: "Delete old uploads?", message: `${count} that this draft and its published versions do not use will be deleted. This cannot be undone.`, confirmLabel: "Delete uploads", danger: true }))) return;
+          setBusy(true);
+          const results = await Promise.allSettled(old.map((f) => deleteUpload(problemId, f.id)));
+          const refused = results.filter((r): r is PromiseRejectedResult => r.status === "rejected");
+          setNote(`Deleted ${results.length - refused.length} of ${old.length}.${refused.length ? ` ${refused[0].reason instanceof Error ? refused[0].reason.message : "Some were kept."}` : ""}`);
+          await mutate();
+          setBusy(false);
+        }}>
+          Delete old uploads
+        </Button>
+      )}
+      {note && <p role="status" className="text-base">{note}</p>}
+    </div>
+  );
 }
