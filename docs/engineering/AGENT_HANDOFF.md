@@ -1,5 +1,11 @@
 # Agent handoff
 
+## Dedicated favourite cursor configuration (28 November 2026)
+
+[Implementation checkpoint 6ae0f90](https://github.com/Physcratic/physcratic/commit/6ae0f900ffa58d2b3accef53906d7c724512dc72) adds an optional FAVOURITE_HISTORY_CURSOR_SECRET, allowing retrieval to be configured independently of authentication. A valid dedicated key takes precedence. An explicitly invalid dedicated key fails closed, and an absent dedicated setting retains the existing BETTER_AUTH_SECRET fallback. Authentication, personal completions, gates, grants and data are unchanged. The real-LOGIN test now proves the route's cursor opens with the dedicated key and rejects the different authentication key. [Configuration and release boundaries](FAVOURITE_RETRIEVAL.md#cursor-key-configuration).
+
+Local configuration/guard/projection checks pass (four pass, one PostgreSQL skip), along with type generation, TypeScript and scoped zero-warning lint. Exact-head CI and the PostgreSQL rehearsal remain required. Keep this change draft and unmerged pending explicit owner release approval: current operator-observed main deployment behavior must be reconciled with the manual-release policy. No Production setting, key or flag change is authorized by this code. Retrieval stays OFF by default. Actual serving-binding confirmation and designated-account browser acceptance remain open. F5 saving stays deferred.
+
 ## Favourite retrieval restricted-LOGIN rehearsal (27 November 2026)
 
 [PR #274](https://github.com/Physcratic/physcratic/pull/274) adds `tests/favourite-history-runtime.pg.test.ts` in a focused disposable PostgreSQL 18.7 workflow. It exercises singleton route exports with real Better Auth cookies and a separate non-owner LOGIN, reusing the unchanged reviewed baseline and Batch A favourites grants with the existing id-column correction. Assertions cover disabled gates, missing permissions, effective-grant audit, real heart writes and publication, mixed owner pages, archived content, private cache headers, guest/stale/expired/signed-out sessions and unchanged other-account quota. Forbidden profile, practice, totals, user-delete and identity-update rights remain denied. No application, grant package or release-manifest changes.
