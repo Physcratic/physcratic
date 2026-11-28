@@ -1,0 +1,193 @@
+From 740b2358403fbbeb427b8f321459704d124d0240 Mon Sep 17 00:00:00 2001
+From: Eagan Kristian <193587118+eagan961@users.noreply.github.com>
+Date: Sat, 28 Nov 2026 23:04:15 +0800
+Subject: [PATCH] fix: verify installer TLS on the client connection
+
+---
+ .../account-deletion-0026/PACKAGE_SHA256SUMS  |  8 +--
+ scripts/account-deletion-0026/README.md       |  2 +-
+ scripts/account-deletion-0026/install.ps1     | 14 ++--
+ scripts/account-deletion-0026/operate.sql     |  7 +-
+ .../account-deletion-0026/rehearse-local.sh   | 64 ++++++++++++++++++-
+ 5 files changed, 79 insertions(+), 16 deletions(-)
+
+diff --git a/scripts/account-deletion-0026/PACKAGE_SHA256SUMS b/scripts/account-deletion-0026/PACKAGE_SHA256SUMS
+index acabd42..4a667ce 100644
+--- a/scripts/account-deletion-0026/PACKAGE_SHA256SUMS
++++ b/scripts/account-deletion-0026/PACKAGE_SHA256SUMS
+@@ -1,7 +1,7 @@
+ 3b904c1eb01fc75e5446744acc90474cdbe4aba62c6dffc95b9f7c35bfc6c78a  migrations/0026_account_deletion_blockers.up.sql
+-2a49b40fb561c35abbb5ff4917cd76de5c95fe2d897458f1d04e76461e3c2860  scripts/account-deletion-0026/install.ps1
+-30726ce4cba4889bf19ac4bc89a51f3a7bb0b2b843aa11c0622c211aa1a3b8cf  scripts/account-deletion-0026/operate.sql
++559e231de254569ab1ff7d4f3d211dfec81619dcdc502224c5c75c64aabee7cd  scripts/account-deletion-0026/install.ps1
++41645a1f809598c724eeca24baacc84dde0cefd4b02b174ece470c8e32309329  scripts/account-deletion-0026/operate.sql
+ 6c432929ed192812a5bdbc049917c840280a264b169ba8446cb2bc7e2e107dbc  scripts/account-deletion-0026/approval-template.json
+-a3a9e56a0d5364b3c3ecf464a2b70a5b121b3bb8ea002f152e456176fcec54fe  scripts/account-deletion-0026/rehearse-local.sh
++3aa804ba8220ad997ab523e85a0cc3a24ef4096412bd85cda0e0690f93ffda6e  scripts/account-deletion-0026/rehearse-local.sh
+ 4a08691456988ffc0705a7700988c71fb1ef4453059fb066ccc987c9b2dd4c68  scripts/account-deletion-0026/sdk-probe.mjs
+-4e3c19087c9ae063814f3197b701ca43096f5cdb67c851f8d522066719861cb7  scripts/account-deletion-0026/README.md
++44a7a0639e3b4bf6630c7bcf3878990abb6be0043208684568fc9ff735d4c3d5  scripts/account-deletion-0026/README.md
+diff --git a/scripts/account-deletion-0026/README.md b/scripts/account-deletion-0026/README.md
+index b8731ac..62085c9 100644
+--- a/scripts/account-deletion-0026/README.md
++++ b/scripts/account-deletion-0026/README.md
+@@ -31,7 +31,7 @@ Without provider confirmation, full closeout stays blocked. A separate staged ap
+ 
+ 1. Approve the reviewed repository checkout and manifest, the exact Neon project, branch and direct endpoint, the actual production LOGIN and migration owner, and the serving commit and flag evidence. Verify the direct hostname against the provider console and the serving database binding independently. The installer checks TLS, database, LOGIN, effective migration owner and version. SQL cannot attest which Neon branch a hostname is routed to.
+ 
+-   Phase 5A accepted verified client TLS even though the tested server reported `pg_stat_ssl.ssl=false`. This installer still requires backend SSL. If the separately authorized 0026 direct endpoint reports the same result, the installer rejects it. Stop and obtain a separately reviewed same-connection client TLS qualification for the installer. The accepted baseline audit does not override this guard.
++   The installer forces libpq to verify the direct hostname and the approved CA using `sslmode=verify-full`, with GSS encryption disabled. One psql connection emits `\conninfo` and performs the pinned SQL. The SQL reports compute-leg TLS separately. A verified TLS connection to the approved proxy can have `backend_ssl=f` on the compute leg. Preserve the provider binding evidence and the same invocation's output.
+ 2. Approve recovery instructions, name the executor and independent witness, and name who can reopen writes. Record the actual recoverable point and permissions in the private plan. Test restore with access closed, including the outbox, paths, ledger, and prior erasure obligations. Use the common migration advisory-lock key. Keep the existing approved writer and DDL hold mechanism active. A recovery point is for incident management under the approved restore process.
+ 3. Under separately approved owner change control, stage and manually serve the reviewed code with **`VERCEL_BLOB_RETRIES=0`** and **`ACCOUNT_DELETION_ENABLED` unset** before upgraded-schema uploads are admitted. On 0026 the code rejects new reservations before provider I/O unless that setting and the narrow acknowledgement grant are present. The SDK setting also limits retries on other SDK calls that use its shared API request path. Existing outbox backoff still governs deletion retries.
+ 4. Fence all upload **and cleanup** writers before gathering the held baseline. Cover the main and alternate deployment hosts, existing aliases, direct endpoints, older eligible previews and any standalone store writers or tokens with write authority. Include author media, legacy solution evidence, profile media, internal medal proof and the erasure operator. Keep disabled namespaces disabled. Verify on the existing infrastructure that old code cannot accept another write, and record the fence start and verified scopes. Draining app traffic and credentials does not prove earlier provider work has stopped.
+diff --git a/scripts/account-deletion-0026/install.ps1 b/scripts/account-deletion-0026/install.ps1
+index 39a3e3d..8d97afd 100644
+--- a/scripts/account-deletion-0026/install.ps1
++++ b/scripts/account-deletion-0026/install.ps1
+@@ -90,8 +90,8 @@ if ($Action -eq 'Install') {
+     $windowEndSql = $windowEnd.UtcDateTime.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'", [Globalization.CultureInfo]::InvariantCulture)
+ }
+ 
+-foreach ($variable in @('PGSERVICE','PGSERVICEFILE','PGHOSTADDR','PGOPTIONS','PGPASSWORD')) {
+-    if ([Environment]::GetEnvironmentVariable($variable)) { throw "Clear $variable before running this package." }
++foreach ($variable in @('PGSERVICE','PGSERVICEFILE','PGHOSTADDR','PGOPTIONS','PGPASSWORD','PGSSLNEGOTIATION')) {
++    if (Test-Path -LiteralPath ('Env:' + $variable)) { throw "Clear $variable before running this package." }
+ }
+ if ($env:PGSSLMODE -cne 'verify-full' -or -not $env:PGSSLROOTCERT -or
+     -not (Test-Path -LiteralPath $env:PGSSLROOTCERT -PathType Leaf)) {
+@@ -111,12 +111,13 @@ if (-not $wrapper.Success -or [regex]::Matches($sql, [regex]::Escape($marker)).C
+ $body = if ($Action -eq 'Install') { $wrapper.Groups['body'].Value } else { '' }
+ $assembled = $sql.Replace($marker, $body)
+ $temp = [IO.Path]::GetTempFileName()
+-$previousConnectTimeout = $env:PGCONNECT_TIMEOUT
+ try {
+-    $env:PGCONNECT_TIMEOUT = '5'
+     [IO.File]::WriteAllText($temp, $assembled, $utf8)
+-    $arguments = @('-X','--no-password','--set=ON_ERROR_STOP=1',"--file=$temp",
+-        "--host=$($target.endpoint)","--port=$($target.port)","--dbname=$($target.database)","--username=$($target.loginRole)",
++    # libpq verifies the approved hostname and CA before running any commands.
++    # The two actions run on one connection. The pinned SQL has no reconnect.
++    $connection = "host=$($target.endpoint) port=$($target.port) dbname=$($target.database) user=$($target.loginRole) sslmode=verify-full gssencmode=disable connect_timeout=5"
++    $arguments = @('-X','--no-password','--set=ON_ERROR_STOP=1','--command=\conninfo',"--file=$temp",
++        "--dbname=$connection",
+         "--set=install=$($Action -eq 'Install')","--set=verify=$($Action -eq 'Verify')",
+         "--set=expected_database=$($target.database)","--set=expected_login=$($target.loginRole)",
+         "--set=migration_owner=$($target.migrationOwner)","--set=runtime_role=$($target.runtimeRole)",
+@@ -126,6 +127,5 @@ try {
+     & $psql @arguments
+     if ($LASTEXITCODE -ne 0) { throw "psql exited with status $LASTEXITCODE. Inspect the target independently before any retry." }
+ } finally {
+-    $env:PGCONNECT_TIMEOUT = $previousConnectTimeout
+     Remove-Item -LiteralPath $temp -Force
+ }
+diff --git a/scripts/account-deletion-0026/operate.sql b/scripts/account-deletion-0026/operate.sql
+index 0ba38b2..af64d6a 100644
+--- a/scripts/account-deletion-0026/operate.sql
++++ b/scripts/account-deletion-0026/operate.sql
+@@ -12,12 +12,13 @@ SET LOCAL idle_in_transaction_session_timeout = '30s';
+ 
+ SELECT current_database() = :'expected_database' AND session_user = :'expected_login'
+  AND current_user = session_user AND pg_is_in_recovery() = false
+- AND current_setting('server_version_num') = :'expected_version'
+- AND EXISTS (SELECT 1 FROM pg_stat_ssl WHERE pid=pg_backend_pid() AND ssl) AS expected_target \gset
++ AND current_setting('server_version_num') = :'expected_version' AS expected_target \gset
+ \if :expected_target
+ \else
+-DO $$ BEGIN RAISE EXCEPTION 'Unexpected database, login, server version, recovery or TLS state'; END $$;
++DO $$ BEGIN RAISE EXCEPTION 'Unexpected database, login, server version or recovery state'; END $$;
+ \endif
++-- This observes the compute leg. libpq independently requires verified client TLS.
++SELECT ssl AS backend_ssl, version AS backend_tls_protocol FROM pg_stat_ssl WHERE pid=pg_backend_pid();
+ SET LOCAL ROLE :"migration_owner";
+ SELECT current_user = :'migration_owner' AND current_schema() = 'public'
+  AND NOT (SELECT rolsuper FROM pg_roles WHERE rolname=current_user) AS expected_owner \gset
+diff --git a/scripts/account-deletion-0026/rehearse-local.sh b/scripts/account-deletion-0026/rehearse-local.sh
+index 613fb85..ffa0742 100755
+--- a/scripts/account-deletion-0026/rehearse-local.sh
++++ b/scripts/account-deletion-0026/rehearse-local.sh
+@@ -2,12 +2,13 @@
+ # Disposable loopback database only. Use the actual PowerShell and psql package.
+ set -euo pipefail
+ cd "$(dirname "$0")/../.."
+-command -v pwsh psql openssl >/dev/null
++command -v pwsh psql openssl node >/dev/null
+ docker_local=(env -u DOCKER_HOST -u DOCKER_CONTEXT -u DOCKER_TLS -u DOCKER_TLS_VERIFY -u DOCKER_CERT_PATH docker --host=unix:///var/run/docker.sock)
+ scratch=$(mktemp -d)
+ container="physcratic-0026-rehearsal-$$"
+ started=false
+ cleanup() {
++  if [[ -n ${proxy_pid:-} ]]; then kill "$proxy_pid" 2>/dev/null || true; fi
+   if [[ "$started" == true ]]; then "${docker_local[@]}" rm -f "$container" >/dev/null; fi
+   rm -rf -- "$scratch"
+ }
+@@ -91,6 +92,67 @@ operate() {
+   pwsh -NoProfile -File "$package/install.ps1" -Action "$action" -PackageCommit "$commit" -ManifestSha256 "$manifest" -Plan "$plan" -PlanSha256 "$digest"
+ }
+ operate Inspect > "$scratch/inspect.log"
++# A separate plaintext compute verifies that the installer relies on
++# client certificate and hostname verification on a TLS-terminating endpoint.
++db -c "ALTER SYSTEM SET ssl='off'" -c 'SELECT pg_reload_conf()' >/dev/null
++for attempt in {1..20}; do
++  if [[ $(db -Atc 'SHOW ssl') == off ]]; then break; fi
++  sleep 0.1
++done
++[[ $(db -Atc 'SHOW ssl') == off ]]
++node --input-type=module - "$port" "$scratch" <<'JS' > "$scratch/tls-proxy.port" &
++import { readFileSync } from 'node:fs';
++import { createConnection, createServer } from 'node:net';
++import { createSecureContext, TLSSocket } from 'node:tls';
++const [port, dir] = process.argv.slice(2);
++const secureContext = createSecureContext({ cert:readFileSync(dir+'/server.crt'), key:readFileSync(dir+'/server.key') });
++const server = createServer(raw => {
++  raw.once('data', request => {
++    if (request.length !== 8 || request.readInt32BE(0) !== 8 || request.readInt32BE(4) !== 80877103) return raw.destroy();
++    raw.write('S');
++    const client = new TLSSocket(raw, { isServer:true, secureContext });
++    const backend = createConnection({ host:'127.0.0.1', port:Number(port) });
++    client.on('error', () => backend.destroy());
++    backend.on('error', () => client.destroy());
++    client.on('close', () => backend.destroy());
++    backend.on('close', () => client.destroy());
++    client.pipe(backend).pipe(client);
++  });
++});
++server.listen(0,'127.0.0.1',()=>console.log(server.address().port));
++JS
++proxy_pid=$!
++for attempt in {1..20}; do
++  [[ ! -s "$scratch/tls-proxy.port" ]] || break
++  sleep 0.1
++done
++proxy_port=$(cat "$scratch/tls-proxy.port")
++[[ "$proxy_port" =~ ^[0-9]+$ ]]
++printf '127.0.0.1:%s:physcratic_0026_test:synthetic_0026_operator:operator-local-only
++' "$proxy_port" >> "$PGPASSFILE"
++direct_plan=$plan
++plan="$scratch/proxy plan.json"
++python3 - "$direct_plan" "$plan" "$proxy_port" <<'PYTHON'
++import json, sys
++with open(sys.argv[1]) as f:
++    target = json.load(f)
++target["port"] = int(sys.argv[3])
++with open(sys.argv[2], "w") as f:
++    json.dump(target, f)
++PYTHON
++operate Inspect > "$scratch/proxy.log"
++grep -Eq 'SSL [Cc]onnection.*(true|protocol: TLSv1\.[23])' "$scratch/proxy.log"
++grep -Eq '^ +f +\|' "$scratch/proxy.log"
++plan=$direct_plan
++if operate Inspect > "$scratch/plaintext.log" 2>&1; then echo 'Expected plaintext refusal' >&2; exit 1; fi
++grep -q 'server does not support SSL' "$scratch/plaintext.log"
++db -c "ALTER SYSTEM SET ssl='on'" -c 'SELECT pg_reload_conf()' >/dev/null
++for attempt in {1..20}; do
++  if [[ $(db -Atc 'SHOW ssl') == on ]]; then break; fi
++  sleep 0.1
++done
++[[ $(db -Atc 'SHOW ssl') == on ]]
++echo 'PASS same-connection client TLS with plaintext compute, and direct plaintext refusal'
+ python3 - "$plan" "$scratch/inspect.log" <<'PY'
+ import json,re,sys
+ with open(sys.argv[1]) as file:
+-- 
+2.52.0
+
