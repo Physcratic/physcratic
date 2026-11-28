@@ -54,7 +54,9 @@ CREATE TABLE "user"(id text PRIMARY KEY,name text,email text,"emailVerified" boo
 CREATE TABLE account(id text PRIMARY KEY,"userId" text,"providerId" text,password text);
 CREATE TABLE session(id text PRIMARY KEY,"userId" text,token text,"createdAt" timestamptz,"expiresAt" timestamptz);
 CREATE TABLE contest(id uuid PRIMARY KEY);
-CREATE TABLE solution_evidence(id uuid PRIMARY KEY,"userId" text,pathname text NOT NULL,filename text);
+-- The frozen pre-authoring catalogue includes this validated unique constraint and its backing index.
+CREATE TABLE solution_evidence(id uuid PRIMARY KEY,"userId" text,pathname text NOT NULL,filename text,
+ CONSTRAINT solution_evidence_pathname_key UNIQUE(pathname));
 CREATE TABLE physcratic_production_migrations(
  id text PRIMARY KEY,sha256 text NOT NULL CHECK(sha256 ~ '^[0-9a-f]{64}$'),
  source_commit text NOT NULL,applied_at timestamptz NOT NULL DEFAULT clock_timestamp(),
@@ -169,6 +171,56 @@ verify() {
 later=0026_account_deletion_blockers
 verify core core > "$scratch/core.result.json"
 verify "$later" "$later" > "$scratch/full.result.json"
+node --input-type=module - "$scratch" "$manifest" <<'JS'
+import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { readFileSync as read, writeFileSync as write } from 'node:fs';
+const [dir, manifest] = process.argv.slice(2);
+const planPath = dir+'/core.plan.json';
+const planDigest = createHash('sha256').update(read(planPath)).digest('hex');
+const base = JSON.parse(read(dir+'/core.json'));
+const changed = key => ({ check:'catalogue definition or state', key });
+const membership = (state, key) => ({ check:'catalogue objects', state, key });
+const fixtures = [
+  {
+    kind:'constraint',
+    value:['UNIQUE (pathname)',true,true,false,false,[]],
+    alternate:'UNIQUE NULLS NOT DISTINCT (pathname)',
+  },
+  {
+    kind:'index',
+    value:['CREATE UNIQUE INDEX solution_evidence_pathname_key ON public.solution_evidence USING btree (pathname)',true,true,true,false,[]],
+    alternate:'CREATE INDEX solution_evidence_pathname_key ON public.solution_evidence USING btree (pathname)',
+  },
+];
+for (const { kind, value, alternate } of fixtures) {
+  const key = kind+':solution_evidence.solution_evidence_pathname_key';
+  const extra = kind+':solution_evidence.unreviewed_pathname_key';
+  assert.deepEqual(base.catalogue[key], value, key);
+  const cases = [
+    ['missing', catalogue => { delete catalogue[key]; }, membership('missing',key)],
+    ['altered', catalogue => { catalogue[key][0] = alternate; }, changed(key)],
+    ['invalid', catalogue => { catalogue[key][1] = false; }, changed(key)],
+    ['unexpected', catalogue => {
+      catalogue[extra] = [value[0].replace('solution_evidence_pathname_key','unreviewed_pathname_key'),...value.slice(1)];
+    }, membership('unexpected',extra)],
+  ];
+  for (const [name, mutate, finding] of cases) {
+    const replay = structuredClone(base);
+    mutate(replay.catalogue);
+    const path = dir+'/'+name+'-pathname-'+kind+'.json';
+    write(path,JSON.stringify(replay));
+    const result = spawnSync(process.execPath, ['scripts/retrospective-baseline/verify.mjs',planPath,planDigest,manifest,path],
+      { encoding:'utf8' });
+    assert.equal(result.status,2,result.stderr || name+' '+kind);
+    const report = JSON.parse(result.stdout);
+    assert.equal(report.status,'DRIFT_OR_UNVERIFIED');
+    assert.deepEqual(report.findings,[finding]);
+  }
+}
+console.log('PASS offline refusal of missing, altered, invalid and unexpected pathname constraints and indexes');
+JS
 if node "$package/verify.mjs" "$scratch/core.plan.json" "$(printf '%064d' 0)" "$manifest" "$scratch/core.json" > "$scratch/checksum.log" 2>&1; then
   echo 'Expected checksum refusal' >&2; exit 1
 fi
