@@ -273,6 +273,9 @@ try {
     // The five Studio steps, in both modes too.
     const {runStudioStepsBrowser} = await import("./studio-steps.browser.mjs");
     await runStudioStepsBrowser({browser, origin, pool, AxeBuilder});
+    // PDF drops on My drafts and in the editor, in both modes too.
+    const {runPdfDropBrowser} = await import("./pdf-drop.browser.mjs");
+    await runPdfDropBrowser({browser, origin, pool, AxeBuilder, storage: mediaStorage, setFail: (count) => { failNext = count; }});
   }
   if (process.env.PDF_STUDIO_ONLY === "1") {
     const {runPdfStudioBrowser} = await import("./pdf-studio.browser.mjs");

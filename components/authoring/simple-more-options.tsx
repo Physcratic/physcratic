@@ -6,6 +6,7 @@ import { moveItem, type EditorDraft } from "@/lib/problem-authoring-editor";
 import { BlocksEditor, Field, inputClass, OrderControls } from "./editor-fields";
 import { useConfirm } from "./confirm-sheet";
 import { ProvenanceFields } from "./advanced-provenance";
+import { OldUploads } from "./media-controls";
 import { UnpublishZone } from "./advanced-unpublish";
 import { SolutionPermissions } from "./solution-permissions";
 import { MissingTagNote, TagPicker } from "./tag-picker";
@@ -130,6 +131,7 @@ export function ProblemMoreOptions({
           <h3 id="simple-source-h" className={heading}>Source and rights in your own words</h3>
           <ProvenanceFields provenance={draft.content.provenance} edit={edit} />
         </section>
+        <OldUploads draft={draft} />
         {published && !draft.publishedSolutionPolicy && <SolutionPermissions key={draft.problemId} problemId={draft.problemId} />}
         {published && onUnpublish && <UnpublishZone disabled={false} onUnpublish={onUnpublish} />}
       </div>

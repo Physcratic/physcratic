@@ -6,12 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ErrorText, HowItWorksLink, RecoverySection, studioTokens } from "./studio-ui";
 import {
+  draftPayload,
   draftRequest,
   editorBase,
   editorDraftSchema,
   newProblem,
   type EditorDraft,
 } from "@/lib/problem-authoring-editor";
+import { PdfDropZone, deleteUpload, uploadPdf, type DropProgress, type DropResult, type PdfAssignment } from "./pdf-drop";
 import { AuthorCredit } from "./author-credit";
 import { ProblemEditor } from "./problem-editor";
 import { ConfirmProvider, useConfirm } from "./confirm-sheet";
@@ -101,6 +103,45 @@ function WorkspaceBody({
     } finally {
       setBusy(false);
     }
+  }
+  /**
+   * A PDF drop on My drafts: one new draft, the files uploaded to it and saved as its attachments, then it opens.
+   * If a step fails, what was made is taken away again, uploads first and the draft last. Anything that cannot be is named.
+   */
+  async function draftFromPdfs(files: PdfAssignment[], progress: DropProgress): Promise<DropResult> {
+    let created: EditorDraft | null = null;
+    const uploaded: { id: string; purpose: PdfAssignment["purpose"] }[] = [];
+    try {
+      created = editorDraftSchema.parse(await draftRequest(editorBase, "POST", draftPayload(blankDraft())));
+      for (const [i, { file, purpose }] of files.entries()) {
+        progress(i + 1, files.length, file.name);
+        uploaded.push({ id: (await uploadPdf(created.problemId, file, purpose)).id, purpose });
+      }
+      const content = { ...created.content, attachments: [...created.content.attachments, ...uploaded] };
+      await draftRequest(`${editorBase}/${created.problemId}`, "PUT", { version: created.version, content, privateParts: created.privateParts });
+    } catch (e) {
+      const why = e instanceof Error ? e.message : "Upload failed.";
+      if (!created) return { error: why };
+      const problemId = created.problemId;
+      const refused = (await Promise.allSettled(uploaded.map((u) => deleteUpload(problemId, u.id)))).filter((r): r is PromiseRejectedResult => r.status === "rejected");
+      const kept = refused.length;
+      // Refused by the write limit, the files stay ready and unused, so Delete old uploads in that draft lists them after 24 hours.
+      const limited = kept > 0 && refused.every((r) => (r.reason as { status?: number })?.status === 429);
+      // A draft is only removed once none of its uploads is left, so no file is left without a draft to find it in.
+      if (kept === 0) {
+        try {
+          await draftRequest(`${editorBase}/${problemId}`, "DELETE", { version: created.version });
+          return { error: `${why} No draft was made.` };
+        } catch { /* Kept below. */ }
+      }
+      void list();
+      const files = kept === 1 ? "The uploaded file is" : `The ${kept} uploaded files are`;
+      return { error: kept
+        ? `${why} ${files} kept in a new draft in My drafts.${limited ? " Delete old uploads in its More options removes them after 24 hours." : ""}`
+        : `${why} An empty draft was kept. It is in My drafts.` };
+    }
+    await open(created.problemId);
+    return { done: "Uploaded. Opening the draft." };
   }
   useEffect(() => {
     const id = new URL(location.href).searchParams.get("draft");
@@ -192,6 +233,9 @@ function WorkspaceBody({
           </Button>
         </div>
         {authorCreditEnabled && <AuthorCredit key={userId} userId={userId} />}
+        <div className="my-8">
+          <PdfDropZone disabled={busy} onPdfs={draftFromPdfs} />
+        </div>
         <RecoverySection active={false}>
         <div className="space-y-2">
           <Button
