@@ -1,6 +1,7 @@
 // Problem Studio opens on My drafts. New problem opens a blank editor, back returns to the list, ?draft= opens that draft.
 // Runs in the real workspace, API and disposable PostgreSQL of tests/problem-authoring.browser.mjs.
 import assert from "node:assert/strict";
+import { goStep } from "./studio-steps.helpers.mjs";
 import { autoConfirm, setConfirmMode, confirmsAsked } from "./confirm-sheet.mjs";
 
 const newProblem = (page) => page.getByRole("button", { name: "New problem", exact: true });
@@ -24,6 +25,7 @@ async function noEditor(page, label) {
 }
 async function saveDraft(page, title) {
   await newProblem(page).click();
+  await goStep(page, "Details");
   await page.getByLabel("Title", { exact: true }).fill(title);
   await page.waitForURL((url) => url.searchParams.has("draft"));
   const id = new URL(page.url()).searchParams.get("draft");
@@ -100,7 +102,7 @@ export async function runStudioLandingBrowser({ browser, origin, pool }) {
     await noEditor(page, "back to the list");
     // ?draft= opens that draft directly, with no list in between.
     await page.goto(`${origin}/?draft=${first}`);
-    await page.locator("#simple-title").waitFor();
+    await page.locator("#simple-title").waitFor({ state: "attached" });
     assert.equal(await page.locator("#simple-title").inputValue(), "Landing One");
     assert.equal(await page.getByText("2 drafts loaded", { exact: false }).count(), 0, "the list is not shown");
     assert.equal(new URL(page.url()).searchParams.get("draft"), first);

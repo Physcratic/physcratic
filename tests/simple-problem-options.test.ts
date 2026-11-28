@@ -43,12 +43,14 @@ const WHOLE = 'aria-label="More options for the whole problem"';
 const opened = (html: string) => new RegExp(`<details[^>]*\\sopen(=""|\\s|>)[^>]*>\\s*<summary[^>]*${WHOLE}`).test(html);
 const block = (text: string) => ({ id: crypto.randomUUID(), kind: "text" as const, spans: [{ kind: "text" as const, text }] });
 
-test("More options for the whole problem is one closed row of 44px, below the parts and above Publish", () => {
+test("More options for the whole problem is one closed row of 44px, in Details after the parts and above the rights tick", () => {
   const html = render(draft());
   assert.equal(opened(html), false);
   assert.equal(html.split(WHOLE).length - 1, 1, "one row, not one per section");
   assert.match(html, new RegExp(`<summary[^>]*${WHOLE}[^>]*min-h-11`));
-  assert.ok(html.indexOf("Add part b") < html.indexOf(WHOLE) && html.indexOf(WHOLE) < html.lastIndexOf(">Publish<"), "after the parts, before Publish");
+  assert.ok(html.indexOf("Add part b") < html.indexOf(WHOLE) && html.indexOf(WHOLE) < html.indexOf('id="simple-rights"'), "after the parts, before the rights tick");
+  const details = html.slice(html.indexOf('data-studio-step="details"'), html.indexOf('data-studio-step="review"'));
+  assert.ok(details.includes(WHOLE), "on the Details step");
   assert.equal(opened(render((() => { const d = draft(); setRights(d, true); return d; })())), false, "the tick next to Publish is not saved content");
 });
 

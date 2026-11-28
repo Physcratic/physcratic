@@ -65,6 +65,8 @@ test("an empty manual part on a published problem keeps the box until the author
   assert.equal(optionsOpen(html), false);
 });
 
+// The editor's own label. The step is also named Worked solution, in the rail, its heading and the Review summary.
+const solutionEditors = (html: string) => (html.match(/-s-label"[^>]*>Worked solution( \(required\))?</g) ?? []).length;
 test("a readable answer stays in the box, and the panel hides the fields the box owns", () => {
   const d = draft();
   setKey(d, { kind: "numeric", value: 9.8, units: "m/s^2", absTol: 0.5, relTol: 0.01 });
@@ -75,7 +77,7 @@ test("a readable answer stays in the box, and the panel hides the fields the box
   assert.match(html, /Absolute tolerance/);
   assert.match(html, /Unit \(optional\)/);
   assert.doesNotMatch(html, /Expected value|>Units</);
-  assert.equal((html.match(/Worked solution/g) ?? []).length, 1, "the worked solution has one editor");
+  assert.equal(solutionEditors(html), 1, "the worked solution has one editor");
 });
 
 test("More options opens by itself for hints, and not for the defaults", () => {
@@ -92,7 +94,6 @@ function withMarked<T>(d: EditorDraft, ids: string[], run: () => T): T {
   Object.defineProperty(globalThis, "localStorage", { configurable: true, value: { getItem: (k: string) => store[k] ?? null, setItem: (k: string, v: string) => { store[k] = v; } } });
   try { return run(); } finally { if (previous) Object.defineProperty(globalThis, "localStorage", previous); else delete (globalThis as { localStorage?: unknown }).localStorage; }
 }
-const solutionEditors = (html: string) => (html.match(/>Worked solution( \(required\))?</g) ?? []).length;
 const HINT = /Publish needs a final answer here\./;
 
 test("the empty box hint shows exactly when simpleIssues asks for the final answer", () => {

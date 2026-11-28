@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
-import { ArrowDown, ArrowUp, Check, ChevronDown, CircleAlert, ImagePlus, Plus, Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, Check, ChevronDown, CircleAlert, Eye, ImagePlus, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MathAnswerField } from "@/components/physics/math-answer-field";
 import { PartChip } from "@/components/physics/solve-ui";
@@ -20,6 +20,9 @@ import { AnswerPanel } from "./answer-panel";
 import { BlocksEditor } from "./editor-fields";
 import { useConfirm } from "./confirm-sheet";
 import { setPartAnswerMode } from "@/lib/problem-authoring-editor";
+import { REVEAL_EVENT } from "@/components/tour/tours";
+import { StepButton, StepNav, StudioBar, type StepStatus } from "./studio-flow";
+import { STEP_NAMES, STUDIO_STEPS, blockerJump, fieldStep, stepSummary, type StudioStep } from "./studio-steps";
 import {
   ADAPTED_RIGHTS_TEXT,
   RIGHTS_TEXT,
@@ -102,10 +105,12 @@ export type SimpleProps = {
   publishing: boolean;
   /** Unpublishes the problem after asking. Given by the editor, which owns saving. */
   onUnpublish?: () => void;
+  /** Opens the editor's Student preview. The Review step offers it. */
+  onPreview?: () => void;
 };
 
 export function SimpleEditor(props: SimpleProps) {
-  const { draft, userId, edit, locked, provisional, otherIssues, onPublish, publishing, onUnpublish } = props;
+  const { draft, userId, edit, locked, provisional, otherIssues, onPublish, publishing, onUnpublish, onPreview } = props;
   const confirm = useConfirm();
   const workflowKey = `physcratic.studio.files.v1:${userId}:${draft.problemId}`;
   /** What the author typed for each answer, which can be ahead of the saved key when it cannot be read yet. */
@@ -151,6 +156,48 @@ export function SimpleEditor(props: SimpleProps) {
     const read = readAnswer(text);
     edit((d) => applyAnswer(d, partId, read, text));
   }
+  // The step on screen. It only changes when the author moves, never on an edit or an autosave.
+  const [step, setStep] = useState<StudioStep>("question");
+  /** Where focus goes after the next step change: the step heading, or the fields to focus, highest on the page first. */
+  const [focusAfter, setFocusAfter] = useState<{ targets: string[] } | null>(null);
+  const headings = useRef<Partial<Record<StudioStep, HTMLHeadingElement | null>>>({});
+  const root = useRef<HTMLDivElement>(null);
+  function goStep(to: StudioStep, targets: string[] = []) {
+    setStep(to);
+    setFocusAfter({ targets });
+  }
+  useEffect(() => {
+    if (!focusAfter) return;
+    const { targets } = focusAfter;
+    setFocusAfter(null);
+    requestAnimationFrame(() => {
+      if (targets.length) return focusFields(targets);
+      root.current?.scrollIntoView({ block: "start" });
+      headings.current[step]?.focus({ preventScroll: true });
+    });
+  }, [focusAfter, step]);
+  // The guided tour asks for the step its next target is on.
+  useEffect(() => {
+    const reveal = (event: Event) => {
+      const to = (event as CustomEvent<string>).detail as StudioStep;
+      if (STUDIO_STEPS.includes(to)) setStep(to);
+    };
+    window.addEventListener(REVEAL_EVENT, reveal);
+    return () => window.removeEventListener(REVEAL_EVENT, reveal);
+  }, []);
+  /** Focuses the highest of these fields that is on screen. */
+  function focusFields(targets: string[]) {
+    const hosts = targets
+      .map((target) => document.querySelector<HTMLElement>(`[data-simple-field="${CSS.escape(target)}"]`))
+      .filter((host): host is HTMLElement => Boolean(host) && !host!.closest("[hidden]"))
+      .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
+    const host = hosts[0];
+    // For the whole problem's More options the error line takes focus, so it is read out, not the first field inside.
+    const alert = host?.dataset.simpleField === "o:problem" ? document.getElementById(PROBLEM_OPTIONS_ERROR_ID) : null;
+    const control = alert ?? (host?.matches("input,textarea") ? host : (host?.querySelector<HTMLElement>("input,textarea,[contenteditable=true],math-field") ?? host?.querySelector<HTMLElement>("button,select")));
+    (control ?? host)?.focus();
+    (control ?? host)?.scrollIntoView({ block: "center" });
+  }
   function publish() {
     setAttempted(true);
     if (blocked) {
@@ -158,22 +205,45 @@ export function SimpleEditor(props: SimpleProps) {
       if (issues.some((issue) => issue.field === "options:problem")) setMoreOpen(true);
       // Every missing item shows its message at once. Focus goes to the one highest on the page.
       const targets = issues.map((issue) => issueTarget(issue.field));
-      requestAnimationFrame(() => {
-        const hosts = targets
-          .map((target) => document.querySelector<HTMLElement>(`[data-simple-field="${CSS.escape(target)}"]`))
-          .filter((host): host is HTMLElement => Boolean(host))
-          .sort((a, b) => (a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
-        const host = hosts[0];
-        // For the whole problem's More options the error line takes focus, so it is read out, not the first field inside.
-        const alert = host?.dataset.simpleField === "o:problem" ? document.getElementById(PROBLEM_OPTIONS_ERROR_ID) : null;
-        const control = alert ?? (host?.matches("input,textarea") ? host : (host?.querySelector<HTMLElement>("input,textarea,[contenteditable=true],math-field") ?? host?.querySelector<HTMLElement>("button,select")));
-        (control ?? host)?.focus();
-        (control ?? host)?.scrollIntoView({ block: "center" });
-      });
+      if (fileFirst) {
+        requestAnimationFrame(() => focusFields(targets));
+        return;
+      }
+      // In the steps, the earliest step with something left opens, and focus goes to its first field.
+      const rank = (field: string) => STUDIO_STEPS.indexOf(fieldStep(field) ?? "review");
+      const first = [...issues].sort((a, b) => rank(a.field) - rank(b.field))[0];
+      const to = fieldStep(first.field) ?? "review";
+      goStep(to, issues.filter((i) => (fieldStep(i.field) ?? "review") === to).map((i) => issueTarget(i.field)));
       return;
     }
     onPublish();
   }
+  const summary = stepSummary(draft);
+  // Simple asks for a worked solution. It is a nudge, so the step is not marked done while it is asked, and it is not counted.
+  const nudged = (s: StudioStep) => issues.some((i) => fieldStep(i.field) === s);
+  const statusOf = (s: StudioStep): StepStatus => {
+    const left = s === "review" ? summary.counts.review : summary.counts[s];
+    if (left > 0) return "left";
+    if (s === "review") return summary.blockers.length === 0 ? "done" : "open";
+    return nudged(s) ? "open" : "done";
+  };
+  const barItems = summary.blockers.map((b, i) => {
+    const jump = blockerJump(b, draft);
+    // Simple words most rules at its own field. When this blocker's field has no message of Simple's, the first one on the same step says it.
+    const own = issues.find((issue) => issueTarget(issue.field) === issueTarget(jump.field)) ?? issues.find((issue) => fieldStep(issue.field) === jump.step);
+    if (own) jump.field = own.field;
+    const target = issueTarget(jump.field);
+    const said = own?.message;
+    return {
+      key: `${b.code}:${b.partId ?? ""}:${b.blockId ?? ""}:${i}`,
+      label: said ? `${STEP_NAMES[jump.step]}: ${said}` : STEP_NAMES[jump.step],
+      onGo: () => {
+        touch(jump.field);
+        if (jump.field === "options:problem") setMoreOpen(true);
+        goStep(jump.step, [target]);
+      },
+    };
+  });
 
   const titleField = <>
       <div className="space-y-3">
@@ -212,24 +282,10 @@ export function SimpleEditor(props: SimpleProps) {
       </label>
       {workflowError && <p role="alert" className="text-sm text-destructive">{workflowError}</p>}
   </div>;
-  return (
-    <fieldset disabled={locked} className="mx-auto min-w-0 max-w-2xl space-y-12 disabled:opacity-70">
-      <legend className="sr-only">Problem</legend>
-
-      <div className="space-y-4">
-      {titleField}
-      {fileFirst && <>
-        <p className="text-sm text-muted-foreground">Upload a statement PDF or add images to the parts. Files must be at most 3 MiB. The solution PDF is private until you approve access after publication.</p>
-        <fieldset disabled={provisional} className="min-w-0" data-simple-field="statement"><legend className="sr-only">PDF attachments</legend><MediaAttachments draft={draft} edit={edit} /></fieldset>
-      </>}
-      </div>
-      {fileFirst && metadata}
-
-      <details open={!fileFirst || undefined} className={fileFirst ? "rounded-lg border p-4" : undefined}><summary hidden={!fileFirst} className="min-h-11 cursor-pointer text-sm font-medium">Optional typed statement and setup image</summary><div className={fileFirst ? "pt-4" : undefined}><MainQuestion draft={draft} edit={edit} provisional={provisional} touch={touch} issue={shown("picture:main")?.message} /></div></details>
-
-      {parts.map(({ part, position }) => (
+  const partEditors = (partStep?: PartStep) => parts.map(({ part, position }) => (
         <PartEditor
           key={part.id}
+          step={partStep}
           draft={draft}
           partId={part.id}
           first={position === 0}
@@ -256,18 +312,13 @@ export function SimpleEditor(props: SimpleProps) {
             edit((d) => removePart(d, part.id));
           }}
         />
-      ))}
-      <Button type="button" variant="outline" className="min-h-12 border-2 text-base" disabled={parts.length >= 50} onClick={() => edit((d) => addPart(d))}>
+      ));
+  const addPartButton = <Button type="button" variant="outline" className="min-h-12 border-2 text-base" disabled={parts.length >= 50} onClick={() => edit((d) => addPart(d))}>
         <Plus aria-hidden="true" className="mr-2 size-5" />
         Add part {partLetter(parts.length)}
-      </Button>
-
-      {!fileFirst && metadata}
-
-      <ProblemMoreOptions draft={draft} edit={edit} open={moreOpen} onOpenChange={setMoreOpen} issue={optionsIssue} pdf={pdfChoice} onUnpublish={draft.state === "published" ? onUnpublish : undefined} />
-
-      <div className="space-y-5 border-t-2 pt-8">
-        {rights === "advanced" ? null : (
+      </Button>;
+  const moreOptions = <ProblemMoreOptions draft={draft} edit={edit} open={moreOpen} onOpenChange={setMoreOpen} issue={optionsIssue} pdf={pdfChoice} onUnpublish={draft.state === "published" ? onUnpublish : undefined} />;
+  const rightsField = rights === "advanced" ? null : (
           <div className="space-y-2">
             <label className="flex min-h-11 items-start gap-3 text-base">
               <input
@@ -286,12 +337,44 @@ export function SimpleEditor(props: SimpleProps) {
             </label>
             {shown("rights") && <ErrorLine id="simple-rights-error">{shown("rights")!.message}</ErrorLine>}
           </div>
-        )}
-        {attempted && fileFirst && issues.length > 0 && <ul role="alert" className="space-y-1 text-sm text-destructive">{issues.map(issue => <li key={issue.field}>{issue.message}</li>)}</ul>}
+        );
+  const publishLabel = publishing ? "Working…" : provisional && !blocked ? "Saving your first draft…" : draft.state === "published" ? "Publish new version" : "Publish";
+  const studentLink = draft.state === "published" && (
+          <a
+            href={`/dashboard/authored/${draft.problemId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center text-base font-medium underline underline-offset-4"
+          >
+            Open the problem as a student sees it
+          </a>
+        );
+
+  if (fileFirst) return (
+    <fieldset disabled={locked} className="mx-auto min-w-0 max-w-2xl space-y-12 disabled:opacity-70">
+      <legend className="sr-only">Problem</legend>
+
+      <div className="space-y-4">
+      {titleField}
+      <p className="text-sm text-muted-foreground">Upload a statement PDF or add images to the parts. Files must be at most 3 MiB. The solution PDF is private until you approve access after publication.</p>
+      <fieldset disabled={provisional} className="min-w-0" data-simple-field="statement"><legend className="sr-only">PDF attachments</legend><MediaAttachments draft={draft} edit={edit} /></fieldset>
+      </div>
+      {metadata}
+
+      <details className="rounded-lg border p-4"><summary className="min-h-11 cursor-pointer text-sm font-medium">Optional typed statement and setup image</summary><div className="pt-4"><MainQuestion draft={draft} edit={edit} provisional={provisional} touch={touch} issue={shown("picture:main")?.message} /></div></details>
+
+      {partEditors()}
+      {addPartButton}
+
+      {moreOptions}
+
+      <div className="space-y-5 border-t-2 pt-8">
+        {rightsField}
+        {attempted && issues.length > 0 && <ul role="alert" className="space-y-1 text-sm text-destructive">{issues.map(issue => <li key={issue.field}>{issue.message}</li>)}</ul>}
         {attempted && otherIssues.length > 0 && (
           <ul role="alert" className="space-y-1 text-base text-destructive">
             {otherIssues.slice(0, 4).map((m, i) => (
-              <li key={i}>{m} {fileFirst ? "Review the fields above." : "Check More options."}</li>
+              <li key={i}>{m} Review the fields above.</li>
             ))}
           </ul>
         )}
@@ -303,20 +386,85 @@ export function SimpleEditor(props: SimpleProps) {
           disabled={locked || (provisional && !blocked)}
           onClick={publish}
         >
-          {publishing ? "Working…" : provisional && !blocked ? "Saving your first draft…" : draft.state === "published" ? "Publish new version" : "Publish"}
+          {publishLabel}
         </Button>
-        {draft.state === "published" && (
-          <a
-            href={`/dashboard/authored/${draft.problemId}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center text-base font-medium underline underline-offset-4"
-          >
-            Open the problem as a student sees it
-          </a>
-        )}
+        {studentLink}
       </div>
     </fieldset>
+  );
+
+  const at = STUDIO_STEPS.indexOf(step);
+  const stepSection = (s: StudioStep, children: React.ReactNode, field?: string) => (
+    <section key={s} hidden={step !== s} aria-labelledby={`studio-step-${s}`} className="space-y-12" data-studio-step={s} data-simple-field={field} tabIndex={field ? -1 : undefined}>
+      <h2 id={`studio-step-${s}`} ref={(el) => void (headings.current[s] = el)} tabIndex={-1} className="text-2xl font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">{STEP_NAMES[s]}</h2>
+      {children}
+    </section>
+  );
+  const publishButton = (
+    <Button
+      type="button"
+      data-tour="studio-publish"
+      className="min-h-11 px-6 text-base"
+      aria-describedby={summary.blockers.length ? "studio-bar-left" : undefined}
+      disabled={locked || summary.blockers.length > 0 || (provisional && !blocked)}
+      onClick={publish}
+    >
+      {publishLabel}
+    </Button>
+  );
+  return (
+    <div ref={root} className="mx-auto w-full min-w-0 max-w-5xl scroll-mt-4 md:grid md:grid-cols-[13rem_minmax(0,1fr)] md:gap-8">
+      <StepNav step={step} statusOf={statusOf} counts={summary.counts} onGo={(to) => goStep(to)} />
+      <div className="min-w-0">
+        <fieldset disabled={locked} className="min-w-0 max-w-2xl disabled:opacity-70">
+          <legend className="sr-only">Problem</legend>
+          {stepSection("question", <>
+            <MainQuestion draft={draft} edit={edit} provisional={provisional} touch={touch} issue={shown("picture:main")?.message} />
+            {partEditors("question")}
+            {addPartButton}
+          </>)}
+          {stepSection("answer", partEditors("answer"))}
+          {stepSection("worked-solution", partEditors("worked-solution"))}
+          {stepSection("details", <>
+            {titleField}
+            {metadata}
+            {moreOptions}
+            {rightsField}
+          </>)}
+          {stepSection("review", <>
+            <ul className="space-y-1">
+              {STUDIO_STEPS.filter((s) => s !== "review").map((s) => (
+                <li key={s}><StepButton step={s} status={statusOf(s)} count={summary.counts[s]} current={false} onGo={(to) => goStep(to)} /></li>
+              ))}
+            </ul>
+            {otherIssues.length > 0 && (
+              <ul className="space-y-1 text-base text-destructive">
+                {otherIssues.slice(0, 4).map((m, i) => (
+                  <li key={i}>{m} Check More options.</li>
+                ))}
+              </ul>
+            )}
+            {onPreview && (
+              <Button type="button" variant="outline" className="min-h-11 border-2 text-base" onClick={onPreview}>
+                <Eye aria-hidden="true" className="mr-2 size-4" />
+                Student preview
+              </Button>
+            )}
+            {studentLink}
+          </>, "review")}
+        </fieldset>
+        <StudioBar
+          count={summary.blockers.length}
+          items={barItems}
+          back={at > 0 ? () => goStep(STUDIO_STEPS[at - 1]) : undefined}
+          next={step === "review" ? publishButton : (
+            <Button type="button" className="min-h-11 px-6 text-base" onClick={() => goStep(STUDIO_STEPS[at + 1])}>
+              Next
+            </Button>
+          )}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -565,10 +713,14 @@ function TopicRow({ values, change, issue }: { values: string[]; change: (values
   );
 }
 
+/** The steps a part is split across. Without one, as in the files view, the whole part shows. */
+type PartStep = "question" | "answer" | "worked-solution";
+
 function PartEditor({
-  draft, partId, first, fileFirst, multipart, letter, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue, optionsIssue,
+  step, draft, partId, first, fileFirst, multipart, letter, typed, canRemove, provisional, questionIssue, solutionIssue, answerIssue, unitIssue, pictureIssue, optionsIssue,
   touch, edit, onAnswer, handGraded, onHandGraded, onForgetTyped, onRemove,
 }: {
+  step?: PartStep;
   draft: EditorDraft;
   partId: string;
   first: boolean;
@@ -596,6 +748,7 @@ function PartEditor({
   onRemove: () => void;
 }) {
   const base = useId();
+  const show = (s: PartStep) => step === undefined || step === s;
   const part = allParts(draft).find((r) => r.part.id === partId)!.part;
   const entry = privateFor(draft, partId);
   const key = entry.key;
@@ -653,7 +806,7 @@ function PartEditor({
       {!multipart && <h2 className="sr-only">Question and answer</h2>}
       {multipart && <div className="flex items-center justify-between gap-3">
         <h2 className="text-xl font-semibold"><PartChip>Part {letter}</PartChip></h2>
-        {canRemove && (
+        {canRemove && show("question") && (
           <Button type="button" variant="ghost" className="min-h-11" onClick={onRemove}>
             <Trash2 aria-hidden="true" className="mr-2 size-4" />
             Remove part {letter}
@@ -661,6 +814,7 @@ function PartEditor({
         )}
       </div>}
 
+      {show("question") && <>
       <div className="space-y-3" data-tour={first ? "studio-question" : undefined}>
         <p id={`${base}-q-label`} className={labelClass}>{fileFirst ? "Question instructions (optional)" : <>What&apos;s the question?</>}</p>
         <div data-simple-field={`q:${partId}`} onBlur={() => touch(`question:${partId}`)}>
@@ -700,6 +854,7 @@ function PartEditor({
         onRemove={() => edit((d) => removePicture(d, partId))}
         touch={() => touch(`picture:${partId}`)}
       />}
+      </>}
 
       {fileFirst ? <div className="space-y-3" data-simple-field={`a:${partId}`}>
         <h3 className={labelClass}>Answer key</h3>
@@ -711,7 +866,7 @@ function PartEditor({
         {!entry.key && <Button type="button" variant="outline" onClick={() => edit(d => setPartAnswerMode(d, partId, part.answerMode))}>Set answer configuration</Button>}
         {answerIssue && <ErrorLine id={`${base}-key-error`}>{answerIssue}</ErrorLine>}
       </div> : <>
-      <div className="space-y-3" data-tour={first ? "studio-solution" : undefined}>
+      {show("worked-solution") && <div className="space-y-3" data-tour={first ? "studio-solution" : undefined}>
         <p id={`${base}-s-label`} className={labelClass}>{draft.state === "draft" ? "Worked solution (required)" : "Worked solution"}</p>
         <div data-simple-field={`s:${partId}`} onBlur={() => touch(`solution:${partId}`)}>
           <RichMathText
@@ -727,9 +882,9 @@ function PartEditor({
           />
         </div>
         {solutionIssue && <ErrorLine id={`${base}-s-error`}>{solutionIssue}</ErrorLine>}
-      </div>
+      </div>}
 
-      <div className="space-y-3" data-tour={first ? "studio-answer" : undefined}>
+      {show("answer") && <div className="space-y-3" data-tour={first ? "studio-answer" : undefined}>
         {!owns ? <div ref={noteRef} className="space-y-3" data-simple-field={`a:${partId}`}>
           <p className={labelClass}>Final Answer (Solution)</p>
           <p className="text-base">{key?.kind === "manual" ? "Students explain this part and nothing is checked automatically." : "This part uses answer settings in More options."}</p>
@@ -795,11 +950,11 @@ function PartEditor({
           </div>
         )}
         </>}
-      </div>
+      </div>}
 
       </>}
-      <TryAnswer draft={draft} partId={partId} label={letter} tour={first} />
-      {!fileFirst && <div ref={optionsRef} data-simple-field={`o:${partId}`}><PartOptions
+      {show("answer") && <TryAnswer draft={draft} partId={partId} label={letter} tour={first} />}
+      {!fileFirst && show("answer") && <div ref={optionsRef} data-simple-field={`o:${partId}`}><PartOptions
         part={part}
         si={draft.content.sections.indexOf(section)}
         pi={position}
