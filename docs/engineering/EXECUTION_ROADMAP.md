@@ -1,3 +1,9 @@
+## Personal completions Phase 5B qualification (29 November 2026)
+
+The owner separately accepted the recovered Step 2 ledger and the retrospective baseline. Reuse the accepted 22-row ledger and scoped ownership, grants and binding evidence. Keep the release off while qualifying the existing 0026 erasure workflow and retained copies. Reuse the completed synthetic backup and replay rehearsal to review the operating model. An independent erasure record needs an enforced handoff before every deletion commit. A post-erasure checkpoint model needs an enforceable restore fence and an approved outage and data-loss tradeoff. Qualify the selected model on an isolated target using the existing provider setup.
+
+After those gates pass, use the [existing 0025 install and activation sequence](../../scripts/personal-completions/RELEASE.md). Reconfirm the approved target, ledger and absence guards inside the separately authorized change window. Keep build and serving flags off through installation and grant verification. Obtain a separate activation decision after the signed-in synthetic acceptance and rollback checks.
+
 ## Favourite retrieval restricted-LOGIN rehearsal (27 November 2026)
 
 [PR #274](https://github.com/Physcratic/physcratic/pull/274) adds `tests/favourite-history-runtime.pg.test.ts` in a focused disposable PostgreSQL 18.7 workflow. It exercises singleton route exports with real Better Auth cookies and a separate non-owner LOGIN, reusing the unchanged reviewed baseline and Batch A favourites grants with the existing id-column correction. Assertions cover disabled gates, missing permissions, effective-grant audit, real heart writes and publication, mixed owner pages, archived content, private cache headers, guest/stale/expired/signed-out sessions and unchanged other-account quota. Forbidden profile, practice, totals, user-delete and identity-update rights remain denied. No application, grant package or release-manifest changes.
